@@ -1,0 +1,9 @@
+En MessageRepository añadir query de sender, recipient y spamword
+
+¿Hay que hacer ConfigurationSerice?
+
+Servicios que faltan por terminar:
+
+- Audit, Note, Message, SocialId, Sponsorship, Stage, Story, Survival, Tag, Trip, Value.
+
+Se pueden hacer los test del resto.

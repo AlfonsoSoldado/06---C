@@ -44,7 +44,7 @@ public class ApplicationExplorerController extends AbstractController{
 		applications = applicationService.findAll();
 		
 		result = new ModelAndView("application/list");
-		result.addObject("applications", applications);
+		result.addObject("applicationExplorer", applications);
 		result.addObject("requestURI", "application/explorer/list.do");
 		
 		return result;

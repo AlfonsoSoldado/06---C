@@ -47,7 +47,7 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href=""><spring:message code="master.page.explorer.create.application" /></a></li>				
-					<li><a href=""><spring:message code="master.page.explorer.applications" /></a></li>
+					<li><a href="application/explorer/list.do"><spring:message code="master.page.explorer.applications" /></a></li>
 					<li><a href=""><spring:message code="master.page.explorer.survivals" /></a></li>
 				</ul>
 			</li>

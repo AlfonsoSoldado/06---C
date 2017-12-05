@@ -39,8 +39,8 @@
 	<spring:message code="application.reason" var="reasonHeader" />
 	<display:column property="reason" title="${reasonHeader}" sortable="false" />
 
-	<spring:message code="application.creditcard" var="creditcardHeader" />
-	<display:column property="creditcard" title="${creditcardHeader}"	sortable="false" />
+	<spring:message code="application.creditCard" var="creditCardHeader" />
+	<display:column property="creditCard" title="${creditCardHeader}"	sortable="false" />
 	
 	<spring:message code="application.trip" var="tripHeader" />
 	<display:column property="trip" title="${tripHeader}"	sortable="true" />
@@ -66,15 +66,15 @@
 	<spring:message code="application.reason" var="reasonHeader" />
 	<display:column property="reason" title="${reasonHeader}" sortable="false" />
 
-	<spring:message code="application.creditcard" var="creditcardHeader" />
+	<spring:message code="application.creditCard" var="creditCardHeader" />
 	<display:column>
 		<jstl:choose>
 			<jstl:when test="${statusHeader == 'DUE'}">
-				<a href= "application/manager/createCC.do?applicationId=${row.id}">
-				<spring:message code="application.creditCard" var="createCreditCardHeader" /></a>
+				<a href= "application/manager/createcreditCard.do?applicationId=${row.id}">
+				<spring:message code="application.creditCard" var="createcreditCardHeader" /></a>
 			</jstl:when>
 			<jstl:when test="${statusHeader == 'ACCEPTED' }">
-				${creditcardHeader}
+				${creditCardHeader}
 			</jstl:when>
 			<jstl:otherwise>
 				<spring:message code="application.notApply" var="notApplyHeader" />

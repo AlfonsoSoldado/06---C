@@ -22,6 +22,7 @@
 			Add your own converters using entries of the following form: 
 			<bean class="converters.Class1ToClass2" /> 
 		-->
+		
 		<bean class="converters.ActorToStringConverter" />
 		<bean class="converters.AdministratorToStringConverter" />
 		<bean class="converters.ApplicationToStringConverter" />
@@ -45,7 +46,7 @@
 		<bean class="converters.MiscellaneousRecordToStringConverter" />
 		<bean class="converters.NoteToStringConverter" />
 		<bean class="converters.PersonalRecordToStringConverter" />
-		<bean class="converters.ProfessionalToStringConverter" />
+		<bean class="converters.ProfessionalRecordToStringConverter" />
 		<bean class="converters.RangerToStringConverter" />
 		<bean class="converters.SocialIdToStringConverter" />
 		<bean class="converters.SponsorshipToStringConverter" />

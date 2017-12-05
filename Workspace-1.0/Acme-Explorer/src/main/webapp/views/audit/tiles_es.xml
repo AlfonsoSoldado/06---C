@@ -16,14 +16,17 @@
        
 <tiles-definitions>
 
-<tiles-definitions>
-
+	<definition name="audit/auditor/list" extends="master.page">	
+		<put-attribute name="title" value="Mostrar Revisiones" />
+		<put-attribute name="body" value="/views/audit/list.jsp" />
+	</definition>
+	
 	<definition name="audit/list" extends="master.page">	
 		<put-attribute name="title" value="Mostrar Revisiones" />
 		<put-attribute name="body" value="/views/audit/list.jsp" />
 	</definition>
 	
-	<definition name="audit/edit" extends="master.page">	
+	<definition name="audit/auditor/edit" extends="master.page">	
 		<put-attribute name="title" value="Editar Revisión" />
 		<put-attribute name="body" value="/views/audit/edit.jsp" />
 	</definition>

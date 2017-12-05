@@ -85,9 +85,11 @@
 		<bean class="converters.StringToSurvivalConverter" />
 		<bean class="converters.StringToTagConverter" />
 		<bean class="converters.StringToTripConverter" />
+		<bean class="converters.StringToUserAccountConverter" />
 		<bean class="converters.StringToValueConverter" />
 		<bean class="converters.TagToStringConverter" />
 		<bean class="converters.TripToStringConverter" />
+		<bean class="converters.UserAccountToValueConverter" />
 		<bean class="converters.ValueToStringConverter" />
 	</util:list>
 	

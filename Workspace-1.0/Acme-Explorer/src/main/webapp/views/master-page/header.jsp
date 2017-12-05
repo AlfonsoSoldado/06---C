@@ -92,7 +92,7 @@
 			        (<security:authentication property="principal.username" />)
 				</a>
 			</li>
-			<li><a class="fNiv" href=""><spring:message code="master.page.logout" /></a></li>
+			<li><a class="fNiv" href="j_spring_security_logout"><spring:message code="master.page.logout" /></a></li>
 			<li><a class="fNiv" href=""><spring:message code="master.page.trips" /></a></li>
 			<li><a class="fNiv" href="category/list.do"><spring:message code="master.page.categories" /></a></li>
 			<li><a class="fNiv" href=""><spring:message code="master.page.finder" /></a></li>

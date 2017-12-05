@@ -20,24 +20,22 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 <!-- Listing grid -->
-
+<security:authorize access="hasRole('AUDITOR')">
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="audits" requestURI="audit/auditor/list.do" id="row">
+	name="auditsAuditor" requestURI="audit/auditor/list.do" id="row">
 	
 	<!-- Attributes -->
 	
-	<security:authorize access="hasRole('AUDITOR')">
-	
-	<spring:message code="audit.delete" var="deleteHeader" />
+	<spring:message code="audit.delete"/>
 	<display:column>
 		<a href= "audit/auditor/delete.do?auditId=${row.id}">
-		<spring:message code="audit.delete" var="deleteHeader" /></a>
+		<spring:message code="audit.delete"/></a>
 	</display:column>
 	
-	<spring:message code="audit.edit" var="editHeader" />
+	<spring:message code="audit.edit"/>
 	<display:column>
 		<a href= "audit/auditor/edit.do?auditId=${row.id}">
-		<spring:message code="audit.edit" var="editHeader" /></a>
+		<spring:message code="audit.edit"/></a>
 	</display:column>
 	
 	<spring:message code="audit.moment" var="momentHeader" />
@@ -67,9 +65,8 @@
 		</a>
 	</div>
 	
-	</security:authorize>
-	
 </display:table>
+</security:authorize>
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="audits" requestURI="audit/list.do" id="row">

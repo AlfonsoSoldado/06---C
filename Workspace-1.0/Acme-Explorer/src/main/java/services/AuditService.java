@@ -59,8 +59,6 @@ public class AuditService {
 	}
 
 	public Collection<Audit> findAll() {
-		auditorService.checkAuthority();
-
 		Collection<Audit> res;
 		res = this.auditRepository.findAll();
 		Assert.notNull(res);
@@ -68,8 +66,6 @@ public class AuditService {
 	}
 
 	public Audit findOne(int auditId) {
-		auditorService.checkAuthority();
-
 		Assert.isTrue(auditId != 0);
 		Audit res;
 		res = this.auditRepository.findOne(auditId);

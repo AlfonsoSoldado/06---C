@@ -90,7 +90,7 @@
 		<bean class="converters.StringToValueConverter" />
 		<bean class="converters.TagToStringConverter" />
 		<bean class="converters.TripToStringConverter" />
-		<bean class="converters.UserAccountToValueConverter" />
+		<bean class="converters.UserAccountToStringConverter" />
 		<bean class="converters.ValueToStringConverter" />
 	</util:list>
 	

@@ -15,30 +15,30 @@ import domain.Category;
 @RequestMapping("/category")
 public class CategoryController extends AbstractController {
 
-	//Services -------------------------------------------------------------
-	
-		@Autowired
-		private CategoryService categoryService;
-		
-		//Constructors ---------------------------------------------------------
-		
-		public CategoryController(){
-			super();
-		}
-		
-		//Listing --------------------------------------------------------------
-		
-		@RequestMapping(value = "/list", method = RequestMethod.GET)
-		public ModelAndView list(){
-			ModelAndView result;
-			Collection<Category> categories;
-			
-			categories = categoryService.findAll();
-			
-			result = new ModelAndView("category/list");
-			result.addObject("categories", categories);
-			result.addObject("requestURI", "category/list.do");
-			
-			return result;
-		}
+	// Services -------------------------------------------------------------
+
+	@Autowired
+	private CategoryService categoryService;
+
+	// Constructors ---------------------------------------------------------
+
+	public CategoryController() {
+		super();
+	}
+
+	// Listing --------------------------------------------------------------
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ModelAndView list() {
+		ModelAndView result;
+		Collection<Category> categories;
+
+		categories = categoryService.findAll();
+
+		result = new ModelAndView("category/list");
+		result.addObject("categories", categories);
+		result.addObject("requestURI", "category/list.do");
+
+		return result;
+	}
 }

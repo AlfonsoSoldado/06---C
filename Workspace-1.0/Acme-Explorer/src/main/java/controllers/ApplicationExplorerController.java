@@ -1,4 +1,4 @@
-package controllers.explorer;
+package controllers;
 
 import java.util.Collection;
 
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import controllers.AbstractController;
 
 
 
@@ -44,7 +43,7 @@ public class ApplicationExplorerController extends AbstractController{
 		
 		applications = applicationService.findAll();
 		
-		result = new ModelAndView("application/explorer/list");
+		result = new ModelAndView("application/list");
 		result.addObject("applications", applications);
 		result.addObject("requestURI", "application/explorer/list.do");
 		

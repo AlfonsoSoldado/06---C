@@ -35,6 +35,7 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href=""><spring:message code="master.page.manager.create.trip" /></a></li>
+					<li><a href="trip/list.do"><spring:message code="master.page.manager.list.trip" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.notes" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.applications" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.survivals" /></a></li>				
@@ -80,7 +81,7 @@
 					<li><a href=""><spring:message code="master.page.register.explorer" /></a>
 				</ul>
 			</li>
-			<li><a class="fNiv" href=""><spring:message code="master.page.trips" /></a></li>
+			<li><a class="fNiv" href="trip/list.do"><spring:message code="master.page.trips" /></a></li>
 			<li><a class="fNiv" href="category/list.do"><spring:message code="master.page.categories" /></a></li>
 			<li><a class="fNiv" href=""><spring:message code="master.page.finder" /></a></li>
 		</security:authorize>

@@ -63,14 +63,11 @@
 		<spring:message code="audit.trip" />:
 	</form:label>
 	<form:select path="trip">
-		<jstl:forEach var="trip" items=${row.trip }>
-              <form:option value="${trip}">${trip.title}</form:option>
-		</jstl:forEach>
+        <form:options items="${trip}" itemLabel="title"/>
 	</form:select>
 	<form:input path="trip" />
 	<form:errors cssClass="error" path="trip" />
 	<br />
-
 
 	<input type="submit" name="save"
 		value="<spring:message code="audit.save" />" />&nbsp; 

@@ -77,30 +77,6 @@
 	<form:errors cssClass="error" path="tripEnd" />
 	<br />
 	
-	<form:label path="stage">
-		<spring:message code="trip.stage" />:
-	</form:label>
-	<form:select path="stage">
-		<jstl:forEach var="stage" items=${row.stage }>
-              <form:option value="${stage}"/>
-		</jstl:forEach>
-	</form:select>
-	<form:input path="stage" />
-	<form:errors cssClass="error" path="stage" />
-	<br />
-	
-	<form:label path="category">
-		<spring:message code="trip.category" />:
-	</form:label>
-	<form:select path="category">
-		<jstl:forEach var="category" items=${row.category }>
-              <form:option value="${category}"/>
-		</jstl:forEach>
-	</form:select>
-	<form:input path="category" />
-	<form:errors cssClass="error" path="category" />
-	<br />
-
 	<input type="submit" name="save"
 		value="<spring:message code="trip.save" />" />&nbsp; 
 	<jstl:if test="${trip.id != 0}">

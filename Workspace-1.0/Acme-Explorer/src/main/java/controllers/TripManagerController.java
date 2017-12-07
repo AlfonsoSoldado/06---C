@@ -52,14 +52,27 @@ public class TripManagerController {
 	//Listing --------------------------------------------------------------
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int trip){
+	public ModelAndView edit(@RequestParam final int tripId){
 		ModelAndView result;
 		Trip t;
 		
-		t = tripService.findOne(trip);
+		t = tripService.findOne(tripId);
 		Assert.notNull(t);
 		result = this.createEditModelAndView(t);
 		
+		return result;
+	}
+	
+	// Creation ---------------------------------------------------------------
+
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+		ModelAndView result;
+		Trip t;
+
+		t = this.tripService.create();
+		result = this.createEditModelAndView(t);
+
 		return result;
 	}
 	

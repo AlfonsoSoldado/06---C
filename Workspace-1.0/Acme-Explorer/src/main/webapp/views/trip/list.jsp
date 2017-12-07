@@ -67,7 +67,7 @@
 
 <security:authorize access="hasRole('MANAGER')">
 	<div>
-		<a href="trip/manager/edit.do"> <spring:message
+		<a href="trip/manager/create.do"> <spring:message
 				code="trip.create" />
 		</a>
 	</div>

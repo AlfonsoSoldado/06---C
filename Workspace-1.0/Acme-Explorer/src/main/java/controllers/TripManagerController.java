@@ -2,9 +2,12 @@ package controllers;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,53 +19,81 @@ import services.RangerService;
 import services.TripService;
 import services.ValueService;
 import domain.Category;
-import domain.LegalText;
-import domain.Ranger;
 import domain.Trip;
-import domain.Value;
 
 @Controller
 @RequestMapping("/trip/manager")
 public class TripManagerController {
 
-	
-	//Services -------------------------------------------------------------
-	
+	// Services -------------------------------------------------------------
+
 	@Autowired
 	private TripService tripService;
-	
+
 	@Autowired
 	private RangerService rangerService;
-	
+
 	@Autowired
 	private LegalTextService legalTextService;
-	
+
 	@Autowired
 	private ValueService valueService;
-	
+
 	@Autowired
 	private CategoryService categoryService;
-	
-	//Constructors ---------------------------------------------------------
-	
-	public TripManagerController(){
+
+	// Constructors ---------------------------------------------------------
+
+	public TripManagerController() {
 		super();
 	}
-	
-	//Listing --------------------------------------------------------------
-	
+
+	// Listing --------------------------------------------------------------
+
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int tripId){
+	public ModelAndView edit(@RequestParam final int tripId) {
 		ModelAndView result;
 		Trip t;
-		
+
 		t = tripService.findOne(tripId);
 		Assert.notNull(t);
 		result = this.createEditModelAndView(t);
-		
+
 		return result;
 	}
-	
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
+	public ModelAndView save(@Valid final Trip trip, final BindingResult binding) {
+		ModelAndView res;
+
+		if (binding.hasErrors())
+			res = this.createEditModelAndView(trip, "trip.commit.error");
+		else
+			try {
+				this.tripService.save(trip);
+				res = new ModelAndView("redirect:list.do");
+			} catch (final Throwable oops) {
+				res = this.createEditModelAndView(trip, "trip.commit.error");
+			}
+
+		return res;
+	}
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
+	public ModelAndView delete(@Valid final Trip trip,
+			final BindingResult binding) {
+		ModelAndView res;
+
+		try {
+			this.tripService.delete(trip);
+			res = new ModelAndView("redirect:list.do");
+		} catch (final Throwable oops) {
+			res = this.createEditModelAndView(trip, "trip.commit.error");
+		}
+
+		return res;
+	}
+
 	// Creation ---------------------------------------------------------------
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
@@ -75,9 +106,9 @@ public class TripManagerController {
 
 		return result;
 	}
-	
+
 	// Ancillary methods --------------------------------------------------
-	
+
 	protected ModelAndView createEditModelAndView(final Trip trip) {
 		ModelAndView result;
 
@@ -85,24 +116,25 @@ public class TripManagerController {
 
 		return result;
 	}
-	
-	protected ModelAndView createEditModelAndView(final Trip trip, final String message) {
-		ModelAndView result;
-		//final Collection<LegalText> legalTexts;
-		final Collection<Category> category;
-		//Collection<Ranger> rangers;
-		//final Collection<Value> values;
 
-		//rangers = this.rangerService.findAll();
-		//legalTexts = this.legalTextService.findAll();
-		//values = this.valueService.findAll();
+	protected ModelAndView createEditModelAndView(final Trip trip,
+			final String message) {
+		ModelAndView result;
+		// final Collection<LegalText> legalTexts;
+		final Collection<Category> category;
+		// Collection<Ranger> rangers;
+		// final Collection<Value> values;
+
+		// rangers = this.rangerService.findAll();
+		// legalTexts = this.legalTextService.findAll();
+		// values = this.valueService.findAll();
 		category = this.categoryService.findAll();
 
 		result = new ModelAndView("trip/edit");
-		//result.addObject("legalTexts", legalTexts);
+		// result.addObject("legalTexts", legalTexts);
 		result.addObject("category", category);
-		//result.addObject("rangers", rangers);
-	//	result.addObject("values", values);
+		// result.addObject("rangers", rangers);
+		// result.addObject("values", values);
 		result.addObject("trip", trip);
 		result.addObject("message", message);
 

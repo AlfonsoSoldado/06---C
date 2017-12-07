@@ -34,13 +34,13 @@
 			<li><a class="fNiv"><spring:message	code="master.page.manager" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href=""><spring:message code="master.page.manager.create.trip" /></a></li>
-					<li><a href="trip/list.do"><spring:message code="master.page.manager.list.trip" /></a></li>
+					<li><a href="trip/manager/edit.do"><spring:message code="master.page.manager.create.trip" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.notes" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.applications" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.survivals" /></a></li>				
 				</ul>
 			</li>
+			<li><a class="fNiv" href="trip/list.do"><spring:message code="master.page.trips" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('EXPLORER')">

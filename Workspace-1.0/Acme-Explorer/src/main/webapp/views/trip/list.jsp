@@ -25,6 +25,12 @@
 	name="trips" requestURI="trip/list.do" id="row">
 	
 	<!-- Attributes -->
+	
+	<spring:message code="trip.edit"/>
+	<display:column>
+		<a href= "trip/manager/edit.do?tripId=${row.id}">
+		<spring:message code="trip.edit"/></a>
+	</display:column>
 
 	<spring:message code="trip.ticker" var="tickerHeader" />
 	<display:column property="ticker" title="${tickerHeader}" sortable="true" />

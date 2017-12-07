@@ -54,6 +54,8 @@ public class TripService {
 		Ranger ranger = new Ranger();
 		Collection<Value> value = new ArrayList<Value>();
 		Trip trip = new Trip();
+		
+		trip.setTicker("");
 
 		trip.setManager(m);
 		trip.setApplication(applications);

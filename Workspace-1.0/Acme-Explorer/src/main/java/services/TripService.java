@@ -56,15 +56,6 @@ public class TripService {
 		Trip trip = new Trip();
 		
 		trip.setTicker("");
-		trip.setTitle("");
-		trip.setDescription("");
-		trip.setPrice(null);
-		trip.setRequirement(new ArrayList<String>());
-		trip.setPublication((new Date(System.currentTimeMillis() - 1)));
-		trip.setTripStart(null);
-		trip.setTripEnd(null);
-		trip.setReason("");
-		trip.setCancelled(false);
 
 		trip.setManager(m);
 		trip.setApplication(applications);

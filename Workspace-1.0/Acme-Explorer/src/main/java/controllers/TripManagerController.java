@@ -68,7 +68,7 @@ public class TripManagerController {
 
 		if (binding.hasErrors()){
 			System.out.println("Binding");
-			res = this.createEditModelAndView(trip, "trip.commit.error");
+			res = this.createEditModelAndView(trip, "trip.params.error");
 		}
 		else
 			try {

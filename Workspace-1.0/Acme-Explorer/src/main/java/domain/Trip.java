@@ -94,7 +94,6 @@ public class Trip extends DomainEntity {
 		this.price = price;
 	}
 
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	public Date getPublication() {

@@ -3,7 +3,9 @@ package services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Random;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,7 +57,7 @@ public class TripService {
 		Collection<Value> value = new ArrayList<Value>();
 		Trip trip = new Trip();
 		
-		trip.setTicker("");
+		trip.setTicker(this.generatedTicker());
 
 		trip.setManager(m);
 		trip.setApplication(applications);
@@ -199,4 +201,32 @@ public class TripService {
 			}
 		}
 	}
+	
+	public String generatedTicker() {
+		String ticker;
+		LocalDate date;
+		String letters;
+		Random r;
+		
+		letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		r = new Random();
+		date = new LocalDate();
+		
+		ticker = String.valueOf(date.getYear() % 100 < 10 ? "0" + date.getYear() : date.getYear()) + 
+					String.valueOf(date.getMonthOfYear() < 10 ? "0" + date.getMonthOfYear() : date.getMonthOfYear())
+					+ String.valueOf(date.getDayOfMonth() < 10 ? "0" + date.getDayOfMonth() : date.getDayOfMonth()) + "-";
+		for (int i = 0; i < 3; i++)
+			ticker = ticker + letters.charAt(r.nextInt(letters.length()));
+
+		return ticker;
+	}
+	
+//	public Double getTotalPrice(Trip trip) {
+//		Double res;
+//		res = 0.;
+//		for (Stage stage : trip.getStage()) {
+//			res = res + stage.getPrice();
+//		}
+//		return res;
+//	}
 }

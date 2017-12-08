@@ -20,25 +20,42 @@
 
 <!-- Listing grid -->
 
-<jstl:if test="!category.getCategories().isEmpty()">
-
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="categories" requestURI="category/list.do" id="row">
 	
 	<!-- Attributes -->
 	
-	<spring:message code="category.categories" var ="categoriesHeader"/>
-	
+	<security:authorize access="hasRole('ADMIN')">
+	<spring:message code="category.edit"/>
 	<display:column>
-		<jstl:forEach var="category" items="${category.getCategories()}">
-		<a href="trip/list.do?categoryId=*">
-		<jstl:out value="${category.getName()}"/>
+		<a href= "category/administrator/edit.do?categoryId=${row.id}">
+		<spring:message code="category.edit"/></a>
+	</display:column>
+	</security:authorize>
+	
+	<spring:message code="category.categoryParent" var="categoryParentHeader"/>
+	<jstl:if test="${categoryParent != \"CATEGORY\"}">
+	<display:column property="categoryParent.name" title="${categoryParent}" sortable="false"/>
+	</jstl:if>
+	
+	<spring:message code="category.name" var="nameHeader" />
+	<display:column property="name" title="${nameHeader}" sortable="false" />
+	
+	<spring:message code="category.categoryChildren" var="categoryChildren"/>
+	<display:column title="${categoryChildren}">
+		<a href="category/list.do?categoryId=${row.id}">
+			<spring:message code="category.categoryChildren.link"/>
 		</a>
-		</jstl:forEach>
+	</display:column>
+	
+	<spring:message code="category.trips" var="trips"/>
+	<display:column title="${trips}">
+		<a href="trip/list.do?categoryId=${row.id}">
+			<spring:message code="category.trips.link"/>
+		</a>
 	</display:column>
 	
 </display:table>
-</jstl:if>
 
 <!-- Action links -->
 

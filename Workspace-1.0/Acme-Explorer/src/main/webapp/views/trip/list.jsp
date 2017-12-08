@@ -26,12 +26,14 @@
 	
 	<!-- Attributes -->
 	
+	<security:authorize access="hasRole('MANAGER')">
 	<spring:message code="trip.edit"/>
 	<display:column>
 		<a href= "trip/manager/edit.do?tripId=${row.id}">
 		<spring:message code="trip.edit"/></a>
 	</display:column>
-
+	</security:authorize>
+	
 	<spring:message code="trip.ticker" var="tickerHeader" />
 	<display:column property="ticker" title="${tickerHeader}" sortable="true" />
 

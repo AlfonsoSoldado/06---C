@@ -1,4 +1,4 @@
-package controllers;
+package controllers.manager;
 
 import java.util.Collection;
 
@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import controllers.AbstractController;
+
 import services.CategoryService;
 import services.LegalTextService;
 import services.RangerService;
@@ -23,7 +25,7 @@ import domain.Trip;
 
 @Controller
 @RequestMapping("/trip/manager")
-public class TripManagerController {
+public class TripManagerController extends AbstractController {
 
 	// Services -------------------------------------------------------------
 

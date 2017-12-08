@@ -1,4 +1,4 @@
-package controllers;
+package controllers.sponsor;
 
 import javax.validation.Valid;
 
@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import controllers.AbstractController;
+
 import services.ActorService;
-import domain.Ranger;
+import domain.Sponsor;
 
 @Controller
-@RequestMapping("/actor/ranger")
-public class ActorRangerController extends AbstractController {
+@RequestMapping("/actor/sponsor")
+public class ActorSponsorController extends AbstractController {
 
 	// Services -------------------------------------------------------------
 
@@ -24,7 +26,7 @@ public class ActorRangerController extends AbstractController {
 
 	// Constructors ---------------------------------------------------------
 
-	public ActorRangerController() {
+	public ActorSponsorController() {
 		super();
 	}
 
@@ -33,28 +35,28 @@ public class ActorRangerController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView edit() {
 		ModelAndView result;
-		Ranger ranger;
+		Sponsor sponsor;
 
-		ranger = (Ranger) this.actorService.findByPrincipal();
-		Assert.notNull(ranger);
-		result = this.createEditModelAndView(ranger);
+		sponsor = (Sponsor) this.actorService.findByPrincipal();
+		Assert.notNull(sponsor);
+		result = this.createEditModelAndView(sponsor);
 
 		return result;
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Ranger ranger,
+	public ModelAndView save(@Valid final Sponsor sponsor,
 			final BindingResult binding) {
 		ModelAndView res;
 
 		if (binding.hasErrors())
-			res = this.createEditModelAndView(ranger, "actor.params.error");
+			res = this.createEditModelAndView(sponsor, "actor.params.error");
 		else
 			try {
-				this.actorService.save(ranger);
+				this.actorService.save(sponsor);
 				res = new ModelAndView("redirect:index.do");
 			} catch (final Throwable oops) {
-				res = this.createEditModelAndView(ranger, "actor.commit.error");
+				res = this.createEditModelAndView(sponsor, "actor.commit.error");
 			}
 
 		return res;
@@ -62,21 +64,21 @@ public class ActorRangerController extends AbstractController {
 
 	// Ancillary methods --------------------------------------------------
 
-	protected ModelAndView createEditModelAndView(final Ranger ranger) {
+	protected ModelAndView createEditModelAndView(final Sponsor sponsor) {
 		ModelAndView result;
 
-		result = this.createEditModelAndView(ranger, null);
+		result = this.createEditModelAndView(sponsor, null);
 
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Ranger ranger,
+	protected ModelAndView createEditModelAndView(final Sponsor sponsor,
 			final String message) {
 		ModelAndView result;
 		result = new ModelAndView("actor/edit");
-		result.addObject("actor", ranger);
+		result.addObject("actor", sponsor);
 		result.addObject("message", message);
-		result.addObject("requestUri", "actor/ranger/edit.do");
+		result.addObject("requestUri", "actor/sponsor/edit.do");
 		return result;
 
 	}

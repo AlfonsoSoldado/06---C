@@ -16,26 +16,24 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="actor/edit.do" modelAttribute="actor">
-
+<form:form id = "form" action="${requestUri}" modelAttribute="actor">
 
 	<security:authorize access="hasRole('RANGER')">
-	<form:hidden path="Folders" />
-	<form:hidden path="received" />
+	<form:hidden path="Folders"/>
 	<form:hidden path="sent" />
-	<form:hidden path="socialId" />
-	
+	<form:hidden path="received" />
 	<form:hidden path="suspicious" />
+	<form:hidden path="socialId"/>
 	
 	<form:hidden path="curriculum" />
 	<form:hidden path="trip" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('EXPLORER')">
-	<form:hidden path="Folders" />
-	<form:hidden path="received" />
+	<form:hidden path="Folders"/>
 	<form:hidden path="sent" />
-	<form:hidden path="socialId" />
+	<form:hidden path="received" />
+	<form:hidden path="socialId"/>
 	
 	<form:hidden path="finder" />
 	<form:hidden path="emergency" />
@@ -45,23 +43,40 @@
 	</security:authorize>
 	
 	<security:authorize access="hasRole('SPONSOR')">
+	<form:hidden path="Folders"/>
+	<form:hidden path="sent" />
+	<form:hidden path="received" />
+	<form:hidden path="socialId"/>
+	
 	<form:hidden path="sponsorship" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('AUDITOR')">
+	<form:hidden path="Folders"/>
+	<form:hidden path="sent" />
+	<form:hidden path="received" />
+	<form:hidden path="socialId"/>
+	
 	<form:hidden path="audit" />
 	<form:hidden path="note" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('MANAGER')">
+	<form:hidden path="Folders"/>
+	<form:hidden path="sent" />
+	<form:hidden path="received" />
+	<form:hidden path="suspicious" />
+	<form:hidden path="socialId"/>
+	
+	<form:hidden path="suspicious" />
+	
 	<form:hidden path="application" />
 	<form:hidden path="survival" />
 	<form:hidden path="trip" />
-	<form:hidden path="suspicious" />
 	</security:authorize>
-
-	<form:hidden path="id" />
-	<form:hidden path="version" />
+	
+	<form:hidden path="id"/>
+	<form:hidden path="version"/>
 
 	<form:label path="name">
 		<spring:message code="actor.name" />:

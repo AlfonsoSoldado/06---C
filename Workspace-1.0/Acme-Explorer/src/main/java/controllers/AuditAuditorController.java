@@ -24,39 +24,39 @@ import domain.Trip;
 @RequestMapping("/audit/auditor")
 public class AuditAuditorController extends AbstractController {
 
-	//Services -------------------------------------------------------------
-	
+	// Services -------------------------------------------------------------
+
 	@Autowired
 	private AuditService auditService;
-	
+
 	@Autowired
 	private AuditorService auditorService;
-	
+
 	@Autowired
 	private TripService tripService;
-	
-	//Constructors ---------------------------------------------------------
-	
-	public AuditAuditorController(){
+
+	// Constructors ---------------------------------------------------------
+
+	public AuditAuditorController() {
 		super();
 	}
-	
-	//Listing --------------------------------------------------------------
-	
+
+	// Listing --------------------------------------------------------------
+
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView list(){
+	public ModelAndView list() {
 		ModelAndView result;
 		Collection<Audit> audits;
-		
+
 		audits = auditService.findAll();
-		
+
 		result = new ModelAndView("audit/auditor/list");
 		result.addObject("auditsAuditor", audits);
 		result.addObject("requestURI", "audit/auditor/list.do");
-		
+
 		return result;
 	}
-	
+
 	// Creation ---------------------------------------------------------------
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -70,9 +70,10 @@ public class AuditAuditorController extends AbstractController {
 
 		return result;
 	}
-	
+
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Audit audit, final BindingResult binding) {
+	public ModelAndView save(@Valid final Audit audit,
+			final BindingResult binding) {
 		ModelAndView res;
 
 		if (binding.hasErrors())
@@ -87,55 +88,53 @@ public class AuditAuditorController extends AbstractController {
 
 		return res;
 	}
-	
-	
-		@RequestMapping(value = "/create", method = RequestMethod.GET)
-		public ModelAndView create() {
-			ModelAndView result;
-			Audit audit;
 
-			audit = this.auditService.create();
-			result = this.createEditModelAndView(audit);
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+		ModelAndView result;
+		Audit audit;
 
-			return result;
-		}
-	
-		
-		// Ancillary methods --------------------------------------------------
+		audit = this.auditService.create();
+		result = this.createEditModelAndView(audit);
 
-		protected ModelAndView createEditModelAndView(final Audit audit) {
-			ModelAndView result;
+		return result;
+	}
 
-			result = this.createEditModelAndView(audit, null);
+	// Ancillary methods --------------------------------------------------
 
-			return result;
-		}
+	protected ModelAndView createEditModelAndView(final Audit audit) {
+		ModelAndView result;
 
-		protected ModelAndView createEditModelAndView(final Audit audit,
-				final String message) {
-			ModelAndView result;
-			// final Collection<LegalText> legalTexts;
-			final Collection<Trip> trip;
-			final Collection<Auditor> auditor;
-			// Collection<Ranger> rangers;
-			// final Collection<Value> values;
+		result = this.createEditModelAndView(audit, null);
 
-			// rangers = this.rangerService.findAll();
-			// legalTexts = this.legalTextService.findAll();
-			// values = this.valueService.findAll();
-			trip = this.tripService.findAll();
-			auditor = this.auditorService.findAll();
+		return result;
+	}
 
-			result = new ModelAndView("audit/auditor/edit");
-			// result.addObject("legalTexts", legalTexts);
-			result.addObject("trip", trip);
-			result.addObject("auditor", auditor);
-			// result.addObject("rangers", rangers);
-			// result.addObject("values", values);
-			result.addObject("audit", audit);
-			result.addObject("message", message);
+	protected ModelAndView createEditModelAndView(final Audit audit,
+			final String message) {
+		ModelAndView result;
+		// final Collection<LegalText> legalTexts;
+		final Collection<Trip> trip;
+		final Collection<Auditor> auditor;
+		// Collection<Ranger> rangers;
+		// final Collection<Value> values;
 
-			return result;
+		// rangers = this.rangerService.findAll();
+		// legalTexts = this.legalTextService.findAll();
+		// values = this.valueService.findAll();
+		trip = this.tripService.findAll();
+		auditor = this.auditorService.findAll();
 
-		}
+		result = new ModelAndView("audit/auditor/edit");
+		// result.addObject("legalTexts", legalTexts);
+		result.addObject("trip", trip);
+		result.addObject("auditor", auditor);
+		// result.addObject("rangers", rangers);
+		// result.addObject("values", values);
+		result.addObject("audit", audit);
+		result.addObject("message", message);
+
+		return result;
+
+	}
 }

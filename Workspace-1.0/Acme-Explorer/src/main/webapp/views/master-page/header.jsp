@@ -37,7 +37,8 @@
 					<li><a href="trip/manager/create.do"><spring:message code="master.page.manager.create.trip" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.notes" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.applications" /></a></li>
-					<li><a href=""><spring:message code="master.page.manager.survivals" /></a></li>				
+					<li><a href=""><spring:message code="master.page.manager.survivals" /></a></li>	
+					<li><a href="actor/manager/edit.do"><spring:message code="master.page.actorEdit" /></a></li>			
 				</ul>
 			</li>
 		</security:authorize>
@@ -49,6 +50,7 @@
 					<li><a href=""><spring:message code="master.page.explorer.create.application" /></a></li>				
 					<li><a href="application/explorer/list.do"><spring:message code="master.page.explorer.applications" /></a></li>
 					<li><a href=""><spring:message code="master.page.explorer.survivals" /></a></li>
+					<li><a href="actor/explorer/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
@@ -59,6 +61,7 @@
 					<li class="arrow"></li>
 						<li><a href=""><spring:message code="master.page.auditor.audits" /></a></li>
 						<li><a href=""><spring:message code="master.page.auditor.notes" /></a></li>
+						<li><a href="actor/auditor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
@@ -68,6 +71,16 @@
 				<ul>
 					<li class="arrow"></li>
 						<li><a href=""><spring:message code="master.page.sponsor.sponsorships" /></a></li>
+						<li><a href="actor/sponsor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
+				</ul>
+			</li>
+		</security:authorize>
+		
+		<security:authorize access="hasRole('RANGER')">
+			<li><a class="fNiv"><spring:message	code="master.page.ranger" /></a>
+				<ul>
+					<li class="arrow"></li>
+						<li><a href="actor/ranger/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>

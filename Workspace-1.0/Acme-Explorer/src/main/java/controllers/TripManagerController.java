@@ -66,10 +66,13 @@ public class TripManagerController {
 	public ModelAndView save(@Valid final Trip trip, final BindingResult binding) {
 		ModelAndView res;
 
-		if (binding.hasErrors())
+		if (binding.hasErrors()){
+			System.out.println("Binding");
 			res = this.createEditModelAndView(trip, "trip.commit.error");
+		}
 		else
 			try {
+				System.out.println("Try");
 				this.tripService.save(trip);
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {

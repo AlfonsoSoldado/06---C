@@ -54,10 +54,10 @@
 	<display:column property="draftMode" title="${draftModeHeader}" sortable="true" />
 	
 	<spring:message code="audit.trip" var="tripHeader" />
-	<display:column property="trip" title="${tripHeader}" sortable="true" />
+	<display:column property="trip.title" title="${tripHeader}" sortable="true" />
 	
 	<spring:message code="audit.auditor" var="auditorHeader" />
-	<display:column property="auditor" title="${auditorHeader}" sortable="true" />
+	<display:column property="auditor.name" title="${auditorHeader}" sortable="true" />
 	
 	<div>
 		<a href="audit/auditor/edit.do"> <spring:message

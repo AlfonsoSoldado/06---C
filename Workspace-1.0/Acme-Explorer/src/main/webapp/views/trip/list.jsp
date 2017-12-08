@@ -54,7 +54,7 @@
 	<display:column property="cancelled" title="${cancelledHeader}"	sortable="false" />
 	
 	<spring:message code="trip.category" var="categoryHeader" />
-	<display:column property="category" title="${categoryHeader}"	sortable="true" />
+	<display:column property="category.name" title="${categoryHeader}"	sortable="true" />
 	
 	<spring:message code="trip.audit" var="auditHeader" />
 	<display:column>

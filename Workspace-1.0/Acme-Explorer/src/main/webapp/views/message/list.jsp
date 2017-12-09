@@ -43,8 +43,8 @@
 
 </display:table>
 
-	<div>
-		<a href="message/create.do"> <spring:message
-				code="message.create" />
-		</a>
-	</div>
+<a href="message/create.do">
+	<button>
+		<spring:message code="message.create" />
+	</button>
+</a>

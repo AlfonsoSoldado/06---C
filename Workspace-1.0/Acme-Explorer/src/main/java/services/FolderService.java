@@ -38,7 +38,9 @@ public class FolderService {
 	public Folder create() {
 		Folder folder = new Folder();
 		Collection<Message> message = new ArrayList<Message>();
+		Collection<Folder> folders = new ArrayList<Folder>();
 		folder.setMessages(message);
+		folder.setFolders(folders);
 		return folder;
 	}
 

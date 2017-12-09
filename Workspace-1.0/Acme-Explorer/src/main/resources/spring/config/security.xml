@@ -71,7 +71,11 @@
 		<security:intercept-url pattern="/profile/action-3.do" access="isAuthenticated()" /> 
 	
 		<security:intercept-url pattern="/folder/list.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/folder/edit.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/folder/create.do" access="isAuthenticated()" />
 		<security:intercept-url pattern="/message/list.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/message/edit.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/message/create.do" access="isAuthenticated()" />
 		
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 

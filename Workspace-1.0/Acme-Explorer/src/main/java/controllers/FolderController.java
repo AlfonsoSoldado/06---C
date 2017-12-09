@@ -130,7 +130,7 @@ public class FolderController extends AbstractController {
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Folder folder, final String message) {
+	protected ModelAndView createEditModelAndView(final Folder folder, final String messageCode) {
 		ModelAndView result;
 		Actor actor;
 		Collection<Folder> folders;
@@ -140,7 +140,7 @@ public class FolderController extends AbstractController {
 		folders.removeAll(folder.getFolders());
 		result.addObject("folder", folder);
 		result.addObject("folders", folders);
-		result.addObject("message", message);
+		result.addObject("message", messageCode);
 		return result;
 	}
 }

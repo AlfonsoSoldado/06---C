@@ -85,7 +85,7 @@ public class MessageController extends AbstractController {
 		final Collection<Actor> actor;
 		actor = this.actorService.findAll();
 		result = new ModelAndView("message/edit");
-		result.addObject("row", message);
+		result.addObject("msg", message);
 		result.addObject("actor", actor);
 		result.addObject("message", messageCode);
 		return result;

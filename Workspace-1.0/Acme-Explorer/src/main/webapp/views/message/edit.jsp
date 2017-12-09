@@ -1,5 +1,5 @@
 <%--
- * message.jsp
+ * edit.jsp
  *
  * Copyright (C) 2017 Universidad de Sevilla
  * 
@@ -16,7 +16,7 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="${requestURI }" modelAttribute="message">
+<form:form action="${requestURI }" modelAttribute="msg">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />

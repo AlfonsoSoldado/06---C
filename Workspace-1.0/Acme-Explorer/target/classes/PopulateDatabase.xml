@@ -220,6 +220,9 @@
 	<bean id="inBoxRanger1" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list>
 			</list>
@@ -230,6 +233,9 @@
 	<bean id="outBoxRanger1" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list>
 				<ref bean="message1"/>
@@ -241,6 +247,9 @@
 	<bean id="notificationBoxRanger1" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -250,6 +259,9 @@
 	<bean id="trashBoxRanger1" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -259,6 +271,9 @@
 	<bean id="spamBoxRanger1" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -268,6 +283,9 @@
 	<bean id="customBoxRanger1" class="domain.Folder">
 		<property name="name" value="customBoxRanger1" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -277,6 +295,9 @@
 	<bean id="inBoxRanger2" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -286,6 +307,9 @@
 	<bean id="outBoxRanger2" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -295,6 +319,9 @@
 	<bean id="notificationBoxRanger2" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -304,6 +331,9 @@
 	<bean id="trashBoxRanger2" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -313,6 +343,9 @@
 	<bean id="spamBoxRanger2" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -322,6 +355,9 @@
 	<bean id="customBoxRanger2" class="domain.Folder">
 		<property name="name" value="customBoxRanger2" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -333,6 +369,9 @@
 	<bean id="inBoxExplorer1" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list>
 			</list>
@@ -343,6 +382,9 @@
 	<bean id="outBoxExplorer1" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list>
 				<ref bean="message2"/>
@@ -354,6 +396,9 @@
 	<bean id="notificationBoxExplorer1" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -363,6 +408,9 @@
 	<bean id="trashBoxExplorer1" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -372,6 +420,9 @@
 	<bean id="spamBoxExplorer1" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -381,6 +432,9 @@
 	<bean id="customBoxExplorer1" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -390,6 +444,9 @@
 	<bean id="inBoxExplorer2" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -399,6 +456,9 @@
 	<bean id="outBoxExplorer2" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -408,6 +468,9 @@
 	<bean id="notificationBoxExplorer2" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -417,6 +480,9 @@
 	<bean id="trashBoxExplorer2" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -426,6 +492,9 @@
 	<bean id="spamBoxExplorer2" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -435,6 +504,9 @@
 	<bean id="customBoxExplorer2" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -444,6 +516,9 @@
 	<bean id="inBoxExplorer3" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -453,6 +528,9 @@
 	<bean id="outBoxExplorer3" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -462,6 +540,9 @@
 	<bean id="notificationBoxExplorer3" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -471,6 +552,9 @@
 	<bean id="trashBoxExplorer3" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -480,6 +564,9 @@
 	<bean id="spamBoxExplorer3" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -489,6 +576,9 @@
 	<bean id="customBoxExplorer3" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -498,6 +588,9 @@
 	<bean id="inBoxExplorer4" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -507,6 +600,9 @@
 	<bean id="outBoxExplorer4" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -516,6 +612,9 @@
 	<bean id="notificationBoxExplorer4" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -525,6 +624,9 @@
 	<bean id="trashBoxExplorer4" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -534,6 +636,9 @@
 	<bean id="spamBoxExplorer4" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -543,6 +648,9 @@
 	<bean id="customBoxExplorer4" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -554,6 +662,9 @@
 	<bean id="inBoxAdministrator1" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -563,6 +674,9 @@
 	<bean id="outBoxAdministrator1" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -572,6 +686,9 @@
 	<bean id="notificationBoxAdministrator1" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -581,6 +698,9 @@
 	<bean id="trashBoxAdministrator1" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -590,6 +710,9 @@
 	<bean id="spamBoxAdministrator1" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -599,6 +722,9 @@
 	<bean id="customBoxAdministrator1" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -608,6 +734,9 @@
 	<bean id="inBoxAdministrator2" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -617,6 +746,9 @@
 	<bean id="outBoxAdministrator2" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -626,6 +758,9 @@
 	<bean id="notificationBoxAdministrator2" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -635,6 +770,9 @@
 	<bean id="trashBoxAdministrator2" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -644,6 +782,9 @@
 	<bean id="spamBoxAdministrator2" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -653,6 +794,9 @@
 	<bean id="customBoxAdministrator2" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -664,6 +808,9 @@
 	<bean id="inBoxSponsor1" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -673,6 +820,9 @@
 	<bean id="outBoxSponsor1" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -682,6 +832,9 @@
 	<bean id="notificationBoxSponsor1" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -691,6 +844,9 @@
 	<bean id="trashBoxSponsor1" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -700,6 +856,9 @@
 	<bean id="spamBoxSponsor1" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -709,6 +868,9 @@
 	<bean id="customBoxSponsor1" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -718,6 +880,9 @@
 	<bean id="inBoxSponsor2" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -727,6 +892,9 @@
 	<bean id="outBoxSponsor2" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -736,6 +904,9 @@
 	<bean id="notificationBoxSponsor2" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -745,6 +916,9 @@
 	<bean id="trashBoxSponsor2" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -754,6 +928,9 @@
 	<bean id="spamBoxSponsor2" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -763,6 +940,9 @@
 	<bean id="customBoxSponsor2" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -774,6 +954,9 @@
 	<bean id="inBoxManager1" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -783,6 +966,9 @@
 	<bean id="outBoxManager1" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -792,6 +978,9 @@
 	<bean id="notificationBoxManager1" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -801,6 +990,9 @@
 	<bean id="trashBoxManager1" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -810,6 +1002,9 @@
 	<bean id="spamBoxManager1" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -819,6 +1014,9 @@
 	<bean id="customBoxManager1" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -828,6 +1026,9 @@
 	<bean id="inBoxManager2" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -837,6 +1038,9 @@
 	<bean id="outBoxManager2" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -846,6 +1050,9 @@
 	<bean id="notificationBoxManager2" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -855,6 +1062,9 @@
 	<bean id="trashBoxManager2" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -864,6 +1074,9 @@
 	<bean id="spamBoxManager2" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -873,6 +1086,9 @@
 	<bean id="customBoxManager2" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -882,6 +1098,9 @@
 	<bean id="inBoxManager3" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -891,6 +1110,9 @@
 	<bean id="outBoxManager3" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -900,6 +1122,9 @@
 	<bean id="notificationBoxManager3" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -909,6 +1134,9 @@
 	<bean id="trashBoxManager3" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -918,6 +1146,9 @@
 	<bean id="spamBoxManager3" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -927,6 +1158,9 @@
 	<bean id="customBoxManager3" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -936,6 +1170,9 @@
 	<bean id="inBoxManager4" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -945,6 +1182,9 @@
 	<bean id="outBoxManager4" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -954,6 +1194,9 @@
 	<bean id="notificationBoxManager4" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -963,6 +1206,9 @@
 	<bean id="trashBoxManager4" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -972,6 +1218,9 @@
 	<bean id="spamBoxManager4" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -981,6 +1230,9 @@
 	<bean id="customBoxManager4" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -992,6 +1244,9 @@
 	<bean id="inBoxAuditor1" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1001,6 +1256,9 @@
 	<bean id="outBoxAuditor1" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1010,6 +1268,9 @@
 	<bean id="notificationBoxAuditor1" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1019,6 +1280,9 @@
 	<bean id="trashBoxAuditor1" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1028,6 +1292,9 @@
 	<bean id="spamBoxAuditor1" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1037,6 +1304,9 @@
 	<bean id="customBoxAuditor1" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1046,6 +1316,9 @@
 	<bean id="inBoxAuditor2" class="domain.Folder">
 		<property name="name" value="In Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1055,6 +1328,9 @@
 	<bean id="outBoxAuditor2" class="domain.Folder">
 		<property name="name" value="Out Box" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1064,6 +1340,9 @@
 	<bean id="notificationBoxAuditor2" class="domain.Folder">
 		<property name="name" value="Notification" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1073,6 +1352,9 @@
 	<bean id="trashBoxAuditor2" class="domain.Folder">
 		<property name="name" value="Trash" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1082,6 +1364,9 @@
 	<bean id="spamBoxAuditor2" class="domain.Folder">
 		<property name="name" value="Spam" />
 		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>
@@ -1091,6 +1376,9 @@
 	<bean id="customBoxAuditor2" class="domain.Folder">
 		<property name="name" value="customBox" />
 		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
 		<property name="messages">
 			<list></list>
 		</property>

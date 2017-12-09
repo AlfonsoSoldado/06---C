@@ -7,6 +7,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -49,6 +50,17 @@ public class Folder extends DomainEntity {
 
 	private Collection<Message> messages;
 	private Folder customFolder;
+	private Collection<Folder> folders;
+
+	@Valid
+	@OneToMany(mappedBy = "customFolder")
+	public Collection<Folder> getFolders() {
+		return folders;
+	}
+
+	public void setFolders(Collection<Folder> folders) {
+		this.folders = folders;
+	}
 
 	@Valid
 	@NotNull

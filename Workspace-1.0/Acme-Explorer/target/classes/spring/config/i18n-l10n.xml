@@ -33,6 +33,7 @@
 		<value>/views/trip/messages</value>
 		<value>/views/actor/messages</value>
 		<value>/views/message/messages</value>
+		<value>/views/folder/messages</value>
 	</util:list>
 
 </beans>

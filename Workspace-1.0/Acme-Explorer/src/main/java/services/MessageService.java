@@ -36,7 +36,7 @@ public class MessageService {
 	// Simple CRUD methods
 
 	public Message create() {
-		actorService.checkAuthority();
+		//actorService.checkAuthority();
 
 		Message message;
 		message = new Message();
@@ -56,7 +56,7 @@ public class MessageService {
 	}
 
 	public Collection<Message> findAll() {
-		actorService.checkAuthority();
+		//actorService.checkAuthority();
 
 		Collection<Message> res;
 		res = this.messageRepository.findAll();
@@ -75,7 +75,7 @@ public class MessageService {
 	}
 
 	public Message save(Message message) {
-		actorService.checkAuthority();
+		//actorService.checkAuthority();
 
 		Assert.notNull(message);
 		Message res;
@@ -84,7 +84,7 @@ public class MessageService {
 	}
 
 	public void delete(Message message) {
-		actorService.checkAuthority();
+		//actorService.checkAuthority();
 
 		Assert.notNull(message);
 		Assert.isTrue(message.getId() != 0);

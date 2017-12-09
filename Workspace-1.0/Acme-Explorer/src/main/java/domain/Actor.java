@@ -87,7 +87,7 @@ public abstract class Actor extends DomainEntity {
 	// Relationships
 
 	private UserAccount userAccount;
-	private Collection<Folder> Folders;
+	private Collection<Folder> folders;
 	private Message received;
 	private Collection<Message> sent;
 	private Collection<SocialId> socialId;
@@ -107,11 +107,11 @@ public abstract class Actor extends DomainEntity {
 	@NotNull
 	@OneToMany
 	public Collection<Folder> getFolders() {
-		return Folders;
+		return folders;
 	}
 
-	public void setFolders(Collection<Folder> Folders) {
-		this.Folders = Folders;
+	public void setFolders(Collection<Folder> folders) {
+		this.folders = folders;
 	}
 
 	@Valid

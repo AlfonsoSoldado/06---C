@@ -106,4 +106,15 @@ public class FolderService {
 		
 		return folders;
 	}
+	
+	public Collection<Folder> findFolders() {
+		//this.actorService.checkUserLogin();
+		final Actor a;
+		Collection<Folder> result;
+		a = this.actorService.findByPrincipal();
+		Assert.notNull(a);
+		result = this.folderRepository.findFolders(a.getId());
+		Assert.notNull(result);
+		return result;
+	}
 }

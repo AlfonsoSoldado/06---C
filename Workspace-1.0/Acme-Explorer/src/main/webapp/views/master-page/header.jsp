@@ -109,6 +109,7 @@
 			<li><a class="fNiv" href="trip/list.do"><spring:message code="master.page.trips" /></a></li>
 			<li><a class="fNiv" href="category/list.do"><spring:message code="master.page.categories" /></a></li>
 			<li><a class="fNiv" href=""><spring:message code="master.page.finder" /></a></li>
+			<li><a class="fNiv" href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 		</security:authorize>
 	</ul>
 </div>

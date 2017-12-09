@@ -35,7 +35,6 @@
 	<form:input path="remark" />
 	<form:errors cssClass="error" path="remark" />
 	<br />
-	
 
 </security:authorize>
 

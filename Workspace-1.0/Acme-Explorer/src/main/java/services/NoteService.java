@@ -38,7 +38,7 @@ public class NoteService {
 	// 33.1
 	
 	public Note create() {
-		auditorService.checkAuthority();
+		//auditorService.checkAuthority();
 
 		Note res = new Note();
 		Auditor a = new Auditor();
@@ -51,7 +51,7 @@ public class NoteService {
 	}
 
 	public Collection<Note> findAll() {
-		auditorService.checkAuthority();
+		//auditorService.checkAuthority();
 
 		Collection<Note> res;
 		res = this.noteRepository.findAll();
@@ -60,7 +60,7 @@ public class NoteService {
 	}
 
 	public Note findOne(int note) {
-		auditorService.checkAuthority();
+		//auditorService.checkAuthority();
 
 		Assert.isTrue(note != 0);
 		Note res;
@@ -70,7 +70,7 @@ public class NoteService {
 	}
 
 	public Note save(Note note) {
-		auditorService.checkAuthority();
+		//auditorService.checkAuthority();
 
 		Assert.notNull(note);
 		Assert.isTrue(note.getId() == 0);

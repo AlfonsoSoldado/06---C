@@ -60,9 +60,10 @@
 			<li><a class="fNiv"><spring:message	code="master.page.auditor" /></a>
 				<ul>
 					<li class="arrow"></li>
-						<li><a href=""><spring:message code="master.page.auditor.audits" /></a></li>
-						<li><a href=""><spring:message code="master.page.auditor.notes" /></a></li>
+						<li><a href="audit/auditor/list.do"><spring:message code="master.page.auditor.audits" /></a></li>
+						<li><a href="note/auditor/list.do"><spring:message code="master.page.auditor.notes" /></a></li>
 						<li><a href="actor/auditor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
+						
 				</ul>
 			</li>
 		</security:authorize>

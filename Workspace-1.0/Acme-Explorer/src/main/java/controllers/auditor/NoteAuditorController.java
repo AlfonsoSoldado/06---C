@@ -15,21 +15,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
 
-import services.AuditService;
 import services.AuditorService;
+import services.NoteService;
 import services.TripService;
-import domain.Audit;
 import domain.Auditor;
+import domain.Note;
 import domain.Trip;
 
 @Controller
-@RequestMapping("/audit/auditor")
-public class AuditAuditorController extends AbstractController {
+@RequestMapping("/note/auditor")
+public class NoteAuditorController extends AbstractController {
 
 	// Services -------------------------------------------------------------
 
 	@Autowired
-	private AuditService auditService;
+	private NoteService noteService;
 
 	@Autowired
 	private AuditorService auditorService;
@@ -39,7 +39,7 @@ public class AuditAuditorController extends AbstractController {
 
 	// Constructors ---------------------------------------------------------
 
-	public AuditAuditorController() {
+	public NoteAuditorController() {
 		super();
 	}
 
@@ -48,13 +48,13 @@ public class AuditAuditorController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
-		Collection<Audit> audits;
+		Collection<Note> notes;
 
-		audits = auditService.findAll();
+		notes = noteService.findAll();
 
-		result = new ModelAndView("audit/auditor/list");
-		result.addObject("auditsAuditor", audits);
-		result.addObject("requestURI", "audit/auditor/list.do");
+		result = new ModelAndView("note/list");
+		result.addObject("note", notes);
+		result.addObject("requestURI", "note/auditor/list.do");
 
 		return result;
 	}
@@ -62,30 +62,30 @@ public class AuditAuditorController extends AbstractController {
 	// Creation ---------------------------------------------------------------
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int auditId) {
+	public ModelAndView edit(@RequestParam final int noteId) {
 		ModelAndView result;
-		Audit audit;
+		Note note;
 
-		audit = auditService.findOne(auditId);
-		Assert.notNull(audit);
-		result = this.createEditModelAndView(audit);
+		note = noteService.findOne(noteId);
+		Assert.notNull(note);
+		result = this.createEditModelAndView(note);
 
 		return result;
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Audit audit,
+	public ModelAndView save(@Valid final Note note,
 			final BindingResult binding) {
 		ModelAndView res;
 
 		if (binding.hasErrors())
-			res = this.createEditModelAndView(audit, "audit.commit.error");
+			res = this.createEditModelAndView(note, "note.commit.error");
 		else
 			try {
-				this.auditService.save(audit);
+				this.noteService.save(note);
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				res = this.createEditModelAndView(audit, "audit.commit.error");
+				res = this.createEditModelAndView(note, "note.commit.error");
 			}
 
 		return res;
@@ -94,36 +94,37 @@ public class AuditAuditorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
 		ModelAndView result;
-		Audit audit;
+		Note note;
 
-		audit = this.auditService.create();
-		result = this.createEditModelAndView(audit);
+		note = this.noteService.create();
+		result = this.createEditModelAndView(note);
 
 		return result;
 	}
 
 	// Ancillary methods --------------------------------------------------
 
-	protected ModelAndView createEditModelAndView(final Audit audit) {
+	protected ModelAndView createEditModelAndView(final Note note) {
 		ModelAndView result;
 
-		result = this.createEditModelAndView(audit, null);
+		result = this.createEditModelAndView(note, null);
 
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Audit audit,
+	protected ModelAndView createEditModelAndView(final Note note,
 			final String message) {
 		ModelAndView result;
 		final Collection<Trip> trip;
 		final Collection<Auditor> auditor;
 		trip = this.tripService.findAll();
 		auditor = this.auditorService.findAll();
-		result = new ModelAndView("audit/auditor/edit");
+		result = new ModelAndView("note/edit");
 		result.addObject("trip", trip);
 		result.addObject("auditor", auditor);
-		result.addObject("audit", audit);
+		result.addObject("note", note);
 		result.addObject("message", message);
 		return result;
 	}
+
 }

@@ -56,6 +56,7 @@ public class TripService {
 		Ranger ranger = new Ranger();
 		Collection<Value> value = new ArrayList<Value>();
 		Trip trip = new Trip();
+		Collection<String> requirements =  new ArrayList<String>();
 		
 		trip.setTicker(this.generatedTicker());
 
@@ -66,6 +67,7 @@ public class TripService {
 		trip.setCategory(category);
 		trip.setRanger(ranger);
 		trip.setValue(value);
+		trip.setRequirement(requirements);
 		return trip;
 	}
 

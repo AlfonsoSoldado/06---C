@@ -1,0 +1,19 @@
+No he tenido cojones de sacar el puto registerExplorer y ranger...
+
+Trip funciona. Falta que funcionen los saves y delete. (Y poner bonito)
+
+Editar personal data funciona. Falta que funcionen los saves y delete. (Y poner bonito)
+
+Category funciona. Falta que funcionen los saves y delete. (Y poner bonito)
+
+Actor folder - Funciona con explorer01. Falta que funcionen los saves y delete. (Y poner bonito)
+
+Finder. Falta que haga la búsqueda al darle al search.
+
+Note. Falta que funcionen los saves y delete. (Habría que hacer una relación de manager con note)
+
+
+
+Falta vista y controlador: curriculum, todos los Record, stage
+
+Falta controlador: sponsorship, survival

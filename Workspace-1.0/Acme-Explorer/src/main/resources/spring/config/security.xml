@@ -35,14 +35,14 @@
 		<security:intercept-url pattern="/styles/**" access="permitAll" /> 
 
 		<security:intercept-url pattern="/views/misc/index.jsp" access="permitAll" /> 
-
 		<security:intercept-url pattern="/security/login.do" access="permitAll" /> 
 		<security:intercept-url pattern="/security/loginFailure.do" access="permitAll" /> 
-
 		<security:intercept-url pattern="/welcome/index.do" access="permitAll" /> 
+		<security:intercept-url pattern="/finder/search.do" access="permitAll" /> 
 
 		<security:intercept-url pattern="/application/explorer/list.do" access="hasRole('EXPLORER')" />
 		<security:intercept-url pattern="/actor/explorer/edit.do" access="hasRole('EXPLORER')" />
+		<security:intercept-url pattern="finder/explorer/search.do" access="hasRole('EXPLORER')" />
 		
 		<security:intercept-url pattern="/category/list.do" access="permitAll" />
 		

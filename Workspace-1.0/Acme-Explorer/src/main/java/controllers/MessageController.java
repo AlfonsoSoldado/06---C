@@ -24,15 +24,21 @@ import domain.Message;
 public class MessageController extends AbstractController {
 
 	// Services -------------------------------------------------------
-	
+
 	@Autowired
 	MessageService messageService;
-	
+
 	@Autowired
 	ActorService actorService;
-	
+
 	@Autowired
 	FolderService folderService;
+
+	// Constructors ---------------------------------------------------------
+
+	public MessageController() {
+		super();
+	}
 
 	// Listing ----------------------------------------------------------
 
@@ -50,16 +56,20 @@ public class MessageController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Message message, final BindingResult binding) {
+	public ModelAndView save(@Valid final Message message,
+			final BindingResult binding) {
 		ModelAndView result;
 		if (binding.hasErrors())
-			result = this.createEditModelAndView(message, "message.params.error");
+			result = this.createEditModelAndView(message,
+					"message.params.error");
 		else
 			try {
-				this.actorService.sendMessage(message.getRecipient(), message.getSender(), message);
+				this.actorService.sendMessage(message.getRecipient(),
+						message.getSender(), message);
 				result = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				result = this.createEditModelAndView(message, "message.commit.error");
+				result = this.createEditModelAndView(message,
+						"message.commit.error");
 			}
 		return result;
 	}
@@ -72,6 +82,7 @@ public class MessageController extends AbstractController {
 		result = this.createEditModelAndView(message);
 		return result;
 	}
+
 	// Ancillary methods --------------------------------------------------
 
 	protected ModelAndView createEditModelAndView(final Message message) {
@@ -80,7 +91,8 @@ public class MessageController extends AbstractController {
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Message message, final String messageCode) {
+	protected ModelAndView createEditModelAndView(final Message message,
+			final String messageCode) {
 		ModelAndView result;
 		final Collection<Actor> actor;
 		actor = this.actorService.findAll();

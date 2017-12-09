@@ -51,6 +51,7 @@
 					<li><a href="application/explorer/list.do"><spring:message code="master.page.explorer.applications" /></a></li>
 					<li><a href=""><spring:message code="master.page.explorer.survivals" /></a></li>
 					<li><a href="actor/explorer/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
+					<li><a class="fNiv" href="finder/explorer/search.do"><spring:message code="master.page.finder" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
@@ -95,7 +96,7 @@
 			</li>
 			<li><a class="fNiv" href="trip/list.do"><spring:message code="master.page.trips" /></a></li>
 			<li><a class="fNiv" href="category/list.do"><spring:message code="master.page.categories" /></a></li>
-			<li><a class="fNiv" href=""><spring:message code="master.page.finder" /></a></li>
+			<li><a class="fNiv" href="finder/search.do"><spring:message code="master.page.finder" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">
@@ -108,7 +109,7 @@
 			<li><a class="fNiv" href="j_spring_security_logout"><spring:message code="master.page.logout" /></a></li>
 			<li><a class="fNiv" href="trip/list.do"><spring:message code="master.page.trips" /></a></li>
 			<li><a class="fNiv" href="category/list.do"><spring:message code="master.page.categories" /></a></li>
-			<li><a class="fNiv" href=""><spring:message code="master.page.finder" /></a></li>
+			<li><a class="fNiv" href="finder/search.do"><spring:message code="master.page.finder" /></a></li>
 			<li><a class="fNiv" href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 		</security:authorize>
 	</ul>

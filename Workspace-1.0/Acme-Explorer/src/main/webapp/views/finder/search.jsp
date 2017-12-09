@@ -66,8 +66,7 @@
 		<br />
 	</security:authorize>
 	
-	<input type="submit" name="search"
-		value="<spring:message code="finder.search" />" />&nbsp; 
+	<input type="submit" name="save" value="<spring:message code="finder.search" />" />&nbsp;
 	
 	<input type="button" name="cancel"
 		value="<spring:message code="finder.cancel" />"

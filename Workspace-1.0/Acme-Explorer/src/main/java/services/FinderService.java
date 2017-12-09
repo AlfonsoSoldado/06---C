@@ -86,8 +86,13 @@ public class FinderService {
 
 	public Collection<Trip> findSearchCriterial(String singleKey, Date start, Date end, Double minPrice, Double maxPrice){
 		Collection<Trip> res = new ArrayList<Trip>();
-		res.addAll(finderRepository.resultFinder(singleKey, start, end, minPrice, maxPrice));
-		
+		res.addAll(finderRepository.resultFinderExplorer(singleKey, start, end, minPrice, maxPrice));
+		return res;
+	}
+	
+	public Collection<Trip> findSearchSingleKey(String singleKey) {
+		Collection<Trip> res = new ArrayList<Trip>();
+		res.addAll(finderRepository.resultFinder(singleKey));
 		return res;
 	}
 }

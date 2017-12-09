@@ -61,7 +61,7 @@
 
 <security:authorize access="hasRole('ADMIN')">
 	<div>
-		<a href="category/administrator/edit.do"> <spring:message
+		<a href="category/administrator/create.do"> <spring:message
 				code="category.create" />
 		</a>
 	</div>

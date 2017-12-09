@@ -18,8 +18,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="category/administrator/edit.do"
-	modelAttribute="category">
+<form:form action="category/administrator/edit.do" modelAttribute="category">
 
 	<security:authorize access="hasRole('ADMIN')">
 
@@ -29,30 +28,33 @@
 
 		<form:label path="name">
 			<spring:message code="category.name" />:
-	</form:label>
+		</form:label>
 		<form:input path="name" />
 		<form:errors cssClass="error" path="name" />
 		<br />
 
 		<form:label path="categoryParent">
-			<spring:message code="category.categoryParent" />:
-	</form:label>
+		<spring:message code="category.categoryParent"/>
+		</form:label>
+		
 		<form:select path="categoryParent">
-			<jstl:forEach var="categoryParent" items=${row.categoryParent }>
-				<form:option value="${categoryParent}">${categoryParent.title}</form:option>
-			</jstl:forEach>
+		<form:option value="${categoryRoot.id}">
+			<spring:message code = "category.categoryChildren"/>
+		</form:option>
+		<jstl:forEach var="categoryIf" items="${categories}"> 
+		<jstl:if test="${categoryIf.name != \"CATEGORY\"}">
+			<form:option value="${categoryIf.id}">
+				<jstl:out value="${categoryIf.name}"/> 	
+			</form:option>
+		</jstl:if>
+		</jstl:forEach>
 		</form:select>
-		<form:input path="categoryParent" />
-		<form:errors cssClass="error" path="categoryParent" />
-		<br />
 
 		<form:label path="trip">
 			<spring:message code="category.trip" />:
-	</form:label>
+		</form:label>
 		<form:select path="trip">
-			<jstl:forEach var="trip" items=${row.trip }>
-				<form:option value="${trip}">${trip.title}</form:option>
-			</jstl:forEach>
+			<form:options items="${trip}" itemLabel="title" />
 		</form:select>
 		<form:input path="trip" />
 		<form:errors cssClass="error" path="trip" />
@@ -60,11 +62,11 @@
 
 		<input type="submit" name="save"
 			value="<spring:message code="category.save" />" />&nbsp; 
-	<jstl:if test="${category.id != 0}">
+		<jstl:if test="${category.id != 0}">
 			<input type="submit" name="delete"
 				value="<spring:message code="category.delete" />"
 				onclick="return confirm('<spring:message code="category.confirm.delete" />')" />&nbsp;
-	</jstl:if>
+		</jstl:if>
 		<input type="button" name="cancel"
 			value="<spring:message code="category.cancel" />"
 			onclick="javascript: relativeRedir('category/list.do');" />

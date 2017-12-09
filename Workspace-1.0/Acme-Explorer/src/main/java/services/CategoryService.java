@@ -95,4 +95,11 @@ public class CategoryService {
 		return categories;
 	}
 	
+	public Category getCategoryRoot() {
+		Category c;
+		c = this.categoryRepository.findCategories();
+		Assert.notNull(c);
+		return c;
+	}
+	
 }

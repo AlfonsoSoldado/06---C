@@ -15,20 +15,20 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
        
 <tiles-definitions>
-	
-	<definition name="category/list" extends="master.page">	
-		<put-attribute name="title" value="List categories" />
-		<put-attribute name="body" value="/views/category/list.jsp" />
+
+	<definition name="message/list" extends="master.page">	
+		<put-attribute name="title" value="List messages" />
+		<put-attribute name="body" value="/views/message/list.jsp" />
 	</definition>
 	
-	<definition name="category/create" extends="master.page">	
-		<put-attribute name="title" value="Create category" />
-		<put-attribute name="body" value="/views/category/edit.jsp" />
+	<definition name="message/edit" extends="master.page">	
+		<put-attribute name="title" value="Edit message" />
+		<put-attribute name="body" value="/views/message/edit.jsp" />
 	</definition>
 	
-	<definition name="category/edit" extends="master.page">	
-		<put-attribute name="title" value="Edit category" />
-		<put-attribute name="body" value="/views/category/edit.jsp" />
+	<definition name="message/create" extends="master.page">	
+		<put-attribute name="title" value="Create message" />
+		<put-attribute name="body" value="/views/message/edit.jsp" />
 	</definition>
 	
 </tiles-definitions>

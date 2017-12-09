@@ -65,7 +65,7 @@ public class MessageService {
 	}
 
 	public Message findOne(int message) {
-		actorService.checkAuthority();
+		//actorService.checkAuthority();
 
 		Assert.isTrue(message != 0);
 		Message res;

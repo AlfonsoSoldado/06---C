@@ -1,5 +1,6 @@
 Falta vista y controlador: curriculum, todos los Record, stage
 
+Falta controlador: Tag, administrator
 
 
 
@@ -17,6 +18,6 @@ Note. Falta que funcionen los saves y delete. (Habría que hacer una relación de 
 
 Sponsorship. FUnciona el edit. Falta el create y el delete.
 
-Survival. FUnciona el edit. Falta el create y el delete.
+Survival. FUnciona el edit. Falta el create y el delete. (Falta lo de explorer)
 
-No he tenido cojones de sacar el puto registerExplorer y ranger...
+No he tenido cojones de sacar el puto registerExplorer y registerRanger...

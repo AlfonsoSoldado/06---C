@@ -4,6 +4,8 @@ Falta controlador: Tag, administrator
 
 
 
+Application funciona. Falta hacer el list de manager en controladores y sus edit.
+
 Trip funciona. El edit funciona, falta que funcione el create y el delete. (Poner bonito)
 
 Editar personal data funciona. Falta que funcionen los saves y delete. (Y poner bonito)

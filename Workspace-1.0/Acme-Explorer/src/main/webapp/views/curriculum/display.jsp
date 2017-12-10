@@ -41,11 +41,51 @@
 
 </display:table>
 
+<spring:message code="curriculum.personalRecord" var="personalRecordHeader" />
+<h1><jstl:out value="${personalRecordHeader}"></jstl:out></h1>
+<display:table name="personalRecord" class="displaytag" id="row">
+
+	<spring:message code="curriculum.records.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}"
+		sortable="true" />
+
+</display:table>
+
 <spring:message code="curriculum.educationRecord" var="educationRecordHeader" />
 <h1><jstl:out value="${educationRecordHeader}"></jstl:out></h1>
 <display:table name="educationRecord" class="displaytag" id="row">
 
-	<spring:message code="curriculum.educationRecord.title" var="titleHeader" />
+	<spring:message code="curriculum.records.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}"
+		sortable="true" />
+
+</display:table>
+
+<spring:message code="curriculum.professionalRecord" var="professionalRecordHeader" />
+<h1><jstl:out value="${professionalRecordHeader}"></jstl:out></h1>
+<display:table name="professionalRecord" class="displaytag" id="row">
+
+	<spring:message code="curriculum.records.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}"
+		sortable="true" />
+
+</display:table>
+
+<spring:message code="curriculum.miscellaneousRecord" var="miscellaneousRecordHeader" />
+<h1><jstl:out value="${miscellaneousRecordHeader}"></jstl:out></h1>
+<display:table name="miscellaneousRecord" class="displaytag" id="row">
+
+	<spring:message code="curriculum.records.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}"
+		sortable="true" />
+
+</display:table>
+
+<spring:message code="curriculum.endorserRecord" var="endorserRecordHeader" />
+<h1><jstl:out value="${endorserRecordHeader}"></jstl:out></h1>
+<display:table name="endorserRecord" class="displaytag" id="row">
+
+	<spring:message code="curriculum.records.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}"
 		sortable="true" />
 

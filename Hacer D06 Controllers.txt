@@ -23,3 +23,5 @@ Sponsorship. FUnciona el edit. Falta el create y el delete.
 Survival. FUnciona el edit. Falta el create y el delete. (Falta lo de explorer)
 
 No he tenido cojones de sacar el puto registerExplorer y registerRanger...
+
+Hacer test del generateTicker

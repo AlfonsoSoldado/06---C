@@ -38,6 +38,7 @@
 		<value>/views/note/tiles.xml</value>
 		<value>/views/sponsorship/tiles.xml</value>
 		<value>/views/survival/tiles.xml</value>
+		<value>/views/curriculum/tiles.xml</value>
 	</util:list>
 
 </beans>

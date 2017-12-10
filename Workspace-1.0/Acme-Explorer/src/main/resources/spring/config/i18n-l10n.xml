@@ -38,6 +38,7 @@
 		<value>/views/note/messages</value>
 		<value>/views/sponsorship/messages</value>
 		<value>/views/survival/messages</value>
+		<value>/views/curriculum/messages</value>
 	</util:list>
 
 </beans>

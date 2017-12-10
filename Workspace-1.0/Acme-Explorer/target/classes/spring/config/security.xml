@@ -87,6 +87,8 @@
 		<security:intercept-url pattern="/message/create.do" access="isAuthenticated()" />
 		<security:intercept-url pattern="/message/delete.do" access="isAuthenticated()" />
 		
+		<security:intercept-url pattern="/curriculum/display.do" access="permitAll" />
+		
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 
 		<security:form-login 

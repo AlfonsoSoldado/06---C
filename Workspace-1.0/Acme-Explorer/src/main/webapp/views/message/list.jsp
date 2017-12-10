@@ -21,6 +21,12 @@
 
 	<!-- Attributes -->
 	
+	<spring:message code="message.delete"/>
+	<display:column>
+		<a href= "message/delete.do?messageId=${row.id}">
+		<spring:message code="message.delete"/></a>
+	</display:column>
+	
 	<spring:message code="message.moment" var="momentHeader" />
 	<display:column property="moment" title="${momentHeader}" sortable="true" />
 

@@ -12,15 +12,9 @@ Finder. Falta que haga la búsqueda al darle al search.
 
 Note. Falta que funcionen los saves y delete. (Habría que hacer una relación de manager con note)
 
+Sponsorship. FUnciona el edit. Falta el create y el delete.
 
 
 Falta vista y controlador: curriculum, todos los Record, stage
 
-Falta controlador: sponsorship, survival
-
-	<form:label path="userAccount.password">
-		<spring:message code="actor.password" />
-	</form:label>
-	<form:password path="userAccount.password" />
-	<form:errors class="error" path="userAccount.password" />
-	<br />
+Falta controlador: survival

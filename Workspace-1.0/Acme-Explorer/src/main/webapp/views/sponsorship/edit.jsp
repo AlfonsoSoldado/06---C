@@ -49,26 +49,11 @@
 	<form:errors cssClass="error" path="creditCard" />
 	<br />
 	
-	<form:label path="creditCard">
-		<spring:message code="sponsorship.creditCard" />:
-	</form:label>
-	<form:select path="creditCard">
-			<form:option value="None"/>
-		<jstl:forEach var="creditCard" items=${row.creditCard }>
-            <form:option value="${creditCard}">${creditCard.name}</form:option>
-		</jstl:forEach>
-	</form:select>
-	<form:input path="creditCard" />
-	<form:errors cssClass="error" path="creditCard" />
-	<br />
-	
 	<form:label path="trip">
 		<spring:message code="sponsorship.trip" />:
 	</form:label>
 	<form:select path="trip">
-		<jstl:forEach var="trip" items=${row.trip }>
-              <form:option value="${trip}">${trip.title}</form:option>
-		</jstl:forEach>
+        <form:options items="${trip}" itemLabel="title"/>
 	</form:select>
 	<form:input path="trip" />
 	<form:errors cssClass="error" path="trip" />
@@ -85,7 +70,6 @@
 		value="<spring:message code="sponsorship.cancel" />"
 		onclick="javascript: relativeRedir('/');" />
 	<br />
-	
 
 	</security:authorize>
 </form:form>

@@ -19,7 +19,7 @@ import domain.Application;
 
 @Controller
 @RequestMapping("/application/explorer")
-public class ApplicationExplorerController extends AbstractController{
+public class ApplicationExplorerController extends AbstractController {
 
 	
 	//Services -------------------------------------------------------------

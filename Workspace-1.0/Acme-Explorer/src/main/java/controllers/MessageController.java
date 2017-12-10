@@ -73,6 +73,20 @@ public class MessageController extends AbstractController {
 			}
 		return result;
 	}
+	
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
+	public ModelAndView delete(Message message, BindingResult binding) {
+		ModelAndView res;
+
+		try {
+			this.actorService.deleteMessage(message.getSender(), message);
+			res = new ModelAndView("redirect:list.do");
+		} catch (final Throwable oops) {
+			res = this.createEditModelAndView(message, "message.commit.error");
+		}
+
+		return res;
+	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {

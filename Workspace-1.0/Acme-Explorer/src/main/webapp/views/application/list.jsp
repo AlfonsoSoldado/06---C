@@ -40,10 +40,10 @@
 	<display:column property="reason" title="${reasonHeader}" sortable="false" />
 
 	<spring:message code="application.creditCard" var="creditCardHeader" />
-	<display:column property="creditCard" title="${creditCardHeader}"	sortable="false" />
+	<display:column property="creditCard.number" title="${creditCardHeader}"	sortable="false" />
 	
 	<spring:message code="application.trip" var="tripHeader" />
-	<display:column property="trip" title="${tripHeader}"	sortable="true" />
+	<display:column property="trip.title" title="${tripHeader}"	sortable="true" />
 	
 </display:table>
 </security:authorize>

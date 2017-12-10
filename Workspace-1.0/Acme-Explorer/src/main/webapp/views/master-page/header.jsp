@@ -72,7 +72,7 @@
 			<li><a class="fNiv"><spring:message	code="master.page.sponsor" /></a>
 				<ul>
 					<li class="arrow"></li>
-						<li><a href=""><spring:message code="master.page.sponsor.sponsorships" /></a></li>
+						<li><a href="sponsorship/sponsor/list.do"><spring:message code="master.page.sponsor.sponsorships" /></a></li>
 						<li><a href="actor/sponsor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 				</ul>
 			</li>

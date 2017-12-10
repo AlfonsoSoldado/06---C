@@ -49,6 +49,7 @@
 		<security:intercept-url pattern="/audit/auditor/list.do" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/audit/list.do" access="permitAll" />
 		<security:intercept-url pattern="/audit/auditor/edit.do" access="hasRole('AUDITOR')" />
+		<security:intercept-url pattern="/audit/auditor/delete.do" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/note/auditor/list.do" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/note/auditor/edit.do" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/actor/auditor/edit.do" access="hasRole('AUDITOR')" />
@@ -62,6 +63,9 @@
 		<security:intercept-url pattern="/category/administrator/edit.do" access="hasRole('ADMIN')" />
 		
 		<security:intercept-url pattern="/actor/sponsor/edit.do" access="hasRole('SPONSOR')" />
+		<security:intercept-url pattern="/sponsorship/sponsor/list.do" access="hasRole('SPONSOR')" />
+		<security:intercept-url pattern="/sponsorship/sponsor/edit.do" access="hasRole('SPONSOR')" />
+		<security:intercept-url pattern="/sponsorship/sponsor/create.do" access="hasRole('SPONSOR')" />
 		
 		<security:intercept-url pattern="/actor/ranger/edit.do" access="hasRole('RANGER')" />
 
@@ -78,6 +82,7 @@
 		<security:intercept-url pattern="/message/list.do" access="isAuthenticated()" />
 		<security:intercept-url pattern="/message/edit.do" access="isAuthenticated()" />
 		<security:intercept-url pattern="/message/create.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/message/delete.do" access="isAuthenticated()" />
 		
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 

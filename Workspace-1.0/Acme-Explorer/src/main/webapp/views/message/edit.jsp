@@ -22,8 +22,15 @@
 	<form:hidden path="version" />
 	
 	<form:hidden path="moment"/>
-	<form:hidden path="sender"/>
-	<form:hidden path="Folder"/>
+	<form:hidden path="folder"/>
+	<form:hidden path="spam"/>
+	
+	<form:label path="sender">
+		<spring:message code="message.sender"/>
+	</form:label>
+	<form:input path="sender"/>
+	<form:errors cssClass="error" path="sender"/>
+	<br/>
 	
 	<form:label path="priority">
 		<spring:message code="message.priority"/>

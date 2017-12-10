@@ -28,16 +28,16 @@
 	
 	<security:authorize access="hasRole('SPONSOR')">
 	
-	<spring:message code="sponsorship.edit" var="editHeader" />
+	<spring:message code="sponsorship.edit"/>
 	<display:column>
-		<a href= "sponsor/sponsorship/edit.do?sponsorshipId=${row.id}">
-		<spring:message code="sponsorship.edit" var="editHeader" /></a>
+		<a href= "sponsorship/sponsor/edit.do?sponsorshipId=${row.id}">
+		<spring:message code="sponsorship.edit"/></a>
 	</display:column>
 	
-	<spring:message code="sponsorship.delete" var="deleteHeader" />
+	<spring:message code="sponsorship.delete"/>
 	<display:column>
-		<a href= "sponsor/sponsorship/delete.do?sponsorshipId=${row.id}">
-		<spring:message code="sponsorship.delete" var="deleteHeader" /></a>
+		<a href= "sponsorship/sponsor/delete.do?sponsorshipId=${row.id}">
+		<spring:message code="sponsorship.delete"/></a>
 	</display:column>
 	
 	<spring:message code="sponsorship.banner" var="bannerHeader" />
@@ -47,31 +47,19 @@
 	<display:column property="infoPage" title="${infoPageHeader}" sortable="true" />
 	
 	<spring:message code="sponsorship.creditCard" var="creditCardHeader" />
-	<display:column property="creditCard" title="${creditCardHeader}" sortable="false" />
+	<display:column property="creditCard.number" title="${creditCardHeader}" sortable="false" />
 	
 	<spring:message code="sponsorship.trip" var="tripHeader" />
-	<display:column property="trip" title="${tripHeader}" sortable="true" />
+	<display:column property="trip.title" title="${tripHeader}" sortable="true" />
 	
 	<spring:message code="sponsorship.sponsor" var="sponsorHeader" />
-	<display:column property="sponsor" title="${sponsorHeader}" sortable="true" />
-	
-	<div>
-		<a href="sponsorship/sponsor/edit.do"> <spring:message
-				code="sponsorship.create" />
-		</a>
-	</div>
+	<display:column property="sponsor.id" title="${sponsorHeader}" sortable="true" />
 	
 	</security:authorize>
 </display:table>
 	
-	 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<div>
+		<a href="sponsorship/sponsor/create.do"> <spring:message
+				code="sponsorship.create" />
+		</a>
+	</div>

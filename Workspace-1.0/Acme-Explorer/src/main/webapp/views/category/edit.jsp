@@ -41,10 +41,10 @@
 		<form:option value="${categoryRoot.id}">
 			<spring:message code = "category.categoryChildren"/>
 		</form:option>
-		<jstl:forEach var="categoryIf" items="${categories}"> 
-		<jstl:if test="${categoryIf.name != \"CATEGORY\"}">
-			<form:option value="${categoryIf.id}">
-				<jstl:out value="${categoryIf.name}"/> 	
+		<jstl:forEach var="cat" items="${categories}"> 
+		<jstl:if test="${cat.name != \"CATEGORY\"}">
+			<form:option value="${cat.id}">
+				<jstl:out value="${cat.name}"/> 	
 			</form:option>
 		</jstl:if>
 		</jstl:forEach>

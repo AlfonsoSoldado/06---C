@@ -1,6 +1,6 @@
 No he tenido cojones de sacar el puto registerExplorer y ranger...
 
-Trip funciona. Falta que funcionen los saves y delete. (Y poner bonito)
+Trip funciona. El edit funciona, falta que funcione el create y el delete. (Poner bonito)
 
 Editar personal data funciona. Falta que funcionen los saves y delete. (Y poner bonito)
 
@@ -17,3 +17,10 @@ Note. Falta que funcionen los saves y delete. (Habría que hacer una relación de 
 Falta vista y controlador: curriculum, todos los Record, stage
 
 Falta controlador: sponsorship, survival
+
+	<form:label path="userAccount.password">
+		<spring:message code="actor.password" />
+	</form:label>
+	<form:password path="userAccount.password" />
+	<form:errors class="error" path="userAccount.password" />
+	<br />

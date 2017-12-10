@@ -19,7 +19,7 @@
 <form:form id = "form" action="${requestUri}" modelAttribute="actor">
 
 	<security:authorize access="hasRole('RANGER')">
-	<form:hidden path="Folders"/>
+	<form:hidden path="folders"/>
 	<form:hidden path="sent" />
 	<form:hidden path="received" />
 	<form:hidden path="suspicious" />
@@ -30,7 +30,7 @@
 	</security:authorize>
 	
 	<security:authorize access="hasRole('EXPLORER')">
-	<form:hidden path="Folders"/>
+	<form:hidden path="folders"/>
 	<form:hidden path="sent" />
 	<form:hidden path="received" />
 	<form:hidden path="socialId"/>
@@ -43,7 +43,7 @@
 	</security:authorize>
 	
 	<security:authorize access="hasRole('SPONSOR')">
-	<form:hidden path="Folders"/>
+	<form:hidden path="folders"/>
 	<form:hidden path="sent" />
 	<form:hidden path="received" />
 	<form:hidden path="socialId"/>
@@ -52,7 +52,7 @@
 	</security:authorize>
 	
 	<security:authorize access="hasRole('AUDITOR')">
-	<form:hidden path="Folders"/>
+	<form:hidden path="folders"/>
 	<form:hidden path="sent" />
 	<form:hidden path="received" />
 	<form:hidden path="socialId"/>
@@ -62,17 +62,22 @@
 	</security:authorize>
 	
 	<security:authorize access="hasRole('MANAGER')">
-	<form:hidden path="Folders"/>
+	<form:hidden path="folders"/>
 	<form:hidden path="sent" />
 	<form:hidden path="received" />
 	<form:hidden path="suspicious" />
 	<form:hidden path="socialId"/>
 	
-	<form:hidden path="suspicious" />
-	
 	<form:hidden path="application" />
 	<form:hidden path="survival" />
 	<form:hidden path="trip" />
+	</security:authorize>
+	
+	<security:authorize access="hasRole('ADMIN')">
+	<form:hidden path="folders"/>
+	<form:hidden path="sent" />
+	<form:hidden path="received" />
+	<form:hidden path="socialId"/>
 	</security:authorize>
 	
 	<form:hidden path="id"/>
@@ -118,13 +123,6 @@
 	</form:label>
 	<form:input path="userAccount.username" />	
 	<form:errors class="error" path="userAccount.username" />
-	<br />
-
-	<form:label path="userAccount.password">
-		<spring:message code="actor.password" />
-	</form:label>
-	<form:password path="userAccount.password" />
-	<form:errors class="error" path="userAccount.password" />
 	<br />
 
 	<input type="submit" name="save"

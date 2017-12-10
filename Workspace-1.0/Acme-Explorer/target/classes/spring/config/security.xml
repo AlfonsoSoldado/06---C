@@ -58,6 +58,9 @@
 		<security:intercept-url pattern="/trip/manager/edit.do" access="hasRole('MANAGER')" />
 		<security:intercept-url pattern="/trip/manager/create.do" access="hasRole('MANAGER')" />
 		<security:intercept-url pattern="/actor/manager/edit.do" access="hasRole('MANAGER')" />
+		<security:intercept-url pattern="/survival/manager/list.do" access="hasRole('MANAGER')" />
+		<security:intercept-url pattern="/survival/manager/edit.do" access="hasRole('MANAGER')" />
+		<security:intercept-url pattern="/survival/manager/create.do" access="hasRole('MANAGER')" />
 		
 		<security:intercept-url pattern="/category/administrator/create.do" access="hasRole('ADMIN')" /> 
 		<security:intercept-url pattern="/category/administrator/edit.do" access="hasRole('ADMIN')" />

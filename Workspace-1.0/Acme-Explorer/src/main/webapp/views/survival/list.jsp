@@ -26,10 +26,16 @@
 	name="survival" requestURI="survival/manager/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="survival.edit" var="editHeader" />
+	<spring:message code="survival.edit"/>
 	<display:column>
 		<a href= "survival/manager/edit.do?survivalId=${row.id}">
-		<spring:message code="survival.edit" var="editHeader" /></a>
+		<spring:message code="survival.edit"/></a>
+	</display:column>
+	
+	<spring:message code="survival.delete"/>
+	<display:column>
+		<a href= "survival/manager/delete.do?survivalId=${row.id}">
+		<spring:message code="survival.delete"/></a>
 	</display:column>
 	
 	<spring:message code="survival.title" var="titleHeader" />
@@ -42,10 +48,10 @@
 	<display:column property="moment" title="${momentHeader}" sortable="true" />
 
 	<spring:message code="survival.location" var="locationHeader" />
-	<display:column property="location" title="${locationHeader}"	sortable="true" />
+	<display:column property="location.name" title="${locationHeader}"	sortable="true" />
 	
 	<spring:message code="survival.trip" var="tripHeader" />
-	<display:column property="trip" title="${tripHeader}"	sortable="true" />
+	<display:column property="trip.title" title="${tripHeader}"	sortable="true" />
 	
 	<spring:message code="survival.explorer" var="explorerHeader" />
 	<display:column property="explorer" title="${explorerHeader}"	sortable="true" />
@@ -54,7 +60,7 @@
 <!-- Action links -->
 
 	<div>
-		<a href="survival/manager/edit.do"> <spring:message
+		<a href="survival/manager/create.do"> <spring:message
 				code="survival.create" />
 		</a>
 	</div>

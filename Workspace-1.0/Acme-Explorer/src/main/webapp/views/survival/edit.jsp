@@ -19,55 +19,54 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="sponsorship/sponsor/edit.do" modelAttribute="sponsorship">
+<form:form action="survival/manager/edit.do" modelAttribute="survival">
 	
-	<security:authorize access="hasRole('SPONSOR')">
+	<security:authorize access="hasRole('MANAGER')">
 	
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	
-	<form:hidden path="sponsor" />
+	<form:hidden path="moment" />
+	<form:hidden path="manager" />
+	<form:hidden path="explorer" />
 	
-	<form:label path="banner">
-		<spring:message code="sponsorship.banner" />:
+	<form:label path="title">
+		<spring:message code="survival.title" />:
 	</form:label>
-	<form:input path="banner" />
-	<form:errors cssClass="error" path="banner" />
+	<form:input path="title" />
+	<form:errors cssClass="error" path="title" />
 	<br />
 	
-	<form:label path="infoPage">
-		<spring:message code="sponsorship.infoPage" />:
+	<form:label path="description">
+		<spring:message code="survival.description" />:
 	</form:label>
-	<form:input path="infoPage" />
-	<form:errors cssClass="error" path="infoPage" />
+	<form:input path="description" />
+	<form:errors cssClass="error" path="description" />
 	<br />
 	
-	<form:label path="creditCard">
-		<spring:message code="sponsorship.creditCard" />:
+	<form:label path="location">
+		<spring:message code="survival.location" />:
 	</form:label>
-	<form:input path="creditCard" />
-	<form:errors cssClass="error" path="creditCard" />
+	<form:input path="location" />
+	<form:errors cssClass="error" path="location" />
 	<br />
 	
 	<form:label path="trip">
-		<spring:message code="sponsorship.trip" />:
+		<spring:message code="survival.trip" />:
 	</form:label>
-	<form:select path="trip">
-        <form:options items="${trip}" itemLabel="title"/>
-	</form:select>
 	<form:input path="trip" />
 	<form:errors cssClass="error" path="trip" />
 	<br />
 
 	<input type="submit" name="save"
-		value="<spring:message code="sponsorship.save" />" />&nbsp; 
-	<jstl:if test="${sponsorship.id != 0}">
+		value="<spring:message code="survival.save" />" />&nbsp; 
+	<jstl:if test="${survival.id != 0}">
 		<input type="submit" name="delete"
-			value="<spring:message code="sponsorship.delete" />"
-			onclick="return confirm('<spring:message code="sponsorship.confirm.delete" />')" />&nbsp;
+			value="<spring:message code="survival.delete" />"
+			onclick="return confirm('<spring:message code="survival.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 	<input type="button" name="cancel"
-		value="<spring:message code="sponsorship.cancel" />"
+		value="<spring:message code="survival.cancel" />"
 		onclick="javascript: relativeRedir('/');" />
 	<br />
 

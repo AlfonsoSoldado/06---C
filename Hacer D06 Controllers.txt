@@ -1,4 +1,7 @@
-No he tenido cojones de sacar el puto registerExplorer y ranger...
+Falta vista y controlador: curriculum, todos los Record, stage
+
+
+
 
 Trip funciona. El edit funciona, falta que funcione el create y el delete. (Poner bonito)
 
@@ -14,7 +17,6 @@ Note. Falta que funcionen los saves y delete. (Habría que hacer una relación de 
 
 Sponsorship. FUnciona el edit. Falta el create y el delete.
 
+Survival. FUnciona el edit. Falta el create y el delete.
 
-Falta vista y controlador: curriculum, todos los Record, stage
-
-Falta controlador: survival
+No he tenido cojones de sacar el puto registerExplorer y ranger...

@@ -17,13 +17,18 @@
 <tiles-definitions>
 
 	<definition name="survival/list" extends="master.page">	
-		<put-attribute name="title" value="Mostrar las clases de supervivencia" />
+		<put-attribute name="title" value="Mostrar clase supervivencia" />
 		<put-attribute name="body" value="/views/survival/list.jsp" />
 	</definition>
 	
-	<definition name="survival/register" extends="master.page">	
-		<put-attribute name="title" value="Registrarse para ocupar una clase de supervivencia" />
-		<put-attribute name="body" value="/views/survival/register.jsp" />
+	<definition name="survival/edit" extends="master.page">	
+		<put-attribute name="title" value="Editar clase supervivencia" />
+		<put-attribute name="body" value="/views/survival/edit.jsp" />
+	</definition>
+	
+	<definition name="survival/create" extends="master.page">	
+		<put-attribute name="title" value="Crear clase supervivencia" />
+		<put-attribute name="body" value="/views/survival/edit.jsp" />
 	</definition>
 	
 </tiles-definitions>

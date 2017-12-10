@@ -37,7 +37,7 @@
 					<li><a href="trip/manager/create.do"><spring:message code="master.page.manager.create.trip" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.notes" /></a></li>
 					<li><a href=""><spring:message code="master.page.manager.applications" /></a></li>
-					<li><a href=""><spring:message code="master.page.manager.survivals" /></a></li>	
+					<li><a href="survival/manager/list.do"><spring:message code="master.page.manager.survivals" /></a></li>	
 					<li><a href="actor/manager/edit.do"><spring:message code="master.page.actorEdit" /></a></li>			
 				</ul>
 			</li>

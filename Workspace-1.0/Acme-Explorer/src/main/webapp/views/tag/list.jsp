@@ -22,7 +22,7 @@
 
 <security:authorize access="hasRole('ADMIN')">
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="tag" requestURI="tag/administrator/list.do" id="row">
+	name="tag" requestURI="${requestURI }" id="row">
 	
 	<!-- Attributes -->
 	

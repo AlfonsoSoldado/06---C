@@ -28,6 +28,7 @@
 					<li><a href="/category/administrator/edit.do"><spring:message code="master.page.manager.edit.category" /></a></li>
 				</ul>
 			</li>
+			<li><a class="fNiv" href="/tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('MANAGER')">

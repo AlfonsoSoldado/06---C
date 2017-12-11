@@ -50,7 +50,7 @@ public class FinderController extends AbstractController {
 		else
 			try {
 				this.finderService.findSearchSingleKey(finder.getSingleKey());
-				result = new ModelAndView("redirect:index.do");
+				result = new ModelAndView("redirect:trip/list.do");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(finder, "finder.commit.error");
 			}

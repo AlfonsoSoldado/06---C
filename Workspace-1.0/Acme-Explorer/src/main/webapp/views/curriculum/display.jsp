@@ -61,8 +61,8 @@
 	<display:column property="phoneNumber" title="${phoneNumberHeader}"
 		sortable="true" />
 		
-	<spring:message code="curriculum.personalRecord.linkedIn" var="linkedInHeader" />
-	<display:column property="linkedIn" title="${linkedInHeader}"
+	<spring:message code="curriculum.personalRecord.linkedIn" var="linkedlnHeader" />
+	<display:column property="likedln" title="${linkedlnHeader}"
 		sortable="true" />
 
 </display:table>
@@ -83,12 +83,12 @@
 	<display:column property="end" title="${endHeader}"
 		sortable="true" />
 
-	<spring:message code="curriculum.educationRecord.institution" var="institutionNumberHeader" />
-	<display:column property="institutionNumber" title="${institutionHeader}"
+	<spring:message code="curriculum.educationRecord.institution" var="institutionHeader" />
+	<display:column property="institution" title="${institutionHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.educationRecord.link" var="linkHeader" />
-	<display:column property="linkIn" title="${linkHeader}"
+	<display:column property="link" title="${linkHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.educationRecord.comment" var="commentHeader" />
@@ -114,11 +114,11 @@
 		sortable="true" />
 
 	<spring:message code="curriculum.professionalRecord.rol" var="rolHeader" />
-	<display:column property="rolNumber" title="${rolHeader}"
+	<display:column property="rol" title="${rolHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.professionalRecord.link" var="linkHeader" />
-	<display:column property="linkIn" title="${linkHeader}"
+	<display:column property="link" title="${linkHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.professionalRecord.comment" var="commentHeader" />
@@ -136,7 +136,7 @@
 		sortable="true" />
 		
 	<spring:message code="curriculum.miscellaneousRecord.link" var="linkHeader" />
-	<display:column property="linkIn" title="${linkHeader}"
+	<display:column property="link" title="${linkHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.miscellaneousRecord.comment" var="commentHeader" />
@@ -161,8 +161,8 @@
 	<display:column property="phoneNumber" title="${phoneNumberHeader}"
 		sortable="true" />
 		
-	<spring:message code="curriculum.endorserRecord.linkedIn" var="linkedInHeader" />
-	<display:column property="linkedIn" title="${linkedInHeader}"
+	<spring:message code="curriculum.endorserRecord.linkedIn" var="linkedlnHeader" />
+	<display:column property="likedln" title="${linkedlnHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.endorserRecord.comment" var="commentHeader" />

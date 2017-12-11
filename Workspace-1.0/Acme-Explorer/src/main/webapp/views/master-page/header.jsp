@@ -51,7 +51,7 @@
 					<li><a href="application/explorer/list.do"><spring:message code="master.page.explorer.applications" /></a></li>
 					<li><a href=""><spring:message code="master.page.explorer.survivals" /></a></li>
 					<li><a href="actor/explorer/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
-					<li><a class="fNiv" href="finder/explorer/search.do"><spring:message code="master.page.finder" /></a></li>
+					<li><a href="emergency/explorer/list.do"><spring:message code="master.page.emergency" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>

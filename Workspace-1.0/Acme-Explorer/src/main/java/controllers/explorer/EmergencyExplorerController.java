@@ -48,7 +48,7 @@ public class EmergencyExplorerController extends AbstractController{
 		emergencies = emergencyService.findAll();
 		
 		result = new ModelAndView("emergency/explorer/list");
-		result.addObject("emergenciesExplorer",emergencies);
+		result.addObject("emergency",emergencies);
 		result.addObject("requestURI", "emergency/explorer/list.do");
 		
 		return result;
@@ -80,7 +80,7 @@ public class EmergencyExplorerController extends AbstractController{
 		else
 			try{
 				this.emergencyService.save(emergency);
-				res = new ModelAndView("reduect:list.do");
+				res = new ModelAndView("redirect:list.do");
 			}catch (final Throwable oops) {
 				res = this.createEditModelAndView(emergency, "emergency.commit.error");
 			}

@@ -43,6 +43,7 @@
 		<security:intercept-url pattern="/application/explorer/list.do" access="hasRole('EXPLORER')" />
 		<security:intercept-url pattern="/actor/explorer/edit.do" access="hasRole('EXPLORER')" />
 		<security:intercept-url pattern="/finder/explorer/search.do" access="hasRole('EXPLORER')" />
+		<security:intercept-url pattern="/emergency/explorer/**" access="hasRole('EXPLORER')" />
 		
 		<security:intercept-url pattern="/category/list.do" access="permitAll" />
 		

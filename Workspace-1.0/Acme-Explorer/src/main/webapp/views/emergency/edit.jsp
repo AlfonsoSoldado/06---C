@@ -23,8 +23,6 @@
 	
 	<security:authorize access="hasRole('EXPLORER')">
 	
-	<form:hidden path="explorer" />
-	
 	<form:label path="name">
 		<spring:message code="emergency.name" />:
 	</form:label>

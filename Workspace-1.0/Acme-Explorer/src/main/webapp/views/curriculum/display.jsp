@@ -53,6 +53,14 @@
 <h1><jstl:out value="${personalRecordHeader}"></jstl:out></h1>
 <display:table name="personalRecord" class="displaytag" id="row">
 
+	<security:authorize access="hasRole('RANGER')">
+		<spring:message code="curriculum.edit" />
+		<display:column>
+			<a href="personalRecord/ranger/edit.do?personalRecordId=${row.id}"> <spring:message
+					code="curriculum.edit" /></a>
+		</display:column>
+	</security:authorize>
+
 	<spring:message code="curriculum.records.name" var="titleHeader" />
 	<display:column property="name" title="${titleHeader}"
 		sortable="true" />
@@ -86,6 +94,14 @@
 <spring:message code="curriculum.educationRecord" var="educationRecordHeader" />
 <h1><jstl:out value="${educationRecordHeader}"></jstl:out></h1>
 <display:table name="educationRecord" class="displaytag" id="row">
+
+	<security:authorize access="hasRole('RANGER')">
+		<spring:message code="curriculum.edit" />
+		<display:column>
+			<a href="educationRecord/ranger/edit.do?educationRecordId=${row.id}"> <spring:message
+					code="curriculum.edit" /></a>
+		</display:column>
+	</security:authorize>
 
 	<spring:message code="curriculum.records.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}"

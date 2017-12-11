@@ -60,7 +60,7 @@ public class CurriculumService {
 	}
 	
 	public Collection<Curriculum> findAll() {
-		rangerService.checkAuthority();
+		//rangerService.checkAuthority();
 		
 		Collection<Curriculum> res;
 		res = this.curriculumRepository.findAll();
@@ -69,7 +69,7 @@ public class CurriculumService {
 	}
 	
 	public Curriculum findOne(int curriculum) {
-		rangerService.checkAuthority();
+		//rangerService.checkAuthority();
 		
 		Assert.isTrue(curriculum != 0);
 		Curriculum res;

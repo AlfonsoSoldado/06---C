@@ -21,10 +21,7 @@
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	
-	<form:hidden path="minPrice" />
-	<form:hidden path="maxPrice" />
-	<form:hidden path="start" />
-	<form:hidden path="end" />	
+
 	<form:hidden path="cache" />
 	
 	<form:hidden path="trip" />

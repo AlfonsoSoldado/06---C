@@ -40,7 +40,7 @@ public class MiscellaneousRecordService {
 		Assert.isTrue(miscellaneousRecord != 0);
 		MiscellaneousRecord res;
 		res = this.miscellaneousRecordRepository.findOne(miscellaneousRecord);
-		Assert.notNull(res);
+		//Assert.notNull(res);
 		return res;
 	}
 
@@ -48,7 +48,7 @@ public class MiscellaneousRecordService {
 		Collection<MiscellaneousRecord> res;
 
 		res = this.miscellaneousRecordRepository.findAll();
-		Assert.notNull(res);
+		//Assert.notNull(res);
 		return res;
 	}
 

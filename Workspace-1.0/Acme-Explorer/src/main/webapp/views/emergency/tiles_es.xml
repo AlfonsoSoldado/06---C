@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- 
  * tiles.xml
@@ -9,21 +9,22 @@
  * TDG Licence, a copy of which you may download from 
  * http://www.tdg-seville.info/License.html
  -->
-
-<!DOCTYPE tiles-definitions PUBLIC
+ 
+ <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
        
 <tiles-definitions>
 
-	<definition name="customer/action-1" extends="master.page">	
-		<put-attribute name="title" value="Customer: Action 1" />
-		<put-attribute name="body" value="/views/customer/action-1.jsp" />
+	<definition name="emergency/explorer/list" extends="master.page">	
+		<put-attribute name="title" value="Mostrar Emergencias" />
+		<put-attribute name="body" value="/views/emergency/list.jsp" />
 	</definition>
+
 	
-	<definition name="customer/action-2" extends="master.page">	
-		<put-attribute name="title" value="Customer: Action 2" />
-		<put-attribute name="body" value="/views/customer/action-2.jsp" />
+	<definition name="emergency/explorer/edit" extends="master.page">	
+		<put-attribute name="title" value="Editar Emergencia" />
+		<put-attribute name="body" value="/views/emergency/edit.jsp" />
 	</definition>
 	
 </tiles-definitions>

@@ -42,50 +42,29 @@
 
 		<security:intercept-url pattern="/application/explorer/list.do" access="hasRole('EXPLORER')" />
 		<security:intercept-url pattern="/actor/explorer/edit.do" access="hasRole('EXPLORER')" />
-		<security:intercept-url pattern="finder/explorer/search.do" access="hasRole('EXPLORER')" />
+		<security:intercept-url pattern="/finder/explorer/search.do" access="hasRole('EXPLORER')" />
 		
 		<security:intercept-url pattern="/category/list.do" access="permitAll" />
 		
-		<security:intercept-url pattern="/audit/auditor/list.do" access="hasRole('AUDITOR')" />
+		<security:intercept-url pattern="/audit/auditor/**" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/audit/list.do" access="permitAll" />
-		<security:intercept-url pattern="/audit/auditor/edit.do" access="hasRole('AUDITOR')" />
-		<security:intercept-url pattern="/audit/auditor/delete.do" access="hasRole('AUDITOR')" />
-		<security:intercept-url pattern="/note/auditor/list.do" access="hasRole('AUDITOR')" />
-		<security:intercept-url pattern="/note/auditor/edit.do" access="hasRole('AUDITOR')" />
+		<security:intercept-url pattern="/note/auditor/**" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/actor/auditor/edit.do" access="hasRole('AUDITOR')" />
 		
 		<security:intercept-url pattern="/trip/list.do" access="permitAll" />
-		<security:intercept-url pattern="/trip/manager/edit.do" access="hasRole('MANAGER')" />
-		<security:intercept-url pattern="/trip/manager/create.do" access="hasRole('MANAGER')" />
+		<security:intercept-url pattern="/trip/manager/**" access="hasRole('MANAGER')" />
 		<security:intercept-url pattern="/actor/manager/edit.do" access="hasRole('MANAGER')" />
-		<security:intercept-url pattern="/survival/manager/list.do" access="hasRole('MANAGER')" />
-		<security:intercept-url pattern="/survival/manager/edit.do" access="hasRole('MANAGER')" />
-		<security:intercept-url pattern="/survival/manager/create.do" access="hasRole('MANAGER')" />
+		<security:intercept-url pattern="/survival/manager/**" access="hasRole('MANAGER')" />
 		
-		<security:intercept-url pattern="/category/administrator/create.do" access="hasRole('ADMIN')" /> 
-		<security:intercept-url pattern="/category/administrator/edit.do" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/category/administrator/**" access="hasRole('ADMIN')" /> 
 		
 		<security:intercept-url pattern="/actor/sponsor/edit.do" access="hasRole('SPONSOR')" />
-		<security:intercept-url pattern="/sponsorship/sponsor/list.do" access="hasRole('SPONSOR')" />
-		<security:intercept-url pattern="/sponsorship/sponsor/edit.do" access="hasRole('SPONSOR')" />
-		<security:intercept-url pattern="/sponsorship/sponsor/create.do" access="hasRole('SPONSOR')" />
+		<security:intercept-url pattern="/sponsorship/sponsor/**" access="hasRole('SPONSOR')" />
 		
 		<security:intercept-url pattern="/actor/ranger/edit.do" access="hasRole('RANGER')" />
-
-		<security:intercept-url pattern="/customer/action-1.do" access="hasRole('CUSTOMER')" /> 
-		<security:intercept-url pattern="/customer/action-2.do" access="hasRole('CUSTOMER')" /> 
-
-		<security:intercept-url pattern="/profile/action-1.do" access="isAuthenticated()" /> 
-		<security:intercept-url pattern="/profile/action-2.do" access="isAuthenticated()" /> 
-		<security:intercept-url pattern="/profile/action-3.do" access="isAuthenticated()" /> 
 	
-		<security:intercept-url pattern="/folder/list.do" access="isAuthenticated()" />
-		<security:intercept-url pattern="/folder/edit.do" access="isAuthenticated()" />
-		<security:intercept-url pattern="/folder/create.do" access="isAuthenticated()" />
-		<security:intercept-url pattern="/message/list.do" access="isAuthenticated()" />
-		<security:intercept-url pattern="/message/edit.do" access="isAuthenticated()" />
-		<security:intercept-url pattern="/message/create.do" access="isAuthenticated()" />
-		<security:intercept-url pattern="/message/delete.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/folder/**" access="isAuthenticated()" />
+		<security:intercept-url pattern="/message/**" access="isAuthenticated()" />
 		
 		<security:intercept-url pattern="/curriculum/display.do" access="permitAll" />
 		

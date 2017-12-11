@@ -12,8 +12,8 @@ import services.ExplorerService;
 import domain.Explorer;
 
 @Controller
-@RequestMapping("/actor")
-public class ActorController extends AbstractController {
+@RequestMapping("/explorer")
+public class RegisterExplorerController extends AbstractController {
 
 	// Services -------------------------------------------------------------
 	
@@ -22,7 +22,7 @@ public class ActorController extends AbstractController {
 
 	// Constructors ---------------------------------------------------------
 
-	public ActorController() {
+	public RegisterExplorerController() {
 		super();
 	}
 	
@@ -54,7 +54,7 @@ public class ActorController extends AbstractController {
 			ModelAndView result;
 			final Collection<Explorer> explorers;
 			explorers = this.explorerService.findAll();
-			result = new ModelAndView("register_Explorer");
+			result = new ModelAndView("explorer/register_Explorer");
 			result.addObject("explorer", explorers);
 			result.addObject("message", message);
 			

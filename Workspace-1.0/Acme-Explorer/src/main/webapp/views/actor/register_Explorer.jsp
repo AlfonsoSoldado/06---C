@@ -18,10 +18,9 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
+<form:form action="explorer/register_Explorer.do" modelAttribute="explorer">
 
-<form:form action="actor/register_Explorer.do" modelAttribute="actor">
-
-	<form:hidden path="Folders" />
+	<form:hidden path="folders" />
 	<form:hidden path="received" />
 	<form:hidden path="sent" />
 	<form:hidden path="socialId" />

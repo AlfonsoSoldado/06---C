@@ -205,6 +205,14 @@
 <h1><jstl:out value="${endorserRecordHeader}"></jstl:out></h1>
 <display:table name="endorserRecord" class="displaytag" id="row">
 
+	<security:authorize access="hasRole('RANGER')">
+		<spring:message code="curriculum.edit" />
+		<display:column>
+			<a href="endorserRecord/ranger/edit.do?endorserRecordId=${row.id}"> <spring:message
+					code="curriculum.edit" /></a>
+		</display:column>
+	</security:authorize>
+
 	<spring:message code="curriculum.endorserRecord.endorserName" var="endorserNameHeader" />
 	<display:column property="endorserName" title="${endorserNameHeader}"
 		sortable="true" />

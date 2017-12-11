@@ -47,12 +47,13 @@
 	<spring:message code="emergency.phoneNumber" var="phoneNumberHeader" />
 	<display:column property="phoneNumber" title="${phoneNumberHeader}" sortable="false" />
 	
-	
-	<div>
-		<a href="emergency/explorer/edit.do"> <spring:message
-				code="emergency.create" />
-		</a>
-	</div>
-	
 </display:table>
+
+	<div>
+		<button>
+			<a href="emergency/explorer/create.do"> <spring:message
+					code="emergency.create" />
+			</a>
+		</button>
+	</div>
 </security:authorize>

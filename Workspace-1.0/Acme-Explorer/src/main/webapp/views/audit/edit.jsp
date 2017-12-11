@@ -48,7 +48,7 @@
 	<form:errors cssClass="error" path="attachment" />
 	<br />
 	
-	<form:label path="draftMode">
+<%-- 	<form:label path="draftMode">
 		<spring:message code="audit.draftMode" />:
 	</form:label>
 	<form:select path="draftMode">
@@ -57,7 +57,7 @@
 	</form:select>
 	<form:input path="draftMode" />
 	<form:errors cssClass="error" path="draftMode" />
-	<br />
+	<br /> --%>
 	
 	<form:label path="trip">
 		<spring:message code="audit.trip" />:

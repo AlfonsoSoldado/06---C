@@ -79,7 +79,7 @@ public class AuditAuditorController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors())
-			res = this.createEditModelAndView(audit, "audit.commit.error");
+			res = this.createEditModelAndView(audit, "audit.params.error");
 		else
 			try {
 				this.auditService.save(audit);

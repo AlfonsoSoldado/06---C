@@ -40,14 +40,14 @@ public class EndorserRecordService {
 		Assert.isTrue(endorserRecord != 0);
 		EndorserRecord res;
 		res = this.endorserRecordRepository.findOne(endorserRecord);
-		Assert.notNull(res);
+		//Assert.notNull(res);
 		return res;
 	}
 	
 	public Collection<EndorserRecord> findAll() {
 		Collection<EndorserRecord> res;
 		res = this.endorserRecordRepository.findAll();
-		Assert.notNull(res);
+		//Assert.notNull(res);
 		return res;
 	}
 

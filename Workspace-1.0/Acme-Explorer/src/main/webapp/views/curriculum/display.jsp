@@ -32,14 +32,22 @@
 		sortable="true" />
 
 	<security:authorize access="hasRole('RANGER')">
-		<spring:message code="curriculum.create" />
+		<spring:message code="curriculum.delete" />
 		<display:column>
-			<a href="curriculum/ranger/create.do?curriculumId=${row.id}"> <spring:message
-					code="curriculum.create" /></a>
+			<a href="curriculum/ranger/delete.do?curriculumId=${row.id}"> <spring:message
+					code="curriculum.delete" /></a>
 		</display:column>
 	</security:authorize>
 
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="curriculum/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create" />
+	</button>
+</a>
+</security:authorize>
 
 <spring:message code="curriculum.personalRecord" var="personalRecordHeader" />
 <h1><jstl:out value="${personalRecordHeader}"></jstl:out></h1>
@@ -61,11 +69,19 @@
 	<display:column property="phoneNumber" title="${phoneNumberHeader}"
 		sortable="true" />
 		
-	<spring:message code="curriculum.personalRecord.linkedIn" var="linkedInHeader" />
-	<display:column property="linkedIn" title="${linkedInHeader}"
+	<spring:message code="curriculum.personalRecord.linkedIn" var="linkedlnHeader" />
+	<display:column property="likedln" title="${linkedlnHeader}"
 		sortable="true" />
 
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="personalRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.personalRecord" />
+	</button>
+</a>
+</security:authorize>
 
 <spring:message code="curriculum.educationRecord" var="educationRecordHeader" />
 <h1><jstl:out value="${educationRecordHeader}"></jstl:out></h1>
@@ -83,12 +99,12 @@
 	<display:column property="end" title="${endHeader}"
 		sortable="true" />
 
-	<spring:message code="curriculum.educationRecord.institution" var="institutionNumberHeader" />
-	<display:column property="institutionNumber" title="${institutionHeader}"
+	<spring:message code="curriculum.educationRecord.institution" var="institutionHeader" />
+	<display:column property="institution" title="${institutionHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.educationRecord.link" var="linkHeader" />
-	<display:column property="linkIn" title="${linkHeader}"
+	<display:column property="link" title="${linkHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.educationRecord.comment" var="commentHeader" />
@@ -96,6 +112,14 @@
 		sortable="true" />
 
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="educationRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.educationRecord" />
+	</button>
+</a>
+</security:authorize>
 
 <spring:message code="curriculum.professionalRecord" var="professionalRecordHeader" />
 <h1><jstl:out value="${professionalRecordHeader}"></jstl:out></h1>
@@ -114,11 +138,11 @@
 		sortable="true" />
 
 	<spring:message code="curriculum.professionalRecord.rol" var="rolHeader" />
-	<display:column property="rolNumber" title="${rolHeader}"
+	<display:column property="rol" title="${rolHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.professionalRecord.link" var="linkHeader" />
-	<display:column property="linkIn" title="${linkHeader}"
+	<display:column property="link" title="${linkHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.professionalRecord.comment" var="commentHeader" />
@@ -126,6 +150,14 @@
 		sortable="true" />
 	
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="professionalRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.professionalRecord" />
+	</button>
+</a>
+</security:authorize>
 
 <spring:message code="curriculum.miscellaneousRecord" var="miscellaneousRecordHeader" />
 <h1><jstl:out value="${miscellaneousRecordHeader}"></jstl:out></h1>
@@ -136,7 +168,7 @@
 		sortable="true" />
 		
 	<spring:message code="curriculum.miscellaneousRecord.link" var="linkHeader" />
-	<display:column property="linkIn" title="${linkHeader}"
+	<display:column property="link" title="${linkHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.miscellaneousRecord.comment" var="commentHeader" />
@@ -144,6 +176,14 @@
 		sortable="true" />
 
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="miscellaneousRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.miscellaneousRecord" />
+	</button>
+</a>
+</security:authorize>
 
 <spring:message code="curriculum.endorserRecord" var="endorserRecordHeader" />
 <h1><jstl:out value="${endorserRecordHeader}"></jstl:out></h1>
@@ -161,12 +201,19 @@
 	<display:column property="phoneNumber" title="${phoneNumberHeader}"
 		sortable="true" />
 		
-	<spring:message code="curriculum.endorserRecord.linkedIn" var="linkedInHeader" />
-	<display:column property="linkedIn" title="${linkedInHeader}"
+	<spring:message code="curriculum.endorserRecord.linkedIn" var="linkedlnHeader" />
+	<display:column property="likedln" title="${linkedlnHeader}"
 		sortable="true" />
 		
 	<spring:message code="curriculum.endorserRecord.comment" var="commentHeader" />
 	<display:column property="comment" title="${commentHeader}"
 		sortable="true" />
-
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="endorserRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.endorserRecord" />
+	</button>
+</a>
+</security:authorize>

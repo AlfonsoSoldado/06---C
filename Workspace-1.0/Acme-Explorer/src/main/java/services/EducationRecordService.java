@@ -40,14 +40,14 @@ public class EducationRecordService {
 		Assert.isTrue(educationRecord != 0);
 		EducationRecord res;
 		res = this.educationRecordRepository.findOne(educationRecord);
-		Assert.notNull(res);
+		//Assert.notNull(res);
 		return res;
 	}
 	
 	public Collection<EducationRecord> findAll() {
 		Collection<EducationRecord> res;
 		res = this.educationRecordRepository.findAll();
-		Assert.notNull(res);
+		//Assert.notNull(res);
 		return res;
 	}
 	

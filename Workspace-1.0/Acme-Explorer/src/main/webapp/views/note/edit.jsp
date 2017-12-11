@@ -19,7 +19,7 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="note/edit.do" modelAttribute="note">
+<form:form action="note/auditor/edit.do" modelAttribute="note">
 	
 <security:authorize access="hasRole('AUDITOR')">
 	

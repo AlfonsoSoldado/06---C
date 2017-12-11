@@ -32,14 +32,22 @@
 		sortable="true" />
 
 	<security:authorize access="hasRole('RANGER')">
-		<spring:message code="curriculum.create" />
+		<spring:message code="curriculum.edit" />
 		<display:column>
-			<a href="curriculum/ranger/create.do?curriculumId=${row.id}"> <spring:message
-					code="curriculum.create" /></a>
+			<a href="curriculum/ranger/edit.do?curriculumId=${row.id}"> <spring:message
+					code="curriculum.edit" /></a>
 		</display:column>
 	</security:authorize>
 
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="curriculum/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create" />
+	</button>
+</a>
+</security:authorize>
 
 <spring:message code="curriculum.personalRecord" var="personalRecordHeader" />
 <h1><jstl:out value="${personalRecordHeader}"></jstl:out></h1>
@@ -66,6 +74,14 @@
 		sortable="true" />
 
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="personalRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.personalRecord" />
+	</button>
+</a>
+</security:authorize>
 
 <spring:message code="curriculum.educationRecord" var="educationRecordHeader" />
 <h1><jstl:out value="${educationRecordHeader}"></jstl:out></h1>
@@ -97,6 +113,14 @@
 
 </display:table>
 
+<security:authorize access="hasRole('RANGER')">
+<a href="educationRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.educationRecord" />
+	</button>
+</a>
+</security:authorize>
+
 <spring:message code="curriculum.professionalRecord" var="professionalRecordHeader" />
 <h1><jstl:out value="${professionalRecordHeader}"></jstl:out></h1>
 <display:table name="professionalRecord" class="displaytag" id="row">
@@ -127,6 +151,14 @@
 	
 </display:table>
 
+<security:authorize access="hasRole('RANGER')">
+<a href="professionalRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.professionalRecord" />
+	</button>
+</a>
+</security:authorize>
+
 <spring:message code="curriculum.miscellaneousRecord" var="miscellaneousRecordHeader" />
 <h1><jstl:out value="${miscellaneousRecordHeader}"></jstl:out></h1>
 <display:table name="miscellaneousRecord" class="displaytag" id="row">
@@ -144,6 +176,14 @@
 		sortable="true" />
 
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="miscellaneousRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.miscellaneousRecord" />
+	</button>
+</a>
+</security:authorize>
 
 <spring:message code="curriculum.endorserRecord" var="endorserRecordHeader" />
 <h1><jstl:out value="${endorserRecordHeader}"></jstl:out></h1>
@@ -168,5 +208,12 @@
 	<spring:message code="curriculum.endorserRecord.comment" var="commentHeader" />
 	<display:column property="comment" title="${commentHeader}"
 		sortable="true" />
-
 </display:table>
+
+<security:authorize access="hasRole('RANGER')">
+<a href="endorserRecord/ranger/create.do">
+	<button>
+		<spring:message code="curriculum.create.endorserRecord" />
+	</button>
+</a>
+</security:authorize>

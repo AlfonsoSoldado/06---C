@@ -54,7 +54,7 @@ public class EndorserRecordRangerController extends AbstractController {
 		} else
 			try {
 				this.endorserRecordService.save(endorserRecord);
-				res = new ModelAndView("redirect:list.do");
+				res = new ModelAndView("redirect:../../curriculum/display.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(endorserRecord,
 						"endorserRecord.commit.error");
@@ -69,7 +69,7 @@ public class EndorserRecordRangerController extends AbstractController {
 
 		try {
 			this.endorserRecordService.delete(endorserRecord);
-			res = new ModelAndView("redirect:list.do");
+			res = new ModelAndView("redirect:../../curriculum/display.do");
 		} catch (final Throwable oops) {
 			res = this.createEditModelAndView(endorserRecord,
 					"endorserRecord.commit.error");

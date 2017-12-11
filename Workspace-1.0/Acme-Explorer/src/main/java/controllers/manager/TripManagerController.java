@@ -13,13 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import controllers.AbstractController;
-
 import services.CategoryService;
-import services.LegalTextService;
-import services.RangerService;
 import services.TripService;
-import services.ValueService;
+import controllers.AbstractController;
 import domain.Category;
 import domain.Trip;
 
@@ -31,15 +27,6 @@ public class TripManagerController extends AbstractController {
 
 	@Autowired
 	private TripService tripService;
-
-	@Autowired
-	private RangerService rangerService;
-
-	@Autowired
-	private LegalTextService legalTextService;
-
-	@Autowired
-	private ValueService valueService;
 
 	@Autowired
 	private CategoryService categoryService;

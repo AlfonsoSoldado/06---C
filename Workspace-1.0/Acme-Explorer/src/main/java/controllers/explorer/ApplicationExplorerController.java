@@ -8,13 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import controllers.AbstractController;
-
-
-
-
 import services.ApplicationService;
-import services.ExplorerService;
+import controllers.AbstractController;
 import domain.Application;
 
 @Controller
@@ -26,9 +21,6 @@ public class ApplicationExplorerController extends AbstractController {
 	
 	@Autowired
 	private ApplicationService applicationService;
-	
-	@Autowired
-	private ExplorerService explorerService;
 	
 	//Constructors ---------------------------------------------------------
 	

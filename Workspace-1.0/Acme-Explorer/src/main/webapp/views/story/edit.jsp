@@ -23,7 +23,7 @@
 	
 <security:authorize access="hasRole('EXPLORER')">
 	
-	<form:hidden path="explorer" />
+	<form:hidden path="writer" />
 	
 	<form:label path="title">
 		<spring:message code="story.title" />:
@@ -59,12 +59,12 @@
 
 
 	
-	<input type="submit" name="create"
-		value="<spring:message code="story.edit" />" />&nbsp; 
-	<jstl:if test="${note.id != 0}">
-		<input type="submit" name="create"
-			value="<spring:message code="story.edit" />"
-			onclick="return confirm('<spring:message code="story.delete" />')" />&nbsp;
+<input type="submit" name="save"
+		value="<spring:message code="story.save" />" />&nbsp; 
+	<jstl:if test="${story.id != 0}">
+		<input type="submit" name="delete"
+			value="<spring:message code="story.delete" />"
+			onclick="return confirm('<spring:message code="story.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="story.cancel" />"

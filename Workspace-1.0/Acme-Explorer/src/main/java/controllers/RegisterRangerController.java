@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.RangerService;
-import domain.Emergency;
 import domain.Ranger;
 
 @Controller

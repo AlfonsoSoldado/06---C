@@ -92,8 +92,8 @@
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
 			<li><a class="fNiv" href=""><spring:message code="master.page.register" /></a>
 				<ul>
-					<li><a href="actor/register_Ranger.do"><spring:message code="master.page.register.ranger" /></a>
-					<li><a href="actor/register_Explorer.do"><spring:message code="master.page.register.explorer" /></a>
+					<li><a href="ranger/register_Ranger.do"><spring:message code="master.page.register.ranger" /></a>
+					<li><a href="explorer/register_Explorer.do"><spring:message code="master.page.register.explorer" /></a>
 				</ul>
 			</li>
 			<li><a class="fNiv" href="trip/list.do"><spring:message code="master.page.trips" /></a></li>

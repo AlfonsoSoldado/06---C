@@ -18,8 +18,8 @@ import domain.Tag;
 import domain.Value;
 
 @Controller
-@RequestMapping("/tag")
-public class TagController extends AbstractController {
+@RequestMapping("/tag/administrator")
+public class TagAdministratorController extends AbstractController {
 	// Services -------------------------------------------------------------
 
 	@Autowired
@@ -30,7 +30,7 @@ public class TagController extends AbstractController {
 
 	// Constructors ---------------------------------------------------------
 
-	public TagController() {
+	public TagAdministratorController() {
 		super();
 	}
 
@@ -45,7 +45,6 @@ public class TagController extends AbstractController {
 		
 		result = new ModelAndView("tag/list");
 		result.addObject("tag", tags);
-		result.addObject("requestURI", "tag/administrator/list.do");
 		
 		return result;
 	}
@@ -78,10 +77,10 @@ public class TagController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Tag tag,
 			final String message) {
 		ModelAndView result;
-		final Collection<Value> value;
-		value = this.valueService.findAll();
+//		final Collection<Value> value;
+//		value = this.valueService.findAll();
 		result = new ModelAndView("tag/administrator/edit");
-		result.addObject("value", value);
+//		result.addObject("value", value);
 		result.addObject("tag", tag);
 		result.addObject("message", message);
 		return result;

@@ -27,7 +27,7 @@
 	<form:hidden path="version" />
 	
 	<form:label path="name">
-		<spring:message code="legalText.name" />:
+		<spring:message code="tag.name" />:
 	</form:label>
 	<form:input path="name" />
 	<form:errors cssClass="error" path="name" />

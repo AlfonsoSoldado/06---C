@@ -26,8 +26,6 @@
 	
 	<!-- Attributes -->
 	
-	<form:hidden path="value" />
-	
 	<spring:message code="tag.edit"/>
 	<display:column>
 		<a href= "tag/administrator/edit.do?tagId=${row.id}">
@@ -42,9 +40,6 @@
 	
 	<spring:message code="tag.name" var="nameHeader" />
 	<display:column property="name" title="${nameHeader}" sortable="true" />
-	
-	<spring:message code="tag.trip" var="tripHeader" />
-	<display:column property="trip" title="${tripHeader}" sortable="true" />
 	
 </display:table>
 </security:authorize>

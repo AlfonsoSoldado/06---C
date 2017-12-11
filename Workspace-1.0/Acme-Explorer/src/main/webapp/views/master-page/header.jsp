@@ -24,11 +24,11 @@
 			<li><a class="fNiv"><spring:message	code="master.page.administrator" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="/category/administrator/create.do"><spring:message code="master.page.manager.create.category" /></a></li>
-					<li><a href="/category/administrator/edit.do"><spring:message code="master.page.manager.edit.category" /></a></li>
+					<li><a href="category/administrator/create.do"><spring:message code="master.page.manager.create.category" /></a></li>
+					<li><a href="category/administrator/edit.do"><spring:message code="master.page.manager.edit.category" /></a></li>
 				</ul>
 			</li>
-			<li><a class="fNiv" href="/tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
+			<li><a class="fNiv" href="tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('MANAGER')">

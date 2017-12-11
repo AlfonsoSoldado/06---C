@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.ApplicationService;
+import services.EmergencyService;
 import services.ExplorerService;
+import services.FinderService;
+import services.StoryService;
+import services.SurvivalService;
+import domain.Application;
 import domain.Emergency;
 import domain.Explorer;
+import domain.Finder;
+import domain.Story;
+import domain.Survival;
 
 @Controller
 @RequestMapping("/explorer")
@@ -21,7 +32,21 @@ public class RegisterExplorerController extends AbstractController {
 	
 	@Autowired
 	private ExplorerService explorerService;
-
+	
+	@Autowired
+	private FinderService finderService;
+	
+	@Autowired
+	private StoryService storyService;
+	
+	@Autowired
+	private EmergencyService emergencyService;
+	
+	@Autowired
+	private ApplicationService applicationService;
+	
+	@Autowired
+	private SurvivalService survivalService;
 
 	// Constructors ---------------------------------------------------------
 

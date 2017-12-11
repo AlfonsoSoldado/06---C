@@ -13,7 +13,7 @@ import domain.Audit;
 
 @Controller
 @RequestMapping("/audit")
-public class AuditController {
+public class AuditController extends AbstractController {
 	//Services -------------------------------------------------------------
 	
 	@Autowired

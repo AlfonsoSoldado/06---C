@@ -42,13 +42,10 @@
 		<value>/views/emergency/tiles.xml</value>
 		<value>/views/educationRecord/tiles.xml</value>
 		<value>/views/endorserRecord/tiles.xml</value>
-<<<<<<< HEAD
 		<value>/views/story/tiles.xml</value>
-=======
 		<value>/views/miscellaneousRecord/tiles.xml</value>
 		<value>/views/professionalRecord/tiles.xml</value>
 		<value>/views/stage/tiles.xml</value>
->>>>>>> 2fc469e09fb65ed96b43e3bd4d351cb9d0fbc136
 	</util:list>
 
 </beans>

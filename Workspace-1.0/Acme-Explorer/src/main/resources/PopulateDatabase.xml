@@ -1722,6 +1722,15 @@
 	<property name="trip" ref="trip2" />
 	</bean>
 	
+	<!-- STAGE3 -->
+	
+	<bean id="stage3" class="domain.Stage">
+	<property name="title" value="Third" />
+	<property name="description" value="Something more" />
+	<property name="price" value="328.0" />
+	<property name="trip"><null/></property>
+	</bean>
+	
 							<!-- TAG -->
 	
 	<!-- TAG1 -->

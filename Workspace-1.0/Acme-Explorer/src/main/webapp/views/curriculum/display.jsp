@@ -32,10 +32,10 @@
 		sortable="true" />
 
 	<security:authorize access="hasRole('RANGER')">
-		<spring:message code="curriculum.edit" />
+		<spring:message code="curriculum.delete" />
 		<display:column>
-			<a href="curriculum/ranger/edit.do?curriculumId=${row.id}"> <spring:message
-					code="curriculum.edit" /></a>
+			<a href="curriculum/ranger/delete.do?curriculumId=${row.id}"> <spring:message
+					code="curriculum.delete" /></a>
 		</display:column>
 	</security:authorize>
 

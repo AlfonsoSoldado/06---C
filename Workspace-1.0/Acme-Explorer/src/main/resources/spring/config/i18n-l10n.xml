@@ -46,6 +46,7 @@
 		<value>/views/miscellaneousRecord/messages</value>
 		<value>/views/professionalRecord/messages</value>
 		<value>/views/stage/messages</value>
+		<value>/views/tag/messages</value>
 	</util:list>
 
 </beans>

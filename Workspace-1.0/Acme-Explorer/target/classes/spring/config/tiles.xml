@@ -46,6 +46,7 @@
 		<value>/views/miscellaneousRecord/tiles.xml</value>
 		<value>/views/professionalRecord/tiles.xml</value>
 		<value>/views/stage/tiles.xml</value>
+		<value>/views/tag/tiles.xml</value>
 	</util:list>
 
 </beans>

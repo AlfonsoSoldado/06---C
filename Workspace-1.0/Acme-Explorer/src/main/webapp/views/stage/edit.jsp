@@ -19,7 +19,9 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="stage/edit.do" modelAttribute="stage">
+<form:form action="stage/manager/edit.do" modelAttribute="stage">
+	
+	<security:authorize access="hasRole('MANAGER')">
 	
 	<form:label path="title">
 		<spring:message code="stage.title" />:
@@ -63,6 +65,7 @@
 		onclick="javascript: relativeRedir('/');" />
 	<br />
 	
+	</security:authorize>
 </form:form>
 
 

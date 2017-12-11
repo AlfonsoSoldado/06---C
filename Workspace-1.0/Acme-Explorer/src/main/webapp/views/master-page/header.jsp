@@ -28,6 +28,7 @@
 					<li><a href="/category/administrator/edit.do"><spring:message code="master.page.manager.edit.category" /></a></li>
 				</ul>
 			</li>
+			<li><a class="fNiv" href="/tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('MANAGER')">
@@ -52,6 +53,7 @@
 					<li><a href=""><spring:message code="master.page.explorer.survivals" /></a></li>
 					<li><a href="actor/explorer/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 					<li><a href="emergency/explorer/list.do"><spring:message code="master.page.emergency" /></a></li>
+					<li><a href="story/explorer/list.do"><spring:message code="master.page.emergency" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>

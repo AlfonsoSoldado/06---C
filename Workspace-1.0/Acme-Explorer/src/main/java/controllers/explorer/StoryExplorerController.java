@@ -112,10 +112,7 @@ public class StoryExplorerController extends AbstractController{
 		protected ModelAndView createEditModelAndView(final Story story,
 				final String message) {
 			ModelAndView result;
-			final Collection<Explorer> explorer;
-			explorer = this.explorerService.findAll();
 			result = new ModelAndView("story/explorer/edit");
-			result.addObject("explorer", explorer);
 			result.addObject("story", story);
 			result.addObject("message", message);
 			

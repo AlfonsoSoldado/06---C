@@ -9,7 +9,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -32,7 +31,6 @@ public class Explorer extends Actor {
 	private Collection<Survival> survival;
 	
 	@Valid
-	@NotNull
 	@OneToMany
 	public Collection<Finder> getFinder() {
 		return finder;

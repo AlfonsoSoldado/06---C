@@ -44,7 +44,7 @@ public class TagController extends AbstractController {
 		tags = tagService.findAll();
 		
 		result = new ModelAndView("tag/list");
-		result.addObject("tags", tags);
+		result.addObject("tag", tags);
 		result.addObject("requestURI", "tag/administrator/list.do");
 		
 		return result;

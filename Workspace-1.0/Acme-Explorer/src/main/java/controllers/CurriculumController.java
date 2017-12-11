@@ -23,62 +23,62 @@ import domain.ProfessionalRecord;
 
 @Controller
 @RequestMapping("/curriculum")
-public class CurriculumController {
+public class CurriculumController extends AbstractController {
 
-	//Services -------------------------------------------------------------
-	
-		@Autowired
-		private CurriculumService curriculumService;
-		
-		@Autowired
-		private PersonalRecordService personalRecordService;
-		
-		@Autowired
-		private ProfessionalRecordService professionalRecordService;
-		
-		@Autowired
-		private EducationRecordService educationRecordService;
-		
-		@Autowired
-		private MiscellaneousRecordService miscellaneousRecordService;
-		
-		@Autowired
-		private EndorserRecordService endorserRecordService;
-		
-		//Constructors ---------------------------------------------------------
-		
-		public CurriculumController(){
-			super();
-		}
-	
-		//Listing --------------------------------------------------------------
-		
-		@RequestMapping(value = "/display", method = RequestMethod.GET)
-		public ModelAndView list(){
-			ModelAndView result;
-			Collection<Curriculum> curriculums;
-			Collection<PersonalRecord> personalR;
-			Collection<ProfessionalRecord> professionalR;
-			Collection<EducationRecord> educationR;
-			Collection<MiscellaneousRecord> miscellaneousR;
-			Collection<EndorserRecord> endorserR;
-			
-			curriculums = curriculumService.findAll();
-			personalR = personalRecordService.findAll();
-			professionalR = professionalRecordService.findAll();
-			educationR = educationRecordService.findAll();
-			miscellaneousR = miscellaneousRecordService.findAll();
-			endorserR = endorserRecordService.findAll();
-			
-			result = new ModelAndView("curriculum/display");
-			result.addObject("curriculum", curriculums);
-			result.addObject("personalRecord", personalR);
-			result.addObject("professionalRecord", professionalR);
-			result.addObject("educationRecord", educationR);
-			result.addObject("miscellaneousRecord", miscellaneousR);
-			result.addObject("endorserRecord", endorserR);
-			result.addObject("requestURI", "curriculum/display.do");
-			
-			return result;
-		}
+	// Services -------------------------------------------------------------
+
+	@Autowired
+	private CurriculumService curriculumService;
+
+	@Autowired
+	private PersonalRecordService personalRecordService;
+
+	@Autowired
+	private ProfessionalRecordService professionalRecordService;
+
+	@Autowired
+	private EducationRecordService educationRecordService;
+
+	@Autowired
+	private MiscellaneousRecordService miscellaneousRecordService;
+
+	@Autowired
+	private EndorserRecordService endorserRecordService;
+
+	// Constructors ---------------------------------------------------------
+
+	public CurriculumController() {
+		super();
+	}
+
+	// Listing --------------------------------------------------------------
+
+	@RequestMapping(value = "/display", method = RequestMethod.GET)
+	public ModelAndView list() {
+		ModelAndView result;
+		Collection<Curriculum> curriculums;
+		Collection<PersonalRecord> personalR;
+		Collection<ProfessionalRecord> professionalR;
+		Collection<EducationRecord> educationR;
+		Collection<MiscellaneousRecord> miscellaneousR;
+		Collection<EndorserRecord> endorserR;
+
+		curriculums = curriculumService.findAll();
+		personalR = personalRecordService.findAll();
+		professionalR = professionalRecordService.findAll();
+		educationR = educationRecordService.findAll();
+		miscellaneousR = miscellaneousRecordService.findAll();
+		endorserR = endorserRecordService.findAll();
+
+		result = new ModelAndView("curriculum/display");
+		result.addObject("curriculum", curriculums);
+		result.addObject("personalRecord", personalR);
+		result.addObject("professionalRecord", professionalR);
+		result.addObject("educationRecord", educationR);
+		result.addObject("miscellaneousRecord", miscellaneousR);
+		result.addObject("endorserRecord", endorserR);
+		result.addObject("requestURI", "curriculum/display.do");
+
+		return result;
+	}
 }

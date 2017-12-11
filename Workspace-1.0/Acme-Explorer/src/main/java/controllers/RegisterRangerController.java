@@ -9,52 +9,52 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.ExplorerService;
+import services.RangerService;
 import domain.Emergency;
-import domain.Explorer;
+import domain.Ranger;
 
 @Controller
-@RequestMapping("/explorer")
-public class RegisterExplorerController extends AbstractController {
+@RequestMapping("/ranger")
+public class RegisterRangerController extends AbstractController {
 
 	// Services -------------------------------------------------------------
 	
 	@Autowired
-	private ExplorerService explorerService;
+	private RangerService rangerService;
 
 
 	// Constructors ---------------------------------------------------------
 
-	public RegisterExplorerController() {
+	public RegisterRangerController() {
 		super();
 	}
 	
 	// Registering ----------------------------------------------------------
 	
-	@RequestMapping(value = "/register_Explorer", method = RequestMethod.GET)
+	@RequestMapping(value = "/register_Ranger", method = RequestMethod.GET)
 	public ModelAndView create(){
 		ModelAndView res;
-		Explorer explorer;
+		Ranger ranger;
 		
-		explorer = this.explorerService.create();
-		res = this.createEditModelAndView(explorer);
+		ranger = this.rangerService.create();
+		res = this.createEditModelAndView(ranger);
 		
 		return res;
 	}
 	
-	@RequestMapping(value = "/register_Explorer", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Explorer explorer,
+	@RequestMapping(value = "/register_Ranger", method = RequestMethod.POST, params = "save")
+	public ModelAndView save(@Valid final Ranger ranger,
 			final BindingResult binding){
 		ModelAndView res;
 		
 		if(binding.hasErrors())
-			res = this.createEditModelAndView(explorer, "actor.params.error");
+			res = this.createEditModelAndView(ranger, "actor.params.error");
 		else
 			try{
-				this.explorerService.save(explorer);
+				this.rangerService.save(ranger);
 				res = new ModelAndView("redirect:../../");
 			}catch (final Throwable oops) {
-				res = this.createEditModelAndView(explorer, "actor.commit.error");
+				res = this.createEditModelAndView(ranger, "actor.commit.error");
 			}
 		
 		return res;
@@ -62,20 +62,20 @@ public class RegisterExplorerController extends AbstractController {
 	
 	// Ancillary methods --------------------------------------------------
 	
-		protected ModelAndView createEditModelAndView(final Explorer explorer) {
+		protected ModelAndView createEditModelAndView(final Ranger ranger) {
 			ModelAndView result;
 
-			result = this.createEditModelAndView(explorer, null);
+			result = this.createEditModelAndView(ranger, null);
 
 			return result;
 		}
 		
-		protected ModelAndView createEditModelAndView(final Explorer explorer,
+		protected ModelAndView createEditModelAndView(final Ranger ranger,
 				final String message) {
 			ModelAndView result;
 
-			result = new ModelAndView("explorer/register_Explorer");
-			result.addObject("explorer", explorer);
+			result = new ModelAndView("ranger/register_Ranger");
+			result.addObject("ranger", ranger);
 			result.addObject("message", message);
 			
 			return result;

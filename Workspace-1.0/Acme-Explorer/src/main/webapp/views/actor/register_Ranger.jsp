@@ -19,8 +19,8 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 
-<form:form id="form" action="actor/register_Ranger.do"
-	modelAttribute="actor">
+<form:form action="actor/register_Ranger.do"
+	modelAttribute="ranger">
 
 	<form:hidden path="Folders" />
 	<form:hidden path="received" />

@@ -2,10 +2,15 @@ package controllers.explorer;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ExplorerService;
@@ -50,7 +55,49 @@ public class StoryExplorerController extends AbstractController{
 			
 		}
 		
+	// Creation ---------------------------------------------------------------
 		
+		@RequestMapping(value = "/edit", method = RequestMethod.GET)
+		public ModelAndView edit(@RequestParam final int storyId){
+			ModelAndView result;
+			Story story;
+			
+			story = storyService.findOne(storyId);
+			Assert.notNull(story);
+			result = this.createEditModelAndView(story);
+			
+			return result;
+		}
+		
+		
+		@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
+		public ModelAndView save(@Valid final Story story,
+				final BindingResult binding){
+			ModelAndView res;
+			
+			if(binding.hasErrors())
+				res = this.createEditModelAndView(story, "emergency.commit.error");
+			else
+				try{
+					this.storyService.save(story);
+					res = new ModelAndView("redirect:list.do");
+				}catch (final Throwable oops) {
+					res = this.createEditModelAndView(story, "story.commit.error");
+				}
+			
+			return res;
+		}
+		
+		@RequestMapping(value = "/create", method = RequestMethod.GET)
+		public ModelAndView create(){
+			ModelAndView res;
+			Story story;
+			
+			story = this.storyService.create();
+			res = this.createEditModelAndView(story);
+			
+			return res;
+		}
 		
 	// Ancillary methods --------------------------------------------------
 		

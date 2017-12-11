@@ -44,11 +44,13 @@
 		<security:intercept-url pattern="/actor/explorer/edit.do" access="hasRole('EXPLORER')" />
 		<security:intercept-url pattern="/finder/explorer/search.do" access="hasRole('EXPLORER')" />
 		<security:intercept-url pattern="/emergency/explorer/**" access="hasRole('EXPLORER')" />
+		<security:intercept-url pattern="/story/explorer/**" access="hasRole('EXPLORER')" />
 		
 		<security:intercept-url pattern="/category/list.do" access="permitAll" />
 		
 		<security:intercept-url pattern="/actor/register_Explorer.do" access="permitAll" />
 		<security:intercept-url pattern="/actor/register_Ranger.do" access="permitAll" />
+		<security:intercept-url pattern="/explorer/register_Explorer.do" access="permitAll" />
 		
 		<security:intercept-url pattern="/audit/auditor/**" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/audit/list.do" access="permitAll" />
@@ -62,6 +64,7 @@
 		
 		<security:intercept-url pattern="/category/administrator/**" access="hasRole('ADMIN')" /> 
 		<security:intercept-url pattern="/administrator/list.do" access="hasRole('ADMIN')" /> 
+		<security:intercept-url pattern="/tag/administrator/list.do" access="hasRole('ADMIN')" /> 
 		
 		<security:intercept-url pattern="/actor/sponsor/edit.do" access="hasRole('SPONSOR')" />
 		<security:intercept-url pattern="/sponsorship/sponsor/**" access="hasRole('SPONSOR')" />
@@ -70,6 +73,7 @@
 		<security:intercept-url pattern="/curriculum/ranger/**" access="hasRole('RANGER')" />
 		<security:intercept-url pattern="/personalRecord/ranger/**" access="hasRole('RANGER')" />
 		<security:intercept-url pattern="/educationRecord/ranger/**" access="hasRole('RANGER')" />
+		<security:intercept-url pattern="/endorserRecord/ranger/**" access="hasRole('RANGER')" />
 	
 		<security:intercept-url pattern="/folder/**" access="isAuthenticated()" />
 		<security:intercept-url pattern="/message/**" access="isAuthenticated()" />

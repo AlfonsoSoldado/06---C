@@ -41,6 +41,7 @@
 		<value>/views/personalRecord/tiles.xml</value>
 		<value>/views/emergency/tiles.xml</value>
 		<value>/views/educationRecord/tiles.xml</value>
+		<value>/views/endorserRecord/tiles.xml</value>
 	</util:list>
 
 </beans>

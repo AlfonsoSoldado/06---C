@@ -34,12 +34,12 @@ public class StageController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list(){
 		ModelAndView res;
-		Collection<Stage> stages;
+		Collection<Stage> stage;
 		
-		stages = stageService.findAll();
+		stage = stageService.findAll();
 		
 		res = new ModelAndView("stage/list");
-		res.addObject("stages", stages);
+		res.addObject("stage", stage);
 		res.addObject("requestURI", "stage/list.do");
 		
 		return res;

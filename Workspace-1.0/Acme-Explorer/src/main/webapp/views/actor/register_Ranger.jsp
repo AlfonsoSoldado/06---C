@@ -19,8 +19,8 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 
-<form:form id="form" action="actor/register_Ranger.do"
-	modelAttribute="actor">
+<form:form action="ranger/register_Ranger.do"
+	modelAttribute="ranger">
 
 	<form:hidden path="Folders" />
 	<form:hidden path="received" />
@@ -82,7 +82,7 @@
 	<br />
 
 	<input type="submit" name="save"
-		value="<spring:message code="actor.save" />" />;
+		value="<spring:message code="actor.save" />" />
 
 	<input type="button" name="cancel"
 		value="<spring:message code="actor.cancel" />"

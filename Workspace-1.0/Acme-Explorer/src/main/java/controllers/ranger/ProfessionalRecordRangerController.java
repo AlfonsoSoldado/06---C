@@ -11,33 +11,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.EndorserRecordService;
+import services.ProfessionalRecordService;
 import controllers.AbstractController;
-import domain.EndorserRecord;
+import domain.ProfessionalRecord;
 
 @Controller
-@RequestMapping("/endorserRecord/ranger")
-public class EndorserRecordRangerController extends AbstractController {
+@RequestMapping("/professionalRecord/ranger")
+public class ProfessionalRecordRangerController extends AbstractController {
 
 	// Services -------------------------------------------------------------
 
 	@Autowired
-	private EndorserRecordService endorserRecordService;
+	private ProfessionalRecordService professionalRecordService;
 
 	// Constructors ---------------------------------------------------------
 
-	public EndorserRecordRangerController() {
+	public ProfessionalRecordRangerController() {
 		super();
 	}
 
 	// Editing --------------------------------------------------------------
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int endorserRecordId) {
+	public ModelAndView edit(@RequestParam final int professionalRecordId) {
 		ModelAndView result;
-		EndorserRecord t;
+		ProfessionalRecord t;
 
-		t = endorserRecordService.findOne(endorserRecordId);
+		t = professionalRecordService.findOne(professionalRecordId);
 		Assert.notNull(t);
 		result = this.createEditModelAndView(t);
 
@@ -45,34 +45,34 @@ public class EndorserRecordRangerController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid EndorserRecord endorserRecord, BindingResult binding) {
+	public ModelAndView save(@Valid ProfessionalRecord professionalRecord, BindingResult binding) {
 		ModelAndView res;
 
 		if (binding.hasErrors()) {
-			res = this.createEditModelAndView(endorserRecord,
-					"endorserRecord.params.error");
+			res = this.createEditModelAndView(professionalRecord,
+					"professionalRecord.params.error");
 		} else
 			try {
-				this.endorserRecordService.save(endorserRecord);
+				this.professionalRecordService.save(professionalRecord);
 				res = new ModelAndView("redirect:../../curriculum/display.do");
 			} catch (final Throwable oops) {
-				res = this.createEditModelAndView(endorserRecord,
-						"endorserRecord.commit.error");
+				res = this.createEditModelAndView(professionalRecord,
+						"professionalRecord.commit.error");
 			}
 
 		return res;
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(EndorserRecord endorserRecord, BindingResult binding) {
+	public ModelAndView delete(ProfessionalRecord professionalRecord, BindingResult binding) {
 		ModelAndView res;
 
 		try {
-			this.endorserRecordService.delete(endorserRecord);
+			this.professionalRecordService.delete(professionalRecord);
 			res = new ModelAndView("redirect:../../curriculum/display.do");
 		} catch (final Throwable oops) {
-			res = this.createEditModelAndView(endorserRecord,
-					"endorserRecord.commit.error");
+			res = this.createEditModelAndView(professionalRecord,
+					"professionalRecord.commit.error");
 		}
 
 		return res;
@@ -83,9 +83,9 @@ public class EndorserRecordRangerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
 		ModelAndView result;
-		EndorserRecord t;
+		ProfessionalRecord t;
 
-		t = this.endorserRecordService.create();
+		t = this.professionalRecordService.create();
 		result = this.createEditModelAndView(t);
 
 		return result;
@@ -93,17 +93,17 @@ public class EndorserRecordRangerController extends AbstractController {
 
 	// Ancillary methods --------------------------------------------------
 
-	protected ModelAndView createEditModelAndView(final EndorserRecord endorserRecord) {
+	protected ModelAndView createEditModelAndView(final ProfessionalRecord professionalRecord) {
 		ModelAndView result;
-		result = this.createEditModelAndView(endorserRecord, null);
+		result = this.createEditModelAndView(professionalRecord, null);
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final EndorserRecord endorserRecord,
+	protected ModelAndView createEditModelAndView(final ProfessionalRecord professionalRecord,
 			final String message) {
 		ModelAndView result;
-		result = new ModelAndView("endorserRecord/edit");
-		result.addObject("endorserRecord", endorserRecord);
+		result = new ModelAndView("professionalRecord/edit");
+		result.addObject("professionalRecord", professionalRecord);
 		result.addObject("message", message);
 		return result;
 	}

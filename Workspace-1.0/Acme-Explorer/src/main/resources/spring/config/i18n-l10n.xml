@@ -42,7 +42,13 @@
 		<value>/views/emergency/messages</value>
 		<value>/views/educationRecord/messages</value>
 		<value>/views/endorserRecord/messages</value>
+<<<<<<< HEAD
 		<value>/views/story/messages</value>
+=======
+		<value>/views/miscellaneousRecord/messages</value>
+		<value>/views/professionalRecord/messages</value>
+		<value>/views/stage/messages</value>
+>>>>>>> 2fc469e09fb65ed96b43e3bd4d351cb9d0fbc136
 	</util:list>
 
 </beans>

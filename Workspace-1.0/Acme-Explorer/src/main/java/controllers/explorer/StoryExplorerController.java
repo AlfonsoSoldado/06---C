@@ -76,7 +76,7 @@ public class StoryExplorerController extends AbstractController{
 			ModelAndView res;
 			
 			if(binding.hasErrors())
-				res = this.createEditModelAndView(story, "emergency.commit.error");
+				res = this.createEditModelAndView(story, "story.commit.error");
 			else
 				try{
 					this.storyService.save(story);

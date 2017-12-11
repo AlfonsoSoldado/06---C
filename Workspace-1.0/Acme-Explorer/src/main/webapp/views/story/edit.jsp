@@ -19,7 +19,7 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="story/edit.do" modelAttribute="story">
+<form:form action="story/explorer/edit.do" modelAttribute="story">
 	
 <security:authorize access="hasRole('EXPLORER')">
 	
@@ -60,11 +60,11 @@
 
 	
 	<input type="submit" name="create"
-		value="<spring:message code="story.create" />" />&nbsp; 
+		value="<spring:message code="story.edit" />" />&nbsp; 
 	<jstl:if test="${note.id != 0}">
 		<input type="submit" name="create"
-			value="<spring:message code="story.create" />"
-			onclick="return confirm('<spring:message code="story.confirm.delete" />')" />&nbsp;
+			value="<spring:message code="story.edit" />"
+			onclick="return confirm('<spring:message code="story.delete" />')" />&nbsp;
 	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="story.cancel" />"

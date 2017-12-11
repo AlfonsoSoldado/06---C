@@ -22,7 +22,7 @@
 <!-- Listing grid -->
 <security:authorize access="hasRole('EXPLORER')">
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="storyExplorer" requestURI="story/explorer/list.do" id="row">
+	name="story" requestURI="story/explorer/list.do" id="row">
 	
 	<!-- Attributes -->
 	
@@ -48,7 +48,7 @@
 	
 	<div>
 		<a href="story/explorer/edit.do"> <spring:message
-				code="audit.create" />
+				code="story.edit" />
 		</a>
 	</div>
 	

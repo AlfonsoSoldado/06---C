@@ -114,7 +114,7 @@ public class CategoryAdministratorController extends AbstractController {
 		ModelAndView result;
 		Collection<Category> categories;
 		Collection<Trip> trips;
-		Category categoryChildren;
+		//Category categoryChildren;
 		
 		trips = category.getTrip();
 		//categoryChildren = this.categoryService.getCategoryRoot();

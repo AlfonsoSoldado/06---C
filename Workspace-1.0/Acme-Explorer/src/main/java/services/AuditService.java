@@ -10,9 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.AuditRepository;
-import security.LoginService;
-import security.UserAccount;
-import domain.Actor;
 import domain.Audit;
 import domain.Auditor;
 import domain.Trip;

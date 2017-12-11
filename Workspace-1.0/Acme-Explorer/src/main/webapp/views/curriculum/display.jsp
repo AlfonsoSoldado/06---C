@@ -141,6 +141,14 @@
 <h1><jstl:out value="${professionalRecordHeader}"></jstl:out></h1>
 <display:table name="professionalRecord" class="displaytag" id="row">
 
+	<security:authorize access="hasRole('RANGER')">
+		<spring:message code="curriculum.edit" />
+		<display:column>
+			<a href="professionalRecord/ranger/edit.do?professionalRecordId=${row.id}"> <spring:message
+					code="curriculum.edit" /></a>
+		</display:column>
+	</security:authorize>
+
 	<spring:message code="curriculum.professionalRecord.campanyName" var="companyNameHeader" />
 	<display:column property="companyName" title="${companyNameHeader}"
 		sortable="true" />
@@ -178,6 +186,14 @@
 <spring:message code="curriculum.miscellaneousRecord" var="miscellaneousRecordHeader" />
 <h1><jstl:out value="${miscellaneousRecordHeader}"></jstl:out></h1>
 <display:table name="miscellaneousRecord" class="displaytag" id="row">
+
+	<security:authorize access="hasRole('RANGER')">
+		<spring:message code="curriculum.edit" />
+		<display:column>
+			<a href="miscellaneousRecord/ranger/edit.do?miscellaneousRecordId=${row.id}"> <spring:message
+					code="curriculum.edit" /></a>
+		</display:column>
+	</security:authorize>
 
 	<spring:message code="curriculum.records.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}"

@@ -54,7 +54,7 @@ public class EducationRecordRangerController extends AbstractController {
 		} else
 			try {
 				this.educationRecordService.save(educationRecord);
-				res = new ModelAndView("redirect:list.do");
+				res = new ModelAndView("redirect:../../curriculum/display.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(educationRecord,
 						"educationRecord.commit.error");
@@ -69,7 +69,7 @@ public class EducationRecordRangerController extends AbstractController {
 
 		try {
 			this.educationRecordService.delete(educationRecord);
-			res = new ModelAndView("redirect:list.do");
+			res = new ModelAndView("redirect:../../curriculum/display.do");
 		} catch (final Throwable oops) {
 			res = this.createEditModelAndView(educationRecord,
 					"educationRecord.commit.error");

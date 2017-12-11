@@ -45,8 +45,24 @@
 <h1><jstl:out value="${personalRecordHeader}"></jstl:out></h1>
 <display:table name="personalRecord" class="displaytag" id="row">
 
-	<spring:message code="curriculum.records.title" var="titleHeader" />
-	<display:column property="title" title="${titleHeader}"
+	<spring:message code="curriculum.records.name" var="titleHeader" />
+	<display:column property="name" title="${titleHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.personalRecord.photo" var="photoHeader" />
+	<display:column property="photo" title="${photoHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.personalRecord.email" var="emailHeader" />
+	<display:column property="email" title="${emailHeader}"
+		sortable="true" />
+
+	<spring:message code="curriculum.personalRecord.phoneNumber" var="phoneNumberHeader" />
+	<display:column property="phoneNumber" title="${phoneNumberHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.personalRecord.linkedIn" var="linkedInHeader" />
+	<display:column property="linkedIn" title="${linkedInHeader}"
 		sortable="true" />
 
 </display:table>
@@ -58,6 +74,26 @@
 	<spring:message code="curriculum.records.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}"
 		sortable="true" />
+		
+	<spring:message code="curriculum.educationRecord.start" var="startHeader" />
+	<display:column property="start" title="${startHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.educationRecord.end" var="endHeader" />
+	<display:column property="end" title="${endHeader}"
+		sortable="true" />
+
+	<spring:message code="curriculum.educationRecord.institution" var="institutionNumberHeader" />
+	<display:column property="institutionNumber" title="${institutionHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.educationRecord.link" var="linkHeader" />
+	<display:column property="linkIn" title="${linkHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.educationRecord.comment" var="commentHeader" />
+	<display:column property="comment" title="${commentHeader}"
+		sortable="true" />
 
 </display:table>
 
@@ -65,10 +101,30 @@
 <h1><jstl:out value="${professionalRecordHeader}"></jstl:out></h1>
 <display:table name="professionalRecord" class="displaytag" id="row">
 
-	<spring:message code="curriculum.records.title" var="titleHeader" />
-	<display:column property="title" title="${titleHeader}"
+	<spring:message code="curriculum.professionalRecord.campanyName" var="companyNameHeader" />
+	<display:column property="companyName" title="${companyNameHeader}"
 		sortable="true" />
 
+	<spring:message code="curriculum.professionalRecord.start" var="startHeader" />
+	<display:column property="start" title="${startHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.professionalRecord.end" var="endHeader" />
+	<display:column property="end" title="${endHeader}"
+		sortable="true" />
+
+	<spring:message code="curriculum.professionalRecord.rol" var="rolHeader" />
+	<display:column property="rolNumber" title="${rolHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.professionalRecord.link" var="linkHeader" />
+	<display:column property="linkIn" title="${linkHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.professionalRecord.comment" var="commentHeader" />
+	<display:column property="comment" title="${commentHeader}"
+		sortable="true" />
+	
 </display:table>
 
 <spring:message code="curriculum.miscellaneousRecord" var="miscellaneousRecordHeader" />
@@ -78,6 +134,14 @@
 	<spring:message code="curriculum.records.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}"
 		sortable="true" />
+		
+	<spring:message code="curriculum.miscellaneousRecord.link" var="linkHeader" />
+	<display:column property="linkIn" title="${linkHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.miscellaneousRecord.comment" var="commentHeader" />
+	<display:column property="comment" title="${commentHeader}"
+		sortable="true" />
 
 </display:table>
 
@@ -85,8 +149,24 @@
 <h1><jstl:out value="${endorserRecordHeader}"></jstl:out></h1>
 <display:table name="endorserRecord" class="displaytag" id="row">
 
-	<spring:message code="curriculum.records.title" var="titleHeader" />
-	<display:column property="title" title="${titleHeader}"
+	<spring:message code="curriculum.endorserRecord.endorserName" var="endorserNameHeader" />
+	<display:column property="endorserName" title="${endorserNameHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.endorserRecord.email" var="emailHeader" />
+	<display:column property="email" title="${emailHeader}"
+		sortable="true" />
+
+	<spring:message code="curriculum.endorserRecord.phoneNumber" var="phoneNumberHeader" />
+	<display:column property="phoneNumber" title="${phoneNumberHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.endorserRecord.linkedIn" var="linkedInHeader" />
+	<display:column property="linkedIn" title="${linkedInHeader}"
+		sortable="true" />
+		
+	<spring:message code="curriculum.endorserRecord.comment" var="commentHeader" />
+	<display:column property="comment" title="${commentHeader}"
 		sortable="true" />
 
 </display:table>

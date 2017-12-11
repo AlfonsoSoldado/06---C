@@ -24,7 +24,6 @@
 		<value>/views/welcome/tiles.xml</value>
 		
 		<value>/views/administrator/tiles.xml</value>
-		<value>/views/customer/tiles.xml</value>
 		<value>/views/profile/tiles.xml</value>
 		
 		<value>/views/application/tiles.xml</value>
@@ -39,6 +38,8 @@
 		<value>/views/sponsorship/tiles.xml</value>
 		<value>/views/survival/tiles.xml</value>
 		<value>/views/curriculum/tiles.xml</value>
+		<value>/views/personalRecord/tiles.xml</value>
+		<value>/views/emergency/tiles.xml</value>
 	</util:list>
 
 </beans>

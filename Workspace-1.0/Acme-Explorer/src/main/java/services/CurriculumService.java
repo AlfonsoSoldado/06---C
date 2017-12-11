@@ -79,7 +79,7 @@ public class CurriculumService {
 	}
 	
 	public Curriculum save(Curriculum curriculum) {
-		rangerService.checkAuthority();
+		//rangerService.checkAuthority();
 		
 		Ranger ranger;
 		ranger = this.rangerService.findByPrincipal();
@@ -96,7 +96,7 @@ public class CurriculumService {
 	}
 	
 	public void delete(Curriculum curriculum) {
-		rangerService.checkAuthority();
+		//rangerService.checkAuthority();
 		
 		Assert.notNull(curriculum);
 		Assert.isTrue(curriculum.getId() != 0);

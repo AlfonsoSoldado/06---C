@@ -1,5 +1,7 @@
 package controllers.ranger;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -25,6 +27,25 @@ public class CurriculumRangerController extends AbstractController {
 	public CurriculumRangerController() {
 		super();
 	}
+	
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
+	public ModelAndView save(@Valid Curriculum curriculum, BindingResult binding) {
+		ModelAndView res;
+
+		if (binding.hasErrors()) {
+			res = this.createEditModelAndView(curriculum,
+					"curriculum.params.error");
+		} else
+			try {
+				this.curriculumService.save(curriculum);
+				res = new ModelAndView("redirect:list.do");
+			} catch (final Throwable oops) {
+				res = this.createEditModelAndView(curriculum,
+						"curriculum.commit.error");
+			}
+
+		return res;
+	}
 
 	// Deleting -------------------------------------------------------------
 
@@ -34,7 +55,7 @@ public class CurriculumRangerController extends AbstractController {
 
 		try {
 			this.curriculumService.delete(curriculum);
-			res = new ModelAndView("redirect:list.do");
+			res = new ModelAndView("redirect:display.do");
 		} catch (final Throwable oops) {
 			res = this.createEditModelAndView(curriculum,
 					"curriculum.commit.error");

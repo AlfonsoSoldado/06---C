@@ -24,3 +24,5 @@ Sponsorship. FUnciona el edit. Falta el create y el delete.
 Survival. FUnciona el edit. Falta el create y el delete. (Falta lo de explorer)
 
 No he tenido cojones de sacar el puto registerExplorer y registerRanger...
+
+Curriculum: Falta los records y que funcione el save, delete y create

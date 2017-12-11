@@ -40,6 +40,7 @@
 		<value>/views/curriculum/messages</value>
 		<value>/views/personalRecord/messages</value>
 		<value>/views/emergency/messages</value>
+		<value>/views/educationRecord/messages</value>
 	</util:list>
 
 </beans>

@@ -47,6 +47,9 @@
 		
 		<security:intercept-url pattern="/category/list.do" access="permitAll" />
 		
+		<security:intercept-url pattern="/actor/register_Explorer.do" access="permitAll" />
+		<security:intercept-url pattern="/actor/register_Ranger.do" access="permitAll" />
+		
 		<security:intercept-url pattern="/audit/auditor/**" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/audit/list.do" access="permitAll" />
 		<security:intercept-url pattern="/note/auditor/**" access="hasRole('AUDITOR')" />
@@ -66,6 +69,7 @@
 		<security:intercept-url pattern="/actor/ranger/edit.do" access="hasRole('RANGER')" />
 		<security:intercept-url pattern="/curriculum/ranger/**" access="hasRole('RANGER')" />
 		<security:intercept-url pattern="/personalRecord/ranger/**" access="hasRole('RANGER')" />
+		<security:intercept-url pattern="/educationRecord/ranger/**" access="hasRole('RANGER')" />
 	
 		<security:intercept-url pattern="/folder/**" access="isAuthenticated()" />
 		<security:intercept-url pattern="/message/**" access="isAuthenticated()" />

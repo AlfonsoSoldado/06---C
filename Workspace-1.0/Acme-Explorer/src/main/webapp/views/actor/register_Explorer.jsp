@@ -19,7 +19,7 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 
-<form:form id="form" action="actor/register_Explorer.do" modelAttribute="actor">
+<form:form action="actor/register_Explorer.do" modelAttribute="actor">
 
 	<form:hidden path="Folders" />
 	<form:hidden path="received" />

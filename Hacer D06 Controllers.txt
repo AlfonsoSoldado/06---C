@@ -1,7 +1,9 @@
-Falta vista y controlador: curriculum, todos los Record, 
-stage, emergency, story, ¿socialId?, ¿value?
+Falta vista y controlador: ¿socialId?, ¿value?
 
 Falta controlador: Tag, administrator, legalText
+
+
+Explorer domain: Quitar @NotNull y Collection de finder (Cambiar populate)
 
 
 

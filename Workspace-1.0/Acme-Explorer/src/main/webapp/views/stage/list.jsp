@@ -47,7 +47,7 @@
 	<display:column property="price" title="${priceHeader}" sortable="true" />
 	
 	<spring:message code="stage.trip" var="tripHeader" />
-	<display:column property="trip" title="${tripHeader}" sortable="true" />
+	<display:column property="trip.title" title="${tripHeader}" sortable="true" />
 	
 </display:table>
 

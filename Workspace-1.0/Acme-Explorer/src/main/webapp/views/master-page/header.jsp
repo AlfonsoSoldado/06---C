@@ -85,6 +85,7 @@
 						<li><a href="actor/ranger/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 				</ul>
 			</li>
+			<li><a href="curriculum/display.do"><spring:message code="master.page.curriculum" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="isAnonymous()">

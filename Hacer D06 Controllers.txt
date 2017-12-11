@@ -3,8 +3,6 @@ Falta vista y controlador: ¿socialId?, ¿value?
 Falta controlador: Tag, administrator, legalText
 
 
-Explorer domain: Quitar @NotNull y Collection de finder (Cambiar populate)
-
 
 
 Application funciona. Falta hacer el list de manager en controladores y sus edit.

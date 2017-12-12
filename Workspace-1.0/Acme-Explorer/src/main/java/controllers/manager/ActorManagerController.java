@@ -45,10 +45,9 @@ public class ActorManagerController extends AbstractController {
 	public ModelAndView save(@Valid final Manager manager,
 			final BindingResult binding) {
 		ModelAndView res;
-
-//		if (binding.hasErrors())
-//			res = this.createEditModelAndView(manager, "actor.params.error");
-//		else
+		if (binding.hasErrors())
+			res = this.createEditModelAndView(manager, "actor.params.error");
+		else
 			try {
 				this.managerService.save(manager);
 				res = new ModelAndView("redirect:../../");

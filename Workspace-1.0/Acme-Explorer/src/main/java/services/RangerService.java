@@ -81,6 +81,10 @@ public class RangerService {
 	public Ranger save(Ranger ranger) {
 		Assert.notNull(ranger);
 		Ranger res;
+		
+		Ranger r = findByPrincipal();
+		ranger.setReceived(r.getReceived());
+		
 		res = this.rangerRepository.save(ranger);
 		return res;
 	}

@@ -75,6 +75,10 @@ public class AdministratorService {
 		checkAuthority();
 		Assert.notNull(administrator);
 		Administrator res;
+		
+		Administrator a = findByPrincipal();
+		administrator.setReceived(a.getReceived());
+		
 		res = this.administratorRepository.save(administrator);
 		return res;
 	}

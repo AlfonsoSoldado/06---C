@@ -30,7 +30,7 @@
 	<form:hidden path="emergency" />
 	<form:hidden path="stories" />
 	<form:hidden path="application" />
-	<form:hidden path="survival" />
+<%-- 	<form:hidden path="survival" /> --%>
 	</security:authorize>
 	
 	<security:authorize access="hasRole('SPONSOR')">
@@ -48,7 +48,6 @@
 	<form:hidden path="suspicious" />
 	
 	<form:hidden path="application" />
-	<form:hidden path="survival" />
 	<form:hidden path="trip" />
 	</security:authorize>
 	
@@ -59,7 +58,6 @@
 	<form:hidden path="userAccount.authorities"/>
 	<form:hidden path="folders"/>
 	<form:hidden path="sent" />
-<%-- 	<form:hidden path="received" /> --%>
 	<form:hidden path="socialId"/>
 
 	<form:label path="name">

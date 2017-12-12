@@ -88,6 +88,11 @@ public class ExplorerService {
 	public Explorer save(Explorer explorer) {
 		Assert.notNull(explorer);
 		Explorer res;
+		
+		Explorer e = findByPrincipal();
+		explorer.setReceived(e.getReceived());
+		explorer.setSurvival(e.getSurvival());
+		
 		res = this.explorerRepository.save(explorer);
 		return res;
 	}

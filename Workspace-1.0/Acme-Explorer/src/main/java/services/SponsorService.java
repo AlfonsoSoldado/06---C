@@ -74,6 +74,10 @@ public class SponsorService {
 	public Sponsor save(Sponsor sponsor) {
 		Assert.notNull(sponsor);
 		Sponsor res;
+		
+		Sponsor s = findByPrincipal();
+		sponsor.setReceived(s.getReceived());
+		
 		res = this.sponsorRepository.save(sponsor);
 		return res;
 	}

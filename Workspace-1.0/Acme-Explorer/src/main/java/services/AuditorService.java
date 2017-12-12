@@ -79,6 +79,10 @@ public class AuditorService {
 	public Auditor save(Auditor auditor) {
 		Assert.notNull(auditor);
 		Auditor res;
+		
+		Auditor a = findByPrincipal();
+		auditor.setReceived(a.getReceived());
+		
 		res = this.auditorRepository.save(auditor);
 		return res;
 	}

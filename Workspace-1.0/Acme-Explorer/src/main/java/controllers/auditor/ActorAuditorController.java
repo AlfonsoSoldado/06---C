@@ -4,7 +4,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,10 +45,9 @@ public class ActorAuditorController extends AbstractController {
 	public ModelAndView save(@Valid final Auditor auditor,
 			final BindingResult binding) {
 		ModelAndView res;
-
-//		if (binding.hasErrors())
-//			res = this.createEditModelAndView(auditor, "actor.params.error");
-//		else
+		if (binding.hasErrors())
+			res = this.createEditModelAndView(auditor, "actor.params.error");
+		else
 			try {
 				this.auditorService.save(auditor);
 				res = new ModelAndView("redirect:../../");

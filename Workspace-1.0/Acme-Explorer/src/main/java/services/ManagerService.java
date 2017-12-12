@@ -88,6 +88,11 @@ public class ManagerService {
 	public Manager save(Manager manager) {
 		Assert.notNull(manager);
 		Manager res;
+		
+		Manager m = findByPrincipal();
+		manager.setReceived(m.getReceived());
+		manager.setSurvival(m.getSurvival());
+		
 		res = this.managerRepository.save(manager);
 		return res;
 	}

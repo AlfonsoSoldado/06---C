@@ -4,15 +4,13 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.SponsorService;
 import controllers.AbstractController;
-
-import services.ActorService;
 import domain.Sponsor;
 
 @Controller
@@ -22,7 +20,7 @@ public class ActorSponsorController extends AbstractController {
 	// Services -------------------------------------------------------------
 
 	@Autowired
-	private ActorService actorService;
+	private SponsorService sponsorService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -37,8 +35,7 @@ public class ActorSponsorController extends AbstractController {
 		ModelAndView result;
 		Sponsor sponsor;
 
-		sponsor = (Sponsor) this.actorService.findByPrincipal();
-		Assert.notNull(sponsor);
+		sponsor = this.sponsorService.findByPrincipal();
 		result = this.createEditModelAndView(sponsor);
 
 		return result;
@@ -49,12 +46,12 @@ public class ActorSponsorController extends AbstractController {
 			final BindingResult binding) {
 		ModelAndView res;
 
-		if (binding.hasErrors())
-			res = this.createEditModelAndView(sponsor, "actor.params.error");
-		else
+//		if (binding.hasErrors())
+//			res = this.createEditModelAndView(sponsor, "actor.params.error");
+//		else
 			try {
-				this.actorService.save(sponsor);
-				res = new ModelAndView("redirect:index.do");
+				this.sponsorService.save(sponsor);
+				res = new ModelAndView("redirect:../../");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(sponsor, "actor.commit.error");
 			}

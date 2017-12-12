@@ -26,6 +26,7 @@
 					<li class="arrow"></li>
 					<li><a href="category/administrator/create.do"><spring:message code="master.page.manager.create.category" /></a></li>
 					<li><a href="category/administrator/edit.do"><spring:message code="master.page.manager.edit.category" /></a></li>
+					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 				</ul>
 			</li>
 			<li><a class="fNiv" href="tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
@@ -35,56 +36,59 @@
 			<li><a class="fNiv"><spring:message	code="master.page.manager" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="trip/manager/create.do"><spring:message code="master.page.manager.create.trip" /></a></li>
-					<li><a href=""><spring:message code="master.page.manager.notes" /></a></li>
-					<li><a href=""><spring:message code="master.page.manager.applications" /></a></li>
-					<li><a href="survival/manager/list.do"><spring:message code="master.page.manager.survivals" /></a></li>	
-					<li><a href="actor/manager/edit.do"><spring:message code="master.page.actorEdit" /></a></li>			
+					<li><a href="actor/manager/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
+					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>			
 				</ul>
 			</li>
+			<li><a href="trip/manager/create.do"><spring:message code="master.page.manager.create.trip" /></a></li>
+			<li><a href=""><spring:message code="master.page.manager.notes" /></a></li>
+			<li><a href=""><spring:message code="master.page.manager.applications" /></a></li>
+			<li><a href="survival/manager/list.do"><spring:message code="master.page.manager.survivals" /></a></li>	
 		</security:authorize>
 		
 		<security:authorize access="hasRole('EXPLORER')">
 			<li><a class="fNiv"><spring:message	code="master.page.explorer" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href=""><spring:message code="master.page.explorer.create.application" /></a></li>				
-					<li><a href="application/explorer/list.do"><spring:message code="master.page.explorer.applications" /></a></li>
-					<li><a href=""><spring:message code="master.page.explorer.survivals" /></a></li>
 					<li><a href="actor/explorer/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
-					<li><a href="emergency/explorer/list.do"><spring:message code="master.page.emergency" /></a></li>
-					<li><a href="story/explorer/list.do"><spring:message code="master.page.story" /></a></li>
+					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 				</ul>
 			</li>
+			<li><a href="application/explorer/list.do"><spring:message code="master.page.explorer.applications" /></a></li>
+			<li><a href=""><spring:message code="master.page.explorer.survivals" /></a></li>
+			<li><a href="emergency/explorer/list.do"><spring:message code="master.page.emergency" /></a></li>
+			<li><a href="story/explorer/list.do"><spring:message code="master.page.story" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('AUDITOR')">
 			<li><a class="fNiv"><spring:message	code="master.page.auditor" /></a>
 				<ul>
 					<li class="arrow"></li>
-						<li><a href="audit/auditor/list.do"><spring:message code="master.page.auditor.audits" /></a></li>
-						<li><a href="note/auditor/list.do"><spring:message code="master.page.auditor.notes" /></a></li>
-						<li><a href="actor/auditor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
-						
+					<li><a href="actor/auditor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
+					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 				</ul>
 			</li>
+			<li><a href="audit/auditor/list.do"><spring:message code="master.page.auditor.audits" /></a></li>
+			<li><a href="note/auditor/list.do"><spring:message code="master.page.auditor.notes" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('SPONSOR')">
 			<li><a class="fNiv"><spring:message	code="master.page.sponsor" /></a>
 				<ul>
 					<li class="arrow"></li>
-						<li><a href="sponsorship/sponsor/list.do"><spring:message code="master.page.sponsor.sponsorships" /></a></li>
-						<li><a href="actor/sponsor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
+					<li><a href="actor/sponsor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
+					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 				</ul>
 			</li>
+			<li><a href="sponsorship/sponsor/list.do"><spring:message code="master.page.sponsor.sponsorships" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('RANGER')">
 			<li><a class="fNiv"><spring:message	code="master.page.ranger" /></a>
 				<ul>
 					<li class="arrow"></li>
-						<li><a href="actor/ranger/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
+					<li><a href="actor/ranger/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
+					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 				</ul>
 			</li>
 			<li><a href="curriculum/display.do"><spring:message code="master.page.curriculum" /></a></li>
@@ -109,12 +113,14 @@
 					<spring:message code="master.page.profile" /> 
 			        (<security:authentication property="principal.username" />)
 				</a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /></a></li>
+				</ul>
 			</li>
-			<li><a class="fNiv" href="j_spring_security_logout"><spring:message code="master.page.logout" /></a></li>
 			<li><a class="fNiv" href="trip/list.do"><spring:message code="master.page.trips" /></a></li>
 			<li><a class="fNiv" href="category/list.do"><spring:message code="master.page.categories" /></a></li>
 			<li><a class="fNiv" href="finder/search.do"><spring:message code="master.page.finder" /></a></li>
-			<li><a class="fNiv" href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 		</security:authorize>
 	</ul>
 </div>

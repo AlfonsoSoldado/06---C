@@ -32,8 +32,19 @@ public class FinderController extends AbstractController {
 	
 	// Searching ----------------------------------------------------------------
 	
+	@RequestMapping(value = "/display", method = RequestMethod.GET)
+	public ModelAndView display() {
+		final ModelAndView result;
+		Finder finder;
+		finder = this.finderService.create();
+		//result = this.createEditModelAndView(finder);
+		result = new ModelAndView("finder/display");
+		result.addObject(finder);
+		return result;
+	}
+	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public ModelAndView create() {
+	public ModelAndView search() {
 		final ModelAndView result;
 		Finder finder;
 		finder = this.finderService.create();
@@ -50,7 +61,7 @@ public class FinderController extends AbstractController {
 		else
 			try {
 				this.finderService.findSearchSingleKey(finder.getSingleKey());
-				result = new ModelAndView("redirect:../trip/list.do");
+				result = new ModelAndView("redirect:display.do");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(finder, "finder.commit.error");
 			}

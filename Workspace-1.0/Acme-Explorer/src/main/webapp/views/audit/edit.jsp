@@ -21,6 +21,9 @@
 
 <form:form action="audit/auditor/edit.do" modelAttribute="audit">
 	
+	<form:hidden path="id" />
+	<form:hidden path="version" />
+	
 	<security:authorize access="hasRole('AUDITOR')">
 	
 	<form:hidden path="auditor" />
@@ -48,16 +51,15 @@
 	<form:errors cssClass="error" path="attachment" />
 	<br />
 	
-<%-- 	<form:label path="draftMode">
+ 	<form:label path="draftMode">
 		<spring:message code="audit.draftMode" />:
 	</form:label>
 	<form:select path="draftMode">
-        <form:option value="YES"/>
-        <form:option value="NO"/>
+        <form:option value="true" label="Yes"/>
+        <form:option value="false" label="No"/>
 	</form:select>
-	<form:input path="draftMode" />
 	<form:errors cssClass="error" path="draftMode" />
-	<br /> --%>
+	<br />
 	
 	<form:label path="trip">
 		<spring:message code="audit.trip" />:
@@ -65,7 +67,6 @@
 	<form:select path="trip">
         <form:options items="${trip}" itemLabel="title"/>
 	</form:select>
-	<form:input path="trip" />
 	<form:errors cssClass="error" path="trip" />
 	<br />
 

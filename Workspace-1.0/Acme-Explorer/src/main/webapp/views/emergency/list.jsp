@@ -26,12 +26,6 @@
 	
 	<!-- Attributes -->
 	
-	<spring:message code="emergency.delete"/>
-	<display:column>
-		<a href= "emergency/explorer/delete.do?emergencyId=${row.id}">
-		<spring:message code="emergency.delete"/></a>
-	</display:column>
-	
 	<spring:message code="emergency.edit"/>
 	<display:column>
 		<a href= "emergency/explorer/edit.do?emergencyId=${row.id}">
@@ -50,10 +44,10 @@
 </display:table>
 
 	<div>
-		<button>
-			<a href="emergency/explorer/create.do"> <spring:message
-					code="emergency.create" />
-			</a>
-		</button>
+		<a href="emergency/explorer/create.do">
+			<button>
+				<spring:message code="emergency.create" />
+			</button>
+		</a>
 	</div>
 </security:authorize>

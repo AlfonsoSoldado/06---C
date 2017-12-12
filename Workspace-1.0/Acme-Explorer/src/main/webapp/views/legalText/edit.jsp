@@ -57,6 +57,10 @@
 	<form:label path="draftMode">
 		<spring:message code="legalText.draftMode" />:
 	</form:label>
+	<form:select path="draftMode">
+        <form:option value="1" label="Yes"/>
+        <form:option value="0" label="No"/>
+	</form:select>
 	<form:input path="draftMode" />
 	<form:errors cssClass="error" path="draftMode" />
 	<br />

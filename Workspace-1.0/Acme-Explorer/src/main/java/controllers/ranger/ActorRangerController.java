@@ -46,10 +46,9 @@ public class ActorRangerController extends AbstractController {
 	public ModelAndView save(@Valid final Ranger ranger,
 			final BindingResult binding) {
 		ModelAndView res;
-
-//		if (binding.hasErrors())
-//			res = this.createEditModelAndView(ranger, "actor.params.error");
-//		else
+		if (binding.hasErrors())
+			res = this.createEditModelAndView(ranger, "actor.params.error");
+		else
 			try {
 				this.rangerService.save(ranger);
 				res = new ModelAndView("redirect:../../");

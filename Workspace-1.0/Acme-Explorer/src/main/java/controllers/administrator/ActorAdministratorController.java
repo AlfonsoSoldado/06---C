@@ -45,7 +45,6 @@ public class ActorAdministratorController extends AbstractController {
 	public ModelAndView save(@Valid final Administrator administrator,
 			final BindingResult binding) {
 		ModelAndView res;
-		System.out.println(binding.getFieldError());
 		if (binding.hasErrors())
 			res = this.createEditModelAndView(administrator, "actor.params.error");
 		else

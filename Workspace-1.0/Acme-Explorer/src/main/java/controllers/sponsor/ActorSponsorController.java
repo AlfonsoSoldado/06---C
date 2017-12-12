@@ -45,10 +45,9 @@ public class ActorSponsorController extends AbstractController {
 	public ModelAndView save(@Valid final Sponsor sponsor,
 			final BindingResult binding) {
 		ModelAndView res;
-
-//		if (binding.hasErrors())
-//			res = this.createEditModelAndView(sponsor, "actor.params.error");
-//		else
+		if (binding.hasErrors())
+			res = this.createEditModelAndView(sponsor, "actor.params.error");
+		else
 			try {
 				this.sponsorService.save(sponsor);
 				res = new ModelAndView("redirect:../../");

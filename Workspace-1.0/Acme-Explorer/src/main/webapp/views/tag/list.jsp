@@ -42,4 +42,10 @@
 	<display:column property="name" title="${nameHeader}" sortable="true" />
 	
 </display:table>
+
+<a href="tag/administrator/create.do">
+	<button>
+		<spring:message code="tag.create" />
+	</button>
+</a>
 </security:authorize>

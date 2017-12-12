@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.LegalTextService;
-import services.TripService;
 import controllers.AbstractController;
 import domain.LegalText;
-import domain.Trip;
 
 @Controller
 @RequestMapping("/legalText/administrator")
@@ -28,9 +26,6 @@ public class LegalTextAdministratorController extends AbstractController {
 	@Autowired
 	private LegalTextService legalTextService;
 	
-	@Autowired
-	private TripService tripService;
-
 	// Constructors ---------------------------------------------------------
 
 	public LegalTextAdministratorController() {
@@ -72,16 +67,45 @@ public class LegalTextAdministratorController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors())
-			res = this.createEditModelAndView(legalText, "legalText.commit.error");
+			res = this.createEditModelAndView(legalText, "legalText.params.error");
 		else
 			try {
 				this.legalTextService.save(legalText);
-				res = new ModelAndView("redirect:../administrator/list.do");
+				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(legalText, "legalText.commit.error");
 			}
 
 		return res;
+	}
+	
+	// Deleting ---------------------------------------------------------------
+	
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
+	public ModelAndView delete(LegalText legalText, BindingResult binding) {
+		ModelAndView res;
+
+		try {
+			this.legalTextService.delete(legalText);
+			res = new ModelAndView("redirect:list.do");
+		} catch (final Throwable oops) {
+			res = this.createEditModelAndView(legalText, "legalText.commit.error");
+		}
+
+		return res;
+	}
+	
+	// Creating ---------------------------------------------------------------
+
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+		ModelAndView result;
+		LegalText legalText;
+
+		legalText = this.legalTextService.create();
+		result = this.createEditModelAndView(legalText);
+
+		return result;
 	}
 	
 	// Ancillary methods --------------------------------------------------

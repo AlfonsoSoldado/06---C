@@ -54,4 +54,11 @@
 	<display:column property="draftMode" title="${draftModeHeader}" sortable="true" />
 	
 </display:table>
+
+<a href="legalText/administrator/create.do">
+	<button>
+		<spring:message code="legalText.create" />
+	</button>
+</a>
+
 </security:authorize>

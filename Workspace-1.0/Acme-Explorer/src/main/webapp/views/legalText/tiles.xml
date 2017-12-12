@@ -21,7 +21,7 @@
 		<put-attribute name="body" value="/views/legalText/list.jsp" />
 	</definition>
 	
-	<definition name="legalText/edit" extends="master.page">	
+	<definition name="legalText/administrator/edit" extends="master.page">	
 		<put-attribute name="title" value="Edit legal text" />
 		<put-attribute name="body" value="/views/legalText/edit.jsp" />
 	</definition>

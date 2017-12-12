@@ -26,12 +26,6 @@
 	
 	<!-- Attributes -->
 	
-	<spring:message code="audit.delete"/>
-	<display:column>
-		<a href= "audit/auditor/delete.do?auditId=${row.id}">
-		<spring:message code="audit.delete"/></a>
-	</display:column>
-	
 	<spring:message code="audit.edit"/>
 	<display:column>
 		<a href= "audit/auditor/edit.do?auditId=${row.id}">

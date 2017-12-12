@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import controllers.AbstractController;
-
 import services.AuditService;
 import services.AuditorService;
 import services.TripService;
+import controllers.AbstractController;
 import domain.Audit;
 import domain.Auditor;
 import domain.Trip;
@@ -100,6 +99,22 @@ public class AuditAuditorController extends AbstractController {
 		result = this.createEditModelAndView(audit);
 
 		return result;
+	}
+	
+	// Deleting -------------------------------------------------------------
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
+	public ModelAndView delete(Audit audit, BindingResult binding) {
+		ModelAndView res;
+
+		try {
+			this.auditService.delete(audit);
+			res = new ModelAndView("redirect:../../audit/auditor/list.do");
+		} catch (Throwable oops) {
+			res = createEditModelAndView(audit, "audit.commit.error");
+		}
+
+		return res;
 	}
 
 	// Ancillary methods --------------------------------------------------

@@ -59,13 +59,15 @@
 	<spring:message code="audit.auditor" var="auditorHeader" />
 	<display:column property="auditor.name" title="${auditorHeader}" sortable="true" />
 	
+</display:table>
+
 	<div>
-		<a href="audit/auditor/edit.do"> <spring:message
-				code="audit.create" />
+		<a href="audit/auditor/create.do">
+			<button>
+				<spring:message code="audit.create" />
+			</button>
 		</a>
 	</div>
-	
-</display:table>
 </security:authorize>
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"

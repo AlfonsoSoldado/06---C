@@ -23,7 +23,7 @@
 	<form:hidden path="moment" />
 	<form:hidden path="status" />
 	<form:hidden path="reason" />
-	<form:hidden path="creaditCard" />
+	<form:hidden path="creditCard" />
 	<form:hidden path="manager" />
 	<form:hidden path="explorer" />
 	
@@ -38,9 +38,7 @@
 		<spring:message code="application.trip" />:
 	</form:label>
 	<form:select path="trip">
-		<jstl:forEach var="trip" items=${row.trip }>
-              <form:option value="${trip}">${trip.title}</form:option>
-		</jstl:forEach>
+        <form:options items="${trip}" itemLabel="title"/>
 	</form:select>
 	<form:input path="trip" />
 	<form:errors cssClass="error" path="trip" />

@@ -27,6 +27,12 @@
 	
 	<!-- Attributes -->
 
+	<spring:message code="application.edit"/>
+	<display:column>
+		<a href= "application/explorer/edit.do?applicationId=${row.id}">
+		<spring:message code="application.edit"/></a>
+	</display:column>
+	
 	<spring:message code="application.moment" var="momentHeader" />
 	<display:column property="moment" title="${momentHeader}" sortable="true" />
 
@@ -111,7 +117,7 @@
 
 <security:authorize access="hasRole('EXPLORER')">
 	<div>
-		<a href="application/explorer/edit.do"> <spring:message
+		<a href="application/explorer/create.do"> <spring:message
 				code="application.create" />
 		</a>
 	</div>

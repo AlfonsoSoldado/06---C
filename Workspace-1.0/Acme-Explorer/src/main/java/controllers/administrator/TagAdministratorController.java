@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import controllers.AbstractController;
-
 import services.TagService;
-import services.ValueService;
+import controllers.AbstractController;
 import domain.Tag;
-import domain.Value;
 
 @Controller
 @RequestMapping("/tag/administrator")
@@ -28,9 +25,6 @@ public class TagAdministratorController extends AbstractController {
 	@Autowired
 	private TagService tagService;
 	
-	@Autowired
-	private ValueService valueService;
-
 	// Constructors ---------------------------------------------------------
 
 	public TagAdministratorController() {

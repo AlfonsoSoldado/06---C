@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.ExplorerService;
 import services.StoryService;
 import controllers.AbstractController;
-import domain.Explorer;
 import domain.Story;
 
 @Controller
@@ -27,9 +25,6 @@ public class StoryExplorerController extends AbstractController{
 	
 		@Autowired
 		private StoryService storyService;
-		
-		@Autowired
-		private ExplorerService explorerService;
 		
 		
 	// Constructors -------------------------------------------------------

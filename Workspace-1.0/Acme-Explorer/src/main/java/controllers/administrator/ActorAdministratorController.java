@@ -1,4 +1,4 @@
-package controllers.ranger;
+package controllers.administrator;
 
 import javax.validation.Valid;
 
@@ -9,23 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.RangerService;
+import services.AdministratorService;
 import controllers.AbstractController;
-import domain.Ranger;
+import domain.Administrator;
 
 @Controller
-@RequestMapping("/actor/ranger")
-public class ActorRangerController extends AbstractController {
+@RequestMapping("/actor/administrator")
+public class ActorAdministratorController extends AbstractController {
 
 	// Services -------------------------------------------------------------
-	
-	@Autowired
-	private RangerService rangerService;
 
+	@Autowired
+	private AdministratorService administratorService;
 
 	// Constructors ---------------------------------------------------------
 
-	public ActorRangerController() {
+	public ActorAdministratorController() {
 		super();
 	}
 
@@ -34,27 +33,27 @@ public class ActorRangerController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView edit() {
 		ModelAndView result;
-		Ranger ranger;
+		Administrator administrator;
 
-		ranger = this.rangerService.findByPrincipal();
-		result = this.createEditModelAndView(ranger);
+		administrator = this.administratorService.findByPrincipal();
+		result = this.createEditModelAndView(administrator);
 
 		return result;
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Ranger ranger,
+	public ModelAndView save(@Valid final Administrator administrator,
 			final BindingResult binding) {
 		ModelAndView res;
 
 //		if (binding.hasErrors())
-//			res = this.createEditModelAndView(ranger, "actor.params.error");
+//			res = this.createEditModelAndView(administrator, "actor.params.error");
 //		else
 			try {
-				this.rangerService.save(ranger);
+				this.administratorService.save(administrator);
 				res = new ModelAndView("redirect:../../");
 			} catch (final Throwable oops) {
-				res = this.createEditModelAndView(ranger, "actor.commit.error");
+				res = this.createEditModelAndView(administrator, "actor.commit.error");
 			}
 
 		return res;
@@ -62,22 +61,21 @@ public class ActorRangerController extends AbstractController {
 
 	// Ancillary methods --------------------------------------------------
 
-	protected ModelAndView createEditModelAndView(final Ranger ranger) {
+	protected ModelAndView createEditModelAndView(final Administrator administrator) {
 		ModelAndView result;
 
-		result = this.createEditModelAndView(ranger, null);
+		result = this.createEditModelAndView(administrator, null);
 
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Ranger ranger,
+	protected ModelAndView createEditModelAndView(final Administrator administrator,
 			final String message) {
 		ModelAndView result;
-		
 		result = new ModelAndView("actor/edit");
-		result.addObject("actor", ranger);
+		result.addObject("actor", administrator);
 		result.addObject("message", message);
-		result.addObject("requestUri", "actor/ranger/edit.do");
+		result.addObject("requestUri", "actor/administrator/edit.do");
 		return result;
 
 	}

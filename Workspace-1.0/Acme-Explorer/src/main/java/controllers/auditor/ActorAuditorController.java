@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.AuditorService;
 import controllers.AbstractController;
-
-import services.ActorService;
 import domain.Auditor;
 
 @Controller
@@ -22,7 +21,7 @@ public class ActorAuditorController extends AbstractController {
 	// Services -------------------------------------------------------------
 
 	@Autowired
-	private ActorService actorService;
+	private AuditorService auditorService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -37,8 +36,7 @@ public class ActorAuditorController extends AbstractController {
 		ModelAndView result;
 		Auditor auditor;
 
-		auditor = (Auditor) this.actorService.findByPrincipal();
-		Assert.notNull(auditor);
+		auditor = this.auditorService.findByPrincipal();
 		result = this.createEditModelAndView(auditor);
 
 		return result;
@@ -49,12 +47,12 @@ public class ActorAuditorController extends AbstractController {
 			final BindingResult binding) {
 		ModelAndView res;
 
-		if (binding.hasErrors())
-			res = this.createEditModelAndView(auditor, "actor.params.error");
-		else
+//		if (binding.hasErrors())
+//			res = this.createEditModelAndView(auditor, "actor.params.error");
+//		else
 			try {
-				this.actorService.save(auditor);
-				res = new ModelAndView("redirect:index.do");
+				this.auditorService.save(auditor);
+				res = new ModelAndView("redirect:../../");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(auditor, "actor.commit.error");
 			}

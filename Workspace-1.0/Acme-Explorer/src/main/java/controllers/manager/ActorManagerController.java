@@ -72,11 +72,11 @@ public class ActorManagerController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Manager manager,
 			final String message) {
 		ModelAndView result;
+		
 		result = new ModelAndView("actor/edit");
 		result.addObject("actor", manager);
 		result.addObject("message", message);
 		result.addObject("requestUri", "actor/manager/edit.do");
 		return result;
-
 	}
 }

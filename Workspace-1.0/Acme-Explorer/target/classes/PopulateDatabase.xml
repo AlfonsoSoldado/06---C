@@ -2522,7 +2522,7 @@
 	<property name="application" ref="application3" />
 	<property name="survival">
 		<list>
-			<ref bean="survival2"/>
+
 		</list>
 	</property>
 	<property name="trip">
@@ -2563,7 +2563,7 @@
 	<property name="application" ref="application4" />
 	<property name="survival">
 		<list>
-			<ref bean="survival2"/>
+		
 		</list>
 	</property>
 	<property name="trip">

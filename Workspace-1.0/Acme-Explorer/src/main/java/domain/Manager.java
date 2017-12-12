@@ -40,7 +40,6 @@ public class Manager extends Actor {
 	private Application application;
 
 	@Valid
-	@NotNull
 	@OneToMany(mappedBy = "manager")
 	public Collection<Survival> getSurvival() {
 		return this.survival;

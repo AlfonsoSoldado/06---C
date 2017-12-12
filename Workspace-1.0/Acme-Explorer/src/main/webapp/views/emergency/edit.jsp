@@ -21,7 +21,12 @@
 
 <form:form action="emergency/explorer/edit.do" modelAttribute="emergency">
 	
+	
+	
 	<security:authorize access="hasRole('EXPLORER')">
+	
+	<form:hidden path="id" />
+	<form:hidden path="version" />
 	
 	<form:label path="name">
 		<spring:message code="emergency.name" />:

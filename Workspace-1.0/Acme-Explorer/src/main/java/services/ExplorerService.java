@@ -121,4 +121,13 @@ public class ExplorerService {
 		res.setAuthority("EXPLORER");
 		Assert.isTrue(authority.contains(res));
 	}
+	
+//	public Collection<Explorer> findExplorerByEmergency(Emergency emergency){
+//		Collection<Explorer> explorers;
+//		
+//		explorers = explorerRepository.findExplorerByEmergency(emergency.getId());
+//		Assert.notNull(explorers);
+//		
+//		return explorers;
+//	}
 }

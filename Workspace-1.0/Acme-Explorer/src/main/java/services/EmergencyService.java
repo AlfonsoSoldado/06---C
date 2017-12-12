@@ -61,6 +61,16 @@ public class EmergencyService {
 		Assert.notNull(emergency);
 		Assert.isTrue(emergency.getId() != 0);
 		Assert.isTrue(this.emergencyRepository.exists(emergency.getId()));
+		
+//		Collection<Explorer> explorers;
+//		explorers = this.explorerService.findExplorerByEmergency(emergency);
+		
+//		for(Explorer e: explorers){
+//			e.getEmergency().remove(emergency);
+//		}
+//		
+//		emergencyRepository.delete(emergency);
+		
 		this.emergencyRepository.delete(emergency);
 	}
 

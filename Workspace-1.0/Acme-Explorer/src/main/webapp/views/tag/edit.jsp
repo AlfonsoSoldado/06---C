@@ -36,7 +36,7 @@
 	<input type="submit" name="save"
 		value="<spring:message code="tag.save" />" />&nbsp; 
 	<input type="button" name="cancel"
-		value="<spring:message code="tag.save" />"
+		value="<spring:message code="tag.cancel" />"
 		onclick="javascript: relativeRedir('/');" />
 	<br />
 	

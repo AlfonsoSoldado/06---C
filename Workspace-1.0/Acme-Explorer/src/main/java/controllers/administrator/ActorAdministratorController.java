@@ -45,10 +45,10 @@ public class ActorAdministratorController extends AbstractController {
 	public ModelAndView save(@Valid final Administrator administrator,
 			final BindingResult binding) {
 		ModelAndView res;
-
-//		if (binding.hasErrors())
-//			res = this.createEditModelAndView(administrator, "actor.params.error");
-//		else
+		System.out.println(binding.getFieldError());
+		if (binding.hasErrors())
+			res = this.createEditModelAndView(administrator, "actor.params.error");
+		else
 			try {
 				this.administratorService.save(administrator);
 				res = new ModelAndView("redirect:../../");

@@ -45,10 +45,10 @@ public class ActorExplorerController extends AbstractController {
 	public ModelAndView save(@Valid final Explorer explorer,
 			final BindingResult binding) {
 		ModelAndView res;
-
-//		if (binding.hasErrors())
-//			res = this.createEditModelAndView(explorer, "actor.params.error");
-//		else
+		System.out.println(binding.getFieldError());
+		if (binding.hasErrors())
+			res = this.createEditModelAndView(explorer, "actor.params.error");
+		else
 			try {
 				this.explorerService.save(explorer);
 				res = new ModelAndView("redirect:../../");

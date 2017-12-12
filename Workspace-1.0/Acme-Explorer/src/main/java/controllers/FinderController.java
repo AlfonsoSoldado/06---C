@@ -52,21 +52,21 @@ public class FinderController extends AbstractController {
 		return result;
 	}
 	
-	@RequestMapping(value = "/search", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Finder finder,
-			final BindingResult binding) {
-		ModelAndView result;
-		if (binding.hasErrors())
-			result = this.createEditModelAndView(finder, "finder.params.error");
-		else
-			try {
-				this.finderService.findSearchSingleKey(finder.getSingleKey());
-				result = new ModelAndView("redirect:display.do");
-			} catch (final Throwable oops) {
-				result = this.createEditModelAndView(finder, "finder.commit.error");
-			}
-		return result;
-	}
+//	@RequestMapping(value = "/search", method = RequestMethod.POST, params = "save")
+//	public ModelAndView save(@Valid final Finder finder,
+//			final BindingResult binding) {
+//		ModelAndView result;
+//		if (binding.hasErrors())
+//			result = this.createEditModelAndView(finder, "finder.params.error");
+//		else
+//			try {
+//				this.finderService.findSearchSingleKey(finder.getSingleKey());
+//				result = new ModelAndView("redirect:display.do");
+//			} catch (final Throwable oops) {
+//				result = this.createEditModelAndView(finder, "finder.commit.error");
+//			}
+//		return result;
+//	}
 	
 	// Ancillary methods ---------------------------------------------------------------------
 	
@@ -79,7 +79,8 @@ public class FinderController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Finder finder, final String messageCode) {
 		ModelAndView result;
 		Collection<Trip> trips;
-		trips = finder.getTrip();
+//		trips = finder.getTrip();
+		trips = finderService.findSearchSingleKey(finder.getSingleKey());
 		result = new ModelAndView("finder/search");
 		result.addObject("trips", trips);
 		result.addObject("finder", finder);

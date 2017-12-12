@@ -19,22 +19,13 @@
 <form:form action="${requestUri}" modelAttribute="actor">
 
 	<security:authorize access="hasRole('RANGER')">
-	<form:hidden path="folders"/>
-	<form:hidden path="sent" />
-	<form:hidden path="received" />
 	<form:hidden path="suspicious" />
-	<form:hidden path="socialId"/>
 	
 	<form:hidden path="curriculum" />
 	<form:hidden path="trip" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('EXPLORER')">
-	<form:hidden path="folders"/>
-	<form:hidden path="sent" />
-	<form:hidden path="received" />
-	<form:hidden path="socialId"/>
-	
 	<form:hidden path="finder" />
 	<form:hidden path="emergency" />
 	<form:hidden path="stories" />
@@ -43,41 +34,22 @@
 	</security:authorize>
 	
 	<security:authorize access="hasRole('SPONSOR')">
-	<form:hidden path="folders"/>
-	<form:hidden path="sent" />
-	<form:hidden path="received" />
-	<form:hidden path="socialId"/>
 	
 	<form:hidden path="sponsorship" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('AUDITOR')">
-	<form:hidden path="folders"/>
-	<form:hidden path="sent" />
-	<form:hidden path="received" />
-	<form:hidden path="socialId"/>
 	
 	<form:hidden path="audit" />
 	<form:hidden path="note" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('MANAGER')">
-	<form:hidden path="folders"/>
-	<form:hidden path="sent" />
-	<form:hidden path="received" />
 	<form:hidden path="suspicious" />
-	<form:hidden path="socialId"/>
 	
 	<form:hidden path="application" />
 	<form:hidden path="survival" />
 	<form:hidden path="trip" />
-	</security:authorize>
-	
-	<security:authorize access="hasRole('ADMIN')">
-	<form:hidden path="folders"/>
-	<form:hidden path="sent" />
-	<form:hidden path="received" />
-	<form:hidden path="socialId"/>
 	</security:authorize>
 	
 	<form:hidden path="id"/>
@@ -85,6 +57,10 @@
 	<form:hidden path="userAccount"/>
 	<form:hidden path="userAccount.password"/>
 	<form:hidden path="userAccount.authorities"/>
+	<form:hidden path="folders"/>
+	<form:hidden path="sent" />
+<%-- 	<form:hidden path="received" /> --%>
+	<form:hidden path="socialId"/>
 
 	<form:label path="name">
 		<spring:message code="actor.name" />:

@@ -43,7 +43,7 @@ public class FinderService {
 	}
 	
 	public Collection<Finder> findAll() {
-		explorerService.checkAuthority();
+//		explorerService.checkAuthority();
 		
 		Collection<Finder> res;
 		res = this.finderRepository.findAll();
@@ -52,7 +52,7 @@ public class FinderService {
 	}
 
 	public Finder findOne(int finder) {
-		explorerService.checkAuthority();
+//		explorerService.checkAuthority();
 		
 		Assert.isTrue(finder != 0);
 		Finder res;
@@ -62,7 +62,7 @@ public class FinderService {
 	}
 
 	public Finder save(Finder finder) {
-		explorerService.checkAuthority();
+//		explorerService.checkAuthority();
 		
 		Explorer explorer;
 		explorer = this.explorerService.findByPrincipal();

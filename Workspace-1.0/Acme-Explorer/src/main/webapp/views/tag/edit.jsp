@@ -37,7 +37,7 @@
 		value="<spring:message code="tag.save" />" />&nbsp; 
 	<input type="button" name="cancel"
 		value="<spring:message code="tag.cancel" />"
-		onclick="javascript: relativeRedir('/');" />
+		onclick="javascript: relativeRedir('/tag/administrator/list.do');" />
 	<br />
 	
 	

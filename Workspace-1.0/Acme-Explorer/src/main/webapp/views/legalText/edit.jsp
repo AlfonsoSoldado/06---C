@@ -65,7 +65,7 @@
 		value="<spring:message code="legalText.save" />" />&nbsp; 
 	<input type="button" name="cancel"
 		value="<spring:message code="legalText.cancel" />"
-		onclick="javascript: relativeRedir('/');" />
+		onclick="javascript: relativeRedir('/legalText/administrator/list.do');" />
 	<br />
 	
 	</security:authorize>

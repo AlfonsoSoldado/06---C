@@ -66,11 +66,11 @@ public class TagAdministratorController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors())
-			res = this.createEditModelAndView(tag, "tag.commit.error");
+			res = this.createEditModelAndView(tag, "tag.params.error");
 		else
 			try {
 				this.tagService.save(tag);
-				res = new ModelAndView("redirect:../administrator/list.do");
+				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(tag, "tag.commit.error");
 			}
@@ -78,6 +78,18 @@ public class TagAdministratorController extends AbstractController {
 		return res;
 	}
 	
+	// Creating ---------------------------------------------------------------
+
+		@RequestMapping(value = "/create", method = RequestMethod.GET)
+		public ModelAndView create() {
+			ModelAndView result;
+			Tag tag;
+
+			tag = this.tagService.create();
+			result = this.createEditModelAndView(tag);
+
+			return result;
+		}
 	
 	// Ancillary methods --------------------------------------------------
 	

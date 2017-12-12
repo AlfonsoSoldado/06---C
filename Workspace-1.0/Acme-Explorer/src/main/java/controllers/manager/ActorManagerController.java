@@ -4,13 +4,12 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.ActorService;
+import services.ManagerService;
 import controllers.AbstractController;
 import domain.Manager;
 
@@ -21,7 +20,7 @@ public class ActorManagerController extends AbstractController {
 	// Services -------------------------------------------------------------
 
 	@Autowired
-	private ActorService actorService;
+	private ManagerService managerService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -36,8 +35,7 @@ public class ActorManagerController extends AbstractController {
 		ModelAndView result;
 		Manager manager;
 
-		manager = (Manager) this.actorService.findByPrincipal();
-		Assert.notNull(manager);
+		manager = this.managerService.findByPrincipal();
 		result = this.createEditModelAndView(manager);
 
 		return result;
@@ -48,12 +46,12 @@ public class ActorManagerController extends AbstractController {
 			final BindingResult binding) {
 		ModelAndView res;
 
-		if (binding.hasErrors())
-			res = this.createEditModelAndView(manager, "actor.params.error");
-		else
+//		if (binding.hasErrors())
+//			res = this.createEditModelAndView(manager, "actor.params.error");
+//		else
 			try {
-				this.actorService.save(manager);
-				res = new ModelAndView("redirect:index.do");
+				this.managerService.save(manager);
+				res = new ModelAndView("redirect:../../");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(manager, "actor.commit.error");
 			}

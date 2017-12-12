@@ -44,13 +44,13 @@
 	<spring:message code="legalText.body" var="bodyHeader" />
 	<display:column property="body" title="${bodyHeader}" sortable="true" />
 	
-	<spring:message code="legalText.numberLaw" var="numberLaw" />
+	<spring:message code="legalText.numberLaw" var="numberLawHeader" />
 	<display:column property="numberLaw" title="${numberLawHeader}" sortable="true" />
 	
-	<spring:message code="legalText.moment" var="moment" />
+	<spring:message code="legalText.moment" var="momentHeader" />
 	<display:column property="moment" title="${momentHeader}" sortable="true" />
 	
-	<spring:message code="legalText.draftMode" var="draftMode" />
+	<spring:message code="legalText.draftMode" var="draftModeHeader" />
 	<display:column property="draftMode" title="${draftModeHeader}" sortable="true" />
 	
 </display:table>

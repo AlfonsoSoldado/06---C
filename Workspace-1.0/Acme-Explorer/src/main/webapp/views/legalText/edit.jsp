@@ -54,10 +54,17 @@
 	<form:errors cssClass="error" path="moment" />
 	<br />
 	
+	<form:label path="draftMode">
+		<spring:message code="legalText.draftMode" />:
+	</form:label>
+	<form:input path="draftMode" />
+	<form:errors cssClass="error" path="draftMode" />
+	<br />
+	
 	<input type="submit" name="save"
 		value="<spring:message code="legalText.save" />" />&nbsp; 
 	<input type="button" name="cancel"
-		value="<spring:message code="legalText.save" />"
+		value="<spring:message code="legalText.cancel" />"
 		onclick="javascript: relativeRedir('/');" />
 	<br />
 	

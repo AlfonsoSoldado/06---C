@@ -30,11 +30,11 @@
 	
 	<form:hidden path="ranger" />
 	<form:hidden path="manager" />
-	<form:hidden path="stage" />
 	<form:hidden path="category" />
 	<form:hidden path="legalText" />
 	<form:hidden path="application" />
 	<form:hidden path="value" />
+	<form:hidden path="stage" />
 	
 	<form:label path="title">
 		<spring:message code="trip.title" />:
@@ -76,16 +76,6 @@
 	</form:label>
 	<form:input path="tripEnd" />
 	<form:errors cssClass="error" path="tripEnd" />
-	<br />
-	
-	<form:label path="stage">
-		<spring:message code="trip.stage" />:
-	</form:label>
-	<form:select path="stage">
-        <form:options items="${stage}" itemLabel="title"/>
-	</form:select>
-	<form:input path="stage" />
-	<form:errors cssClass="error" path="stage" />
 	<br />
 	
 	<input type="submit" name="save"

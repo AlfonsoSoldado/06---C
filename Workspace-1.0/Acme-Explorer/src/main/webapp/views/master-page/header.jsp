@@ -14,7 +14,7 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
 <div>
-	<a href="/Acme-Explorer"><img src="images/logo.png" alt="Acme-Explorer Co., Inc." /></a>
+	<a href="/Acme-Explorer"><img src="images/banner.png" alt="Acme-Explorer Co., Inc." /></a>
 </div>
 
 <div>

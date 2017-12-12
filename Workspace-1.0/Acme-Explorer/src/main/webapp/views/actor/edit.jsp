@@ -16,7 +16,7 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form id = "form" action="${requestUri}" modelAttribute="actor">
+<form:form action="${requestUri}" modelAttribute="actor">
 
 	<security:authorize access="hasRole('RANGER')">
 	<form:hidden path="folders"/>
@@ -82,6 +82,9 @@
 	
 	<form:hidden path="id"/>
 	<form:hidden path="version"/>
+	<form:hidden path="userAccount"/>
+	<form:hidden path="userAccount.password"/>
+	<form:hidden path="userAccount.authorities"/>
 
 	<form:label path="name">
 		<spring:message code="actor.name" />:

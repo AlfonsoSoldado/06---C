@@ -4,15 +4,13 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.ExplorerService;
 import controllers.AbstractController;
-
-import services.ActorService;
 import domain.Explorer;
 
 @Controller
@@ -22,7 +20,7 @@ public class ActorExplorerController extends AbstractController {
 	// Services -------------------------------------------------------------
 
 	@Autowired
-	private ActorService actorService;
+	private ExplorerService explorerService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -37,8 +35,7 @@ public class ActorExplorerController extends AbstractController {
 		ModelAndView result;
 		Explorer explorer;
 
-		explorer = (Explorer) this.actorService.findByPrincipal();
-		Assert.notNull(explorer);
+		explorer = this.explorerService.findByPrincipal();
 		result = this.createEditModelAndView(explorer);
 
 		return result;
@@ -49,12 +46,12 @@ public class ActorExplorerController extends AbstractController {
 			final BindingResult binding) {
 		ModelAndView res;
 
-		if (binding.hasErrors())
-			res = this.createEditModelAndView(explorer, "actor.params.error");
-		else
+//		if (binding.hasErrors())
+//			res = this.createEditModelAndView(explorer, "actor.params.error");
+//		else
 			try {
-				this.actorService.save(explorer);
-				res = new ModelAndView("redirect:index.do");
+				this.explorerService.save(explorer);
+				res = new ModelAndView("redirect:../../");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(explorer, "actor.commit.error");
 			}

@@ -23,7 +23,7 @@
 	
 	
 	<definition name="emergency/explorer/edit" extends="master.page">	
-		<put-attribute name="title" value="Edit audit" />
+		<put-attribute name="title" value="Edit emergency" />
 		<put-attribute name="body" value="/views/emergency/edit.jsp" />
 	</definition>
 	

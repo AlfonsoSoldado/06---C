@@ -154,7 +154,7 @@ public class ActorService {
 	public Collection<Trip> searchTripsByCategory(Category category) {
 		Collection<Trip> res;
 		res = new ArrayList<Trip>();
-		res.addAll(this.tripService.findTripsByCategory(category));
+		res.addAll(this.tripService.findTripsByCategory(category.getId()));
 		return res;
 	}
 	

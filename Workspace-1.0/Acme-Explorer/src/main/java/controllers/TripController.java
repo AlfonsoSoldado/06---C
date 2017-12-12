@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.TripService;
-import domain.Category;
 import domain.Trip;
 
 @Controller
@@ -46,11 +45,11 @@ public class TripController {
 	}
 	
 	@RequestMapping(value = "/category/list", method = RequestMethod.GET)
-	public ModelAndView list(@RequestParam Category category){
+	public ModelAndView list(@RequestParam int categoryId){
 		ModelAndView result;
 		Collection<Trip> trips;
 		
-		trips = tripService.findTripsByCategory(category);
+		trips = tripService.findTripsByCategory(categoryId);
 		
 		result = new ModelAndView("trip/list");
 		result.addObject("trips", trips);

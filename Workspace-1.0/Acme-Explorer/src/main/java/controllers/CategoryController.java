@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CategoryService;
+import services.TripService;
 import domain.Category;
+import domain.Trip;
 
 @Controller
 @RequestMapping("/category")
@@ -21,6 +23,9 @@ public class CategoryController extends AbstractController {
 
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private TripService tripService;
 
 	// Constructors ---------------------------------------------------------
 

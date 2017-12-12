@@ -166,12 +166,11 @@ public class TripService {
 
 	// 10.4
 
-	public Collection<Trip> findTripsByCategory(Category category) {
+	public Collection<Trip> findTripsByCategory(int categoryId) {
 		Collection<Trip> res;
 		res = new ArrayList<Trip>();
-		Assert.notNull(category);
-		Assert.isTrue(category.getId() != 0);
-		res.addAll(tripRepository.browseTripsByCategories(category.getId()));
+		Assert.isTrue(categoryId != 0);
+		res.addAll(tripRepository.browseTripsByCategories(categoryId));
 
 		return res;
 	}

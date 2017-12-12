@@ -241,7 +241,7 @@ public class TripServiceTest extends AbstractTest {
 		Category c = categoryServices.findOne(super.getEntityId("category1"));
 		Assert.notNull(c);
 
-		trips.addAll(tripService.findTripsByCategory(c));
+		trips.addAll(tripService.findTripsByCategory(c.getId()));
 	}
 
 	@Test

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CategoryService;
+import services.TripService;
 import controllers.AbstractController;
 import domain.Category;
 import domain.Trip;
@@ -26,6 +27,10 @@ public class CategoryAdministratorController extends AbstractController {
 
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private TripService tripService;
+
 
 	// Constructors ---------------------------------------------------------
 
@@ -116,12 +121,12 @@ public class CategoryAdministratorController extends AbstractController {
 		Collection<Trip> trips;
 		//Category categoryChildren;
 		
-		trips = category.getTrip();
+		trips = tripService.findAll();
 		//categoryChildren = this.categoryService.getCategoryRoot();
 		categories = this.categoryService.findAll();
 		
 		result = new ModelAndView("category/edit");
-		result.addObject("trips", trips);
+		result.addObject("trip", trips);
 		//result.addObject("categoryChildren", categoryChildren);
 		result.addObject("category", category);
 		result.addObject("categories", categories);

@@ -48,6 +48,7 @@
 		
 		<security:intercept-url pattern="/category/list.do" access="permitAll" />
 		<security:intercept-url pattern="/stage/list.do" access="permitAll" />
+		<security:intercept-url pattern="/trip/category/list.do" access="permitAll" /> 
 		
 		<security:intercept-url pattern="/explorer/register_Explorer.do" access="permitAll" />
 		<security:intercept-url pattern="/ranger/register_Ranger.do" access="permitAll" />

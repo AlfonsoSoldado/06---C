@@ -50,7 +50,7 @@
 	
 	<spring:message code="category.trips" var="trips"/>
 	<display:column title="${trips}">
-		<a href="trip/list.do?categoryId=${row.id}">
+		<a href="trip/category/list.do">
 			<spring:message code="category.trips.link"/>
 		</a>
 	</display:column>

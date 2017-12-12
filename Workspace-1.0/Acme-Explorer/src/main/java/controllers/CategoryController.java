@@ -40,11 +40,10 @@ public class CategoryController extends AbstractController {
 		categories = this.categoryService.getCategoryChildren();
 		category = (Category) categories.toArray()[0];
 		categoryParent = category.getCategoryParent();
-
+		
 		result = new ModelAndView("category/list");
 		result.addObject("categories", categories);
 		result.addObject("categoryParent", categoryParent);
-		result.addObject("requestURI", "category/list.do");
 
 		return result;
 	}

@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.FinderRepository;
-import domain.Explorer;
 import domain.Finder;
 import domain.Trip;
 
@@ -22,11 +21,6 @@ public class FinderService {
 
 	@Autowired
 	private FinderRepository finderRepository;
-	
-	// Supporting services
-	
-	@Autowired
-	private ExplorerService explorerService;
 	
 	// Constructors
 	
@@ -64,18 +58,18 @@ public class FinderService {
 	public Finder save(Finder finder) {
 //		explorerService.checkAuthority();
 		
-		Explorer explorer;
-		explorer = this.explorerService.findByPrincipal();
+//		Explorer explorer;
+//		explorer = this.explorerService.findByPrincipal();
 		
 		Assert.notNull(finder);
 		
 		Finder res;
 		res = this.finderRepository.save(finder);
 		
-		Collection<Finder> finderCollection = new ArrayList<Finder>();
-		finderCollection.add(res);
-		
-		explorer.setFinder(finderCollection);
+//		Collection<Finder> finderCollection = new ArrayList<Finder>();
+//		finderCollection.add(res);
+//		
+//		explorer.setFinder(finderCollection);
 		
 		return res;
 	}

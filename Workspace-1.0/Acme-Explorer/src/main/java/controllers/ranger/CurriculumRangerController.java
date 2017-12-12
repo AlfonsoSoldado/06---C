@@ -56,8 +56,8 @@ public class CurriculumRangerController extends AbstractController {
 		try {
 			this.curriculumService.delete(curriculum);
 			res = new ModelAndView("redirect:../../curriculum/display.do");
-		} catch (final Throwable oops) {
-			res = this.createEditModelAndView(curriculum,
+		} catch (Throwable oops) {
+			res = createEditModelAndView(curriculum,
 					"curriculum.commit.error");
 		}
 
@@ -87,6 +87,7 @@ public class CurriculumRangerController extends AbstractController {
 
 	protected ModelAndView createEditModelAndView(final Curriculum curriculum,
 			final String message) {
+		
 		ModelAndView result;
 		result = new ModelAndView("curriculum/edit");
 		result.addObject("curriculum", curriculum);

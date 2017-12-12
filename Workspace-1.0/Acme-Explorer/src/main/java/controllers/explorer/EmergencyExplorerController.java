@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.EmergencyService;
 import services.ExplorerService;
 import controllers.AbstractController;
+import domain.Curriculum;
 import domain.Emergency;
 import domain.Explorer;
 
@@ -54,6 +55,23 @@ public class EmergencyExplorerController extends AbstractController{
 		return result;
 		
 	}
+	
+	// Deleting -------------------------------------------------------------
+
+		@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
+		public ModelAndView delete(Emergency emergency, BindingResult binding) {
+			ModelAndView res;
+
+			try {
+				this.emergencyService.delete(emergency);
+				res = new ModelAndView("redirect:../../emergency/list.do");
+			} catch (Throwable oops) {
+				res = createEditModelAndView(emergency,
+						"emergency.commit.error");
+			}
+
+			return res;
+		}
 	
 	// Creation ---------------------------------------------------------------
 	

@@ -46,7 +46,6 @@
 	
 	<security:authorize access="hasRole('MANAGER')">
 	<form:hidden path="suspicious" />
-	
 	<form:hidden path="application" />
 	<form:hidden path="trip" />
 	</security:authorize>

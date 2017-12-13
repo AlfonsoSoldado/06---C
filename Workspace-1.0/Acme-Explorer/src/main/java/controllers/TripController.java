@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.FinderService;
 import services.TripService;
 import domain.Trip;
 
@@ -21,6 +22,9 @@ public class TripController {
 	
 	@Autowired
 	private TripService tripService;
+	
+	@Autowired
+	FinderService finderService;
 	
 	//Constructors ---------------------------------------------------------
 	
@@ -58,4 +62,14 @@ public class TripController {
 		return result;
 	}
 	
+	@RequestMapping(value = "/finder/list", method = RequestMethod.GET)
+	public ModelAndView list(@RequestParam String singleKey){
+		ModelAndView result;
+		Collection<Trip> trips;
+		trips = finderService.findSearchSingleKey(singleKey);
+		result = new ModelAndView("trip/list");
+		result.addObject("trips", trips);
+		result.addObject("requestURI", "trip/finder/list.do");
+		return result;
+	}
 }

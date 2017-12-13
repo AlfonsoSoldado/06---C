@@ -63,7 +63,15 @@
 		<br />
 	</security:authorize>
 	
-	<input type="submit" name="save" value="<spring:message code="finder.search" />" />&nbsp;
+<%-- 	<div>
+		<a href="trip/finder/list.do?singleKey=${singleKey }"> <spring:message
+				code="finder.search" />
+		</a>
+	</div> --%>
+	
+	
+		<input type="submit" name="save"
+			value="<spring:message code="finder.search" />" />&nbsp; 
 	
 	<input type="button" name="cancel"
 		value="<spring:message code="finder.cancel" />"

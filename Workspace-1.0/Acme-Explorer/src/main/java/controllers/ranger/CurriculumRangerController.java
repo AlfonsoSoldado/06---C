@@ -40,7 +40,6 @@ public class CurriculumRangerController extends AbstractController {
 				this.curriculumService.save(curriculum);
 				res = new ModelAndView("redirect:../../curriculum/display.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getMessage());
 				res = this.createEditModelAndView(curriculum,
 						"curriculum.commit.error");
 			}

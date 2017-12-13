@@ -61,6 +61,13 @@ public class EducationRecordService {
 		
 		EducationRecord res;
 		
+//		Ranger r = rangerService.findByPrincipal();
+//		Curriculum c = r.getCurriculum();
+//		Collection<EducationRecord> conj = c.getEducationRecord();
+//		
+//		conj.remove(educationRecord);
+//		c.setEducationRecord(conj);
+		
 		Ranger r = rangerService.findByPrincipal();
 		Curriculum c = r.getCurriculum();
 		Collection<EducationRecord> conj = c.getEducationRecord();

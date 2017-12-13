@@ -21,10 +21,10 @@
 
 	<!-- Attributes -->
 	
-	<spring:message code="message.delete"/>
+	<spring:message code="message.edit"/>
 	<display:column>
-		<a href= "message/delete.do?messageId=${row.id}">
-		<spring:message code="message.delete"/></a>
+		<a href= "message/edit.do?messageId=${row.id}">
+		<spring:message code="message.edit"/></a>
 	</display:column>
 	
 	<spring:message code="message.moment" var="momentHeader" />

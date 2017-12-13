@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.TagService;
+import services.ValueService;
 import controllers.AbstractController;
 import domain.Tag;
+import domain.Value;
 
 @Controller
 @RequestMapping("/tag/administrator")
@@ -24,6 +26,11 @@ public class TagAdministratorController extends AbstractController {
 
 	@Autowired
 	private TagService tagService;
+	
+	@Autowired
+	private ValueService valueService;
+	
+	
 	
 	// Constructors ---------------------------------------------------------
 
@@ -64,12 +71,15 @@ public class TagAdministratorController extends AbstractController {
 	public ModelAndView save(@Valid final Tag tag,
 			final BindingResult binding) {
 		ModelAndView res;
-
 		if (binding.hasErrors())
 			res = this.createEditModelAndView(tag, "tag.params.error");
 		else
 			try {
-				this.tagService.save(tag);
+				Tag a=this.tagService.save(tag);
+				Value v = a.getValue();
+				v.getTag().add(a);
+				this.valueService.save(v);
+				
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(tag, "tag.commit.error");
@@ -84,8 +94,14 @@ public class TagAdministratorController extends AbstractController {
 		public ModelAndView create() {
 			ModelAndView result;
 			Tag tag;
-
+			Value value;
+			Value newValue;
+			value=this.valueService.create();
+			newValue=this.valueService.save(value);
+			
+			
 			tag = this.tagService.create();
+			tag.setValue(newValue);
 			result = this.createEditModelAndView(tag);
 
 			return result;

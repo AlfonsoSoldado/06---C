@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,5 +78,13 @@ public class SponsorshipService {
 	}
 
 	// Other business methods
+	
+	public Collection<Sponsorship> findSponsorshipsBySponsor(int id) {
+		Collection<Sponsorship> res = new ArrayList<Sponsorship>();
+
+		res.addAll(sponsorshipRepository.findSponsorshipsBySponsor(id));
+		Assert.notNull(res);
+		return res;
+	}
 
 }

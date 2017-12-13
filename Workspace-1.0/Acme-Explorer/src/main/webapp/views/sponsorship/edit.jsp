@@ -42,11 +42,46 @@
 	<form:errors cssClass="error" path="infoPage" />
 	<br />
 	
-	<form:label path="creditCard">
-		<spring:message code="sponsorship.creditCard" />:
+	<form:label path="creditCard.holderName">
+		<spring:message code="sponsorship.creditCard.holderName" />:
 	</form:label>
-	<form:input path="creditCard" />
-	<form:errors cssClass="error" path="creditCard" />
+	<form:input path="creditCard.holderName" />
+	<form:errors cssClass="error" path="creditCard.holderName" />
+	<br />
+	
+	<form:label path="creditCard.brandName">
+		<spring:message code="sponsorship.creditCard.brandName" />:
+	</form:label>
+	<form:input path="creditCard.brandName" />
+	<form:errors cssClass="error" path="creditCard.brandName" />
+	<br />
+	
+	<form:label path="creditCard.number">
+		<spring:message code="sponsorship.creditCard.number" />:
+	</form:label>
+	<form:input path="creditCard.number" />
+	<form:errors cssClass="error" path="creditCard.number" />
+	<br />
+	
+	<form:label path="creditCard.expirationMonth">
+	<spring:message code="sponsorship.creditCard.expirationMonth" />:
+		</form:label>
+	<form:input path="creditCard.expirationMonth" />
+	<form:errors cssClass="error" path="creditCard.expirationMonth" />
+	<br />
+	
+	<form:label path="creditCard.expirationYear">
+	<spring:message code="sponsorship.creditCard.expirationYear" />:
+		</form:label>
+	<form:input path="creditCard.expirationYear" />
+	<form:errors cssClass="error" path="creditCard.expirationYear" />
+	<br />
+	
+	<form:label path="creditCard.CVV">
+	<spring:message code="sponsorship.creditCard.CVV" />:
+		</form:label>
+	<form:input path="creditCard.CVV" />
+	<form:errors cssClass="error" path="creditCard.CVV" />
 	<br />
 	
 	<form:label path="trip">
@@ -55,7 +90,6 @@
 	<form:select path="trip">
         <form:options items="${trip}" itemLabel="title"/>
 	</form:select>
-	<form:input path="trip" />
 	<form:errors cssClass="error" path="trip" />
 	<br />
 

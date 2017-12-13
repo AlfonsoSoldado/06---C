@@ -35,10 +35,18 @@ public class InformationAdministratorController extends AbstractController {
 		
 		applicationsPerTrip = administratorService.avgMinMaxSqtr();
 		
-		result = new ModelAndView("administrator/list");
+		result = new ModelAndView("information/list");
+		Object avg, min, max, sd = null;
+		avg = applicationsPerTrip[0];
+		min = applicationsPerTrip[1];
+		max = applicationsPerTrip[2];
+		sd = applicationsPerTrip[3];
+//		result.addObject("average", avg);
+//		result.addObject("minimum", min);
+//		result.addObject("maximum", max);
+//		result.addObject("standardDeviation", sd);
 		result.addObject("informationApplication", applicationsPerTrip);
 		//result.addObject("requestURI", "administrator/list.do");
-		
 		return result;
 	}
 	

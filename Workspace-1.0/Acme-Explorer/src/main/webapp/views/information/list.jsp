@@ -22,7 +22,36 @@
 <!-- Listing grid -->
 <security:authorize access="hasRole('ADMIN')">
 
+<display:table pagesize="5" class="displaytag" keepStatus="true"
+	name="informationApplication" requestURI="information/administrator/list.do" id="row">
+	
+	<!-- Attributes -->
 
+	<spring:message code="information.average" var="averageHeader" />
+	<display:column title="${averageHeader}" sortable="true">
+			<jstl:out value="${row}"></jstl:out>
+	</display:column>
+	
+	<spring:message code="information.minimum" var="minimumHeader" />
+	<display:column title="${minimumHeader}" sortable="true">
+			<jstl:out value="${row}"></jstl:out>
+	</display:column>
+	
+	<spring:message code="information.maximum" var="maximumHeader" />
+	<display:column title="${maximumHeader}" sortable="true">
+			<jstl:out value="${row}"></jstl:out>
+	</display:column>
+	
+	<spring:message code="information.standardDeviation" var="standardDeviationHeader" />
+	<display:column title="${standardDeviationHeader}" sortable="true">
+			<jstl:out value="${row}"></jstl:out>
+	</display:column>
+</display:table>
+
+
+
+
+<%--
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="informationApplication" requestURI="information/administrator/list.do" id="row">
 	
@@ -46,7 +75,7 @@
 	
 </display:table>
 
-<%--
+
 <form:label path="tripsManager">
 		<spring:message code="information.informationTripsManagerLabel" />:
 </form:label>

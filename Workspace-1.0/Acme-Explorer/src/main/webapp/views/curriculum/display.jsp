@@ -23,7 +23,7 @@
 <!-- displaying grid -->
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="curriculum" requestURI="curriculum/display.do" id="row">
+	name="curriculum" requestURI="${requestURI }" id="row">
 
 	<!-- Attributes -->
 

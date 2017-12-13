@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,14 @@ import services.EndorserRecordService;
 import services.MiscellaneousRecordService;
 import services.PersonalRecordService;
 import services.ProfessionalRecordService;
+import services.RangerService;
 import domain.Curriculum;
 import domain.EducationRecord;
 import domain.EndorserRecord;
 import domain.MiscellaneousRecord;
 import domain.PersonalRecord;
 import domain.ProfessionalRecord;
+import domain.Ranger;
 
 @Controller
 @RequestMapping("/curriculum")
@@ -29,21 +32,9 @@ public class CurriculumController extends AbstractController {
 
 	@Autowired
 	private CurriculumService curriculumService;
-
+	
 	@Autowired
-	private PersonalRecordService personalRecordService;
-
-	@Autowired
-	private ProfessionalRecordService professionalRecordService;
-
-	@Autowired
-	private EducationRecordService educationRecordService;
-
-	@Autowired
-	private MiscellaneousRecordService miscellaneousRecordService;
-
-	@Autowired
-	private EndorserRecordService endorserRecordService;
+	private RangerService rangerService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -56,19 +47,26 @@ public class CurriculumController extends AbstractController {
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
-		Collection<Curriculum> curriculums;
-		Collection<PersonalRecord> personalR;
-		Collection<ProfessionalRecord> professionalR;
-		Collection<EducationRecord> educationR;
-		Collection<MiscellaneousRecord> miscellaneousR;
-		Collection<EndorserRecord> endorserR;
+		Collection<Curriculum> curriculums = new ArrayList<Curriculum>();
+		Collection<PersonalRecord> personalR = new ArrayList<PersonalRecord>();
+		Collection<ProfessionalRecord> professionalR = new ArrayList<ProfessionalRecord>();
+		Collection<EducationRecord> educationR = new ArrayList<EducationRecord>();
+		Collection<MiscellaneousRecord> miscellaneousR = new ArrayList<MiscellaneousRecord>();
+		Collection<EndorserRecord> endorserR = new ArrayList<EndorserRecord>();
+		
+		Ranger r = rangerService.findByPrincipal();
+		int rangerId = r.getId();
 
-		curriculums = curriculumService.findAll();
-		personalR = personalRecordService.findAll();
-		professionalR = professionalRecordService.findAll();
-		educationR = educationRecordService.findAll();
-		miscellaneousR = miscellaneousRecordService.findAll();
-		endorserR = endorserRecordService.findAll();
+		curriculums = curriculumService.getCurriculumByRanger(rangerId);
+		
+		for(Curriculum c: curriculums){
+			personalR.add(c.getPersonalRecord());
+			professionalR.addAll(c.getProfessionalRecord());
+			educationR.addAll(c.getEducationRecord());
+			miscellaneousR.addAll(c.getMiscellaneousRecord());
+			endorserR.addAll(c.getEndorserRecord());
+			
+		}
 
 		result = new ModelAndView("curriculum/display");
 		result.addObject("curriculum", curriculums);

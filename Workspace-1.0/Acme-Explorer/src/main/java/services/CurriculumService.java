@@ -126,4 +126,12 @@ public class CurriculumService {
 		return ticker;
 	}
 	
+	public Collection<Curriculum> getCurriculumByRanger(int rangerId){
+		Collection<Curriculum> res;
+		
+		res = this.curriculumRepository.findCurriculumByRanger(rangerId);
+		
+		return res;
+	}
+	
 }

@@ -22,13 +22,15 @@
 <!-- Listing grid -->
 <security:authorize access="hasRole('ADMIN')">
 
-<form:label path="applicationsTrip">
-		<spring:message code="information.informationApplicationLabel" />:
-</form:label>
+
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="informationApplication" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
+	
+	<form:label path="applicationsTrip">
+		<spring:message code="information.informationApplicationLabel" />:
+	</form:label>
 
 	<spring:message code="information.average" var="averageHeader" />
 	<display:column property="average" title="${averageHeader}" sortable="true" />

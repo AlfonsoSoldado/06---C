@@ -48,6 +48,8 @@
 		<value>/views/stage/tiles.xml</value>
 		<value>/views/tag/tiles.xml</value>
 		<value>/views/legalText/tiles.xml</value>
+		<value>/views/information/tiles.xml</value>
+		
 	</util:list>
 
 </beans>

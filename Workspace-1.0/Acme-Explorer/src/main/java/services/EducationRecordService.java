@@ -72,16 +72,10 @@ public class EducationRecordService {
 		Curriculum c = r.getCurriculum();
 		Collection<EducationRecord> conj = c.getEducationRecord();
 		
-		for(EducationRecord ed: conj){
-			if(ed.getId() == educationRecord.getId()){
-				conj.remove(ed);
-			}
-		}
-		
 		conj.add(educationRecord);
+		c.setEducationRecord(conj);
 		
 		res = this.educationRecordRepository.save(educationRecord);
-		c.setEducationRecord(conj);
 		
 		return res;
 	}

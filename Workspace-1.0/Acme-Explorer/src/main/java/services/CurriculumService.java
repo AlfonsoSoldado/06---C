@@ -91,6 +91,7 @@ public class CurriculumService {
 		res = this.curriculumRepository.save(curriculum);
 		
 		ranger.setCurriculum(res);
+		res.setRanger(ranger);
 		
 		return res;
 	}

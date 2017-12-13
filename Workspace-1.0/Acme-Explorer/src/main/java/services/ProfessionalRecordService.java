@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.ProfessionalRecordRepository;
+import domain.Curriculum;
 import domain.ProfessionalRecord;
+import domain.Ranger;
 
 @Service
 @Transactional
@@ -20,6 +22,9 @@ public class ProfessionalRecordService {
 	private ProfessionalRecordRepository profesionalRecordRepository;
 
 	// Supporting services
+	
+	@Autowired
+	private RangerService rangerService;
 
 	// Constructors
 
@@ -56,7 +61,14 @@ public class ProfessionalRecordService {
 		Assert.notNull(profesionalRecord);
 		
 		ProfessionalRecord res;
+		
+		Ranger r = rangerService.findByPrincipal();
+		Curriculum c = r.getCurriculum();
+		Collection<ProfessionalRecord> conj = c.getProfessionalRecord();
+		conj.add(profesionalRecord);
+		
 		res = this.profesionalRecordRepository.save(profesionalRecord);
+		c.setProfessionalRecord(conj);
 		return res;
 	}
 
@@ -65,6 +77,13 @@ public class ProfessionalRecordService {
 		Assert.isTrue(profesionalRecord.getId() != 0);
 		Assert.isTrue(this.profesionalRecordRepository.exists(profesionalRecord
 				.getId()));
+		
+		Ranger r = rangerService.findByPrincipal();
+		Curriculum c = r.getCurriculum();
+		Collection<ProfessionalRecord> conj = c.getProfessionalRecord();
+		
+		conj.remove(profesionalRecord);
+		c.setProfessionalRecord(conj);
 		
 		this.profesionalRecordRepository.delete(profesionalRecord);
 	}

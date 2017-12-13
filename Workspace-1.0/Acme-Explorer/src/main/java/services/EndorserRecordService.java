@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.EndorserRecordRepository;
+import domain.Curriculum;
 import domain.EndorserRecord;
+import domain.Ranger;
 
 @Service
 @Transactional
@@ -20,6 +22,9 @@ public class EndorserRecordService {
 	private EndorserRecordRepository endorserRecordRepository;
 	
 	// Supporting services
+	
+	@Autowired
+	private RangerService rangerService;
 
 	// Constructors
 
@@ -55,7 +60,14 @@ public class EndorserRecordService {
 		Assert.notNull(endorserRecord);
 		
 		EndorserRecord res;
+		
+		Ranger r = rangerService.findByPrincipal();
+		Curriculum c = r.getCurriculum();
+		Collection<EndorserRecord> conj = c.getEndorserRecord();
+		conj.add(endorserRecord);
+		
 		res = this.endorserRecordRepository.save(endorserRecord);
+		c.setEndorserRecord(conj);
 		return res;
 	}
 
@@ -63,6 +75,14 @@ public class EndorserRecordService {
 		Assert.notNull(endorserRecord);
 		Assert.isTrue(endorserRecord.getId() != 0);
 		Assert.isTrue(this.endorserRecordRepository.exists(endorserRecord.getId()));
+		
+		Ranger r = rangerService.findByPrincipal();
+		Curriculum c = r.getCurriculum();
+		Collection<EndorserRecord> conj = c.getEndorserRecord();
+		
+		conj.remove(endorserRecord);
+		c.setEndorserRecord(conj);
+		
 		this.endorserRecordRepository.delete(endorserRecord);
 	}
 

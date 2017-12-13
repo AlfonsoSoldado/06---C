@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.MiscellaneousRecordRepository;
+import domain.Curriculum;
 import domain.MiscellaneousRecord;
+import domain.Ranger;
 
 @Service
 @Transactional
@@ -20,6 +22,9 @@ public class MiscellaneousRecordService {
 	private MiscellaneousRecordRepository miscellaneousRecordRepository;
 
 	// Supporting services
+	
+	@Autowired
+	private RangerService rangerService;
 
 	// Constructors
 
@@ -56,7 +61,14 @@ public class MiscellaneousRecordService {
 		Assert.notNull(miscellaneousRecord);
 
 		MiscellaneousRecord res;
+		
+		Ranger r = rangerService.findByPrincipal();
+		Curriculum c = r.getCurriculum();
+		Collection<MiscellaneousRecord> conj = c.getMiscellaneousRecord();
+		conj.add(miscellaneousRecord);
+		
 		res = this.miscellaneousRecordRepository.save(miscellaneousRecord);
+		c.setMiscellaneousRecord(conj);
 		return res;
 	}
 
@@ -65,6 +77,13 @@ public class MiscellaneousRecordService {
 		Assert.isTrue(miscellaneousRecord.getId() != 0);
 		Assert.isTrue(this.miscellaneousRecordRepository
 				.exists(miscellaneousRecord.getId()));
+		
+		Ranger r = rangerService.findByPrincipal();
+		Curriculum c = r.getCurriculum();
+		Collection<MiscellaneousRecord> conj = c.getMiscellaneousRecord();
+		
+		conj.remove(miscellaneousRecord);
+		c.setMiscellaneousRecord(conj);
 
 		this.miscellaneousRecordRepository.delete(miscellaneousRecord);
 	}

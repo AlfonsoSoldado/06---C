@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.EducationRecordRepository;
+import domain.Curriculum;
 import domain.EducationRecord;
+import domain.Ranger;
 
 @Service
 @Transactional
@@ -20,6 +22,9 @@ public class EducationRecordService {
 	private EducationRecordRepository educationRecordRepository;
 	
 	// Supporting services
+	
+	@Autowired
+	private RangerService rangerService;
 	
 	// Constructors
 	
@@ -55,7 +60,22 @@ public class EducationRecordService {
 		Assert.notNull(educationRecord);
 		
 		EducationRecord res;
+		
+		Ranger r = rangerService.findByPrincipal();
+		Curriculum c = r.getCurriculum();
+		Collection<EducationRecord> conj = c.getEducationRecord();
+		
+		for(EducationRecord ed: conj){
+			if(ed.getId() == educationRecord.getId()){
+				conj.remove(ed);
+			}
+		}
+		
+		conj.add(educationRecord);
+		
 		res = this.educationRecordRepository.save(educationRecord);
+		c.setEducationRecord(conj);
+		
 		return res;
 	}
 	
@@ -63,6 +83,13 @@ public class EducationRecordService {
 		Assert.notNull(educationRecord);
 		Assert.isTrue(educationRecord.getId() != 0);
 		Assert.isTrue(this.educationRecordRepository.exists(educationRecord.getId()));
+		
+		Ranger r = rangerService.findByPrincipal();
+		Curriculum c = r.getCurriculum();
+		Collection<EducationRecord> conj = c.getEducationRecord();
+		
+		conj.remove(educationRecord);
+		c.setEducationRecord(conj);
 		
 		this.educationRecordRepository.delete(educationRecord);
 	}

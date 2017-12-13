@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.PersonalRecordRepository;
+import domain.Curriculum;
 import domain.PersonalRecord;
+import domain.Ranger;
 
 @Service
 @Transactional
@@ -20,6 +22,9 @@ public class PersonalRecordService {
 	private PersonalRecordRepository personalRecordRepository;
 
 	// Supporting services
+	
+	@Autowired
+	private RangerService rangerService;
 
 	// Constructors
 
@@ -53,7 +58,12 @@ public class PersonalRecordService {
 	public PersonalRecord save(PersonalRecord personalRecord) {
 		Assert.notNull(personalRecord);
 		PersonalRecord res;
+		
+		Ranger r = rangerService.findByPrincipal();
+		Curriculum c = r.getCurriculum();
+		
 		res = this.personalRecordRepository.save(personalRecord);
+		c.setPersonalRecord(personalRecord);
 		return res;
 	}
 
@@ -62,6 +72,7 @@ public class PersonalRecordService {
 		Assert.isTrue(personalRecord.getId() != 0);
 		Assert.isTrue(this.personalRecordRepository.exists(personalRecord
 				.getId()));
+		
 		this.personalRecordRepository.delete(personalRecord);
 	}
 

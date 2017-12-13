@@ -48,6 +48,7 @@
 		<value>/views/stage/messages</value>
 		<value>/views/tag/messages</value>
 		<value>/views/legalText/messages</value>
+		<value>/views/information/messages</value>
 	</util:list>
 
 </beans>

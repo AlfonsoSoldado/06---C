@@ -23,297 +23,297 @@
 <security:authorize access="hasRole('ADMIN')">
 
 <form:label path="applicationsTrip">
-		<spring:message code="administrator.informationApplicationLabel" />:
+		<spring:message code="information.informationApplicationLabel" />:
 </form:label>
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="informationApplication" requestURI="administrator/list.do" id="row">
+	name="informationApplication" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
 
-	<spring:message code="administrator.average" var="averageHeader" />
+	<spring:message code="information.average" var="averageHeader" />
 	<display:column property="average" title="${averageHeader}" sortable="true" />
 
-	<spring:message code="administrator.minimum" var="minimumHeader" />
+	<spring:message code="information.minimum" var="minimumHeader" />
 	<display:column property="minimum" title="${minimumHeader}" sortable="true" />
 
-	<spring:message code="administrator.maximum" var="maximumHeader" />
+	<spring:message code="information.maximum" var="maximumHeader" />
 	<display:column property="maximum" title="${maximumHeader}" sortable="true" />
 	
-	<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+	<spring:message code="information.standardDeviation" var="standardDeviationHeader" />
 	<display:column property="standardDeviation" title="${standardDeviationHeader}" sortable="true" />
 	
 </display:table>
 
 <%--
 <form:label path="tripsManager">
-		<spring:message code="administrator.informationTripsManagerLabel" />:
+		<spring:message code="information.informationTripsManagerLabel" />:
 </form:label>
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="informationTripsManager" requestURI="administrator/list.do" id="row">
+	name="informationTripsManager" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
 
-	<spring:message code="administrator.average" var="averageHeader" />
+	<spring:message code="information.average" var="averageHeader" />
 	<display:column property="average" title="${averageHeader}" sortable="true" />
 
-	<spring:message code="administrator.minimum" var="minimumHeader" />
+	<spring:message code="information.minimum" var="minimumHeader" />
 	<display:column property="minimum" title="${minimumHeader}" sortable="true" />
 
-	<spring:message code="administrator.maximum" var="maximumHeader" />
+	<spring:message code="information.maximum" var="maximumHeader" />
 	<display:column property="maximum" title="${maximumHeader}" sortable="true" />
 	
-	<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+	<spring:message code="information.standardDeviation" var="standardDeviationHeader" />
 	<display:column property="standardDeviation" title="${standardDeviationHeader}" sortable="true" />
 	
 </display:table>
 
 
 <form:label path="priceTrips">
-		<spring:message code="administrator.informationPriceTripsLabel" />:
+		<spring:message code="information.informationPriceTripsLabel" />:
 </form:label>
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="informationPriceTrips" requestURI="administrator/list.do" id="row">
+	name="informationPriceTrips" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
 
-	<spring:message code="administrator.average" var="averageHeader" />
+	<spring:message code="information.average" var="averageHeader" />
 	<display:column property="average" title="${averageHeader}" sortable="true" />
 
-	<spring:message code="administrator.minimum" var="minimumHeader" />
+	<spring:message code="information.minimum" var="minimumHeader" />
 	<display:column property="minimum" title="${minimumHeader}" sortable="true" />
 
-	<spring:message code="administrator.maximum" var="maximumHeader" />
+	<spring:message code="information.maximum" var="maximumHeader" />
 	<display:column property="maximum" title="${maximumHeader}" sortable="true" />
 	
-	<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+	<spring:message code="information.standardDeviation" var="standardDeviationHeader" />
 	<display:column property="standardDeviation" title="${standardDeviationHeader}" sortable="true" />
 	
 </display:table>
 
 
 <form:label path="guidedRanger">
-		<spring:message code="administrator.informationTripsRangerLabel" />:
+		<spring:message code="information.informationTripsRangerLabel" />:
 </form:label>
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="informationTripsRanger" requestURI="administrator/list.do" id="row">
+	name="informationTripsRanger" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
 
-	<spring:message code="administrator.average" var="averageHeader" />
+	<spring:message code="information.average" var="averageHeader" />
 	<display:column property="average" title="${averageHeader}" sortable="true" />
 
-	<spring:message code="administrator.minimum" var="minimumHeader" />
+	<spring:message code="information.minimum" var="minimumHeader" />
 	<display:column property="minimum" title="${minimumHeader}" sortable="true" />
 
-	<spring:message code="administrator.maximum" var="maximumHeader" />
+	<spring:message code="information.maximum" var="maximumHeader" />
 	<display:column property="maximum" title="${maximumHeader}" sortable="true" />
 	
-	<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+	<spring:message code="information.standardDeviation" var="standardDeviationHeader" />
 	<display:column property="standardDeviation" title="${standardDeviationHeader}" sortable="true" />
 	
 </display:table>
 
 
 <form:label path="statusPending">
-		<spring:message code="administrator.informationPendingLabel" />:
+		<spring:message code="information.informationPendingLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationPending" requestURI="administrator/list.do" id="row">
+	name="informationPending" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.ratio" var="ratioHeader" />
+	<spring:message code="information.ratio" var="ratioHeader" />
 	<display:column property="ratio" title="${ratioHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="statusDue">
-		<spring:message code="administrator.informationDueLabel" />:
+		<spring:message code="information.informationDueLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationDue" requestURI="administrator/list.do" id="row">
+	name="informationDue" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.ratio" var="ratioHeader" />
+	<spring:message code="information.ratio" var="ratioHeader" />
 	<display:column property="ratio" title="${ratioHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="statusAccepted">
-		<spring:message code="administrator.informationAcceptedLabel" />:
+		<spring:message code="information.informationAcceptedLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationAccepted" requestURI="administrator/list.do" id="row">
+	name="informationAccepted" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.ratio" var="ratioHeader" />
+	<spring:message code="information.ratio" var="ratioHeader" />
 	<display:column property="ratio" title="${ratioHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="statusCancelled">
-		<spring:message code="administrator.informationCancelledLabel" />:
+		<spring:message code="information.informationCancelledLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationCancelled" requestURI="administrator/list.do" id="row">
+	name="informationCancelled" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.ratio" var="ratioHeader" />
+	<spring:message code="information.ratio" var="ratioHeader" />
 	<display:column property="ratio" title="${ratioHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="statusCancelled">
-		<spring:message code="administrator.cancelledOrganisedLabel" />:
+		<spring:message code="information.cancelledOrganisedLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationCancelledOrganised" requestURI="administrator/list.do" id="row">
+	name="informationCancelledOrganised" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.cancelledOrganised" var="cancelledOrganisedHeader" />
+	<spring:message code="information.cancelledOrganised" var="cancelledOrganisedHeader" />
 	<display:column property="cancelledOrganised" title="${cancelledOrganisedHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="informationTripLabel">
-		<spring:message code="administrator.informationTripLabel" />:
+		<spring:message code="information.informationTripLabel" />:
 </form:label>
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="informationTrip" requestURI="administrator/list.do" id="row">
+	name="informationTrip" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.trip" var="tripHeader" />
+	<spring:message code="information.trip" var="tripHeader" />
 	<display:column property="trip" title="${tripHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="informationLegalTextLabel">
-		<spring:message code="administrator.informationLegalTextLabel" />:
+		<spring:message code="information.informationLegalTextLabel" />:
 </form:label>
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="informationLegalText" requestURI="administrator/list.do" id="row">
+	name="informationLegalText" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.legalText" var="legalTextHeader" />
+	<spring:message code="information.legalText" var="legalTextHeader" />
 	<display:column property="legalText" title="${legalTextHeader}" sortable="true" />
 	
-	<spring:message code="administrator.referenced" var="referencedHeader" />
+	<spring:message code="information.referenced" var="referencedHeader" />
 	<display:column property="referenced" title="${referencedHeader}" sortable="true" />
 	
 </display:table>
 
 
 <form:label path="informationNotesLabel">
-		<spring:message code="administrator.informationNotesLabel" />:
+		<spring:message code="information.informationNotesLabel" />:
 </form:label>
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="informationNotes" requestURI="administrator/list.do" id="row">
+	name="informationNotes" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
 
-	<spring:message code="administrator.average" var="averageHeader" />
+	<spring:message code="information.average" var="averageHeader" />
 	<display:column property="average" title="${averageHeader}" sortable="true" />
 
-	<spring:message code="administrator.minimum" var="minimumHeader" />
+	<spring:message code="information.minimum" var="minimumHeader" />
 	<display:column property="minimum" title="${minimumHeader}" sortable="true" />
 
-	<spring:message code="administrator.maximum" var="maximumHeader" />
+	<spring:message code="information.maximum" var="maximumHeader" />
 	<display:column property="maximum" title="${maximumHeader}" sortable="true" />
 	
-	<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+	<spring:message code="information.standardDeviation" var="standardDeviationHeader" />
 	<display:column property="standardDeviation" title="${standardDeviationHeader}" sortable="true" />
 	
 </display:table>
 
 
 <form:label path="informationAuditLabel">
-		<spring:message code="administrator.informationAuditLabel" />:
+		<spring:message code="information.informationAuditLabel" />:
 </form:label>
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="informationAudit" requestURI="administrator/list.do" id="row">
+	name="informationAudit" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
 
-	<spring:message code="administrator.average" var="averageHeader" />
+	<spring:message code="information.average" var="averageHeader" />
 	<display:column property="average" title="${averageHeader}" sortable="true" />
 
-	<spring:message code="administrator.minimum" var="minimumHeader" />
+	<spring:message code="information.minimum" var="minimumHeader" />
 	<display:column property="minimum" title="${minimumHeader}" sortable="true" />
 
-	<spring:message code="administrator.maximum" var="maximumHeader" />
+	<spring:message code="information.maximum" var="maximumHeader" />
 	<display:column property="maximum" title="${maximumHeader}" sortable="true" />
 	
-	<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+	<spring:message code="information.standardDeviation" var="standardDeviationHeader" />
 	<display:column property="standardDeviation" title="${standardDeviationHeader}" sortable="true" />
 	
 </display:table>
 
 
 <form:label path="informationRatioAuditLabel">
-		<spring:message code="administrator.informationRatioAuditLabel" />:
+		<spring:message code="information.informationRatioAuditLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationRatioAudit" requestURI="administrator/list.do" id="row">
+	name="informationRatioAudit" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.ratio" var="ratioHeader" />
+	<spring:message code="information.ratio" var="ratioHeader" />
 	<display:column property="ratio" title="${ratioHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="informationRatioCurriculaLabel">
-		<spring:message code="administrator.informationRatioCurriculaLabel" />:
+		<spring:message code="information.informationRatioCurriculaLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationRatioCurricula" requestURI="administrator/list.do" id="row">
+	name="informationRatioCurricula" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.ratio" var="ratioHeader" />
+	<spring:message code="information.ratio" var="ratioHeader" />
 	<display:column property="ratio" title="${ratioHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="informationRatioEndorsedLabel">
-		<spring:message code="administrator.informationRatioEndorsedLabel" />:
+		<spring:message code="information.informationRatioEndorsedLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationRatioEndorsed" requestURI="administrator/list.do" id="row">
+	name="informationRatioEndorsed" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.ratio" var="ratioHeader" />
+	<spring:message code="information.ratio" var="ratioHeader" />
 	<display:column property="ratio" title="${ratioHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="informationRatioSuspiciousManagerLabel">
-		<spring:message code="administrator.informationRatioSuspiciousManagerLabel" />:
+		<spring:message code="information.informationRatioSuspiciousManagerLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationRatioSuspiciousManager" requestURI="administrator/list.do" id="row">
+	name="informationRatioSuspiciousManager" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.ratio" var="ratioHeader" />
+	<spring:message code="information.ratio" var="ratioHeader" />
 	<display:column property="ratio" title="${ratioHeader}" sortable="true" />
 
 </display:table>
 
 
 <form:label path="informationRatioSuspiciousRangerLabel">
-		<spring:message code="administrator.informationRatioSuspiciousRangerLabel" />:
+		<spring:message code="information.informationRatioSuspiciousRangerLabel" />:
 </form:label>
 <display:table pagesize="1" class="displaytag" keepStatus="true"
-	name="informationRatioSuspiciousRanger" requestURI="administrator/list.do" id="row">
+	name="informationRatioSuspiciousRanger" requestURI="information/administrator/list.do" id="row">
 	
 	<!-- Attributes -->
-	<spring:message code="administrator.ratio" var="ratioHeader" />
+	<spring:message code="information.ratio" var="ratioHeader" />
 	<display:column property="ratio" title="${ratioHeader}" sortable="true" />
 
 </display:table>

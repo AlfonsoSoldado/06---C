@@ -11,7 +11,9 @@ import org.springframework.util.Assert;
 
 import repositories.NoteRepository;
 import domain.Auditor;
+import domain.Manager;
 import domain.Note;
+import domain.Trip;
 
 @Service
 @Transactional
@@ -89,6 +91,21 @@ public class NoteService {
 
 		res.addAll(noteRepository.findNotesByAuditor(id));
 		Assert.notNull(res);
+		return res;
+	}
+	
+	//32.1
+	
+	public Collection<Note> findNotesByManager(Manager manager){
+		Collection<Note> res = new ArrayList<Note>();
+		
+		Collection<Trip> trips = new ArrayList<Trip>();
+		trips = manager.getTrip();
+		
+		for(Trip t: trips){
+			res.addAll(noteRepository.findNotesByManager(t.getId()));
+		}
+		
 		return res;
 	}
 }

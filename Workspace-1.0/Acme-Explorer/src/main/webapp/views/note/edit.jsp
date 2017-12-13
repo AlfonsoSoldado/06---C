@@ -21,19 +21,30 @@
 
 <form:form action="note/auditor/edit.do" modelAttribute="note">
 	
+	<form:hidden path="id" />
+	<form:hidden path="version" />
+	
 <security:authorize access="hasRole('AUDITOR')">
 	
 	<form:hidden path="auditor" />
 	<form:hidden path="moment" />
 	<form:hidden path="reply" />
 	<form:hidden path="momentReply" />
-	<form:hidden path="trip" />
 	
 	<form:label path="remark">
 		<spring:message code="note.remark" />:
 	</form:label>
 	<form:input path="remark" />
 	<form:errors cssClass="error" path="remark" />
+	<br />
+	
+	<form:label path="trip">
+		<spring:message code="note.trip" />:
+	</form:label>
+	<form:select path="trip">
+        <form:options items="${trip}" itemLabel="title"/>
+	</form:select>
+	<form:errors cssClass="error" path="trip" />
 	<br />
 
 </security:authorize>

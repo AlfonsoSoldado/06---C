@@ -50,7 +50,10 @@ public class NoteAuditorController extends AbstractController {
 		ModelAndView result;
 		Collection<Note> notes;
 
-		notes = noteService.findAll();
+		Auditor auditor = auditorService.findByPrincipal();
+		int auditorId = auditor.getId();
+		notes = noteService.findNotesByAuditor(auditorId);
+		
 
 		result = new ModelAndView("note/list");
 		result.addObject("note", notes);
@@ -61,30 +64,20 @@ public class NoteAuditorController extends AbstractController {
 
 	// Creation ---------------------------------------------------------------
 
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int noteId) {
-		ModelAndView result;
-		Note note;
-
-		note = noteService.findOne(noteId);
-		Assert.notNull(note);
-		result = this.createEditModelAndView(note);
-
-		return result;
-	}
-
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Note note,
 			final BindingResult binding) {
 		ModelAndView res;
 
 		if (binding.hasErrors())
-			res = this.createEditModelAndView(note, "note.commit.error");
+			res = this.createEditModelAndView(note, "note.params.error");
 		else
 			try {
 				this.noteService.save(note);
 				res = new ModelAndView("redirect:../auditor/list.do");
 			} catch (final Throwable oops) {
+				System.out.println(oops.getMessage());
+				System.out.println(oops.getCause());
 				res = this.createEditModelAndView(note, "note.commit.error");
 			}
 

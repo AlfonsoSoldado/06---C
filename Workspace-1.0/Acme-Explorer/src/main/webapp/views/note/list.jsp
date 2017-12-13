@@ -24,14 +24,6 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="note" requestURI="${requestURI }" id="row">
 	
-	<security:authorize access="hasRole('AUDITOR')">
-	<spring:message code="note.edit"/>
-	<display:column>
-		<a href= "note/auditor/edit.do?noteId=${row.id}">
-		<spring:message code="note.edit"/></a>
-	</display:column>
-	</security:authorize>
-	
 	<security:authorize access="hasRole('MANAGER')">
 	<spring:message code="note.addReply" var="addHeader" />
 	<display:column>
@@ -54,13 +46,15 @@
 	
 	<spring:message code="note.trip" var="tripHeader" />
 	<display:column property="trip.title" title="${tripHeader}"	sortable="true" />
+</display:table>
 
 	<security:authorize access="hasRole('AUDITOR')">
 		<div>
-		<a href="note/auditor/edit.do"> <spring:message
-				code="note.create" />
-		</a>
-	</div>
+			<a href="note/auditor/create.do">
+				<button>
+					<spring:message code="note.create" />
+				</button>
+			</a>
+		</div>
 	</security:authorize>
-</display:table>
 </security:authorize>

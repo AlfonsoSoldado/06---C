@@ -1390,12 +1390,12 @@
 	<!-- RANGER1 -->
 	
 	<bean id="ranger1" class="domain.Ranger">
-	<property name="suspicious" value="true"/>
 	<property name="name" value="Mario" />
 	<property name="surname" value="Sánchez" />
 	<property name="email" value="codec993@gmail.com" />
 	<property name="phoneNumber" value="654343632" />
 	<property name="address" value="C/Estrasburgo" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list>
 			<ref bean="socialId1"/>
@@ -1429,12 +1429,12 @@
 	<!-- RANGER2 -->
 	
 	<bean id="ranger2" class="domain.Ranger">
-	<property name="suspicious" value="false"/>
 	<property name="name" value="Alfonso" />
 	<property name="surname" value="Sánchez" />
 	<property name="email" value="codec993@gmail.com" />
 	<property name="phoneNumber" value="3253443632" />
 	<property name="address" value="C/Estrasburgo" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list>
 			<ref bean="socialId2"/>
@@ -1769,6 +1769,7 @@
 	<property name="email" value="dani.r.lopez@hotmail.com" />
 	<property name="phoneNumber" value="694443000" />
 	<property name="address" value="C/ Lugo" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -1798,6 +1799,7 @@
 	<property name="email" value="saldado@hotmail.com" />
 	<property name="phoneNumber" value="672713610" />
 	<property name="address" value="C/ Lugo" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -1911,6 +1913,7 @@
 	<property name="email" value="alfonsosoldado23@gmail.com" />
 	<property name="phoneNumber" value="674433632" />
 	<property name="address" value="C/ Madrid" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -1945,6 +1948,7 @@
 	<property name="email" value="juliocsponsor@gmail.com" />
 	<property name="phoneNumber" value="621443632" />
 	<property name="address" value="C/ Barcelona" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2049,6 +2053,7 @@
 	<property name="email" value="alfonsocaro@gmail.com" />
 	<property name="phoneNumber" value="674443111" />
 	<property name="address" value="C/ Sevilla" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2099,6 +2104,7 @@
 	<property name="email" value="josecaro@gmail.com" />
 	<property name="phoneNumber" value="834443632" />
 	<property name="address" value="C/ Granada" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2149,6 +2155,7 @@
 	<property name="email" value="pepecaro@gmail.com" />
 	<property name="phoneNumber" value="774443632" />
 	<property name="address" value="C/ Granada" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2194,6 +2201,7 @@
 	<property name="email" value="pepecaro@gmail.com" />
 	<property name="phoneNumber" value="774443632" />
 	<property name="address" value="C/ Granada" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2426,12 +2434,12 @@
 	<!-- MANAGER1 -->
 	
 	<bean id="manager1" class="domain.Manager">
-	<property name="suspicious" value="false"/>
 	<property name="name" value="Juan Carlos" />
 	<property name="surname" value="Cansino" />
 	<property name="email" value="juca@gmail.com" />
 	<property name="phoneNumber" value="614443132" />
 	<property name="address" value="C/Estrasburgo" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2468,12 +2476,12 @@
 	<!-- MANAGER2 -->
 	
 	<bean id="manager2" class="domain.Manager">
-	<property name="suspicious" value="false"/>
 	<property name="name" value="Juan" />
 	<property name="surname" value="Cansino" />
 	<property name="email" value="juca@gmail.com" />
 	<property name="phoneNumber" value="674441234" />
 	<property name="address" value="C/Estrasburgo" />
+	<property name="suspicious" value="true"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2509,12 +2517,12 @@
 	<!-- MANAGER3 -->
 	
 	<bean id="manager3" class="domain.Manager">
-	<property name="suspicious" value="false"/>
 	<property name="name" value="Lolo" />
 	<property name="surname" value="Feo" />
 	<property name="email" value="juas@gmail.com" />
 	<property name="phoneNumber" value="674434234" />
 	<property name="address" value="C/ Hola" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2550,12 +2558,12 @@
 	<!-- MANAGER4 -->
 	
 	<bean id="manager4" class="domain.Manager">
-	<property name="suspicious" value="false"/>
 	<property name="name" value="Kiko" />
 	<property name="surname" value="Rivera" />
 	<property name="email" value="gordo@gmail.com" />
 	<property name="phoneNumber" value="684434234" />
 	<property name="address" value="C/ Veis" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2598,6 +2606,7 @@
 	<property name="email" value="juca@gmail.com" />
 	<property name="phoneNumber" value="974443632" />
 	<property name="address" value="C/Estrasburgo" />
+	<property name="suspicious" value="false"/>
 	<property name="socialId">
 		<list></list>
 	</property>
@@ -2637,6 +2646,7 @@
 	<property name="email" value="juca@gmail.com" />
 	<property name="phoneNumber" value="674438632" />
 	<property name="address" value="C/Estrasburgo" />
+	<property name="suspicious" value="true"/>
 	<property name="socialId">
 		<list></list>
 	</property>

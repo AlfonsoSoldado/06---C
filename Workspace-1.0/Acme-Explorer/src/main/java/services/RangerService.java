@@ -58,7 +58,6 @@ public class RangerService {
 		res.setFolders(folder);
 		res.setCurriculum(curriculum);
 		res.setTrip(trip);
-		res.setSuspicious(false);
 
 		return res;
 	}
@@ -81,10 +80,10 @@ public class RangerService {
 	public Ranger save(Ranger ranger) {
 		Assert.notNull(ranger);
 		Ranger res;
-		
+
 		Ranger r = findByPrincipal();
 		ranger.setReceived(r.getReceived());
-		
+
 		res = this.rangerRepository.save(ranger);
 		return res;
 	}
@@ -99,7 +98,7 @@ public class RangerService {
 	// Other business methods
 
 	// 35.1
-	
+
 	public Collection<Ranger> rangersSuspicious() {
 		Collection<Ranger> res = new ArrayList<Ranger>();
 		res.addAll(rangerRepository.rangersSuspicious());

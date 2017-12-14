@@ -63,7 +63,7 @@ public class TripController {
 	}
 	
 	@RequestMapping(value = "/finder/list", method = RequestMethod.GET)
-	public ModelAndView list(@RequestParam String singleKey){
+	public ModelAndView list(@RequestParam(value = "singleKey", defaultValue = "") final String singleKey){
 		ModelAndView result;
 		Collection<Trip> trips;
 		trips = finderService.findSearchSingleKey(singleKey);

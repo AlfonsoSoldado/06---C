@@ -49,6 +49,7 @@
 		<value>/views/tag/tiles.xml</value>
 		<value>/views/legalText/tiles.xml</value>
 		<value>/views/information/tiles.xml</value>
+		<value>/views/socialId/tiles.xml</value>
 		
 	</util:list>
 

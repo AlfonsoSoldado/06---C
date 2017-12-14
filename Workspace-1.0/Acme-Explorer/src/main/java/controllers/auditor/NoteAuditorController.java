@@ -73,8 +73,6 @@ public class NoteAuditorController extends AbstractController {
 				this.noteService.save(note);
 				res = new ModelAndView("redirect:../auditor/list.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getMessage());
-				System.out.println(oops.getCause());
 				res = this.createEditModelAndView(note, "note.commit.error");
 			}
 
@@ -114,6 +112,7 @@ public class NoteAuditorController extends AbstractController {
 		result.addObject("auditor", auditor);
 		result.addObject("note", note);
 		result.addObject("message", message);
+		result.addObject("requestURI", "note/auditor/edit.do");
 		return result;
 	}
 

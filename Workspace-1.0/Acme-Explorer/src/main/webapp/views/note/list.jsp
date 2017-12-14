@@ -25,10 +25,10 @@
 	name="note" requestURI="${requestURI }" id="row">
 	
 	<security:authorize access="hasRole('MANAGER')">
-	<spring:message code="note.addReply" var="addHeader" />
+	<spring:message code="note.addReply" />
 	<display:column>
 		<a href= "note/manager/edit.do?noteId=${row.id}">
-		<spring:message code="note.addReply" var="addHeader" /></a>
+		<spring:message code="note.addReply"/></a>
 	</display:column>
 	</security:authorize>
 	

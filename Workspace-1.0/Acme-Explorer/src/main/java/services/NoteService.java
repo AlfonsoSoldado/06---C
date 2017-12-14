@@ -13,7 +13,6 @@ import repositories.NoteRepository;
 import domain.Auditor;
 import domain.Manager;
 import domain.Note;
-import domain.Trip;
 
 @Service
 @Transactional
@@ -75,7 +74,7 @@ public class NoteService {
 		//auditorService.checkAuthority();
 
 		Assert.notNull(note);
-		Assert.isTrue(note.getId() == 0);
+		//Assert.isTrue(note.getId() == 0);
 
 		Note res;
 		res = this.noteRepository.save(note);
@@ -99,12 +98,7 @@ public class NoteService {
 	public Collection<Note> findNotesByManager(Manager manager){
 		Collection<Note> res = new ArrayList<Note>();
 		
-		Collection<Trip> trips = new ArrayList<Trip>();
-		trips = manager.getTrip();
-		
-		for(Trip t: trips){
-			res.addAll(noteRepository.findNotesByManager(t.getId()));
-		}
+		res.addAll(noteRepository.findNotesByManager(manager.getId()));
 		
 		return res;
 	}

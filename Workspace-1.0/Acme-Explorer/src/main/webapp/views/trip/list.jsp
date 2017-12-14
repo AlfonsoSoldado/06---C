@@ -58,11 +58,13 @@
 	<spring:message code="trip.category" var="categoryHeader" />
 	<display:column property="category.name" title="${categoryHeader}"	sortable="true" />
 	
-	<spring:message code="trip.audit" var="auditHeader" />
-	<display:column>
-		<a href= "audit/list.do?tripId=${row.id}">
-		<spring:message code="trip.audit" var="auditHeader" /></a>
+	<spring:message code="trip.ranger" var="ranger"/>
+	<display:column title="${ranger}">
+		<a href= "curriculum/display.do?rangerId=${row.ranger.id}">
+			<spring:message code="trip.ranger"/>
+		</a>
 	</display:column>
+	
 </display:table>
 
 <!-- Action links -->

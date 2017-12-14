@@ -27,7 +27,7 @@ Sponsorship funciona perfecto.
 
 Stage funciona perfecto.
 
-Story. Falta el delete.
+Story funciona perfecto.
 
 Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
 

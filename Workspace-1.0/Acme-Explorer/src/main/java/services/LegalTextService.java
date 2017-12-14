@@ -79,8 +79,8 @@ public class LegalTextService {
 	public void delete(LegalText legalText) {
 		administratorService.checkAuthority();
 
-		Assert.notNull(legalText);
 		Assert.isTrue(legalText.getDraftMode() == true);
+		Assert.notNull(legalText);
 		Assert.isTrue(legalText.getId() != 0);
 		Assert.isTrue(this.legalTextRepository.exists(legalText.getId()));
 		this.legalTextRepository.delete(legalText);

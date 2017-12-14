@@ -89,6 +89,10 @@ public class LegalTextAdministratorController extends AbstractController {
 			this.legalTextService.delete(legalText);
 			res = new ModelAndView("redirect:list.do");
 		} catch (final Throwable oops) {
+			System.out.println(oops.getCause());
+			System.out.println(oops.getLocalizedMessage());
+			System.out.println(oops.getMessage());
+			System.out.println(oops.fillInStackTrace());
 			res = this.createEditModelAndView(legalText, "legalText.commit.error");
 		}
 

@@ -55,7 +55,6 @@
 	<form:select path="trip">
         <form:options items="${trip}" itemLabel="title"/>
 	</form:select>
-	<form:input path="trip" />
 	<form:errors cssClass="error" path="trip" />
 	<br />
 	

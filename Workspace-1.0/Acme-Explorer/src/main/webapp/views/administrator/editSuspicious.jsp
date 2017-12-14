@@ -19,22 +19,27 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="/administrator/editSuspicious.do" modelAttribute="actor">
+<form:form action="administrator/editSuspicious.do" modelAttribute="actor">
 	
 	<security:authorize access="hasRole('ADMIN')">
 	
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	
-	<form:hidden path="folser" />
-	<form:hidden path="message" />
-	<form:hidden path="socialID" />
+	<form:hidden path="folders" />
+	<form:hidden path="received" />
+	<form:hidden path="sent" />
+	<form:hidden path="socialId" />
+	<form:hidden path="userAccount" />
 	
 	
 	<form:label path="suspicious">
 		<spring:message code="administrator.suspicious" />:
 	</form:label>
-	<form:input path="suspicious" />
+	<form:select path="suspicious">
+        <form:option value="true" label="Yes"/>
+        <form:option value="false" label="No"/>
+	</form:select>
 	<form:errors cssClass="error" path="suspicious" />
 	<br />
 	

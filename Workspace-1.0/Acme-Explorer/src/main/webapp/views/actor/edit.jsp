@@ -19,8 +19,6 @@
 <form:form action="${requestUri}" modelAttribute="actor">
 
 	<security:authorize access="hasRole('RANGER')">
-	<form:hidden path="suspicious" />
-	
 	<form:hidden path="curriculum" />
 	<form:hidden path="trip" />
 	</security:authorize>
@@ -30,22 +28,18 @@
 	<form:hidden path="emergency" />
 	<form:hidden path="stories" />
 	<form:hidden path="application" />
-<%-- 	<form:hidden path="survival" /> --%>
 	</security:authorize>
 	
 	<security:authorize access="hasRole('SPONSOR')">
-	
 	<form:hidden path="sponsorship" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('AUDITOR')">
-	
 	<form:hidden path="audit" />
 	<form:hidden path="note" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('MANAGER')">
-	<form:hidden path="suspicious" />
 	<form:hidden path="application" />
 	<form:hidden path="trip" />
 	</security:authorize>
@@ -58,6 +52,7 @@
 	<form:hidden path="folders"/>
 	<form:hidden path="sent" />
 	<form:hidden path="socialId"/>
+	<form:hidden path="suspicious" />
 
 	<form:label path="name">
 		<spring:message code="actor.name" />:

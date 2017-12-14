@@ -1,5 +1,5 @@
 <%--
- * list.jsp
+ * edit.jsp
  *
  * Copyright (C) 2017 Universidad de Sevilla
  * 
@@ -10,7 +10,7 @@
 
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+	
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
@@ -19,17 +19,35 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<!-- Listing grid -->
-
-<security:authorize access="hasRole('ADMIN')">
-<display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="suspicious" requestURI="suspicious/administrator/list.do" id="row">
+<form:form action="/administrator/editSuspicious.do" modelAttribute="actor">
+	
+	<security:authorize access="hasRole('ADMIN')">
+	
+	<form:hidden path="id" />
+	<form:hidden path="version" />
+	
+	<form:hidden path="folser" />
+	<form:hidden path="message" />
+	<form:hidden path="socialID" />
 	
 	
-	<spring:message code="suspicious.actors" var="actorsHeader" />
-	<display:column property="title" title="${titleHeader}" sortable="true" />
+	<form:label path="suspicious">
+		<spring:message code="administrator.suspicious" />:
+	</form:label>
+	<form:input path="suspicious" />
+	<form:errors cssClass="error" path="suspicious" />
+	<br />
+	
+	
+	<input type="submit" name="save"
+		value="<spring:message code="administrator.save" />" />&nbsp; 
+	
+	
+	<input type="button" name="cancel"
+		value="<spring:message code="administrator.cancel" />"
+		onclick="javascript: relativeRedir('/administrator/suspicious.do');" />
+	<br />
 
 
-</display:table>
-
-</security:authorize>
+	</security:authorize>
+</form:form>

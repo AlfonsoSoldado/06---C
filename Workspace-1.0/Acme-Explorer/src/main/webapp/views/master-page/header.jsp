@@ -31,6 +31,7 @@
 			<li><a class="fNiv" href="tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
 			<li><a class="fNiv" href="legalText/administrator/list.do"><spring:message code="master.page.legalText" /></a></li>
 			<li><a class="fNiv" href="information/administrator/list.do"><spring:message code="master.page.information" /></a></li>
+			<li><a class="fNiv" href="administrator/suspicious.do"><spring:message code="master.page.suspicious" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('MANAGER')">
@@ -92,7 +93,7 @@
 					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 				</ul>
 			</li>
-			<li><a href="curriculum/display.do"><spring:message code="master.page.curriculum" /></a></li>
+			<li><a href="curriculum/ranger/display.do"><spring:message code="master.page.curriculum" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="isAnonymous()">

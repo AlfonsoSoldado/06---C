@@ -72,6 +72,13 @@
 		</a>
 	</display:column>
 	
+	<spring:message code="trip.stage" var="stage"/>
+	<display:column title="${stage}">
+		<a href= "stage/list.do?tripId=${row.id}">
+			<spring:message code="trip.stage"/>
+		</a>
+	</display:column>
+	
 </display:table>
 
 <!-- Action links -->

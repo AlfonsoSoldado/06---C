@@ -137,7 +137,7 @@ public class StageManagerController extends AbstractController {
 						final Stage stage, final String messageCode) {
 		ModelAndView res;
 		res = new ModelAndView("stage/edit");
-		res.addObject("stage", stage);
+		res.addObject("stageManager", stage);
 		res.addObject("message",messageCode);
 		
 		return res;

@@ -17,13 +17,17 @@
 <tiles-definitions>
 
 	<definition name="stage/list" extends="master.page">	
-		<put-attribute name="title" value="Mostrar Etapas" />
+		<put-attribute name="title" value="Mostrar etapas" />
 		<put-attribute name="body" value="/views/stage/list.jsp" />
 	</definition>
-
 	
 	<definition name="stage/edit" extends="master.page">	
-		<put-attribute name="title" value="Editar Etapas" />
+		<put-attribute name="title" value="Editar etapa" />
+		<put-attribute name="body" value="/views/stage/edit.jsp" />
+	</definition>
+	
+	<definition name="stage/create" extends="master.page">	
+		<put-attribute name="title" value="Crear etapa" />
 		<put-attribute name="body" value="/views/stage/edit.jsp" />
 	</definition>
 	

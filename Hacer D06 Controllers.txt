@@ -11,7 +11,7 @@ Audit funciona perfecto.
 
 Category. Falla el edit, al crear una categoría nueva no se asigna al trip. (Poner bonito)
 
-Curriculum. Funcionan todos los records. Falta que funcione el create y el delete curriculum.
+Curriculum. Funcionan todos los records. Falta que funcione el create.
 
 Emergency funciona perfecto.
 

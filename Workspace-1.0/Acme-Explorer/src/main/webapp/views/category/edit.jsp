@@ -34,21 +34,25 @@
 		<br />
 
 		<form:label path="categoryParent">
-		<spring:message code="category.categoryParent"/>
+			<spring:message code="category.categoryParent"/>
 		</form:label>
+		<form:input path="categoryParent.name" />
+		<form:errors cssClass="error" path="categoryParent" />
+		<br />
 		
 		<form:select path="categoryParent">
 		<form:option value="${categoryRoot.id}">
-			<spring:message code = "category.categoryChildren"/>
 		</form:option>
 		<jstl:forEach var="cat" items="${categories}"> 
 		<jstl:if test="${cat.name != \"CATEGORY\"}">
 			<form:option value="${cat.id}">
-				<jstl:out value="${cat.name}"/> 	
+				<jstl:out value="${cat.name}"/> 
 			</form:option>
 		</jstl:if>
 		</jstl:forEach>
+		<jstl:out value="${categoryParent}"/>
 		</form:select>
+		<br />
 
 		<form:label path="trip">
 			<spring:message code="category.trip" />:

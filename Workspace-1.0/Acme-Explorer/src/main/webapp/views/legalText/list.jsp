@@ -32,12 +32,6 @@
 		<spring:message code="legalText.edit"/></a>
 	</display:column>
 	
-	<spring:message code="legalText.delete"/>
-	<display:column>
-		<a href= "legalText/administrator/delete.do?legalTextId=${row.id}">
-		<spring:message code="legalText.delete"/></a>
-	</display:column>
-	
 	<spring:message code="legalText.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
 	

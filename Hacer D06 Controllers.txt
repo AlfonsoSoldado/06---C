@@ -3,30 +3,35 @@ Falta vista y controlador: ¿socialId?, ¿value?
 Falta controlador: administrator
 
 
+Editar personal data funciona.
 
+Application. Falta controladores de los distintos edits, el list de manager en controladores y sus edit.
 
-Application funciona. Falta hacer el list de manager en controladores y sus edit.
+Audit funciona perfecto.
 
-Trip funciona. El edit funciona, falta que funcione el create y el delete. (Poner bonito)
+Category. Falla el edit, al crear una categoría nueva no se asigna al trip. (Poner bonito)
 
-Editar personal data funciona. Falta que funcionen los saves y delete. (Y poner bonito)
+Curriculum. Funcionan todos los records. Falta que funcione el create y el delete curriculum.
 
-Category funciona. Falta que funcionen los saves y delete. (Y poner bonito)
+Emergency funciona perfecto.
 
-Actor folder - Funciona con explorer01. Falta que funcionen los saves y delete. (Y poner bonito)
+Finder. Falta que haga la búsqueda al darle al search. Tanto anónimo como explorer.
 
-Finder. Falta que haga la búsqueda al darle al search.
+Folder/Message. Falta que funcionen los saves/deletes/creates. (Y poner bonito)
 
-Note. Falta que funcionen los saves y delete. (Habría que hacer una relación de manager con note)
+LegalText. Falla el delete.
 
-Sponsorship. FUnciona el edit. Falta el create y el delete.
+Note. Falta que manager pueda responder los notes de sus trips.
 
-Survival. FUnciona el edit. Falta el create y el delete. (Falta lo de explorer)
+Sponsorship funciona perfecto.
 
-No he tenido cojones de sacar el puto registerExplorer y registerRanger...
+Stage funciona perfecto.
 
-Curriculum: Falta los records y que funcione el save, delete y create.
+Story. Falta el delete.
 
-Tag funciona: Falta el delete. Meterle el value en la tabla??
+Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
 
-LegalText funciona: Falta el delete
+Tag. Falla el edit y el delete.
+
+Trip. Create y el delete. Hacer otra vista detailed trip. Meter en la tabla stage 
+y ranger para que te lleve a sus curriculums. (Poner bonito)

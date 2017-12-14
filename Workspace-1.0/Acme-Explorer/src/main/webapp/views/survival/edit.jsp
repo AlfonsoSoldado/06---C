@@ -54,7 +54,9 @@
 	<form:label path="trip">
 		<spring:message code="survival.trip" />:
 	</form:label>
-	<form:input path="trip" />
+	<form:select path="trip">
+        <form:options items="${trip}" itemLabel="title"/>
+	</form:select>
 	<form:errors cssClass="error" path="trip" />
 	<br />
 

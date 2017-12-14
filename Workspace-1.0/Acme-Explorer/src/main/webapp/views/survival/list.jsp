@@ -32,12 +32,6 @@
 		<spring:message code="survival.edit"/></a>
 	</display:column>
 	
-	<spring:message code="survival.delete"/>
-	<display:column>
-		<a href= "survival/manager/delete.do?survivalId=${row.id}">
-		<spring:message code="survival.delete"/></a>
-	</display:column>
-	
 	<spring:message code="survival.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
 

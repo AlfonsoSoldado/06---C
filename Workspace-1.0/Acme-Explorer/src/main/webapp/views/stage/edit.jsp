@@ -23,6 +23,9 @@
 	
 	<security:authorize access="hasRole('MANAGER')">
 	
+	<form:hidden path="id" />
+	<form:hidden path="version" />
+	
 	<form:label path="title">
 		<spring:message code="stage.title" />:
 	</form:label>

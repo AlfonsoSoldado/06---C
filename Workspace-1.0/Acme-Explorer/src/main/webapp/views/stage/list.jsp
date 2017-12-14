@@ -27,15 +27,12 @@
 
 	<!-- Attributes -->
 
-	<spring:message code="stage.delete" />
-	<display:column>
-		<a href="stage/delete.do?stageId=${row.id}"> <spring:message code="stage.delete" /></a>
-	</display:column>
-
+	<security:authorize access="hasRole('MANAGER')">
 	<spring:message code="stage.edit" />
 	<display:column>
-		<a href="stage/edit.do?stageId=${row.id}"> <spring:message code="stage.edit" /></a>
+		<a href="stage/manager/edit.do?stageId=${row.id}"> <spring:message code="stage.edit" /></a>
 	</display:column>
+	</security:authorize>
 
 	<spring:message code="stage.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />

@@ -35,6 +35,11 @@
 	
 	<input type="submit" name="save"
 		value="<spring:message code="tag.save" />" />&nbsp; 
+	<jstl:if test="${tag.id != 0}">
+		<input type="submit" name="delete"
+			value="<spring:message code="tag.delete" />"
+			onclick="return confirm('<spring:message code="tag.delete" />')" />&nbsp;
+	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="tag.cancel" />"
 		onclick="javascript: relativeRedir('/tag/administrator/list.do');" />

@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.SurvivalService;
+import services.TripService;
 import controllers.AbstractController;
 import domain.Survival;
+import domain.Trip;
 
 @Controller
 @RequestMapping("/survival/manager")
@@ -24,8 +26,11 @@ public class SurvivalManagerController extends AbstractController {
 	// Services -------------------------------------------------------------
 
 	@Autowired
-	SurvivalService survivalService;
-
+	private SurvivalService survivalService;
+	
+	@Autowired
+	private TripService tripService;
+	
 	// Constructors ---------------------------------------------------------
 
 	public SurvivalManagerController() {
@@ -39,7 +44,7 @@ public class SurvivalManagerController extends AbstractController {
 		ModelAndView result;
 		Collection<Survival> survival;
 
-		survival = survivalService.findAll();
+		survival = survivalService.findSurvivalByTrips();
 
 		result = new ModelAndView("survival/list");
 		result.addObject("survival", survival);
@@ -131,6 +136,8 @@ public class SurvivalManagerController extends AbstractController {
 			final Survival survival, final String messageCode) {
 		ModelAndView result;
 		result = new ModelAndView("survival/edit");
+		Collection<Trip> trips = tripService.findAll();
+		result.addObject("trip", trips);
 		result.addObject("survival", survival);
 		result.addObject("message", messageCode);
 		return result;

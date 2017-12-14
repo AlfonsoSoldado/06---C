@@ -67,6 +67,11 @@
 	
 	<input type="submit" name="save"
 		value="<spring:message code="legalText.save" />" />&nbsp; 
+	<jstl:if test="${legalText.id != 0}">
+		<input type="submit" name="delete"
+			value="<spring:message code="legalText.delete" />"
+			onclick="javascript: return confirm('<spring:message code="legalText.delete" />')" />&nbsp;
+	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="legalText.cancel" />"
 		onclick="javascript: relativeRedir('/legalText/administrator/list.do');" />

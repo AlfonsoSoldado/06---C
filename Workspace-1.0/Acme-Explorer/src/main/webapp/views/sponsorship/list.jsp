@@ -34,12 +34,6 @@
 		<spring:message code="sponsorship.edit"/></a>
 	</display:column>
 	
-	<spring:message code="sponsorship.delete"/>
-	<display:column>
-		<a href= "sponsorship/sponsor/delete.do?sponsorshipId=${row.id}">
-		<spring:message code="sponsorship.delete"/></a>
-	</display:column>
-	
 	<spring:message code="sponsorship.banner" var="bannerHeader" />
 	<display:column property="banner" title="${bannerHeader}" sortable="true" />
 	

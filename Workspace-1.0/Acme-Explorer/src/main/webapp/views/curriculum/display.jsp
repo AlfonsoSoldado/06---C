@@ -32,10 +32,10 @@
 		sortable="true" />
 
 	<security:authorize access="hasRole('RANGER')">
-		<spring:message code="curriculum.delete" />
+		<spring:message code="curriculum.edit" />
 		<display:column>
-			<a href="curriculum/ranger/delete.do?curriculumId=${row.id}"> <spring:message
-					code="curriculum.delete" /></a>
+			<a href="curriculum/ranger/edit.do?curriculumId=${row.id}"> <spring:message
+					code="curriculum.edit" /></a>
 		</display:column>
 	</security:authorize>
 
@@ -61,14 +61,6 @@
 		</display:column>
 	</security:authorize>
 	
-	<security:authorize access="hasRole('RANGER')">
-		<spring:message code="curriculum.delete" />
-		<display:column>
-			<a href="personalRecord/ranger/delete.do?personalRecordId=${row.id}"> <spring:message
-					code="curriculum.delete" /></a>
-		</display:column>
-	</security:authorize>
-
 	<spring:message code="curriculum.records.name" var="titleHeader" />
 	<display:column property="name" title="${titleHeader}"
 		sortable="true" />
@@ -111,14 +103,6 @@
 		</display:column>
 	</security:authorize>
 	
-	<security:authorize access="hasRole('RANGER')">
-		<spring:message code="curriculum.delete" />
-		<display:column>
-			<a href="educationRecord/ranger/delete.do?educationRecordId=${row.id}"> <spring:message
-					code="curriculum.delete" /></a>
-		</display:column>
-	</security:authorize>
-
 	<spring:message code="curriculum.records.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}"
 		sortable="true" />
@@ -165,14 +149,6 @@
 		</display:column>
 	</security:authorize>
 	
-	<security:authorize access="hasRole('RANGER')">
-		<spring:message code="curriculum.delete" />
-		<display:column>
-			<a href="professionalRecord/ranger/delete.do?professionalRecordId=${row.id}"> <spring:message
-					code="curriculum.delete" /></a>
-		</display:column>
-	</security:authorize>
-
 	<spring:message code="curriculum.professionalRecord.campanyName" var="companyNameHeader" />
 	<display:column property="companyName" title="${companyNameHeader}"
 		sortable="true" />
@@ -218,14 +194,6 @@
 					code="curriculum.edit" /></a>
 		</display:column>
 	</security:authorize>
-	
-	<security:authorize access="hasRole('RANGER')">
-		<spring:message code="curriculum.delete" />
-		<display:column>
-			<a href="miscellaneousRecord/ranger/delete.do?miscellaneousRecordId=${row.id}"> <spring:message
-					code="curriculum.delete" /></a>
-		</display:column>
-	</security:authorize>
 
 	<spring:message code="curriculum.records.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}"
@@ -261,14 +229,6 @@
 		</display:column>
 	</security:authorize>
 	
-	<security:authorize access="hasRole('RANGER')">
-		<spring:message code="curriculum.delete" />
-		<display:column>
-			<a href="endorserRecord/ranger/delete.do?endorserRecordId=${row.id}"> <spring:message
-					code="curriculum.delete" /></a>
-		</display:column>
-	</security:authorize>
-
 	<spring:message code="curriculum.endorserRecord.endorserName" var="endorserNameHeader" />
 	<display:column property="endorserName" title="${endorserNameHeader}"
 		sortable="true" />

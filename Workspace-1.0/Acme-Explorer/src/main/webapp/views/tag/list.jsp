@@ -32,12 +32,6 @@
 		<spring:message code="tag.edit"/></a>
 	</display:column>
 	
-	<spring:message code="tag.delete"/>
-	<display:column>
-		<a href= "tag/administrator/delete.do?tagId=${row.id}">
-		<spring:message code="tag.delete"/></a>
-	</display:column>
-	
 	<spring:message code="tag.name" var="nameHeader" />
 	<display:column property="name" title="${nameHeader}" sortable="true" />
 	

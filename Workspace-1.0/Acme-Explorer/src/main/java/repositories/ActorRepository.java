@@ -10,7 +10,6 @@ import domain.Actor;
 import domain.Audit;
 import domain.Curriculum;
 import domain.Folder;
-import domain.Ranger;
 
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Integer> {

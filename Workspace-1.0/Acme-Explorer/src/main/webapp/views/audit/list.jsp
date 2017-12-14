@@ -20,17 +20,19 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 <!-- Listing grid -->
-<security:authorize access="hasRole('AUDITOR')">
+
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="auditsAuditor" requestURI="audit/auditor/list.do" id="row">
+	name="audits" requestURI="${requestUri}" id="row">
 	
 	<!-- Attributes -->
 	
+	<security:authorize access="hasRole('AUDITOR')">
 	<spring:message code="audit.edit"/>
 	<display:column>
 		<a href= "audit/auditor/edit.do?auditId=${row.id}">
 		<spring:message code="audit.edit"/></a>
 	</display:column>
+	</security:authorize>
 	
 	<spring:message code="audit.moment" var="momentHeader" />
 	<display:column property="moment" title="${momentHeader}" sortable="true" />
@@ -55,6 +57,7 @@
 	
 </display:table>
 
+<security:authorize access="hasRole('AUDITOR')">
 	<div>
 		<a href="audit/auditor/create.do">
 			<button>
@@ -63,29 +66,3 @@
 		</a>
 	</div>
 </security:authorize>
-
-<display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="audits" requestURI="audit/list.do" id="row">
-	
-	<spring:message code="audit.moment" var="momentHeader" />
-	<display:column property="moment" title="${momentHeader}" sortable="true" />
-	
-	<spring:message code="audit.title" var="titleHeader" />
-	<display:column property="title" title="${titleHeader}" sortable="true" />
-	
-	<spring:message code="audit.description" var="descriptionHeader" />
-	<display:column property="description" title="${descriptionHeader}" sortable="false" />
-	
-	<spring:message code="audit.attachment" var="attachmentHeader" />
-	<display:column property="attachment" title="${attachmentHeader}" sortable="false" />
-	
-	<spring:message code="audit.draftMode" var="draftModeHeader" />
-	<display:column property="draftMode" title="${draftModeHeader}" sortable="true" />
-	
-	<spring:message code="audit.trip" var="tripHeader" />
-	<display:column property="trip" title="${tripHeader}" sortable="true" />
-	
-	<spring:message code="audit.auditor" var="auditorHeader" />
-	<display:column property="auditor" title="${auditorHeader}" sortable="true" />
-	
-</display:table>

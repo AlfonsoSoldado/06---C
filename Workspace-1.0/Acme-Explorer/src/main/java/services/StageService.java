@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +66,13 @@ public class StageService {
 	}
 
 	// Other business methods
+	
+	public Collection<Stage> findStageByTrip(int tripId){
+		Collection<Stage> res = new ArrayList<Stage>();
+		res.addAll(stageRepository.findStageByTrip(tripId));
+		res = stageRepository.findStageByTrip(tripId);
+		
+		return res;
+	}
 
 }

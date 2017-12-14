@@ -45,7 +45,7 @@ public class StageManagerController extends AbstractController {
 		stage = stageService.findAll();
 		
 		res = new ModelAndView("stage/list");
-		res.addObject("stage",stage);
+		res.addObject("stage", stage);
 		res.addObject("requestURI", "stage/manager/list.do");
 		
 		return res;

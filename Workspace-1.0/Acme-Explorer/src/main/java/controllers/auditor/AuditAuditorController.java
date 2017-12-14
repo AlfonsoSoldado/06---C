@@ -52,7 +52,7 @@ public class AuditAuditorController extends AbstractController {
 		audits = auditService.findAll();
 
 		result = new ModelAndView("audit/auditor/list");
-		result.addObject("auditsAuditor", audits);
+		result.addObject("audits", audits);
 		result.addObject("requestURI", "audit/auditor/list.do");
 
 		return result;

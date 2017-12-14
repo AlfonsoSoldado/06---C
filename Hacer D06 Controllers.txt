@@ -33,5 +33,4 @@ Survival. Falta lo de explorer. (Enrol a survival class that is offered by any o
 
 Tag. Falla el edit y el delete.
 
-Trip. Create y el delete. Hacer otra vista detailed trip. Meter en la tabla stage 
-y ranger para que te lleve a sus curriculums. (Poner bonito)
+Trip. Create y el delete. Hacer otra vista detailed trip. (Poner bonito)

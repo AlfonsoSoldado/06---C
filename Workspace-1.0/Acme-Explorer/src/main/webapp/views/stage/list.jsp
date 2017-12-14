@@ -22,8 +22,9 @@
 
 <!-- Listing grid -->
 
+
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="stage" requestURI="stage/list.do" id="row">
+	name="stage" requestURI="${requestUri}" id="row">
 
 	<!-- Attributes -->
 
@@ -48,8 +49,10 @@
 
 </display:table>
 
-<a href="stage/create.do">
+<security:authorize access="hasRole('MANAGER')">
+<a href="stage/manager/create.do">
 	<button>
 		<spring:message code="stage.create" />
 	</button>
 </a>
+</security:authorize>

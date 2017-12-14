@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CategoryService;
+import services.RangerService;
 import services.StageService;
 import services.TripService;
 import controllers.AbstractController;
 import domain.Category;
+import domain.Ranger;
 import domain.Stage;
 import domain.Trip;
 
@@ -35,6 +37,9 @@ public class TripManagerController extends AbstractController {
 	
 	@Autowired
 	private StageService stageService;
+	
+	@Autowired
+	private RangerService rangerService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -61,6 +66,7 @@ public class TripManagerController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors()){
+			System.out.println(binding.getFieldError());
 			res = this.createEditModelAndView(trip, "trip.params.error");
 		}
 		else
@@ -118,6 +124,7 @@ public class TripManagerController extends AbstractController {
 		final Collection<Category> category;
 		Collection<Stage> stages;
 		String ticker = this.tripService.generatedTicker();
+		Collection<Ranger> ranger = this.rangerService.findAll();
 		// Collection<Ranger> rangers;
 		// final Collection<Value> values;
 
@@ -129,6 +136,7 @@ public class TripManagerController extends AbstractController {
 
 		result = new ModelAndView("trip/edit");
 		// result.addObject("legalTexts", legalTexts);
+		result.addObject("ranger", ranger);
 		result.addObject("category", category);
 		// result.addObject("rangers", rangers);
 		// result.addObject("values", values);

@@ -213,7 +213,7 @@ public class TripService {
 		r = new Random();
 		date = new LocalDate();
 		
-		ticker = String.valueOf(date.getYear() % 100 < 10 ? "0" + date.getYear() : date.getYear()) + 
+		ticker = String.valueOf(date.getYear() % 100 < 10 ? "0" + date.getYear() : date.getYear() % 100) + 
 					String.valueOf(date.getMonthOfYear() < 10 ? "0" + date.getMonthOfYear() : date.getMonthOfYear())
 					+ String.valueOf(date.getDayOfMonth() < 10 ? "0" + date.getDayOfMonth() : date.getDayOfMonth()) + "-";
 		for (int i = 0; i < 3; i++)

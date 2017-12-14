@@ -78,6 +78,15 @@
 	<form:errors cssClass="error" path="tripEnd" />
 	<br />
 	
+	<form:label path="ranger">
+		<spring:message code="trip.ranger" />:
+	</form:label>
+	<form:select path="ranger">
+        <form:options items="${ranger}" itemLabel="name"/>
+	</form:select>
+	<form:errors cssClass="error" path="ranger" />
+	<br />
+	
 	<input type="submit" name="save"
 		value="<spring:message code="trip.save" />" />&nbsp; 
 	<jstl:if test="${trip.id != 0}">

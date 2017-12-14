@@ -10,11 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CurriculumService;
-import services.EducationRecordService;
-import services.EndorserRecordService;
-import services.MiscellaneousRecordService;
-import services.PersonalRecordService;
-import services.ProfessionalRecordService;
 import services.RangerService;
 import domain.Curriculum;
 import domain.EducationRecord;

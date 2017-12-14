@@ -1,6 +1,5 @@
 package controllers.manager;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.validation.Valid;
@@ -15,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
-import services.ManagerService;
 import controllers.AbstractController;
 import domain.Application;
-import domain.Manager;
 
 @Controller
 @RequestMapping("/application/manager")
@@ -29,9 +26,6 @@ public class ApplicationManagerController extends AbstractController {
 	@Autowired
 	private ApplicationService applicationService;
 	
-	
-	@Autowired
-	private ManagerService ManagerService;
 	// Constructors ---------------------------------------------------------
 
 	public ApplicationManagerController() {

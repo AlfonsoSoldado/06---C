@@ -67,6 +67,8 @@ public class TagAdministratorController extends AbstractController {
 		return result;
 	}
 	
+	// Saving ---------------------------------------------------------------
+	
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Tag tag,
 			final BindingResult binding) {
@@ -82,11 +84,35 @@ public class TagAdministratorController extends AbstractController {
 				
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
+				System.out.println(oops.getCause());
+				System.out.println(oops.getLocalizedMessage());
+				System.out.println(oops.getMessage());
+				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(tag, "tag.commit.error");
 			}
 
 		return res;
 	}
+	
+	// Deleting ---------------------------------------------------------------
+	
+		@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
+		public ModelAndView delete(Tag tag, BindingResult binding) {
+			ModelAndView res;
+
+			try {
+				this.tagService.delete(tag);
+				res = new ModelAndView("redirect:list.do");
+			} catch (final Throwable oops) {
+				System.out.println(oops.getCause());
+				System.out.println(oops.getLocalizedMessage());
+				System.out.println(oops.getMessage());
+				System.out.println(oops.fillInStackTrace());
+				res = this.createEditModelAndView(tag, "legalText.commit.error");
+			}
+
+			return res;
+		}
 	
 	// Creating ---------------------------------------------------------------
 

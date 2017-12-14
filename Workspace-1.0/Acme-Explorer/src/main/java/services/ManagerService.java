@@ -62,7 +62,6 @@ public class ManagerService {
 		res.setUserAccount(userAccount);
 		res.setSocialId(socialId);
 		res.setFolders(folder);
-		res.setSuspicious(false);
 		res.setApplication(application);
 		res.setSurvival(survival);
 		res.setTrip(trip);

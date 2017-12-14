@@ -8,7 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
@@ -38,6 +38,7 @@ public abstract class Actor extends DomainEntity {
 	private String email;
 	private String phoneNumber;
 	private String address;
+	private Boolean suspicious;
 
 	@NotBlank
 	public String getName() {
@@ -83,12 +84,21 @@ public abstract class Actor extends DomainEntity {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	@NotNull
+	public Boolean getSuspicious() {
+		return suspicious;
+	}
+
+	public void setSuspicious(Boolean suspicious) {
+		this.suspicious = suspicious;
+	}
 
 	// Relationships
 
 	private UserAccount userAccount;
 	private Collection<Folder> folders;
-	private Message received;
+	private Collection<Message> received;
 	private Collection<Message> sent;
 	private Collection<SocialId> socialId;
 
@@ -115,12 +125,12 @@ public abstract class Actor extends DomainEntity {
 	}
 
 	@Valid
-	@ManyToOne(optional = true)
-	public Message getReceived() {
+	@ManyToMany
+	public Collection<Message> getReceived() {
 		return received;
 	}
 
-	public void setReceived(Message received) {
+	public void setReceived(Collection<Message> received) {
 		this.received = received;
 	}
 

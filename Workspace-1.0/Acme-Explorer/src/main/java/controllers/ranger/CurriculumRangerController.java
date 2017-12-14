@@ -4,9 +4,11 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CurriculumService;
@@ -28,11 +30,28 @@ public class CurriculumRangerController extends AbstractController {
 		super();
 	}
 	
+	// Editing --------------------------------------------------------------
+
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public ModelAndView edit(@RequestParam final int curriculumId) {
+		ModelAndView result;
+		Curriculum curriculum;
+
+		curriculum = curriculumService.findOne(curriculumId);
+		Assert.notNull(curriculum);
+		result = this.createEditModelAndView(curriculum);
+
+		return result;
+	}
+	
+	// Saving --------------------------------------------------------------
+	
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid Curriculum curriculum, BindingResult binding) {
 		ModelAndView res;
 
 		if (binding.hasErrors()) {
+			System.out.println(binding.getFieldError());
 			res = this.createEditModelAndView(curriculum,
 					"curriculum.params.error");
 		} else
@@ -64,7 +83,7 @@ public class CurriculumRangerController extends AbstractController {
 		return res;
 	}
 
-	// Creation ---------------------------------------------------------------
+	// Creating ---------------------------------------------------------------
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
@@ -89,7 +108,7 @@ public class CurriculumRangerController extends AbstractController {
 			final String message) {
 		
 		ModelAndView result;
-		result = new ModelAndView("curriculum/edit");
+		result = new ModelAndView("curriculum/ranger/edit");
 		result.addObject("curriculum", curriculum);
 		result.addObject("message", message);
 		return result;

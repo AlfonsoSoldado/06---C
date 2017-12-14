@@ -33,6 +33,9 @@ public class CurriculumService {
 	@Autowired
 	private RangerService rangerService;
 	
+	@Autowired
+	private PersonalRecordService personalRecordService;
+	
 	// Constructors
 	
 	public CurriculumService(){
@@ -84,8 +87,12 @@ public class CurriculumService {
 		Ranger ranger;
 		ranger = this.rangerService.findByPrincipal();
 		
+//		PersonalRecord personalRecord;
+//		personalRecord = personalRecordService.create();
+		
 		Assert.notNull(curriculum);
-		Assert.notNull(curriculum.getPersonalRecord());
+		//Assert.notNull(curriculum.getPersonalRecord());
+		curriculum.setRanger(ranger);
 		
 		Curriculum res;
 		res = this.curriculumRepository.save(curriculum);

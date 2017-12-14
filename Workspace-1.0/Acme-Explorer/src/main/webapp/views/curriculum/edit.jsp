@@ -27,8 +27,11 @@
 		<form:hidden path="version" />
 
 		<form:hidden path="ticker" />
-		<form:hidden path="ranger" />
-
+		<form:hidden path="personalRecord" />
+		<form:hidden path="endorserRecord" />
+		<form:hidden path="miscellaneousRecord" />
+		<form:hidden path="professionalRecord" />
+		<form:hidden path="educationRecord" />
 
 		<input type="submit" name="save"
 			value="<spring:message code="curriculum.save" />" />&nbsp; 

@@ -74,10 +74,11 @@ public class NoteService {
 		//auditorService.checkAuthority();
 
 		Assert.notNull(note);
-		//Assert.isTrue(note.getId() == 0);
 
 		Note res;
 		res = this.noteRepository.save(note);
+		Date fechaActual = new Date();
+		res.setMomentReply(fechaActual);
 		return res;
 	}
 

@@ -33,9 +33,6 @@ public class CurriculumService {
 	@Autowired
 	private RangerService rangerService;
 	
-	@Autowired
-	private PersonalRecordService personalRecordService;
-	
 	// Constructors
 	
 	public CurriculumService(){

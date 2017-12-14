@@ -1423,7 +1423,10 @@
 			<ref bean="message1"/>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- RANGER2 -->
@@ -1462,7 +1465,10 @@
 			<ref bean="message2"/>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 									<!-- curriculum -->
@@ -1788,7 +1794,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- ADMINISTRATOR2 -->
@@ -1818,7 +1827,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 										<!-- TRIP -->
@@ -1937,7 +1949,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- SPONSOR2 -->
@@ -1972,7 +1987,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 									<!-- SPONSORSHIP -->
@@ -2088,7 +2106,11 @@
 		<list>
 		</list>
 	</property>
-	<property name="received" ref="message1"/>
+	<property name="received">
+		<list>
+			<ref bean="message1"/>
+		</list>
+	</property>
 	<property name="survival">
 		<list>
 			<ref bean="survival1"/>
@@ -2139,7 +2161,11 @@
 		<list>
 		</list>
 	</property>
-	<property name="received" ref="message2"/>
+	<property name="received">
+		<list>
+			<ref bean="message2"/>
+		</list>
+	</property>
 	<property name="survival">
 		<list>
 			<ref bean="survival2"/>
@@ -2188,7 +2214,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	<property name="survival">
 		<list>
 		</list>
@@ -2234,7 +2263,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>	
 	
 								<!-- FINDER -->
@@ -2470,7 +2502,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- MANAGER2 -->
@@ -2511,7 +2546,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- MANAGER3 -->
@@ -2552,7 +2590,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- MANAGER4 -->
@@ -2593,7 +2634,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 										<!-- AUDITOR -->
@@ -2635,7 +2679,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- AUDITOR2 -->
@@ -2675,7 +2722,10 @@
 		<list>
 		</list>
 	</property>
-	<property name="received"><null/></property>
+	<property name="received">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 									<!-- SURVIVAL -->

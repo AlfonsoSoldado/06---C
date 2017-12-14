@@ -19,9 +19,14 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="socialId" requestURI="${requestURI }" id="row">
+<display:table pagesize="5" class="displaysocialId" keepStatus="true"
+	name="socialId" requestURI="socialId/list.do" id="row">
 	
+	<spring:message code="socialId.edit"/>
+	<display:column>
+		<a href= "socialId/edit.do?socialIdId=${row.id}">
+		<spring:message code="socialId.edit"/></a>
+	</display:column>
 	
 	<spring:message code="socialId.nameSocialNetwork" var="nameSocialNetworkHeader" />
 	<display:column property="nameSocialNetwork" title="${nameSocialNetworkHeader}" sortable="true" />
@@ -29,7 +34,7 @@
 	<spring:message code="socialId.nick" var="nickHeader" />
 	<display:column property="nick" title="${nickHeader}" sortable="true" />
 
-	<spring:message code="socialId.socialNetwork var="socialNetworkHeader" />
+	<spring:message code="socialId.socialNetwork" var="socialNetworkHeader" />
 	<display:column property="socialNetwork" title="${socialNetworkHeader}" sortable="false" />
 
 	<spring:message code="socialId.photo" var="photoHeader" />

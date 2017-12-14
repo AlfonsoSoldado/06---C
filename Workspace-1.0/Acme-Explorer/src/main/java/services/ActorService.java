@@ -484,4 +484,21 @@ public class ActorService {
 			}
 		}
 	}
+	
+	public Collection<Actor> actorsSuspicious() {
+		Collection<Actor> res = new ArrayList<Actor>();
+		res.addAll(actorRepository.actorsSuspicious());
+		Assert.notNull(res);
+		return res;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

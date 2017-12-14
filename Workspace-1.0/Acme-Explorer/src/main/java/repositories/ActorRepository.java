@@ -10,6 +10,7 @@ import domain.Actor;
 import domain.Audit;
 import domain.Curriculum;
 import domain.Folder;
+import domain.Ranger;
 
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Integer> {
@@ -36,4 +37,7 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
 	// 11.4
 	@Query("select f from Actor a join a.folders f where f.systemFolder = true and a.id = ?1")
 	Collection<Folder> findSystemFolders(int id);
+	
+	@Query("select a from Actor a where a.suspicious = true")
+	Collection<Actor> actorsSuspicious();
 }

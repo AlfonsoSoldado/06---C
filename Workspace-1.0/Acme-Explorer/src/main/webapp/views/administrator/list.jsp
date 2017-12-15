@@ -22,6 +22,45 @@
 <!-- Listing grid -->
 <security:authorize access="hasRole('ADMIN')">
 
+
+<table class="displaytag"  name="informationApplication">
+	<tr>
+		<th>
+			<spring:message code="administrator.average" var="averageHeader" />
+			<jstl:out value="${averageHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.minimum" var="minimumHeader" />
+			<jstl:out value="${minimumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.maximum" var="maximumHeader" />
+			<jstl:out value="${maximumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+			<jstl:out value="${standardDeviationHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<jstl:forEach var="datos" items="${informationApplication}">
+			<td>
+				<jstl:out value="${datos}"></jstl:out>
+			</td>
+		</jstl:forEach>
+	</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+<%--
 <form:label path="applicationsTrip">
 		<spring:message code="administrator.informationApplicationLabel" />:
 </form:label>
@@ -44,7 +83,7 @@
 	
 </display:table>
 
-<%--
+
 <form:label path="tripsManager">
 		<spring:message code="administrator.informationTripsManagerLabel" />:
 </form:label>

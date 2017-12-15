@@ -30,7 +30,7 @@
 			</li>
 			<li><a class="fNiv" href="tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
 			<li><a class="fNiv" href="legalText/administrator/list.do"><spring:message code="master.page.legalText" /></a></li>
-			<li><a class="fNiv" href="information/administrator/list.do"><spring:message code="master.page.information" /></a></li>
+			<li><a class="fNiv" href="administrator/list.do"><spring:message code="master.page.information" /></a></li>
 			<li><a class="fNiv" href="administrator/suspicious.do"><spring:message code="master.page.suspicious" /></a></li>
 		</security:authorize>
 		

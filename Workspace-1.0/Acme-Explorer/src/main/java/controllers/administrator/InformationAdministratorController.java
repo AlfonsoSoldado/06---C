@@ -12,7 +12,7 @@ import services.AdministratorService;
 import controllers.AbstractController;
 
 @Controller
-@RequestMapping("/information/administrator")
+@RequestMapping("/administrator")
 public class InformationAdministratorController extends AbstractController {
 	
 	// Services -------------------------------------------------------------
@@ -31,23 +31,32 @@ public class InformationAdministratorController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list(){
 		ModelAndView result;
-		Object[] applicationsPerTrip;
+		result  = new ModelAndView("administrator/list");
 		
-		applicationsPerTrip = administratorService.avgMinMaxSqtr();
+		Object applicationsPerTrip[];
+		applicationsPerTrip = this.administratorService.avgMinMaxSqtr();
+		result.addObject("informationApplication",applicationsPerTrip);
 		
-		result = new ModelAndView("information/list");
-		Object avg, min, max, sd = null;
-		avg = applicationsPerTrip[0];
-		min = applicationsPerTrip[1];
-		max = applicationsPerTrip[2];
-		sd = applicationsPerTrip[3];
-//		result.addObject("average", avg);
-//		result.addObject("minimum", min);
-//		result.addObject("maximum", max);
-//		result.addObject("standardDeviation", sd);
-		result.addObject("informationApplication", applicationsPerTrip);
-		//result.addObject("requestURI", "administrator/list.do");
 		return result;
+		
+		
+//		Object[] applicationsPerTrip;
+//		
+//		applicationsPerTrip = administratorService.avgMinMaxSqtr();
+//		
+//		result = new ModelAndView("information/list");
+//		Object avg, min, max, sd = null;
+//		avg = applicationsPerTrip[0];
+//		min = applicationsPerTrip[1];
+//		max = applicationsPerTrip[2];
+//		sd = applicationsPerTrip[3];
+////		result.addObject("average", avg);
+////		result.addObject("minimum", min);
+////		result.addObject("maximum", max);
+////		result.addObject("standardDeviation", sd);
+//		result.addObject("informationApplication", applicationsPerTrip);
+//		//result.addObject("requestURI", "administrator/list.do");
+//		return result;
 	}
 	
 	

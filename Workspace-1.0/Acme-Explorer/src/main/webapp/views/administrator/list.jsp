@@ -267,16 +267,16 @@
 <table class="displaytag"  name="avgMinMaxSqtr3">
 	<tr>
 		<th>
-			<spring:message code="administrator.average" var="averageHeader" />
-			<jstl:out value="${averageHeader}"></jstl:out>
-		</th>
-		<th>
 			<spring:message code="administrator.minimum" var="minimumHeader" />
 			<jstl:out value="${minimumHeader}"></jstl:out>
 		</th>
 		<th>
 			<spring:message code="administrator.maximum" var="maximumHeader" />
 			<jstl:out value="${maximumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.average" var="averageHeader" />
+			<jstl:out value="${averageHeader}"></jstl:out>
 		</th>
 		<th>
 			<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
@@ -297,16 +297,16 @@
 <table class="displaytag"  name="avgMinMaxSqtr4">
 	<tr>
 		<th>
-			<spring:message code="administrator.average" var="averageHeader" />
-			<jstl:out value="${averageHeader}"></jstl:out>
-		</th>
-		<th>
 			<spring:message code="administrator.minimum" var="minimumHeader" />
 			<jstl:out value="${minimumHeader}"></jstl:out>
 		</th>
 		<th>
 			<spring:message code="administrator.maximum" var="maximumHeader" />
 			<jstl:out value="${maximumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.average" var="averageHeader" />
+			<jstl:out value="${averageHeader}"></jstl:out>
 		</th>
 		<th>
 			<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
@@ -361,7 +361,7 @@
 </table>
 
 <spring:message code="administrator.informationRatioEndorsedLabel" />
-<jstl:out value="${ratioRangerEndorser}"></jstl:out>
+<jstl:out value="${informationRatioEndorsedLabel}"></jstl:out>
 <table class="displaytag"  name="ratioRangerCurriculum">
 	<tr>
 		<th>

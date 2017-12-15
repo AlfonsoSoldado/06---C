@@ -15,10 +15,6 @@ public interface NoteRepository extends JpaRepository<Note, Integer> {
 	@Query("select n from Note n where n.auditor.id = ?1")
 	Collection<Note> findNotesByAuditor(int id);
 	
-	//b1
-	@Query("select  min(cast((select count(note) from Note note where note.trip=t1) as int )), max(cast((select count(note) from Note note where note.trip=t1) as int )), avg(cast((select count(note) from Note note where note.trip=t1) as float )), sqrt(sum((select count(note) from Note note where note.trip=t1)*(select count(note) from Note note where note.trip=t1))/(select count(trip) from Trip trip)-avg(cast((select count(note) from Note note where note.trip=t1) as float ))*avg(cast((select count(note) from Note note where note.trip=t1) as float ))) from Trip t1")
-	Double[] avgMinMaxSqtr3();
-	
 	// 32.1
 	@Query("select n from Note n join n.trip t join t.manager m where m.id=?1")
 	Collection<Note> findNotesByManager(int id);

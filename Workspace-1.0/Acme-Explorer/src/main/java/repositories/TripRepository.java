@@ -39,7 +39,4 @@ public interface TripRepository extends JpaRepository<Trip, Integer> {
 	@Query("select t from Trip t where t.publication < CURRENT_DATE and t.tripStart < CURRENT_DATE and t.cancelled = false")
 	Collection<Trip> cancelTrip();
 	
-	//b3
-	@Query("select count(trip1)/((select count(trip2) from Trip trip2)+0.0) from Trip trip1 where cast((select count(audit) from Audit audit where audit.trip=trip1) as int )=1")
-	Double avgMinMaxSqtr5();
 }

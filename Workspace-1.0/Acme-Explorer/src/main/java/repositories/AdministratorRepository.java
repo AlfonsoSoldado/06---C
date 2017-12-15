@@ -74,6 +74,18 @@ public interface AdministratorRepository extends JpaRepository<Administrator, In
 	// C-11
 	@Query("select count(t) from Trip t where t.legalText is not null")
 	Double tripsLegalTextReferenced();
+	
+	//b1
+	@Query("select  min(cast((select count(note) from Note note where note.trip=t1) as int )), max(cast((select count(note) from Note note where note.trip=t1) as int )), avg(cast((select count(note) from Note note where note.trip=t1) as float )), sqrt(sum((select count(note) from Note note where note.trip=t1)*(select count(note) from Note note where note.trip=t1))/(select count(trip) from Trip trip)-avg(cast((select count(note) from Note note where note.trip=t1) as float ))*avg(cast((select count(note) from Note note where note.trip=t1) as float ))) from Trip t1")
+	Double[] avgMinMaxSqtr3();
+	
+	//b2
+	@Query("select  min(cast((select count(audit) from Audit audit where audit.trip=t1) as int )), max(cast((select count(audit) from Audit audit where audit.trip=t1) as int )), avg(cast((select count(audit) from Audit audit where audit.trip=t1) as float )), sqrt(sum((select count(audit) from Audit audit where audit.trip=t1)*(select count(audit) from Audit audit where audit.trip=t1))/(select count(t2) from Trip t2)-avg(cast((select count(audit) from Audit audit where audit.trip=t1) as float ))*avg(cast((select count(audit) from Audit audit where audit.trip=t1) as float ))) from Trip t1")
+	Double[] avgMinMaxSqtr4();
+	
+	//b3
+	@Query("select count(trip1)/((select count(trip2) from Trip trip2)+0.0) from Trip trip1 where cast((select count(audit) from Audit audit where audit.trip=trip1) as int )=1")
+	Double avgMinMaxSqtr5();
 
 	// B-1
 //	@Query("select avg(t.note.size), min(t.note.size), max(t.note.size), sqrt(sum(t.note.size*t.note.size)/count(t.note.size)-(avg(t.note.size)*avg(t.note.size))) from Trip t")

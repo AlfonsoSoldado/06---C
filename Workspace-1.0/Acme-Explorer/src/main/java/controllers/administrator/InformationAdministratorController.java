@@ -50,9 +50,9 @@ public class InformationAdministratorController extends AbstractController {
 		Double ratioTripsCancelled;
 		Collection<Trip> tripsThanAverage;
 		Double tripsLegalTextReferenced;
-		Object[] avgMinMaxSqtr3;//en note
+		Double avgMinMaxSqtr3[];//en note
 		Double avgMinMaxSqtr5;//en trip
-		Object[] avgMinMaxSqtr4;//en audit
+		Double avgMinMaxSqtr4[];//en audit
 		Double ratioRangerCurriculum;
 		Double ratioRangerEndorser;
 		Double ratioManagerSuspicious;
@@ -69,9 +69,9 @@ public class InformationAdministratorController extends AbstractController {
 		ratioTripsCancelled = this.administratorService.ratioTripsCancelled();
 		tripsThanAverage = this.administratorService.tripsThanAverage();
 		tripsLegalTextReferenced = this.administratorService.tripsLegalTextReferenced();
-//		avgMinMaxSqtr3 = this.administratorService.avgMinMaxSqtr3();
-//		avgMinMaxSqtr5 = this.administratorService.avgMinMaxSqtr5();
-//		avgMinMaxSqtr4 = this.administratorService.avgMinMaxSqtr4();
+		avgMinMaxSqtr3 = this.administratorService.avgMinMaxSqtr3();
+		avgMinMaxSqtr5 = this.administratorService.avgMinMaxSqtr5();
+		avgMinMaxSqtr4 = this.administratorService.avgMinMaxSqtr4();
 		ratioRangerCurriculum = this.administratorService.ratioRangerCurriculum();
 		ratioRangerEndorser = this.administratorService.ratioRangerEndorser();
 		ratioManagerSuspicious = this.administratorService.ratioManagerSuspicious();
@@ -88,9 +88,9 @@ public class InformationAdministratorController extends AbstractController {
 		result.addObject("ratioTripsCancelled",ratioTripsCancelled);
 		result.addObject("tripsThanAverage",tripsThanAverage);
 		result.addObject("tripsLegalTextReferenced",tripsLegalTextReferenced);
-//		result.addObject("avgMinMaxSqtr3",avgMinMaxSqtr3);
-//		result.addObject("avgMinMaxSqtr5",avgMinMaxSqtr5);
-//		result.addObject("avgMinMaxSqtr4",avgMinMaxSqtr4);
+		result.addObject("avgMinMaxSqtr3",avgMinMaxSqtr3);
+		result.addObject("avgMinMaxSqtr5",avgMinMaxSqtr5);
+		result.addObject("avgMinMaxSqtr4",avgMinMaxSqtr4);
 		result.addObject("ratioRangerCurriculum",ratioRangerCurriculum);
 		result.addObject("ratioRangerEndorser",ratioRangerEndorser);
 		result.addObject("ratioManagerSuspicious",ratioManagerSuspicious);

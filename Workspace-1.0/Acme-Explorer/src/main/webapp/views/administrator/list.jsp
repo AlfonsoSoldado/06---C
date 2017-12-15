@@ -294,7 +294,7 @@
 
 <spring:message code="administrator.informationAuditLabel" />
 <jstl:out value="${informationAuditLabel}"></jstl:out>
-<table class="displaytag"  name="avgMinMaxSqtr5">
+<table class="displaytag"  name="avgMinMaxSqtr4">
 	<tr>
 		<th>
 			<spring:message code="administrator.average" var="averageHeader" />
@@ -314,7 +314,7 @@
 		</th>
 	</tr>
 	<tr>
-		<jstl:forEach var="datos" items="${avgMinMaxSqtr5}">
+		<jstl:forEach var="datos" items="${avgMinMaxSqtr4}">
 			<td>
 				<jstl:out value="${datos}"></jstl:out>
 			</td>
@@ -324,7 +324,7 @@
 
 <spring:message code="administrator.informationRatioAuditLabel" />
 <jstl:out value="${informationRatioAuditLabel}"></jstl:out>
-<table class="displaytag"  name="avgMinMaxSqtr4">
+<table class="displaytag"  name="avgMinMaxSqtr5">
 	<tr>
 		<th>
 			<spring:message code="administrator.ratio" var="ratioHeader" />
@@ -333,7 +333,7 @@
 	</tr>
 	<tr>
 		<td>
-			<jstl:out value="${avgMinMaxSqtr4}"></jstl:out>
+			<jstl:out value="${avgMinMaxSqtr5}"></jstl:out>
 		</td>
 	</tr>
 </table>

@@ -203,21 +203,21 @@ public class AdministratorService {
 		return res;
 	}
 	//TODO: DESCOMENTAR
-//	public Object[] avgMinMaxSqtr3() {
-//		Object[] res;
-//		res = this.administratorRepository.avgMinMaxSqtr3();
-//		return res;
-//	}
-//
-//	public Object[] avgMinMaxSqtr4() {
-//		Object[] res;
-//		res = this.administratorRepository.avgMinMaxSqtr4();
-//		return res;
-//	}
-//
-//	public Object[] avgMinMaxSqtr5() {
-//		Object[] res;
-//		res = this.administratorRepository.avgMinMaxSqtr5();
-//		return res;
-//	}
+	public Double[] avgMinMaxSqtr3() {
+		Double[] res;
+		res = this.administratorRepository.avgMinMaxSqtr3();
+		return res;
+	}
+
+	public Double[] avgMinMaxSqtr4() {
+		Double[] res;
+		res = this.administratorRepository.avgMinMaxSqtr4();
+		return res;
+	}
+
+	public Double avgMinMaxSqtr5() {
+		Double res;
+		res = this.administratorRepository.avgMinMaxSqtr5();
+		return res;
+	}
 }

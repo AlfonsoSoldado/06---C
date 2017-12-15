@@ -51,13 +51,197 @@
 	</tr>
 </table>
 
+<table class="displaytag"  name="avgMinMaxSqtrManager">
+	<tr>
+		<th>
+			<spring:message code="administrator.average" var="averageHeader" />
+			<jstl:out value="${averageHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.minimum" var="minimumHeader" />
+			<jstl:out value="${minimumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.maximum" var="maximumHeader" />
+			<jstl:out value="${maximumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+			<jstl:out value="${standardDeviationHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<jstl:forEach var="datos" items="${avgMinMaxSqtrManager}">
+			<td>
+				<jstl:out value="${datos}"></jstl:out>
+			</td>
+		</jstl:forEach>
+	</tr>
+</table>
+
+<table class="displaytag"  name="avgMinMaxSqtr2">
+	<tr>
+		<th>
+			<spring:message code="administrator.average" var="averageHeader" />
+			<jstl:out value="${averageHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.minimum" var="minimumHeader" />
+			<jstl:out value="${minimumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.maximum" var="maximumHeader" />
+			<jstl:out value="${maximumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+			<jstl:out value="${standardDeviationHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<jstl:forEach var="datos" items="${avgMinMaxSqtr2}">
+			<td>
+				<jstl:out value="${datos}"></jstl:out>
+			</td>
+		</jstl:forEach>
+	</tr>
+</table>
+
+<table class="displaytag"  name="avgMinMaxSqtrRanger">
+	<tr>
+		<th>
+			<spring:message code="administrator.average" var="averageHeader" />
+			<jstl:out value="${averageHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.minimum" var="minimumHeader" />
+			<jstl:out value="${minimumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.maximum" var="maximumHeader" />
+			<jstl:out value="${maximumHeader}"></jstl:out>
+		</th>
+		<th>
+			<spring:message code="administrator.standardDeviation" var="standardDeviationHeader" />
+			<jstl:out value="${standardDeviationHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<jstl:forEach var="datos" items="${avgMinMaxSqtrRanger}">
+			<td>
+				<jstl:out value="${datos}"></jstl:out>
+			</td>
+		</jstl:forEach>
+	</tr>
+</table>
+
+<table class="displaytag"  name="applicationPending">
+	<tr>
+		<th>
+			<spring:message code="administrator.ratio" var="ratioHeader" />
+			<jstl:out value="${ratioHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<jstl:out value="${applicationPending}"></jstl:out>
+		</td>
+	</tr>
+</table>
+
+<table class="displaytag"  name="applicationDue">
+	<tr>
+		<th>
+			<spring:message code="administrator.ratio" var="ratioHeader" />
+			<jstl:out value="${ratioHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<jstl:out value="${applicationDue}"></jstl:out>
+		</td>
+	</tr>
+</table>
+
+<table class="displaytag"  name="applicationAccepted">
+	<tr>
+		<th>
+			<spring:message code="administrator.ratio" var="ratioHeader" />
+			<jstl:out value="${ratioHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<jstl:out value="${applicationAccepted}"></jstl:out>
+		</td>
+	</tr>
+</table>
+
+<table class="displaytag"  name="applicationCancelled">
+	<tr>
+		<th>
+			<spring:message code="administrator.ratio" var="ratioHeader" />
+			<jstl:out value="${ratioHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<jstl:out value="${applicationCancelled}"></jstl:out>
+		</td>
+	</tr>
+</table>
+
+<table class="displaytag"  name="ratioTripsCancelled">
+	<tr>
+		<th>
+			<spring:message code="administrator.ratio" var="ratioHeader" />
+			<jstl:out value="${ratioHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<jstl:out value="${ratioTripsCancelled}"></jstl:out>
+		</td>
+	</tr>
+</table>
 
 
+<table class="displaytag"  name="tripsThanAverage">
+	<tr>
+		<th>
+			<spring:message code="administrator.trip" var="titleHeader" />
+			<jstl:out value="${titleHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<jstl:out value="${tripsThanAverage}"></jstl:out>
+		</td>
+	</tr>
+</table>
+<%--
+<display:table class="displaytag"  name="tripsThanAverage" id="row">
+	<spring:message code="trip.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}" sortable="false">
+	<jstl:out value="${row.title}"></jstl:out>
+	</display:column>
+</display:table>
+ --%>
 
 
-
-
-
+<table class="displaytag"  name="tripsLegalTextReferenced">
+	<tr>
+		<th>
+			<spring:message code="administrator.legalText" var="legalTextHeader" />
+			<jstl:out value="${legalTextHeader}"></jstl:out>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<jstl:out value="${tripsLegalTextReferenced}"></jstl:out>
+		</td>
+	</tr>
+</table>
 
 
 <%--

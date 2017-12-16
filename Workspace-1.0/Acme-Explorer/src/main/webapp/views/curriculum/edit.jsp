@@ -32,6 +32,41 @@
 		<form:hidden path="miscellaneousRecord" />
 		<form:hidden path="professionalRecord" />
 		<form:hidden path="educationRecord" />
+		
+		<form:label path="personalRecord.name">
+			<spring:message code="curriculum.personalRecord.name" />:
+		</form:label>
+		<form:input path="personalRecord.name" />
+		<form:errors cssClass="error" path="personalRecord.name" />
+		<br />
+		
+		<form:label path="personalRecord.photo">
+			<spring:message code="curriculum.personalRecord.photo" />:
+		</form:label>
+		<form:input path="personalRecord.photo" />
+		<form:errors cssClass="error" path="personalRecord.photo" />
+		<br />
+		
+		<form:label path="personalRecord.email">
+			<spring:message code="curriculum.personalRecord.email" />:
+		</form:label>
+		<form:input path="personalRecord.email" />
+		<form:errors cssClass="error" path="personalRecord.email" />
+		<br />
+		
+		<form:label path="personalRecord.phoneNumber">
+			<spring:message code="curriculum.personalRecord.phoneNumber" />:
+		</form:label>
+		<form:input path="personalRecord.phoneNumber" />
+		<form:errors cssClass="error" path="personalRecord.phoneNumber" />
+		<br />
+		
+		<form:label path="personalRecord.likedln">
+			<spring:message code="curriculum.personalRecord.linkedIn" />:
+		</form:label>
+		<form:input path="personalRecord.likedln" />
+		<form:errors cssClass="error" path="personalRecord.likedln" />
+		<br />
 
 		<input type="submit" name="save"
 			value="<spring:message code="curriculum.save" />" />&nbsp; 

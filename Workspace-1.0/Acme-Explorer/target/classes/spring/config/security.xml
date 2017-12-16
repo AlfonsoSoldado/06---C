@@ -89,6 +89,7 @@
 	
 		<security:intercept-url pattern="/folder/**" access="isAuthenticated()" />
 		<security:intercept-url pattern="/message/**" access="isAuthenticated()" />
+		<security:intercept-url pattern="/socialId/**" access="isAuthenticated()" />
 		
 		<security:intercept-url pattern="/curriculum/display.do" access="permitAll" />
 		

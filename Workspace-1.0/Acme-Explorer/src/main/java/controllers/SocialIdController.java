@@ -2,9 +2,12 @@ package controllers;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,73 +20,119 @@ import domain.SocialId;
 
 @Controller
 @RequestMapping("/socialId")
-public class SocialIdController extends AbstractController{
+public class SocialIdController extends AbstractController {
 
 	// Services -------------------------------------------------------
-	
-		@Autowired
-		SocialIdService socialIdService;
-		
-		@Autowired
-		ActorService actorService;
 
+	@Autowired
+	SocialIdService socialIdService;
+
+	@Autowired
+	ActorService actorService;
 
 	// Constructors -----------------------------------------------------------
 
-		public SocialIdController() {
-			super();
-		}
-		
-	//Listing --------------------------------------------------------------
-		
-		@RequestMapping(value = "/list", method = RequestMethod.GET)
-		public ModelAndView list(){
-			ModelAndView res;
-			Collection<SocialId> socialId;
-			
-			socialId =socialIdService.findAll();
-			
-			res = new ModelAndView("socialId/list");
-			res.addObject("socialId", socialId);
-			res.addObject("requestURI", "socialId/list.do");
-			
-			return res;
-		}
-		
+	public SocialIdController() {
+		super();
+	}
+
+	// Listing --------------------------------------------------------------
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ModelAndView list() {
+		ModelAndView res;
+		Collection<SocialId> socialId;
+
+		socialId = socialIdService.findAll();
+
+		res = new ModelAndView("socialId/list");
+		res.addObject("socialId", socialId);
+
+		return res;
+	}
+
 	// Editing ---------------------------------------------------------------
-		
-		@RequestMapping(value = "/edit", method = RequestMethod.GET)
-		public ModelAndView edit(@RequestParam final int socialIdId) {
-			ModelAndView result;
-			SocialId socialId;
 
-			socialId = socialIdService.findOne(socialIdId);
-			Assert.notNull(socialId);
-			result = this.createEditModelAndView(socialId);
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public ModelAndView edit(@RequestParam final int socialIdId) {
+		ModelAndView result;
+		SocialId socialId;
 
-			return result;
+		socialId = socialIdService.findOne(socialIdId);
+		Assert.notNull(socialId);
+		result = this.createEditModelAndView(socialId);
+
+		return result;
+	}
+
+	// Saving ---------------------------------------------------------------
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
+	public ModelAndView save(@Valid final SocialId socialId,
+			final BindingResult binding) {
+		ModelAndView result;
+
+		if (binding.hasErrors())
+			result = this.createEditModelAndView(socialId,
+					"socialId.params.error");
+		else
+			try {
+				this.socialIdService.save(socialId);
+				result = new ModelAndView("redirect:../list.do");
+
+			} catch (final Throwable oops) {
+				result = this.createEditModelAndView(socialId,
+						"socialId.commit.error");
+			}
+		return result;
+	}
+
+	// Deleting ------------------------------------------------------------------
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
+	public ModelAndView delete(final SocialId socialId,
+			final BindingResult binding) {
+		ModelAndView result;
+
+		try {
+			this.socialIdService.delete(socialId);
+			result = new ModelAndView("redirect:../list.do");
+
+		} catch (final Throwable oops) {
+			result = this.createEditModelAndView(socialId,
+					"socialId.commit.error");
 		}
-		
-		
-	// Ancillary methods ---------------------------------------------------------------------
+		return result;
+	}
 
-		protected ModelAndView createEditModelAndView(final SocialId socialId) {
-			ModelAndView result;
-			result = this.createEditModelAndView(socialId, null);
-			return result;
-		}
+	// Creating ------------------------------------------------------------------
 
-		protected ModelAndView createEditModelAndView(final SocialId socialId, final String messageCode) {
-			ModelAndView result;
-			Actor actor;
-			Collection<SocialId> socialIds;
-			actor = this.actorService.findByPrincipal();
-			result = new ModelAndView("socialId/edit");
-			socialIds = actor.getSocialId();
-			result.addObject("socialId", socialId);
-			result.addObject("socialIds", socialIds);
-			result.addObject("message", messageCode);
-			result.addObject("actor", actor);
-			return result;
-		}
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+		final ModelAndView result;
+		SocialId socialId;
+		socialId = this.socialIdService.create();
+		result = this.createEditModelAndView(socialId);
+		return result;
+	}
+
+	// Ancillary methods ---------------------------------------------------------
+
+	protected ModelAndView createEditModelAndView(final SocialId socialId) {
+		ModelAndView result;
+		result = this.createEditModelAndView(socialId, null);
+		return result;
+	}
+
+	protected ModelAndView createEditModelAndView(final SocialId socialId,
+			final String messageCode) {
+		ModelAndView result;
+		Actor actor;
+		actor = this.actorService.findByPrincipal();
+		result = new ModelAndView("socialId/edit");
+		result.addObject("actor", actor);
+		result.addObject("socialId", socialId);
+		result.addObject("message", messageCode);
+		return result;
+	}
 }

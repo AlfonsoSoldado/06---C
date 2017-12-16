@@ -21,4 +21,9 @@
 		<put-attribute name="body" value="/views/socialId/list.jsp" />
 	</definition>
 	
+	<definition name="socialId/create" extends="master.page">	
+		<put-attribute name="title" value="Create Social Id" />
+		<put-attribute name="body" value="/views/socialId/list.jsp" />
+	</definition>
+	
 </tiles-definitions>

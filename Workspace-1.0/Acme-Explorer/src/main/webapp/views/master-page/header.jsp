@@ -26,6 +26,7 @@
 					<li class="arrow"></li>
 					<li><a href="actor/administrator/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
+					<li><a href="socialId/list.do"><spring:message code="master.page.actorSocialId" /></a></li>
 				</ul>
 			</li>
 			<li><a class="fNiv" href="tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
@@ -39,7 +40,8 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="actor/manager/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
-					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>			
+					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
+					<li><a href="socialId/list.do"><spring:message code="master.page.actorSocialId" /></a></li>
 				</ul>
 			</li>
 			<li><a href="trip/manager/create.do"><spring:message code="master.page.manager.create.trip" /></a></li>
@@ -54,6 +56,7 @@
 					<li class="arrow"></li>
 					<li><a href="actor/explorer/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
+					<li><a href="socialId/list.do"><spring:message code="master.page.actorSocialId" /></a></li>
 				</ul>
 			</li>
 			<li><a href="application/explorer/list.do"><spring:message code="master.page.explorer.applications" /></a></li>
@@ -68,6 +71,7 @@
 					<li class="arrow"></li>
 					<li><a href="actor/auditor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
+					<li><a href="socialId/list.do"><spring:message code="master.page.actorSocialId" /></a></li>
 				</ul>
 			</li>
 			<li><a href="audit/auditor/list.do"><spring:message code="master.page.auditor.audits" /></a></li>
@@ -80,6 +84,7 @@
 					<li class="arrow"></li>
 					<li><a href="actor/sponsor/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
+					<li><a href="socialId/list.do"><spring:message code="master.page.actorSocialId" /></a></li>
 				</ul>
 			</li>
 			<li><a href="sponsorship/sponsor/list.do"><spring:message code="master.page.sponsor.sponsorships" /></a></li>
@@ -91,6 +96,7 @@
 					<li class="arrow"></li>
 					<li><a href="actor/ranger/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
+					<li><a href="socialId/list.do"><spring:message code="master.page.actorSocialId" /></a></li>
 				</ul>
 			</li>
 			<li><a href="curriculum/ranger/display.do"><spring:message code="master.page.curriculum" /></a></li>

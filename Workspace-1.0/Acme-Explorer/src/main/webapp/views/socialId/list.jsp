@@ -41,3 +41,9 @@
 	<display:column property="photo" title="${photoHeader}"	sortable="false" />
 	
 </display:table>
+
+	<div>
+		<a href="socialId/create.do"> <spring:message
+				code="socialId.create" />
+		</a>
+	</div>

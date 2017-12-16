@@ -10,7 +10,7 @@ Folder/Message. Falta que funcionen los saves/deletes/creates. (Y poner bonito)
 
 LegalText. Falla el delete.
 
-SocialId. Terminar vista y controlador.
+SocialId. Falla el edit y el create.
 
 Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
 

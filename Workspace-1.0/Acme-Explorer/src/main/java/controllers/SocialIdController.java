@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -43,7 +42,7 @@ public class SocialIdController extends AbstractController {
 		ModelAndView res;
 		Collection<SocialId> socialId;
 
-		socialId = socialIdService.findAll();
+		socialId = socialIdService.findSocialIds();
 
 		res = new ModelAndView("socialId/list");
 		res.addObject("socialId", socialId);
@@ -58,8 +57,7 @@ public class SocialIdController extends AbstractController {
 		ModelAndView result;
 		SocialId socialId;
 
-		socialId = socialIdService.findOne(socialIdId);
-		Assert.notNull(socialId);
+		socialId = this.socialIdService.findOne(socialIdId);
 		result = this.createEditModelAndView(socialId);
 
 		return result;
@@ -127,10 +125,12 @@ public class SocialIdController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final SocialId socialId,
 			final String messageCode) {
 		ModelAndView result;
+		Collection<SocialId> socialIds;
 		Actor actor;
 		actor = this.actorService.findByPrincipal();
+		socialIds = actor.getSocialId();
 		result = new ModelAndView("socialId/edit");
-		result.addObject("actor", actor);
+		result.addObject("socialIds", socialIds);
 		result.addObject("socialId", socialId);
 		result.addObject("message", messageCode);
 		return result;

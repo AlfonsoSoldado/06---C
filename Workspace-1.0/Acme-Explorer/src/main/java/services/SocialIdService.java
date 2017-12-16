@@ -73,5 +73,15 @@ public class SocialIdService {
 	}
 
 	// Other business methods
+	
+	public Collection<SocialId> findSocialIds() {
+		final Actor a;
+		Collection<SocialId> res;
+		a = this.actorService.findByPrincipal();
+		Assert.notNull(a);
+		res = this.socialIdRepository.findSocialIds(a.getId());
+		Assert.notNull(res);
+		return res;
+	}
 
 }

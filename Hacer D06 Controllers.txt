@@ -1,11 +1,28 @@
-Falta vista y controlador: ¿socialId?, ¿value?
+---------------------- Falta ---------------------------
 
-Falta controlador: administrator
+
+
+Application. Falta controladores de los distintos edits, el list de manager en controladores y sus edit.
+
+Finder. Falta que haga la búsqueda al darle al search. Tanto anónimo como explorer.
+
+Folder/Message. Falta que funcionen los saves/deletes/creates. (Y poner bonito)
+
+LegalText. Falla el delete.
+
+SocialId. Terminar vista y controlador.
+
+Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
+
+Tag. Falla el edit y el delete.
+
+Trip. Create y el delete. Hacer otra vista detailed trip. (Poner bonito)
+
+
+----------------------- Funciona ------------------------
 
 
 Editar personal data funciona.
-
-Application. Falta controladores de los distintos edits, el list de manager en controladores y sus edit.
 
 Audit funciona perfecto.
 
@@ -15,22 +32,10 @@ Curriculum funciona perfecto.
 
 Emergency funciona perfecto.
 
-Finder. Falta que haga la búsqueda al darle al search. Tanto anónimo como explorer.
-
-Folder/Message. Falta que funcionen los saves/deletes/creates. (Y poner bonito)
-
-LegalText. Falla el delete.
-
-Note. Falta que manager pueda responder los notes de sus trips.
+Note funciona perfecto.
 
 Sponsorship funciona perfecto.
 
 Stage funciona perfecto.
 
 Story funciona perfecto.
-
-Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
-
-Tag. Falla el edit y el delete.
-
-Trip. Create y el delete. Hacer otra vista detailed trip. (Poner bonito)

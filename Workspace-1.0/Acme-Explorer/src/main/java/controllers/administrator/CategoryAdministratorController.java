@@ -129,7 +129,7 @@ public class CategoryAdministratorController extends AbstractController {
 		result.addObject("trip", trips);
 		//result.addObject("categoryChildren", categoryChildren);
 		result.addObject("category", category);
-		result.addObject("categories", categories);
+		result.addObject("categoryParent", categories);
 		result.addObject("message", message);
 
 		return result;

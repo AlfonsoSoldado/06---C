@@ -199,12 +199,12 @@ public class ActorServiceTest extends AbstractTest {
 		unauthenticate();
 	}
 
-	@Test
-	public void testActorToSuspiciousList() {
-		authenticate("admin");
-		this.actorService.actorToSuspiciousList();
-		unauthenticate();
-	}
+//	@Test
+//	public void testActorToSuspiciousList() {
+//		authenticate("admin");
+//		this.actorService.actorToSuspiciousList();
+//		unauthenticate();
+//	}
 
 	@Test
 	public void testSendMessage() {

@@ -11,9 +11,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import domain.Configuration;
-
 import utilities.AbstractTest;
+import domain.Category;
+import domain.Configuration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring/datasource.xml",
@@ -57,12 +57,14 @@ public class ConfigurationServiceTest extends AbstractTest {
 	public void testSaveConfiguration() {
 		Configuration conf;
 		Double tax;
-		String banner, message, tag, countryCode, category, text, oth;
-		Collection<String> catalogueTag, treeCategory, catalogueText, other;
+		String banner, message, tag, countryCode, text, oth;
+		Category category;
+		Collection<String> catalogueTag, catalogueText, other;
+		Collection<Category> treeCategory;
 
 		conf = this.configurationService.create();
 		catalogueTag = new ArrayList<String>();
-		treeCategory = new ArrayList<String>();
+		treeCategory = new ArrayList<Category>();
 		catalogueText = new ArrayList<String>();
 		other = new ArrayList<String>();
 		banner = "http://creek-tours.com/wp-content/uploads/Kenya-Tanzania-Family-Safari-banner.jpg";
@@ -71,7 +73,7 @@ public class ConfigurationServiceTest extends AbstractTest {
 		countryCode = "+34";
 		tag = "country";
 		catalogueTag.add(tag);
-		category = "CATEGORY";
+		category = new Category();
 		treeCategory.add(category);
 		text = "Text 1";
 		catalogueText.add(text);

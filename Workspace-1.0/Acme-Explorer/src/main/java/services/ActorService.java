@@ -22,7 +22,6 @@ import domain.Audit;
 import domain.Category;
 import domain.Curriculum;
 import domain.Folder;
-import domain.ListSuspicious;
 import domain.Manager;
 import domain.Message;
 import domain.Ranger;
@@ -336,53 +335,53 @@ public class ActorService {
 		}
 	}
 
-	public void actorToSuspiciousList() {
-		administratorService.checkAuthority();
-
-		checkSpamWords();
-
-		ListSuspicious ls = new ListSuspicious();
-
-		Collection<Actor> actors = new ArrayList<Actor>();
-
-		Collection<Message> rangerMessages = new ArrayList<Message>();
-		rangerMessages = messageRepository.findRangerMessages();
-
-		Collection<Message> managerMessages = new ArrayList<Message>();
-		managerMessages = messageRepository.findManagerMessages();
-
-		for (Message m : rangerMessages) {
-			Ranger r;
-			r = (Ranger) m.getSender();
-
-			if (r.getSuspicious() == false) {
-				r.setSuspicious(true);
-			}
-
-			actors = ls.getSuspicious();
-			actors.add(r);
-
-			ls.setSuspicious(actors);
-
-			actors.clear();
-		}
-
-		for (Message m : managerMessages) {
-			Manager ma;
-			ma = (Manager) m.getSender();
-
-			if (ma.getSuspicious() == false) {
-				ma.setSuspicious(true);
-			}
-
-			actors = ls.getSuspicious();
-			actors.add(ma);
-
-			ls.setSuspicious(actors);
-
-			actors.clear();
-		}
-	}
+//	public void actorToSuspiciousList() {
+//		administratorService.checkAuthority();
+//
+//		checkSpamWords();
+//
+//		ListSuspicious ls = new ListSuspicious();
+//
+//		Collection<Actor> actors = new ArrayList<Actor>();
+//
+//		Collection<Message> rangerMessages = new ArrayList<Message>();
+//		rangerMessages = messageRepository.findRangerMessages();
+//
+//		Collection<Message> managerMessages = new ArrayList<Message>();
+//		managerMessages = messageRepository.findManagerMessages();
+//
+//		for (Message m : rangerMessages) {
+//			Ranger r;
+//			r = (Ranger) m.getSender();
+//
+//			if (r.getSuspicious() == false) {
+//				r.setSuspicious(true);
+//			}
+//
+//			actors = ls.getSuspicious();
+//			actors.add(r);
+//
+//			ls.setSuspicious(actors);
+//
+//			actors.clear();
+//		}
+//
+//		for (Message m : managerMessages) {
+//			Manager ma;
+//			ma = (Manager) m.getSender();
+//
+//			if (ma.getSuspicious() == false) {
+//				ma.setSuspicious(true);
+//			}
+//
+//			actors = ls.getSuspicious();
+//			actors.add(ma);
+//
+//			ls.setSuspicious(actors);
+//
+//			actors.clear();
+//		}
+//	}
 	
 	// 11.3
 

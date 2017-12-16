@@ -30,7 +30,7 @@ public class Configuration extends DomainEntity {
 	private Double tax;
 	private String countryCode;
 	private Collection<String> catalogueTag;
-	private Collection<String> treeCategory;
+	private Collection<Category> treeCategory;
 	private Collection<String> catalogueText;
 	private Collection<String> other;
 	
@@ -88,10 +88,10 @@ public class Configuration extends DomainEntity {
 	
 	@NotEmpty
 	@ElementCollection
-	public Collection<String> getTreeCategory() {
+	public Collection<Category> getTreeCategory() {
 		return treeCategory;
 	}
-	public void setTreeCategory(Collection<String> treeCategory) {
+	public void setTreeCategory(Collection<Category> treeCategory) {
 		this.treeCategory = treeCategory;
 	}
 	

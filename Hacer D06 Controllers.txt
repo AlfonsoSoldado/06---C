@@ -9,7 +9,7 @@ Application. Falta controladores de los distintos edits, el list de manager en c
 
 Audit funciona perfecto.
 
-Category. Falla el edit, al crear una categoría nueva no se asigna al trip. (Poner bonito)
+Category funciona perfecto.
 
 Curriculum. Funcionan todos los records. Falta que funcione el create.
 

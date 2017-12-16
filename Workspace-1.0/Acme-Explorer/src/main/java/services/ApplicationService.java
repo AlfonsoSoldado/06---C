@@ -105,11 +105,9 @@ public class ApplicationService {
 	// 12.2 (listing)
 	 
 	public Collection<Application> findListApplication(Manager manager) {
-		managerService.checkAuthority();
 		Collection<Application> res = new ArrayList<Application>();
 		
-		res.addAll(applicationRepository.findListApplication(manager.getId()));
-		Assert.notNull(res);
+		res.addAll(applicationRepository.findApplicationByManager(manager.getId()));
 		
 		return res;
 	}

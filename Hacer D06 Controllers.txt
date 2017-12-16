@@ -2,7 +2,7 @@
 
 
 
-Application. Falta controladores de los distintos edits, el list de manager en controladores y sus edit.
+Application. Falta controladores de los distintos edits. Para explorer y para manager.
 
 Finder. Falta que haga la búsqueda al darle al search. Tanto anónimo como explorer.
 

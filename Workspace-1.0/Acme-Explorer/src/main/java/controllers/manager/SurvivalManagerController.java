@@ -75,12 +75,11 @@ public class SurvivalManagerController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors()) {
-			System.out.println("Binding");
+			System.out.println(binding.getFieldError());
 			res = this
 					.createEditModelAndView(survival, "survival.params.error");
 		} else
 			try {
-				System.out.println("Try");
 				this.survivalService.save(survival);
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {

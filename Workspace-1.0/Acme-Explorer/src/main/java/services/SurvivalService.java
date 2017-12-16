@@ -2,6 +2,7 @@ package services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,10 +44,13 @@ public class SurvivalService {
 	
 	public Survival create(){
 		Manager m = new Manager();
+		m = managerService.findByPrincipal();
 		Trip trip = new Trip();
 		Survival survival = new Survival();
+		Date d = new Date(System.currentTimeMillis() - 1);
 		survival.setTrip(trip);
 		survival.setManager(m);
+		survival.setMoment(d);
 		return survival;
 	}
 

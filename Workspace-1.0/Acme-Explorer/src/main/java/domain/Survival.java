@@ -14,7 +14,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Access(AccessType.PROPERTY)
@@ -92,7 +91,7 @@ public class Survival extends DomainEntity {
 	}
 
 	@Valid
-	@ManyToOne(optional=false)
+	@ManyToOne(optional=true)
 	public Trip getTrip() {
 		return trip;
 	}
@@ -103,7 +102,6 @@ public class Survival extends DomainEntity {
 	
 	@Valid
 	@ManyToMany
-	@NotEmpty
 	public Collection<Explorer> getExplorer() {
 		return explorer;
 	}

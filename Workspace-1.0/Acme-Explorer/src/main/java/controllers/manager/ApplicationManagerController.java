@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
+import services.ManagerService;
 import controllers.AbstractController;
 import domain.Application;
+import domain.Manager;
 
 @Controller
 @RequestMapping("/application/manager")
@@ -25,6 +27,9 @@ public class ApplicationManagerController extends AbstractController {
 
 	@Autowired
 	private ApplicationService applicationService;
+	
+	@Autowired
+	private ManagerService managerService;
 	
 	// Constructors ---------------------------------------------------------
 
@@ -38,11 +43,9 @@ public class ApplicationManagerController extends AbstractController {
 	public ModelAndView list() {
 		ModelAndView result;
 		Collection<Application> applications;
-//		Manager manager;
-//		manager= this.ManagerService.findByPrincipal();
-		
-		applications = applicationService.findAll();
-//		applications = new ArrayList<Application>(manager.getApplication().getId());
+		Manager manager;
+		manager= managerService.findByPrincipal();
+		applications = applicationService.findListApplication(manager);
 
 		result = new ModelAndView("application/list");
 		result.addObject("applicationManager", applications);

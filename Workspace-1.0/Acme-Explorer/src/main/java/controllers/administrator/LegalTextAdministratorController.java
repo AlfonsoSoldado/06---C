@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.LegalTextService;
+import services.TripService;
 import controllers.AbstractController;
 import domain.LegalText;
+import domain.Trip;
 
 @Controller
 @RequestMapping("/legalText/administrator")
@@ -25,6 +27,9 @@ public class LegalTextAdministratorController extends AbstractController {
 
 	@Autowired
 	private LegalTextService legalTextService;
+	
+	@Autowired
+	private TripService tripService;
 	
 	// Constructors ---------------------------------------------------------
 
@@ -73,6 +78,10 @@ public class LegalTextAdministratorController extends AbstractController {
 				this.legalTextService.save(legalText);
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
+				System.out.println(oops.getCause());
+				System.out.println(oops.getLocalizedMessage());
+				System.out.println(oops.getMessage());
+				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(legalText, "legalText.commit.error");
 			}
 
@@ -126,10 +135,10 @@ public class LegalTextAdministratorController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final LegalText legalText,
 			final String message) {
 		ModelAndView result;
-		//final Collection<Trip> trips;
-		//trips = this.tripService.findAll();
+		final Collection<Trip> trips;
+		trips = this.tripService.findAll();
 		result = new ModelAndView("legalText/administrator/edit");
-		//result.addObject("trip", trips);
+		result.addObject("trip", trips);
 		result.addObject("legalText", legalText);
 		result.addObject("message", message);
 		return result;

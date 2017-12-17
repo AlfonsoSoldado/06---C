@@ -22,7 +22,6 @@
 <form:form action="legalText/administrator/edit.do" modelAttribute="legalText">
 	<security:authorize access="hasRole('ADMIN')">
 	
-	<form:hidden path="trip" />
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	
@@ -58,11 +57,21 @@
 		<spring:message code="legalText.draftMode" />:
 	</form:label>
 	<form:select path="draftMode">
-        <form:option value="1" label="Yes"/>
-        <form:option value="0" label="No"/>
+        <form:option value="true" label="Yes"/>
+        <form:option value="false" label="No"/>
 	</form:select>
 	<form:input path="draftMode" />
 	<form:errors cssClass="error" path="draftMode" />
+	<br />
+	
+	<form:label path="trip">
+		<spring:message code="legalText.trip" />:
+	</form:label>
+	<form:select path="trip">
+		<form:option value="0" label="----"/>
+        <form:options items="${trip}" itemLabel="title"/>
+	</form:select>
+	<form:errors cssClass="error" path="trip" />
 	<br />
 	
 	<input type="submit" name="save"

@@ -76,7 +76,7 @@ public class SocialIdController extends AbstractController {
 		else
 			try {
 				this.socialIdService.save(socialId);
-				result = new ModelAndView("redirect:../list.do");
+				result = new ModelAndView("redirect:../socialId/list.do");
 
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(socialId,
@@ -94,7 +94,7 @@ public class SocialIdController extends AbstractController {
 
 		try {
 			this.socialIdService.delete(socialId);
-			result = new ModelAndView("redirect:../list.do");
+			result = new ModelAndView("redirect:../socialId/list.do");
 
 		} catch (final Throwable oops) {
 			result = this.createEditModelAndView(socialId,

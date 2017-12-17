@@ -32,7 +32,11 @@ public class FinderService {
 	
 	public Finder create() {
 		Finder res;
+		Date d = new Date(System.currentTimeMillis() - 1);
+		Collection<Trip> trip = new ArrayList<Trip>();
 		res = new Finder();
+		res.setCache(d);
+		res.setTrip(trip);
 		return res;
 	}
 	
@@ -87,6 +91,12 @@ public class FinderService {
 	public Collection<Trip> findSearchSingleKey(String singleKey) {
 		Collection<Trip> res = new ArrayList<Trip>();
 		res.addAll(finderRepository.resultFinder(singleKey));
+		return res;
+	}
+	
+	public Integer resId() {
+		Integer res;
+		res = finderRepository.resId();
 		return res;
 	}
 }

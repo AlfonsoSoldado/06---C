@@ -51,7 +51,7 @@ public class ExplorerService {
 		Collection<Folder> folder = new ArrayList<Folder>();
 		Collection<Story> story = new ArrayList<Story>();
 		Application application = new Application();
-		Collection<Finder> finder = new ArrayList<Finder>();
+		Finder finder = new Finder();
 		Collection<Emergency> emergency = new ArrayList<Emergency>();
 		folder = this.folderService.systemFolders();
 		Collection<Survival> survivals = new ArrayList<Survival>();

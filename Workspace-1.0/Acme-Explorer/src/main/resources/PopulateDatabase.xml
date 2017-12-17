@@ -2196,11 +2196,7 @@
 	</property>
 	<property name="userAccount" ref="userAccount10" />
 	<property name="application" ref="application1" />
-	<property name="finder">
-		<list>
-			<ref bean="finder1"/>
-		</list>
-	</property>
+	<property name="finder"><null/></property>
 	<property name="emergency">
 		<list>
 			<ref bean="emergency1"/>
@@ -2251,11 +2247,7 @@
 	</property>
 	<property name="userAccount" ref="userAccount11" />
 	<property name="application" ref="application2" />
-	<property name="finder">
-		<list>
-			<ref bean="finder2"/>
-		</list>
-	</property>
+	<property name="finder"><null/></property>
 	<property name="emergency">
 		<list>
 			<ref bean="emergency2"/>
@@ -2306,10 +2298,7 @@
 	</property>
 	<property name="userAccount" ref="userAccount13" />
 	<property name="application" ref="application3" />
-	<property name="finder">
-		<list>
-		</list>
-	</property>
+	<property name="finder"><null/></property>
 	<property name="emergency">
 		<list>
 			<ref bean="emergency3"/>
@@ -2355,10 +2344,7 @@
 	</property>
 	<property name="userAccount" ref="userAccount14" />
 	<property name="application" ref="application4" />
-	<property name="finder">
-		<list>
-		</list>
-	</property>
+	<property name="finder"><null/></property>
 	<property name="emergency">
 		<list>
 			<ref bean="emergency4"/>
@@ -2390,37 +2376,7 @@
 	
 								<!-- FINDER -->
 	
-	<!-- FINDER1 -->
 	
-	<bean id="finder1" class="domain.Finder">
-	<property name="singleKey" value="Beach" />
-	<property name="minPrice" value="50.6" />
-	<property name="maxPrice" value="458.6" />
-	<property name="start" value="12/12/2017" />
-	<property name="end" value="20/12/2017" />
-	<property name="cache" value="01/01/2015 18:30" />
-	<property name="trip">
-		<list>
-			<ref bean="trip1"/>
-		</list>
-	</property>
-	</bean>
-	
-	<!-- FINDER2 -->
-	
-	<bean id="finder2" class="domain.Finder">
-	<property name="singleKey" value="New York" />
-	<property name="minPrice" value="50.6" />
-	<property name="maxPrice" value="488.6" />
-	<property name="start" value="10/18/2018" />
-	<property name="end" value="12/19/2018" />
-	<property name="cache" value="01/05/2013 11:40" />
-	<property name="trip">
-		<list>
-			<ref bean="trip2"/>
-		</list>
-	</property>
-	</bean>
 	
 								<!-- EMERGENCY -->
 	

@@ -1,20 +1,17 @@
 ---------------------- Falta ---------------------------
 
 
-
 Application. Falta controladores de los distintos edits. Para explorer y para manager.
 
-Finder. Falta que haga la búsqueda al darle al search. Tanto anónimo como explorer.
+Folder/Message. Saves/deletes/creates.
 
-Folder/Message. Falta que funcionen los saves/deletes/creates. (Y poner bonito)
-
-LegalText. Falla el delete.
+LegalText. Delete.
 
 Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
 
-Tag. Falla el edit y el delete.
+Tag. Edit y el delete.
 
-Trip. Create y el delete. Hacer otra vista detailed trip. (Poner bonito)
+Trip. Create y el delete.
 
 
 ----------------------- Funciona ------------------------
@@ -29,6 +26,8 @@ Category funciona perfecto.
 Curriculum funciona perfecto.
 
 Emergency funciona perfecto.
+
+Finder funciona perfecto.
 
 Note funciona perfecto.
 

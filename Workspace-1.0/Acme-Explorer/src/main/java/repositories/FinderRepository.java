@@ -20,4 +20,6 @@ public interface FinderRepository extends JpaRepository<Finder, Integer>{
 	@Query("select t from Trip t where (t.title like ?1 or t.description like ?1)")
 	Collection<Trip> resultFinder(String singleKey);
 	
+	@Query("select max(id) from Finder")
+	Integer resId();
 }

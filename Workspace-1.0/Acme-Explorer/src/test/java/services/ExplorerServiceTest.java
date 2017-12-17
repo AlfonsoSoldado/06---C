@@ -76,7 +76,6 @@ public class ExplorerServiceTest extends AbstractTest {
 		Explorer explorer;
 		explorer = this.explorerService.create();
 
-		Collection<Finder> finder = new ArrayList<Finder>();
 		Collection<Emergency> emergency = new ArrayList<Emergency>();
 		Collection<Story> story = new ArrayList<Story>();
 		Collection<Survival> survival = new ArrayList<Survival>();
@@ -95,12 +94,11 @@ public class ExplorerServiceTest extends AbstractTest {
 		application = this.applicationService.findOne(super
 				.getEntityId("application1"));
 
-		finder.add(finder1);
 		emergency.add(emergency1);
 		story.add(story1);
 		survival.add(survival1);
 
-		explorer.setFinder(finder);
+		explorer.setFinder(finder1);
 		explorer.setEmergency(emergency);
 		explorer.setStories(story);
 		explorer.setApplication(application);

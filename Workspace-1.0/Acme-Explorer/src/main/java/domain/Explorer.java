@@ -22,19 +22,19 @@ public class Explorer extends Actor {
 
 	// Relationships
 
-	private Collection<Finder> finder;
+	private Finder finder;
 	private Collection<Emergency> emergency;
 	private Collection<Story> stories;
 	private Application application;
 	private Collection<Survival> survival;
 	
 	@Valid
-	@OneToMany
-	public Collection<Finder> getFinder() {
+	@OneToOne
+	public Finder getFinder() {
 		return finder;
 	}
 
-	public void setFinder(Collection<Finder> finder) {
+	public void setFinder(Finder finder) {
 		this.finder = finder;
 	}
 

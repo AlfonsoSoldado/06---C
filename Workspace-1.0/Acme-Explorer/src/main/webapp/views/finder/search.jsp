@@ -16,11 +16,10 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="finder/search.do" modelAttribute="finder">
+<form:form action="${requestUri}" modelAttribute="finder">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-	
 
 	<form:hidden path="cache" />
 	
@@ -62,13 +61,6 @@
 		<form:errors cssClass="error" path="end" />
 		<br />
 	</security:authorize>
-	
-<%-- 	<div>
-		<a href="trip/finder/list.do?singleKey=${singleKey }"> <spring:message
-				code="finder.search" />
-		</a>
-	</div> --%>
-	
 	
 		<input type="submit" name="save"
 			value="<spring:message code="finder.search" />" />&nbsp; 

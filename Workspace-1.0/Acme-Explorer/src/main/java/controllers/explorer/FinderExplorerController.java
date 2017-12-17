@@ -22,14 +22,13 @@ public class FinderExplorerController extends AbstractController {
 	@Autowired
 	FinderService finderService;
 
-	// Constructors ---------------------------------------------------------
+	// Constructors ----------------------------------------------
 
 	public FinderExplorerController() {
 		super();
 	}
 
-	// Searching
-	// ----------------------------------------------------------------
+	// Searching ------------------------------------------------
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public ModelAndView create() {
@@ -48,10 +47,8 @@ public class FinderExplorerController extends AbstractController {
 			result = this.createEditModelAndView(finder, "finder.params.error");
 		else
 			try {
-				this.finderService.findSearchCriterial(finder.getSingleKey(),
-						finder.getStart(), finder.getEnd(),
-						finder.getMinPrice(), finder.getMaxPrice());
-				result = new ModelAndView("redirect:index.do");
+				this.finderService.save(finder);
+				result = new ModelAndView("redirect:../trip/finder/explorer/list.do");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(finder,
 						"finder.commit.error");
@@ -73,6 +70,7 @@ public class FinderExplorerController extends AbstractController {
 		result = new ModelAndView("finder/search");
 		result.addObject("finder", finder);
 		result.addObject("message", messageCode);
+		result.addObject("requestUri", "finder/explorer/search.do");
 		return result;
 	}
 

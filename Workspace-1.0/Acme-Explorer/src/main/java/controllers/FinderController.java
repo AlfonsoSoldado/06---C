@@ -26,9 +26,9 @@ public class FinderController extends AbstractController {
 	public FinderController() {
 		super();
 	}
-	
-	// Searching ----------------------------------------------------------------
-	
+
+	// Searching ----------------------------------------------------
+
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public ModelAndView search() {
 		final ModelAndView result;
@@ -37,40 +37,42 @@ public class FinderController extends AbstractController {
 		result = this.createEditModelAndView(finder);
 		return result;
 	}
-	
+
 	@RequestMapping(value = "/search", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid Finder finder, BindingResult binding) {
 		ModelAndView res;
 
 		if (binding.hasErrors()) {
-			res = this.createEditModelAndView(finder,
-					"finder.params.error");
+			res = this.createEditModelAndView(finder, "finder.params.error");
 		} else
 			try {
 				this.finderService.save(finder);
-				res = new ModelAndView("redirect:../trip/finder/list.do");
+				res = new ModelAndView(
+						"redirect:../trip/finder/list.do");
 			} catch (final Throwable oops) {
 				System.out.println(oops.getMessage());
-				res = this.createEditModelAndView(finder,
-						"finder.commit.error");
+				res = this
+						.createEditModelAndView(finder, "finder.commit.error");
 			}
 
 		return res;
 	}
-	
-	// Ancillary methods ---------------------------------------------------------------------
-	
+
+	// Ancillary methods -------------------------------------------------------
+
 	protected ModelAndView createEditModelAndView(final Finder finder) {
 		ModelAndView result;
 		result = this.createEditModelAndView(finder, null);
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Finder finder, final String messageCode) {
+	protected ModelAndView createEditModelAndView(final Finder finder,
+			final String messageCode) {
 		ModelAndView result;
 		result = new ModelAndView("finder/search");
 		result.addObject("finder", finder);
 		result.addObject("message", messageCode);
+		result.addObject("requestUri", "finder/search.do");
 		return result;
 	}
 }

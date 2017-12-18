@@ -24,6 +24,7 @@
 	
 	<form:hidden path="id" />
 	<form:hidden path="version" />
+	<form:hidden path="moment" />
 	
 	<form:label path="title">
 		<spring:message code="legalText.title" />:
@@ -44,13 +45,6 @@
 	</form:label>
 	<form:input path="numberLaw" />
 	<form:errors cssClass="error" path="numberLaw" />
-	<br />
-	
-	<form:label path="moment">
-		<spring:message code="legalText.moment" />:
-	</form:label>
-	<form:input path="moment" />
-	<form:errors cssClass="error" path="moment" />
 	<br />
 	
 	<form:label path="draftMode">

@@ -26,6 +26,9 @@ public class LegalTextService {
 
 	@Autowired
 	private AdministratorService administratorService;
+	
+	@Autowired
+	private TripService tripService;
 
 	// Constructors
 
@@ -73,6 +76,14 @@ public class LegalTextService {
 		Assert.isTrue(legalText.getDraftMode() == true);
 		LegalText res;
 		res = this.legalTextRepository.save(legalText);
+		Date fechaActual = new Date();
+		res.setMoment(fechaActual);
+		
+		Trip trip;
+		trip = new Trip();
+		
+		trip = legalText.getTrip();
+		trip.setLegalText(legalText);
 		return res;
 	}
 
@@ -83,6 +94,13 @@ public class LegalTextService {
 		Assert.notNull(legalText);
 		Assert.isTrue(legalText.getId() != 0);
 		Assert.isTrue(this.legalTextRepository.exists(legalText.getId()));
+		
+		Trip trip;
+		trip = new Trip();
+		
+		trip = legalText.getTrip();
+		
+		trip.setLegalText(null);
 		this.legalTextRepository.delete(legalText);
 	}
 
@@ -96,6 +114,20 @@ public class LegalTextService {
 		Collection<LegalText> res = new ArrayList<LegalText>();
 		res = legalTextRepository.findLegalTextsByTrip(trip.getId());
 		Assert.notNull(res);
+		return res;
+	}
+	
+	public Collection<Trip> findTripsWithoutLegalText(){
+		Collection<Trip> res = new ArrayList<Trip>();
+		
+		res = tripService.findAll();
+		
+		for(Trip t: res){
+			if(t.getLegalText() != null){
+				res.remove(t);
+			}
+		}
+		
 		return res;
 	}
 }

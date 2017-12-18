@@ -153,8 +153,7 @@ public class Trip extends DomainEntity {
 	private Collection<Value> value;
 
 	@Valid
-	@NotNull
-	@OneToOne(optional = false)
+	@OneToOne(optional = true)
 	public LegalText getLegalText() {
 		return legalText;
 	}

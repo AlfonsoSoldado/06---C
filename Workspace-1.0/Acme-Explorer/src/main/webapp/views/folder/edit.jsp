@@ -22,7 +22,6 @@
 	<form:hidden path="version" />
 	
 	<form:hidden path="systemFolder"/>
-	<form:hidden path="folders"/>
 	<form:hidden path="messages"/>
 	
 	<form:label path="name">
@@ -35,11 +34,9 @@
 	<form:label path="customFolder">
 		<spring:message code="folder.customFolder" />:
 	</form:label>
-	<form:select path="customFolder">
-        <form:options items="${customFolder}" itemLabel="name"/>
+	<form:select path="folders">
+        <form:options items="${folders}" itemLabel="name"/>
 	</form:select>
-	<form:input path="customFolder" />
-	<form:errors cssClass="error" path="customFolder" />
 	<br />
 	
 	<input type="submit" name="save"

@@ -1,13 +1,13 @@
 ---------------------- Falta ---------------------------
 
 
-Application. Falta controladores de los distintos edits. Para explorer y para manager.
+ALfonso: Application. Falta controladores de los distintos edits. Para explorer y para manager.
 
-Folder/Message. Saves/deletes/creates.
+Mario: Folder/Message. Saves/deletes/creates.
 
 LegalText. Delete.
 
-Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
+Juan Carlos: Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
 
 Tag. Edit y el delete.
 

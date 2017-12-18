@@ -64,6 +64,14 @@
 	</display:column>
 	
 </display:table>
+
+	<div>
+		<a href="application/explorer/create.do">
+			<button>
+				<spring:message code="audit.create" />
+			</button>
+		</a>
+	</div>
 </security:authorize>
 
 <security:authorize access="hasRole('MANAGER')">
@@ -117,14 +125,4 @@
 	</display:column>
 	
 </display:table>
-</security:authorize>
-
-<!-- Action links -->
-
-<security:authorize access="hasRole('EXPLORER')">
-	<div>
-		<a href="application/explorer/create.do"> <spring:message
-				code="application.create" />
-		</a>
-	</div>
 </security:authorize>

@@ -58,7 +58,6 @@ public class ApplicationExplorerController extends AbstractController {
 		application = applicationService.findOne(applicationId);
 		Assert.notNull(application);
 		result = this.createEditModelAndView(application);
-		applicationService.applicationAccepted(application);
 
 		return result;
 	}
@@ -76,6 +75,7 @@ public class ApplicationExplorerController extends AbstractController {
 		else
 			try {
 				this.applicationService.save(application);
+				applicationService.applicationAccepted(application);
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(application,

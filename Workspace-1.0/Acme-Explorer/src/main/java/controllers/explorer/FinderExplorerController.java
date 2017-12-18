@@ -48,7 +48,7 @@ public class FinderExplorerController extends AbstractController {
 		else
 			try {
 				this.finderService.save(finder);
-				result = new ModelAndView("redirect:../trip/finder/explorer/list.do");
+				result = new ModelAndView("redirect:../../trip/finder/explorer/list.do");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(finder,
 						"finder.commit.error");

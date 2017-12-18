@@ -63,6 +63,7 @@
 			<li><a href=""><spring:message code="master.page.explorer.survivals" /></a></li>
 			<li><a href="emergency/explorer/list.do"><spring:message code="master.page.emergency" /></a></li>
 			<li><a href="story/explorer/list.do"><spring:message code="master.page.story" /></a></li>
+			<li><a href="finder/explorer/search.do"><spring:message code="master.page.finder" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('AUDITOR')">

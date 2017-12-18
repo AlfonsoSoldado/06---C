@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import domain.LegalText;
-import domain.Trip;
 
 @Repository
 public interface LegalTextRepository extends JpaRepository<LegalText, Integer> {

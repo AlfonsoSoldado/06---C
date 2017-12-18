@@ -5,8 +5,6 @@ ALfonso: Application. Falta controladores de los distintos edits. Para explorer 
 
 Mario: Folder/Message. Saves/deletes/creates.
 
-LegalText. Delete.
-
 Juan Carlos: Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
 
 Trip. Create y el delete.

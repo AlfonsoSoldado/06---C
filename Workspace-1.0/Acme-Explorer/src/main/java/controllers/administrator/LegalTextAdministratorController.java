@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.LegalTextService;
-import services.TripService;
 import controllers.AbstractController;
 import domain.LegalText;
 import domain.Trip;
@@ -27,9 +26,6 @@ public class LegalTextAdministratorController extends AbstractController {
 
 	@Autowired
 	private LegalTextService legalTextService;
-	
-	@Autowired
-	private TripService tripService;
 	
 	// Constructors ---------------------------------------------------------
 

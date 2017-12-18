@@ -41,8 +41,6 @@ public class FinderService {
 	}
 	
 	public Collection<Finder> findAll() {
-//		explorerService.checkAuthority();
-		
 		Collection<Finder> res;
 		res = this.finderRepository.findAll();
 		Assert.notNull(res);
@@ -50,8 +48,6 @@ public class FinderService {
 	}
 
 	public Finder findOne(int finder) {
-//		explorerService.checkAuthority();
-		
 		Assert.isTrue(finder != 0);
 		Finder res;
 		res = this.finderRepository.findOne(finder);
@@ -60,21 +56,9 @@ public class FinderService {
 	}
 
 	public Finder save(Finder finder) {
-//		explorerService.checkAuthority();
-		
-//		Explorer explorer;
-//		explorer = this.explorerService.findByPrincipal();
-		
 		Assert.notNull(finder);
-		
 		Finder res;
 		res = this.finderRepository.save(finder);
-		
-//		Collection<Finder> finderCollection = new ArrayList<Finder>();
-//		finderCollection.add(res);
-//		
-//		explorer.setFinder(finderCollection);
-		
 		return res;
 	}
 

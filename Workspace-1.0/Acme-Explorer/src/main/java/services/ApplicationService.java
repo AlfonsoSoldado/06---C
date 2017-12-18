@@ -126,17 +126,30 @@ public class ApplicationService {
 	
 	// 13.3
 	
-	public void applicationAccepted(CC creditCard, Application application){
+	public void applicationAccepted(Application application){
 		explorerService.checkAuthority();
-		Assert.notNull(creditCard);
 		Assert.notNull(application);
 		
-		Collection<Application> applications = new ArrayList<>();
-		applications = applicationRepository.findListApplicationDue();
-		
-		if(applications.contains(application)){
+		if(application.getCreditCard() != null){
 			application.setStatus("ACCEPTED");
-			application.setCreditCard(creditCard);
 		}
 	}
+	
+//	public void applicationAccepted(CC creditCard, Application application){
+//		explorerService.checkAuthority();
+//		Assert.notNull(creditCard);
+//		Assert.notNull(application);
+//		
+//		CC creditCardIntermedia = application.getCreditCard();
+//		
+//		Collection<Application> applications = new ArrayList<>();
+//		applications = applicationRepository.findListApplicationDue();
+//		
+//		if(applications.contains(application)){
+//			application.setCreditCard(creditCard);
+//			if(application.getCreditCard().equals(creditCardIntermedia)){
+//				application.setStatus("ACCEPTED");
+//			}
+//		}
+//	}
 }

@@ -17,3 +17,23 @@
 	color: red;
 	font-weight: bolder;
 }
+
+.PENDING {
+	background-color: white;
+}
+
+.REJECTED {
+	background-color: grey;
+}
+
+.DUE {
+	background-color: yellow;
+}
+
+.ACCEPTED {
+	background-color: green;
+}
+
+.CANCELLED {
+	background-color: cyan;
+}

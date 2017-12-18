@@ -57,7 +57,7 @@ public class ApplicationManagerController extends AbstractController {
 	
 	// Editing ---------------------------------------------------------------
 
-		@RequestMapping(value = "/edit", method = RequestMethod.GET)
+		@RequestMapping(value = "/editPending", method = RequestMethod.GET)
 		public ModelAndView edit(@RequestParam final int applicationId) {
 			ModelAndView result;
 			Application application;
@@ -71,7 +71,7 @@ public class ApplicationManagerController extends AbstractController {
 		
 	// Saving -------------------------------------------------------------
 
-		@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
+		@RequestMapping(value = "/editPending", method = RequestMethod.POST, params = "save")
 		public ModelAndView save(@Valid final Application application,
 				final BindingResult binding) {
 			ModelAndView res;
@@ -104,7 +104,7 @@ public class ApplicationManagerController extends AbstractController {
 	protected ModelAndView createEditModelAndView(
 			final Application application, final String message) {
 		ModelAndView result;
-		result = new ModelAndView("application/manager/edit");
+		result = new ModelAndView("application/manager/editPending");
 		result.addObject("application", application);
 		result.addObject("message", message);
 		return result;

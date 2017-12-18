@@ -26,4 +26,19 @@
 		<put-attribute name="body" value="/views/application/edit.jsp" />
 	</definition>
 	
+	<definition name="application/manager/editPending" extends="master.page">	
+		<put-attribute name="title" value="Editar una solicitud pendiente" />
+		<put-attribute name="body" value="/views/application/editPending.jsp" />
+	</definition>
+	
+	<definition name="application/explorer/editDue" extends="master.page">	
+		<put-attribute name="title" value="Editar una solicitud sin pagar" />
+		<put-attribute name="body" value="/views/application/editDue.jsp" />
+	</definition>
+	
+	<definition name="application/explorer/editAccepted" extends="master.page">	
+		<put-attribute name="title" value="Cancelar una solicitud" />
+		<put-attribute name="body" value="/views/application/editAccepted.jsp" />
+	</definition>
+	
 </tiles-definitions>

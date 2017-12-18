@@ -50,7 +50,7 @@ public class ApplicationExplorerController extends AbstractController {
 
 	// Editing ---------------------------------------------------------------
 
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	@RequestMapping(value = "/editDue", method = RequestMethod.GET)
 	public ModelAndView edit(@RequestParam final int applicationId) {
 		ModelAndView result;
 		Application application;
@@ -58,13 +58,14 @@ public class ApplicationExplorerController extends AbstractController {
 		application = applicationService.findOne(applicationId);
 		Assert.notNull(application);
 		result = this.createEditModelAndView(application);
+		applicationService.applicationAccepted(application);
 
 		return result;
 	}
 
 	// Saving -------------------------------------------------------------
 
-	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
+	@RequestMapping(value = "/editDue", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Application application,
 			final BindingResult binding) {
 		ModelAndView res;
@@ -86,7 +87,7 @@ public class ApplicationExplorerController extends AbstractController {
 
 	// Deleting -------------------------------------------------------------
 
-	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
+	@RequestMapping(value = "/editDue", method = RequestMethod.POST, params = "delete")
 	public ModelAndView delete(Application application, BindingResult binding) {
 		ModelAndView res;
 
@@ -126,7 +127,7 @@ public class ApplicationExplorerController extends AbstractController {
 	protected ModelAndView createEditModelAndView(
 			final Application application, final String message) {
 		ModelAndView result;
-		result = new ModelAndView("application/explorer/edit");
+		result = new ModelAndView("application/explorer/editDue");
 		result.addObject("application", application);
 		result.addObject("message", message);
 		return result;

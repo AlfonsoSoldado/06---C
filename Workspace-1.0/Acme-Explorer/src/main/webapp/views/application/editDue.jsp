@@ -17,6 +17,10 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 <form:form action="application/explorer/editDue.do" modelAttribute="application">
+		
+		<form:hidden path="id" />
+		<form:hidden path="version" />
+	
 	<security:authorize access="hasRole('EXPLORER')">
 		<form:hidden path="moment" />
 		<form:hidden path="status" />
@@ -26,47 +30,47 @@
 		<form:hidden path="explorer" />
 		<form:hidden path="trip" />
  		
- 		<form:label path="holderName">
-			<spring:message code="application.holderName" />:
+ 		<form:label path="creditCard.holderName">
+		<spring:message code="sponsorship.creditCard.holderName" />:
+	</form:label>
+	<form:input path="creditCard.holderName" />
+	<form:errors cssClass="error" path="creditCard.holderName" />
+	<br />
+	
+	<form:label path="creditCard.brandName">
+		<spring:message code="sponsorship.creditCard.brandName" />:
+	</form:label>
+	<form:input path="creditCard.brandName" />
+	<form:errors cssClass="error" path="creditCard.brandName" />
+	<br />
+	
+	<form:label path="creditCard.number">
+		<spring:message code="sponsorship.creditCard.number" />:
+	</form:label>
+	<form:input path="creditCard.number" />
+	<form:errors cssClass="error" path="creditCard.number" />
+	<br />
+	
+	<form:label path="creditCard.expirationMonth">
+	<spring:message code="sponsorship.creditCard.expirationMonth" />:
 		</form:label>
-		<form:input path="holderName" />
-		<form:errors cssClass="error" path="holderName" />
-		<br />
-		
-		<form:label path="brandName">
-			<spring:message code="application.brandName" />:
+	<form:input path="creditCard.expirationMonth" />
+	<form:errors cssClass="error" path="creditCard.expirationMonth" />
+	<br />
+	
+	<form:label path="creditCard.expirationYear">
+	<spring:message code="sponsorship.creditCard.expirationYear" />:
 		</form:label>
-		<form:input path="brandName" />
-		<form:errors cssClass="error" path="brandName" />
-		<br />
-		
-		<form:label path="cardNumber">
-			<spring:message code="application.cardNumber" />:
+	<form:input path="creditCard.expirationYear" />
+	<form:errors cssClass="error" path="creditCard.expirationYear" />
+	<br />
+	
+	<form:label path="creditCard.CVV">
+	<spring:message code="sponsorship.creditCard.CVV" />:
 		</form:label>
-		<form:input path="cardNumber" />
-		<form:errors cssClass="error" path="cardNumber" />
-		<br />
-		
-		<form:label path="expirationMonth">
-			<spring:message code="application.expirationMonth" />:
-		</form:label>
-		<form:input path="expirationMonth" />
-		<form:errors cssClass="error" path="expirationMonth" />
-		<br />
-		
-		<form:label path="expirationYear">
-			<spring:message code="application.expirationYear" />:
-		</form:label>
-		<form:input path="expirationYear" />
-		<form:errors cssClass="error" path="expirationYear" />
-		<br />
-		
-		<form:label path="CVV">
-			<spring:message code="application.CVV" />:
-		</form:label>
-		<form:input path="CVV" />
-		<form:errors cssClass="error" path="CVV" />
-		<br />
+	<form:input path="creditCard.CVV" />
+	<form:errors cssClass="error" path="creditCard.CVV" />
+	<br />
 		
 		<input type="submit" name="save"
 			value="<spring:message code="application.save" />" />&nbsp; 

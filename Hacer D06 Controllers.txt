@@ -9,8 +9,6 @@ LegalText. Delete.
 
 Juan Carlos: Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
 
-Tag. Edit y el delete.
-
 Trip. Create y el delete.
 
 

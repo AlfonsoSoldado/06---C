@@ -30,7 +30,7 @@
 	
 	<form:hidden path="ranger" />
 	<form:hidden path="manager" />
-	<form:hidden path="category" />
+	
 	<form:hidden path="legalText" />
 	<form:hidden path="application" />
 	<form:hidden path="value" />
@@ -76,6 +76,15 @@
 	</form:label>
 	<form:input path="tripEnd" />
 	<form:errors cssClass="error" path="tripEnd" />
+	<br />
+	
+	<form:label path="category">
+		<spring:message code="trip.category" />:
+	</form:label>
+	<form:select path="category">
+		<form:options items="${category}" itemLabel="name"/>
+	</form:select>
+	<form:errors cssClass="error" path="category" />
 	<br />
 	
 	<form:label path="ranger">

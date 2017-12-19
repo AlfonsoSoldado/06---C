@@ -10,6 +10,7 @@ import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
 
 @Entity
@@ -33,6 +34,8 @@ public class Configuration extends DomainEntity {
 	private Collection<Category> treeCategory;
 	private Collection<String> catalogueText;
 	private Collection<String> other;
+	private Integer cache;
+	private Integer numberPage;
 	
 	@URL
 	@NotBlank
@@ -112,4 +115,21 @@ public class Configuration extends DomainEntity {
 		this.other = other;
 	}
 	
+	@Range(min = 1, max = 24)
+	public Integer getCache() {
+		return cache;
+	}
+	
+	public void setCache(Integer cache) {
+		this.cache = cache;
+	}
+	
+	@Range(min = 10, max = 100)
+	public Integer getNumberPage() {
+		return numberPage;
+	}
+	
+	public void setNumberPage(Integer numberPage) {
+		this.numberPage = numberPage;
+	}
 }

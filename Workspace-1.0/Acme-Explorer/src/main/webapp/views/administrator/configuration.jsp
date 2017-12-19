@@ -1,5 +1,5 @@
 <%--
- * edit.jsp
+ * configuration.jsp
  *
  * Copyright (C) 2017 Universidad de Sevilla
  * 
@@ -19,30 +19,36 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="administrator/editSuspicious.do" modelAttribute="actor">
+<form:form action="administrator/configuration.do" modelAttribute="configuration">
 	
 	<security:authorize access="hasRole('ADMIN')">
 	
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	
-	<form:hidden path="folders" />
-	<form:hidden path="received" />
-	<form:hidden path="sent" />
-	<form:hidden path="socialId" />
-	<form:hidden path="userAccount" />
+	<form:hidden path="banner" />
+	<form:hidden path="message" />
+	<form:hidden path="spamWords" />
+	<form:hidden path="tax" />
+	<form:hidden path="countryCode" />
+	<form:hidden path="catalogueTag" />
+	<form:hidden path="treeCategory" />
+	<form:hidden path="catalogueText" />
+	<form:hidden path="other" />
 	
-	
-	<form:label path="suspicious">
-		<spring:message code="administrator.suspicious" />:
+	<form:label path="cache">
+		<spring:message code="administrator.cache" />:
 	</form:label>
-	<form:select path="suspicious">
-        <form:option value="true" label="Yes"/>
-        <form:option value="false" label="No"/>
-	</form:select>
-	<form:errors cssClass="error" path="suspicious" />
+	<form:input path="cache" />
+	<form:errors cssClass="error" path="cache" />
 	<br />
 	
+	<form:label path="numberPage">
+		<spring:message code="administrator.numberPage" />:
+	</form:label>
+	<form:input path="numberPage" />
+	<form:errors cssClass="error" path="numberPage" />
+	<br />
 	
 	<input type="submit" name="save"
 		value="<spring:message code="administrator.save" />" />&nbsp; 
@@ -50,9 +56,8 @@
 	
 	<input type="button" name="cancel"
 		value="<spring:message code="administrator.cancel" />"
-		onclick="javascript: relativeRedir('/administrator/suspicious.do');" />
+		onclick="javascript: relativeRedir('/administrator/configuration.do');" />
 	<br />
-
 
 	</security:authorize>
 </form:form>

@@ -27,6 +27,7 @@
 					<li><a href="actor/administrator/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 					<li><a href="socialId/list.do"><spring:message code="master.page.actorSocialId" /></a></li>
+					<li><a href="administrator/configuration.do"><spring:message code="master.page.configuration" /></a></li>
 				</ul>
 			</li>
 			<li><a class="fNiv" href="tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>

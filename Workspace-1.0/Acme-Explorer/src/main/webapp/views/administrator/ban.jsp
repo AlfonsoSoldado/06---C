@@ -21,20 +21,16 @@
 
 <!-- Listing grid -->
 
-<security:authorize access="hasRole('ADMIN')">
-<display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="suspicious" requestURI="administrator/ban.do" id="row">
+<form:form action="administrator/ban.do" modelAttribute="administrator">
+
+	<form:hidden path="id"/>
+	<form:hidden path="version"/>
+	<form:hidden path="userAccount"/>
+	<form:hidden path="userAccount.password"/>
+	<form:hidden path="userAccount.authorities"/>
+	<form:hidden path="folders"/>
+	<form:hidden path="sent" />
+	<form:hidden path="socialId"/>
+	<form:hidden path="suspicious" />
 	
-	<spring:message code="actor.banned"/>
-	<display:column>
-		<a href= "administrator/ban.do?actorId=${row.id}">
-		<spring:message code="actor.banned"/></a>
-	</display:column>
-	
-	<spring:message code="administrator.name" var="nameHeader" />
-	<display:column property="name" title="${nameHeader}" sortable="true" />
-
-
-</display:table>
-
-</security:authorize>
+</form:form>

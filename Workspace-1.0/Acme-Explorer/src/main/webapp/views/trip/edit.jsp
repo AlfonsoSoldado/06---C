@@ -28,7 +28,7 @@
 	<form:hidden path="reason" />
 	<form:hidden path="cancelled" />
 	
-	<form:hidden path="ranger" />
+	
 	<form:hidden path="manager" />
 	
 	<form:hidden path="legalText" />

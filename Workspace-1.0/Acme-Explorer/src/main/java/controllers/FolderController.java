@@ -117,6 +117,7 @@ public class FolderController extends AbstractController {
 	public ModelAndView create() {
 		final ModelAndView result;
 		Folder folder;
+		
 		folder = this.folderService.create();
 		result = this.createEditModelAndView(folder);
 		return result;

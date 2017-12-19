@@ -58,6 +58,8 @@ public class TripService {
 		Trip trip = new Trip();
 		Collection<String> requirements =  new ArrayList<String>();
 		
+		m = this.managerService.findByPrincipal();
+		
 		trip.setTicker(this.generatedTicker());
 
 		trip.setManager(m);

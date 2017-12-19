@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.FinderService;
+import services.StageService;
 import services.TripService;
 import domain.Finder;
 import domain.Trip;
@@ -26,7 +27,9 @@ public class TripController {
 	private TripService tripService;
 	
 	@Autowired
-	FinderService finderService;
+	private FinderService finderService;
+	
+	
 	
 	//Constructors ---------------------------------------------------------
 	

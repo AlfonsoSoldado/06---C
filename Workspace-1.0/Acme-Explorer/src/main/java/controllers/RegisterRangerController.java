@@ -43,19 +43,19 @@ public class RegisterRangerController extends AbstractController {
 	
 	@RequestMapping(value = "/register_Ranger", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Ranger ranger,
-			final BindingResult binding){
+			final BindingResult binding) {
 		ModelAndView res;
-		
-		if(binding.hasErrors())
+
+		if (binding.hasErrors()) {
 			res = this.createEditModelAndView(ranger, "actor.params.error");
-		else
-			try{
+		} else {
+			try {
 				this.rangerService.save(ranger);
-				res = new ModelAndView("redirect:../../");
-			}catch (final Throwable oops) {
+				res = new ModelAndView("redirect:../");
+			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(ranger, "actor.commit.error");
 			}
-		
+		}
 		return res;
 	}
 	

@@ -59,7 +59,7 @@
 	
 	<spring:message code="application.cancel" var="cancelHeader" />
 	<display:column>
-		<a href= "application/manager/editAccepted.do?applicationId=${row.id}">
+		<a href= "application/explorer/editAccepted.do?applicationId=${row.id}">
 					<spring:message code="application.cancel" /></a>
 	</display:column>
 	

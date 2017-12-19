@@ -149,7 +149,9 @@ public class ApplicationExplorerController extends AbstractController {
 					"application.params.error");
 		else
 			try {
-				this.applicationService.save(application);
+				if(applicationService.aplicationAcceptedStartingDateNotPassed(application)){
+					this.applicationService.save(application);
+				}
 				
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {

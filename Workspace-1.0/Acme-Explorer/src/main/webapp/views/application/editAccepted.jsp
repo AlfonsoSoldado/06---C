@@ -22,7 +22,6 @@
 	
 	<security:authorize access="hasRole('EXPLORER')">
 		<form:hidden path="moment" />
-		<form:hidden path="status" />
 		<form:hidden path="reason" />
 		<form:hidden path="comment" />
 		<form:hidden path="manager" />

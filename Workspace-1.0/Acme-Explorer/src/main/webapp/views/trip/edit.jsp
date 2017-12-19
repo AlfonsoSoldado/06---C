@@ -27,6 +27,7 @@
 	<form:hidden path="publication" />
 	<form:hidden path="reason" />
 	<form:hidden path="cancelled" />
+	<form:hidden path="price" />
 	
 	
 	<form:hidden path="manager" />
@@ -46,13 +47,6 @@
 	</form:label>
 	<form:input path="description" />
 	<form:errors cssClass="error" path="description" />
-	<br />
-	
-	<form:label path="price">
-		<spring:message code="trip.price" />:
-	</form:label>
-	<form:input path="price" />
-	<form:errors cssClass="error" path="price" />
 	<br />
 	
 	<form:label path="requirement">

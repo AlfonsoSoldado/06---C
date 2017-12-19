@@ -65,4 +65,10 @@ public class ConfigurationService {
 	}
 
 	// Other business methods
+	
+	public Integer resId() {
+		Integer res;
+		res = configurationRepository.resId();
+		return res;
+	}
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.FinderService;
-import services.StageService;
 import services.TripService;
 import domain.Finder;
 import domain.Trip;

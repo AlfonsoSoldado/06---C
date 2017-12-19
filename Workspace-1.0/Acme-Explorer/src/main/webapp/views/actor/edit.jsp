@@ -19,15 +19,12 @@
 <form:form action="${requestUri}" modelAttribute="actor">
 
 	<security:authorize access="hasRole('RANGER')">
-	<form:hidden path="curriculum" />
 	<form:hidden path="trip" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('EXPLORER')">
-	<form:hidden path="finder" />
 	<form:hidden path="emergency" />
 	<form:hidden path="stories" />
-	<form:hidden path="application" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('SPONSOR')">

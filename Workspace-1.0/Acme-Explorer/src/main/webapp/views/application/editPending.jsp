@@ -28,6 +28,7 @@
 		<form:hidden path="manager" />
 		<form:hidden path="explorer" />
 		<form:hidden path="trip" />
+		<form:hidden path="reason" />
 		
 		<form:label path="status">
   			<spring:message code="application.status" />:
@@ -37,13 +38,6 @@
               <form:option value="DUE"/>
     	</form:select>
  		<br />
-		
-		<form:label path="reason">
-			<spring:message code="application.reason" />:
-		</form:label>
-		<form:input path="reason" />
-		<form:errors cssClass="error" path="reason" />
-		<br />
 		
 		<input type="submit" name="save"
 			value="<spring:message code="application.save" />" />&nbsp; 

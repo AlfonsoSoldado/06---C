@@ -2,6 +2,7 @@ package services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,6 @@ import org.springframework.util.Assert;
 
 import repositories.ApplicationRepository;
 import domain.Application;
-import domain.CC;
 import domain.Explorer;
 import domain.Manager;
 
@@ -46,6 +46,12 @@ public class ApplicationService {
 		status = "ACCEPTED";
 		String comment = new String();
 		
+		Explorer explorer = explorerService.findByPrincipal();
+		res.setExplorer(explorer);
+		
+		Date moment = new Date(System.currentTimeMillis() - 1);
+		res.setMoment(moment);
+		
 		res.setStatus(status);
 		res.setComment(comment);
 		return res;
@@ -68,6 +74,10 @@ public class ApplicationService {
 
 	public Application save(Application application) {
 		Assert.notNull(application);
+		
+		Explorer explorer = explorerService.findByPrincipal();
+		application.setExplorer(explorer);
+		
 		Application res;
 		res = this.applicationRepository.save(application);
 		return res;

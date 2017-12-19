@@ -17,7 +17,7 @@ import domain.Explorer;
 public class RegisterExplorerController extends AbstractController {
 
 	// Services -------------------------------------------------------------
-	
+
 	@Autowired
 	private ExplorerService explorerService;
 
@@ -26,56 +26,57 @@ public class RegisterExplorerController extends AbstractController {
 	public RegisterExplorerController() {
 		super();
 	}
-	
+
 	// Registering ----------------------------------------------------------
-	
+
 	@RequestMapping(value = "/register_Explorer", method = RequestMethod.GET)
-	public ModelAndView create(){
+	public ModelAndView create() {
 		ModelAndView res;
 		Explorer explorer;
-		
+
 		explorer = this.explorerService.create();
 		res = this.createEditModelAndView(explorer);
-		
+
 		return res;
 	}
-	
+
 	@RequestMapping(value = "/register_Explorer", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Explorer explorer,
-			final BindingResult binding){
+			final BindingResult binding) {
 		ModelAndView res;
-		
-		if(binding.hasErrors())
+
+		if (binding.hasErrors())
 			res = this.createEditModelAndView(explorer, "actor.params.error");
 		else
-			try{
+			try {
 				this.explorerService.save(explorer);
-				res = new ModelAndView("redirect:../../");
-			}catch (final Throwable oops) {
-				res = this.createEditModelAndView(explorer, "actor.commit.error");
+				res = new ModelAndView("redirect:../");
+			} catch (final Throwable oops) {
+				res = this.createEditModelAndView(explorer,
+						"actor.commit.error");
 			}
-		
+
 		return res;
 	}
-	
+
 	// Ancillary methods --------------------------------------------------
-	
-		protected ModelAndView createEditModelAndView(final Explorer explorer) {
-			ModelAndView result;
 
-			result = this.createEditModelAndView(explorer, null);
+	protected ModelAndView createEditModelAndView(final Explorer explorer) {
+		ModelAndView result;
 
-			return result;
-		}
-		
-		protected ModelAndView createEditModelAndView(final Explorer explorer,
-				final String message) {
-			ModelAndView result;
+		result = this.createEditModelAndView(explorer, null);
 
-			result = new ModelAndView("explorer/register_Explorer");
-			result.addObject("explorer", explorer);
-			result.addObject("message", message);
-			
-			return result;
-		}
+		return result;
+	}
+
+	protected ModelAndView createEditModelAndView(final Explorer explorer,
+			final String message) {
+		ModelAndView result;
+
+		result = new ModelAndView("explorer/register_Explorer");
+		result.addObject("explorer", explorer);
+		result.addObject("message", message);
+
+		return result;
+	}
 }

@@ -22,11 +22,13 @@
 <form:form action="ranger/register_Ranger.do"
 	modelAttribute="ranger">
 
-	<form:hidden path="Folders" />
-	<form:hidden path="received" />
+	<form:hidden path="id"/>
+	<form:hidden path="version"/>
+	<form:hidden path="userAccount"/>
+	<form:hidden path="userAccount.authorities"/>
+	<form:hidden path="folders"/>
 	<form:hidden path="sent" />
-	<form:hidden path="socialId" />
-
+	<form:hidden path="socialId"/>
 	<form:hidden path="suspicious" />
 
 	<form:hidden path="curriculum" />
@@ -80,7 +82,7 @@
 	<form:password path="userAccount.password" />
 	<form:errors class="error" path="userAccount.password" />
 	<br />
-
+	
 	<input type="submit" name="save"
 		value="<spring:message code="actor.save" />" />
 

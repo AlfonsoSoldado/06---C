@@ -19,7 +19,6 @@ import domain.Finder;
 import domain.Folder;
 import domain.SocialId;
 import domain.Story;
-import domain.Survival;
 
 @Service
 @Transactional
@@ -54,7 +53,6 @@ public class ExplorerService {
 		Finder finder = new Finder();
 		Collection<Emergency> emergency = new ArrayList<Emergency>();
 		folder = this.folderService.systemFolders();
-		Collection<Survival> survivals = new ArrayList<Survival>();
 		
 		authority.setAuthority(Authority.EXPLORER);
 		userAccount.addAuthority(authority);
@@ -65,7 +63,7 @@ public class ExplorerService {
 		res.setApplication(application);
 		res.setFinder(finder);
 		res.setEmergency(emergency);
-		res.setSurvival(survivals);
+		res.setSuspicious(false);
 		
 		return res;
 	}
@@ -86,12 +84,7 @@ public class ExplorerService {
 	}
 
 	public Explorer save(Explorer explorer) {
-		Assert.notNull(explorer);
 		Explorer res;
-		
-		Explorer e = findByPrincipal();
-		explorer.setReceived(e.getReceived());
-		explorer.setSurvival(e.getSurvival());
 		
 		res = this.explorerRepository.save(explorer);
 		return res;

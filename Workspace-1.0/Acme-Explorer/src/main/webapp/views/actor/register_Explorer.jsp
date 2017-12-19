@@ -20,10 +20,15 @@
 
 <form:form action="explorer/register_Explorer.do" modelAttribute="explorer">
 
-	<form:hidden path="folders" />
-	<form:hidden path="received" />
+	<form:hidden path="id"/>
+	<form:hidden path="version"/>
+	<form:hidden path="userAccount"/>
+	<form:hidden path="userAccount.authorities"/>
+	<form:hidden path="folders"/>
 	<form:hidden path="sent" />
-	<form:hidden path="socialId" />
+	<form:hidden path="socialId"/>
+	<form:hidden path="suspicious" />
+	
 	<form:hidden path="finder" />
 	<form:hidden path="emergency" />
 	<form:hidden path="stories" />

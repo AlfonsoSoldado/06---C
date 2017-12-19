@@ -58,6 +58,7 @@ public class RangerService {
 		res.setFolders(folder);
 		res.setCurriculum(curriculum);
 		res.setTrip(trip);
+		res.setSuspicious(false);
 
 		return res;
 	}
@@ -78,12 +79,7 @@ public class RangerService {
 	}
 
 	public Ranger save(Ranger ranger) {
-		Assert.notNull(ranger);
 		Ranger res;
-
-		Ranger r = findByPrincipal();
-		ranger.setReceived(r.getReceived());
-
 		res = this.rangerRepository.save(ranger);
 		return res;
 	}

@@ -103,9 +103,7 @@ public class LegalTextService {
 		trips = legalText.getTrip();
 		
 		for(Trip t: trips){
-			if(t.getLegalText() == legalText){
-				t.setLegalText(null);
-			}
+			t.setLegalText(null);
 		}
 		
 		this.legalTextRepository.delete(legalText);
@@ -121,6 +119,14 @@ public class LegalTextService {
 		Collection<LegalText> res = new ArrayList<LegalText>();
 		res = legalTextRepository.findLegalTextsByTrip(trip.getId());
 		Assert.notNull(res);
+		return res;
+	}
+	
+	public Collection<Trip> findTripsWithoutLegalText(){
+		Collection<Trip> res = new ArrayList<Trip>();
+		
+		res = legalTextRepository.findTripsWithoutLegalText();
+		
 		return res;
 	}
 }

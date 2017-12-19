@@ -14,6 +14,7 @@ import org.springframework.util.Assert;
 import repositories.TripRepository;
 import domain.Application;
 import domain.Category;
+import domain.Configuration;
 import domain.LegalText;
 import domain.Manager;
 import domain.Ranger;
@@ -37,6 +38,9 @@ public class TripService {
 
 	@Autowired
 	private ExplorerService explorerService;
+	
+	@Autowired
+	private ConfigurationService configurationService;
 
 	// Constructors
 	public TripService() {
@@ -94,6 +98,15 @@ public class TripService {
 	public Trip save(Trip trip) {
 		Assert.notNull(trip);
 		Trip res;
+		Double precio = 0., tax;
+		
+		Configuration configuration;
+		Integer conf = configurationService.resId();
+		configuration = configurationService.findOne(conf);
+				
+		precio = this.getTotalPrice(trip);
+		tax = precio * configuration.getTax();
+		trip.setPrice(precio + tax);
 
 		res = this.tripRepository.save(trip);
 		return res;
@@ -227,12 +240,12 @@ public class TripService {
 		return ticker;
 	}
 	
-//	public Double getTotalPrice(Trip trip) {
-//		Double res;
-//		res = 0.;
-//		for (Stage stage : trip.getStage()) {
-//			res = res + stage.getPrice();
-//		}
-//		return res;
-//	}
+	public Double getTotalPrice(Trip trip) {
+		Double res;
+		res = 0.;
+		for (Stage stage : trip.getStage()) {
+			res = res + stage.getPrice();
+		}
+		return res;
+	}
 }

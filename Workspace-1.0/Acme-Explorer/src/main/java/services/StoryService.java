@@ -101,4 +101,12 @@ public class StoryService {
 		Assert.notNull(stories);
 		return story;
 	}
+	
+	public Collection<Story> findStoryByExplorer(int id) {
+		Collection<Story> res = new ArrayList<Story>();
+
+		res.addAll(storyRepository.findStoryByExplorer(id));
+		Assert.notNull(res);
+		return res;
+	}
 }

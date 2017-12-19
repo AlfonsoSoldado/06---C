@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,5 +67,13 @@ public class EmergencyService {
 	}
 
 	// Other business methods
+	
+	public Collection<Emergency> findEmergencyByExplorer(int id) {
+		Collection<Emergency> res = new ArrayList<Emergency>();
+
+		res.addAll(emergencyRepository.findEmergencyByExplorer(id));
+		Assert.notNull(res);
+		return res;
+	}
 	
 }

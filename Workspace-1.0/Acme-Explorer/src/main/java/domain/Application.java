@@ -73,7 +73,6 @@ public class Application extends DomainEntity {
 	}
 	
 	@Valid
-	@NotNull
 	public CC getCreditCard() {
 		return creditCard;
 	}

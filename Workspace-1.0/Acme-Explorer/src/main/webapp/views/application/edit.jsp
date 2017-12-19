@@ -18,13 +18,14 @@
 
 <form:form action="application/explorer/edit.do" modelAttribute="application">
 
+	<form:hidden path="id" />
+	<form:hidden path="version" />
+
 	<security:authorize access="hasRole('EXPLORER')">
 
 	<form:hidden path="moment" />
 	<form:hidden path="status" />
 	<form:hidden path="reason" />
-	<form:hidden path="creditCard" />
-	<form:hidden path="manager" />
 	<form:hidden path="explorer" />
 	
 	<form:label path="comment">
@@ -40,8 +41,16 @@
 	<form:select path="trip">
         <form:options items="${trip}" itemLabel="title"/>
 	</form:select>
-	<form:input path="trip" />
 	<form:errors cssClass="error" path="trip" />
+	<br />
+	
+	<form:label path="manager">
+		<spring:message code="application.manager" />:
+	</form:label>
+	<form:select path="manager">
+        <form:options items="${manager}" itemLabel="name"/>
+	</form:select>
+	<form:errors cssClass="error" path="manager" />
 	<br />
 	
 	<input type="submit" name="save"

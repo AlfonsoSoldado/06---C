@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CategoryService;
+import services.ManagerService;
 import services.RangerService;
 import services.StageService;
 import services.TripService;
 import controllers.AbstractController;
 import domain.Category;
+import domain.Manager;
 import domain.Ranger;
 import domain.Stage;
 import domain.Trip;
@@ -31,6 +33,9 @@ public class TripManagerController extends AbstractController {
 
 	@Autowired
 	private TripService tripService;
+	
+	@Autowired
+	private ManagerService managerService;
 
 	@Autowired
 	private CategoryService categoryService;
@@ -125,6 +130,7 @@ public class TripManagerController extends AbstractController {
 		Collection<Stage> stages;
 		String ticker = this.tripService.generatedTicker();
 		Collection<Ranger> ranger = this.rangerService.findAll();
+		Manager manager = this.managerService.findByPrincipal();
 		// Collection<Ranger> rangers;
 		// final Collection<Value> values;
 
@@ -136,6 +142,7 @@ public class TripManagerController extends AbstractController {
 
 		result = new ModelAndView("trip/edit");
 		// result.addObject("legalTexts", legalTexts);
+		result.addObject("manager", manager);
 		result.addObject("ranger", ranger);
 		result.addObject("category", category);
 		// result.addObject("rangers", rangers);

@@ -31,7 +31,6 @@
 	
 	<form:hidden path="manager" />
 	
-	<form:hidden path="legalText" />
 	<form:hidden path="application" />
 	<form:hidden path="value" />
 	

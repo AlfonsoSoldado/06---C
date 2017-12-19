@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.StageService;
+import services.TripService;
 import controllers.AbstractController;
 import domain.Stage;
+import domain.Trip;
 
 
 @Controller
@@ -26,6 +28,9 @@ public class StageManagerController extends AbstractController {
 	
 	@Autowired
 	private StageService stageService;
+	
+	@Autowired
+	private TripService tripService;
 	
 	
 	// Constructors ---------------------------------------------------------
@@ -137,6 +142,8 @@ public class StageManagerController extends AbstractController {
 						final Stage stage, final String messageCode) {
 		ModelAndView res;
 		res = new ModelAndView("stage/edit");
+		Collection<Trip> trips = tripService.findAll();
+		res.addObject("trip", trips);
 		res.addObject("stage", stage);
 		res.addObject("message",messageCode);
 		

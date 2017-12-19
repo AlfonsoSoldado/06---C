@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -80,6 +81,17 @@ public class RangerService {
 
 	public Ranger save(Ranger ranger) {
 		Ranger res;
+		
+		if (ranger.getId() == 0) {
+			String pass = ranger.getUserAccount().getPassword();
+			
+			final Md5PasswordEncoder code = new Md5PasswordEncoder();
+			
+			pass = code.encodePassword(pass, null);
+			
+			ranger.getUserAccount().setPassword(pass);
+		}
+		
 		res = this.rangerRepository.save(ranger);
 		return res;
 	}

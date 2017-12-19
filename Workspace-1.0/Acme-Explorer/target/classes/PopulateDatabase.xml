@@ -1973,7 +1973,7 @@
 	<property name="price" value="80.0" />
 	<property name="publication" value="24/10/2016" />
 	<property name="tripStart" value="12/12/2016" />
-	<property name="tripEnd" value="20/12/2017" />
+	<property name="tripEnd" value="01/03/2017" />
 	<property name="reason" value="Because yes" />
 	<property name="cancelled" value="false" />
 	<property name="ranger" ref="ranger1" />
@@ -2019,8 +2019,8 @@
 		</list>
 	</property>
 	<property name="publication" value="25/10/2017" />
-	<property name="tripStart" value="25/12/2019" />
-	<property name="tripEnd" value="28/12/2017" />
+	<property name="tripStart" value="01/12/2019" />
+	<property name="tripEnd" value="02/13/2020" />
 	<property name="reason"><null/></property>
 	<property name="ranger" ref="ranger2" />
 	<property name="manager" ref="manager1" />

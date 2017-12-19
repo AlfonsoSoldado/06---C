@@ -178,4 +178,21 @@ public class SurvivalService {
 			}
 		}
 	}
+	
+	public Collection<Survival> findSurvivalByExplorerId(int id) {
+		Collection<Survival> res = new ArrayList<Survival>();
+		res.addAll(survivalRepository.findSurvivalByExplorerId(id));
+		Assert.notNull(res);
+		return res;
+	}
+	
+	public Survival changeExplorer(int id) {
+		Survival res = new Survival();
+		res = survivalRepository.findSurvivalById(id);
+		Collection<Explorer> explorers = new ArrayList<Explorer>();
+		explorers.addAll(res.getExplorer());
+		explorers.add(explorerService.findByPrincipal());
+		res.setExplorer(explorers);
+		return res;
+	}
 }

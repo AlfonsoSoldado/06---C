@@ -2,12 +2,8 @@ package controllers.administrator;
 
 import java.util.Collection;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,48 +43,15 @@ public class SuspiciousAdministratorController extends AbstractController {
 		return result;
 	}
 	
-//	@RequestMapping(value = "/ban", method = RequestMethod.GET)
-//	public ModelAndView cancel(@RequestParam final int actorId) {
-//		ModelAndView result;
-//		Actor actor;
-//		actor = this.actorService.findOne(actorId);
-//		this.actorService.ban(actor);
-//		result = this.createEditModelAndView(actor);
-//
-//		return result;
-//	}
-
-	// Editing ---------------------------------------------------------------
-
-	@RequestMapping(value = "/editSuspicious", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int actorId) {
+	@RequestMapping(value = "/ban", method = RequestMethod.GET)
+	public ModelAndView cancel(@RequestParam final int actorId) {
 		ModelAndView result;
 		Actor actor;
-
-		actor = actorService.findOne(actorId);
-		Assert.notNull(actor);
+		actor = this.actorService.findOne(actorId);
+		this.actorService.ban(actor);
 		result = this.createEditModelAndView(actor);
 
 		return result;
-	}
-
-	// Saving ---------------------------------------------------------------
-
-	@RequestMapping(value = "/editSuspicious", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Actor actor, final BindingResult binding) {
-		ModelAndView res;
-		
-		if (binding.hasErrors())
-			res = this.createEditModelAndView(actor, "administrator.params.error");
-		else
-			try {
-				this.actorService.save(actor);
-				res = new ModelAndView("redirect:suspicious.do");
-			} catch (final Throwable oops) {
-				res = this.createEditModelAndView(actor, "administrator.commit.error");
-			}
-
-		return res;
 	}
 
 	// Ancillary methods --------------------------------------------------
@@ -104,7 +67,7 @@ public class SuspiciousAdministratorController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Actor actor,
 			final String message) {
 		ModelAndView result;
-		result = new ModelAndView("administrator/editSuspicious");
+		result = new ModelAndView("administrator/ban");
 		result.addObject("actor", actor);
 		result.addObject("message", message);
 		return result;

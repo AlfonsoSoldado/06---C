@@ -21,16 +21,17 @@
 
 <!-- Listing grid -->
 
-<form:form action="administrator/ban.do" modelAttribute="actor">
+<form:form action="survival/explorer/enrol.do" modelAttribute="enrol">
 
-	<form:hidden path="id"/>
-	<form:hidden path="version"/>
-	<form:hidden path="userAccount"/>
-	<form:hidden path="userAccount.password"/>
-	<form:hidden path="userAccount.authorities"/>
-	<form:hidden path="folders"/>
-	<form:hidden path="sent" />
-	<form:hidden path="socialId"/>
-	<form:hidden path="suspicious" />
+	<form:hidden path="id" />
+	<form:hidden path="version" />
+	
+	<form:hidden path="moment" />
+	<form:hidden path="manager" />
+	<form:hidden path="explorer" />
+	<form:hidden path="title" />
+	<form:hidden path="description" />
+	<form:hidden path="location" />
+	<form:hidden path="trip" />
 	
 </form:form>

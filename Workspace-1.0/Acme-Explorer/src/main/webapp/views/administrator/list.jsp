@@ -254,11 +254,17 @@
 			<spring:message code="administrator.legalText" var="legalTextHeader" />
 			<jstl:out value="${legalTextHeader}"></jstl:out>
 		</th>
+		<th>
+			<spring:message code="administrator.referenced" var="referencedHeader" />
+			<jstl:out value="${referencedHeader}"></jstl:out>
+		</th>
 	</tr>
 	<tr>
-		<td>
-			<jstl:out value="${tripsLegalTextReferenced}"></jstl:out>
-		</td>
+		<jstl:forEach var="datos" items="${tripsLegalTextReferenced[1]}">
+			<td>
+				<jstl:out value="${datos}"></jstl:out>
+			</td>
+		</jstl:forEach>
 	</tr>
 </table>
 

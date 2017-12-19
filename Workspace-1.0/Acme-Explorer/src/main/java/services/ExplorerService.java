@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -85,6 +86,16 @@ public class ExplorerService {
 
 	public Explorer save(Explorer explorer) {
 		Explorer res;
+		
+		if (explorer.getId() == 0) {
+			String pass = explorer.getUserAccount().getPassword();
+			
+			final Md5PasswordEncoder code = new Md5PasswordEncoder();
+			
+			pass = code.encodePassword(pass, null);
+			
+			explorer.getUserAccount().setPassword(pass);
+		}
 		
 		res = this.explorerRepository.save(explorer);
 		return res;

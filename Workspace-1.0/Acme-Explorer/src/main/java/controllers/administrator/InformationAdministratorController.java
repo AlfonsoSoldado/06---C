@@ -49,7 +49,7 @@ public class InformationAdministratorController extends AbstractController {
 		Double applicationCancelled;
 		Double ratioTripsCancelled;
 		Collection<Trip> tripsThanAverage;
-		Double tripsLegalTextReferenced;
+		Collection<Object> tripsLegalTextReferenced;
 		Double avgMinMaxSqtr3[];//en note
 		Double avgMinMaxSqtr5;//en trip
 		Double avgMinMaxSqtr4[];//en audit

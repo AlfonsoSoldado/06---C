@@ -1,0 +1,38 @@
+-  Mirar Message. A la hora de enviar un mensaje cambiar quién lo envía y quién lo recibe.
+- Cuando cancelas el envío de un mensaje te lleva a la página principal.
+- Si está el botón de cancelar (en Message) no es necesario el de borrar (?)
+- No envía Message --> mirar Message en general.
+- El list de Trip no ordena. (?)
+- En list de Category aparece: domain.Category{id=2172, version=0}
+- Probar si un manager al cambiar una Application de REJECTED a DUE se pone automáticamente como ACCEPTED. Yo he probado a cambiar el estado a REJECTED.
+- Manager no puede borrar un Trip. --> Requisito 12.1
+- Requisito 12.3 --> un manager puede cancelar un Trip que no haya empezado.
+- Req. 13.1
+- Req. 13.3
+- Req. 13.4
+- Req. 14.1
+- Un LegalText que esta con draftMode=false, accede a editar pero no deja guardarlo.
+- No se pueden modificar los LegalText.
+- En LegalText el Trip sale como: [domain.Trip{id=2221, version=0}]
+- No se puede eliminar un LegalText.
+- Only legal texts that are saved in final mode can be referenced by trips.
+- No se pueden crear LegalTexts.
+- Relación Trip-Tag??
+- Si desde Categories creo una categoría y se la asigno a un trip, luego al Trip no se le ha cambiado la categoría.
+- Req. 14.5 --> Broadcast a notification to all of the actors of the system. The notification must be stored at the “notification box” folder.
+- Req. 14.6 --> The listing of trips that have got at least 10% more applications than the av-erage, ordered by number of applications. ==> [domain.Trip{id=2221, version=0}, domain.Trip{id=2222, version=0}]
+- Req. 18. Every time that an application changes its status, the system must send a message to both the manager and the explorer involved to let them know of the change. The message must be stored in folder “notification folder”.
+- Se crea Education record pero antes de crearlo sale Panic.
+- Professional record igual.
+- Miscellaneus record igual.
+- Endorser record igual.
+- Comprobar que un Auditor crea una nota. Ahora mismo no se puede crear porque no hay viajes que ya hayan pasado y un manager no puede crear viajes en pasado.
+
+
+FALTA MIRAR DEL 31 PARA ABAJO
+
+
+
+
+
+

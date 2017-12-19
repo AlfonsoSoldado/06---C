@@ -79,8 +79,8 @@ public class LegalTextServiceTest extends AbstractTest {
 
 		text.setDraftMode(true);
 
-		Trip trip;
-		trip = tripService.findOne(super.getEntityId("trip1"));
+		Collection<Trip> trip;
+		trip = tripService.findAll();
 		text.setTrip(trip);
 
 		this.legalTextService.save(text);

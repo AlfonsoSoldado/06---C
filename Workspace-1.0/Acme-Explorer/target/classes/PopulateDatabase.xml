@@ -1813,7 +1813,12 @@
 	<property name="numberLaw" value = "10" />
 	<property name="moment" value="23/10/2013 19:13" />
 	<property name="draftMode" value="false" />
-	<property name="trip" ref="trip1" />
+	<property name="trip">
+		<list>
+			<ref bean="trip1"/>
+			<ref bean="trip2"/>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- LEGALTEXT2 -->
@@ -1824,7 +1829,12 @@
 	<property name="numberLaw" value = "285" />
 	<property name="moment" value="23/10/2015 10:15" />
 	<property name="draftMode" value="true" />
-	<property name="trip" ref="trip2" />
+	<property name="trip">
+		<list>
+			<ref bean="trip1"/>
+			<ref bean="trip2"/>
+		</list>
+	</property>
 	</bean>
 	
 							<!-- STAGE -->	

@@ -20,6 +20,10 @@ public interface SurvivalRepository extends JpaRepository<Survival, Integer> {
 	// 44.1
 	@Query("select a from Trip t join t.application a where t.id = ?1 and a.status = 'ACCEPTED'")
 	Collection<Application> enrolSurvivalExplorer(int trip);
+	
+	// Enrol Survival class
+	@Query("select s from Survival s join s.trip t join t.application a join a.explorer e where e.id = ?1")
+	Collection<Survival> findSurvivalByExplorerId(int explorer);
 
 	// 43.1
 	@Query("select s from Survival s join s.explorer m where m.id = ?1")
@@ -28,4 +32,7 @@ public interface SurvivalRepository extends JpaRepository<Survival, Integer> {
 	// 43.1
 	@Query("select s from Survival s join s.manager m where m.id = ?1")
 	Collection<Survival> findSurvivalByManager(int manager);
+	
+	@Query("select s from Survival s where s.id=?1")
+	Survival findSurvivalById(int survival);
 }

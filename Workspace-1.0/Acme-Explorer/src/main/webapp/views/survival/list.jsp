@@ -21,16 +21,27 @@
 
 <!-- Listing grid -->
 
-<security:authorize access="hasRole('MANAGER')">
+<security:authorize access="hasRole('MANAGER') or hasRole('EXPLORER')">
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="survival" requestURI="survival/manager/list.do" id="row">
+	name="survival" requestURI="${requestUri}" id="row">
 	
 	<!-- Attributes -->
+	
+	<security:authorize access="hasRole('MANAGER')">
 	<spring:message code="survival.edit"/>
 	<display:column>
 		<a href= "survival/manager/edit.do?survivalId=${row.id}">
 		<spring:message code="survival.edit"/></a>
 	</display:column>
+	</security:authorize>
+	
+	<security:authorize access="hasRole('EXPLORER')">
+	<spring:message code="survival.enrol"/>
+	<display:column>
+		<a href= "survival/explorer/enrol.do?survivalId=${row.id}">
+		<spring:message code="survival.enrol"/></a>
+	</display:column>
+	</security:authorize>
 	
 	<spring:message code="survival.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
@@ -53,9 +64,11 @@
 
 <!-- Action links -->
 
+	<security:authorize access="hasRole('MANAGER')">
 	<div>
 		<a href="survival/manager/create.do"> <spring:message
 				code="survival.create" />
 		</a>
 	</div>
+	</security:authorize>
 </security:authorize>

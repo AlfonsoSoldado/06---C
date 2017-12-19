@@ -5,8 +5,6 @@ ALfonso: Application. Falta controladores de los distintos edits. Para explorer 
 
 Mario: Folder/Message. Saves/deletes/creates.
 
-Juan Carlos: Survival. Falta lo de explorer. (Enrol a survival class that is offered by any of the trips)
-
 Los Collection de los Edit no los guarda bien (Ejemplos: category, legalText, trip, stage...)
 
 LegalText falla el Delete

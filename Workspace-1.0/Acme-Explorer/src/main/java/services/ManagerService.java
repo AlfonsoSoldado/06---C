@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -16,7 +17,6 @@ import domain.Application;
 import domain.Folder;
 import domain.Manager;
 import domain.SocialId;
-import domain.Survival;
 import domain.Trip;
 
 @Service
@@ -53,7 +53,6 @@ public class ManagerService {
 		Collection<SocialId> socialId = new ArrayList<SocialId>();
 		Collection<Folder> folder = new ArrayList<Folder>();
 		Application application = new Application();
-		Collection<Survival> survival = new ArrayList<Survival>();
 		Collection<Trip> trip = new ArrayList<Trip>();
 		folder = this.folderService.systemFolders();
 		
@@ -63,8 +62,8 @@ public class ManagerService {
 		res.setSocialId(socialId);
 		res.setFolders(folder);
 		res.setApplication(application);
-		res.setSurvival(survival);
 		res.setTrip(trip);
+		res.setSuspicious(false);
 		
 		return res;
 	}
@@ -87,11 +86,15 @@ public class ManagerService {
 	public Manager save(Manager manager) {
 		Assert.notNull(manager);
 		Manager res;
-		
-		Manager m = findByPrincipal();
-		manager.setReceived(m.getReceived());
-		manager.setSurvival(m.getSurvival());
-		
+		if (manager.getId() == 0) {
+			String pass = manager.getUserAccount().getPassword();
+			
+			final Md5PasswordEncoder code = new Md5PasswordEncoder();
+			
+			pass = code.encodePassword(pass, null);
+			
+			manager.getUserAccount().setPassword(pass);
+		}
 		res = this.managerRepository.save(manager);
 		return res;
 	}

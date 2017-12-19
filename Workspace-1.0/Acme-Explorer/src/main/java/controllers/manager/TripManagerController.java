@@ -79,6 +79,10 @@ public class TripManagerController extends AbstractController {
 				this.tripService.save(trip);
 				res = new ModelAndView("redirect:../list.do");
 			} catch (final Throwable oops) {
+				System.out.println(oops.getCause());
+				System.out.println(oops.getLocalizedMessage());
+				System.out.println(oops.getMessage());
+				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(trip, "trip.commit.error");
 			}
 
@@ -125,28 +129,18 @@ public class TripManagerController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Trip trip,
 			final String message) {
 		ModelAndView result;
-		// final Collection<LegalText> legalTexts;
 		final Collection<Category> category;
 		Collection<Stage> stages;
 		String ticker = this.tripService.generatedTicker();
 		Collection<Ranger> ranger = this.rangerService.findAll();
 		Manager manager = this.managerService.findByPrincipal();
-		// Collection<Ranger> rangers;
-		// final Collection<Value> values;
-
-		// rangers = this.rangerService.findAll();
-		// legalTexts = this.legalTextService.findAll();
-		// values = this.valueService.findAll();
 		category = this.categoryService.findAll();
 		stages = this.stageService.findAll();
 
 		result = new ModelAndView("trip/edit");
-		// result.addObject("legalTexts", legalTexts);
 		result.addObject("manager", manager);
 		result.addObject("ranger", ranger);
 		result.addObject("category", category);
-		// result.addObject("rangers", rangers);
-		// result.addObject("values", values);
 		result.addObject("trip", trip);
 		result.addObject("stage", stages);
 		result.addObject("ticker", ticker);

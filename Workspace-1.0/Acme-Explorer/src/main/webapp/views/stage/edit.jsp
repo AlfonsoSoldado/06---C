@@ -48,14 +48,15 @@
 	<br />
 	
 	<form:label path="trip">
-		<spring:message code="stage.trip" />:
+		<spring:message code="legalText.trip" />:
 	</form:label>
-	<form:input path="trip" />
+	<form:select path="trip">
+		<form:option item="null" value="0" label="----"/>
+        <form:options items="${trip}" itemLabel="title"/>
+	</form:select>
 	<form:errors cssClass="error" path="trip" />
 	<br />
 	
-	
-
 	<input type="submit" name="save"
 		value="<spring:message code="stage.save" />" />&nbsp; 
 	<jstl:if test="${stage.id != 0}">

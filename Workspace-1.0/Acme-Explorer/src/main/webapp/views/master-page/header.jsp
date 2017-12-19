@@ -30,6 +30,12 @@
 					<li><a href="administrator/configuration.do"><spring:message code="master.page.configuration" /></a></li>
 				</ul>
 			</li>
+			<li><a class="fNiv" href=""><spring:message code="master.page.register" /></a>
+				<ul>
+					<li><a href="administrator/register_Ranger.do"><spring:message code="master.page.register.ranger" /></a>
+					<li><a href="administrator/register_Manager.do"><spring:message code="master.page.register.manager" /></a>
+				</ul>
+			</li>
 			<li><a class="fNiv" href="tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
 			<li><a class="fNiv" href="legalText/administrator/list.do"><spring:message code="master.page.legalText" /></a></li>
 			<li><a class="fNiv" href="administrator/list.do"><spring:message code="master.page.information" /></a></li>

@@ -36,4 +36,14 @@
 		<put-attribute name="body" value="/views/administrator/ban.jsp" />
 	</definition>
 	
+	<definition name="administrator/register_Ranger" extends="master.page">	
+		<put-attribute name="title" value="Registrar guarda" />
+		<put-attribute name="body" value="/views/administrator/register_Ranger.jsp" />
+	</definition>
+	
+	<definition name="administrator/register_Manager" extends="master.page">	
+		<put-attribute name="title" value="Registrar gestor" />
+		<put-attribute name="body" value="/views/administrator/register_Manager.jsp" />
+	</definition>
+	
 </tiles-definitions>

@@ -9,6 +9,8 @@ Juan Carlos: Survival. Falta lo de explorer. (Enrol a survival class that is off
 
 Trip. Create y el delete.
 
+Los Collection de los Edit no los guarda bien (Ejemplos: category, legalText...)
+
 
 ----------------------- Funciona ------------------------
 

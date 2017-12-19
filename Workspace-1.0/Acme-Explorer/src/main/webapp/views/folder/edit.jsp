@@ -34,9 +34,10 @@
 	<form:label path="customFolder">
 		<spring:message code="folder.customFolder" />:
 	</form:label>
-	<form:select path="folders">
+	<form:select path="customFolder">
         <form:options items="${folders}" itemLabel="name"/>
 	</form:select>
+	<form:errors cssClass="error" path="customFolder" />
 	<br />
 	
 	<input type="submit" name="save"

@@ -71,7 +71,6 @@ public class TripManagerController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors()){
-			System.out.println(binding.getFieldError());
 			res = this.createEditModelAndView(trip, "trip.params.error");
 		}
 		else
@@ -79,10 +78,6 @@ public class TripManagerController extends AbstractController {
 				this.tripService.save(trip);
 				res = new ModelAndView("redirect:../list.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getCause());
-				System.out.println(oops.getLocalizedMessage());
-				System.out.println(oops.getMessage());
-				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(trip, "trip.commit.error");
 			}
 
@@ -91,6 +86,48 @@ public class TripManagerController extends AbstractController {
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
 	public ModelAndView delete(Trip trip, BindingResult binding) {
+		ModelAndView res;
+
+		try {
+			this.tripService.delete(trip);
+			res = new ModelAndView("redirect:list.do");
+		} catch (final Throwable oops) {
+			res = this.createEditModelAndView(trip, "trip.commit.error");
+		}
+
+		return res;
+	}
+	
+	@RequestMapping(value = "/reason", method = RequestMethod.GET)
+	public ModelAndView reason(@RequestParam final int tripId) {
+		ModelAndView result;
+		Trip trip;
+		trip = tripService.findOne(tripId);
+		result = this.createCancelModelAndView(trip);
+		return result;
+	}
+	
+	@RequestMapping(value = "/reason", method = RequestMethod.POST, params = "save")
+	public ModelAndView saveReason(@Valid Trip trip, BindingResult binding) {
+		ModelAndView res;
+
+		if (binding.hasErrors()){
+			res = this.createEditModelAndView(trip, "trip.params.error");
+		}
+		else
+			try {
+				this.tripService.save(trip);
+				this.tripService.cancelTrip(trip);
+				res = new ModelAndView("redirect:../list.do");
+			} catch (final Throwable oops) {
+				res = this.createEditModelAndView(trip, "trip.commit.error");
+			}
+
+		return res;
+	}
+
+	@RequestMapping(value = "/reason", method = RequestMethod.POST, params = "delete")
+	public ModelAndView deleteReason(Trip trip, BindingResult binding) {
 		ModelAndView res;
 
 		try {
@@ -148,5 +185,22 @@ public class TripManagerController extends AbstractController {
 
 		return result;
 
+	}
+	
+	protected ModelAndView createCancelModelAndView(final Trip trip) {
+		ModelAndView result;
+
+		result = this.createCancelModelAndView(trip, null);
+
+		return result;
+	}
+
+	protected ModelAndView createCancelModelAndView(
+			final Trip trip, final String messageCode) {
+		ModelAndView result;
+		result = new ModelAndView("trip/reason");
+		result.addObject("reason", trip);
+		result.addObject("message", messageCode);
+		return result;
 	}
 }

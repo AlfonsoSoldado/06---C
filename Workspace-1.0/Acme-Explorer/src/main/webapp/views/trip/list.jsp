@@ -52,8 +52,12 @@
 	<spring:message code="trip.tripEnd" var="tripEndHeader" />
 	<display:column property="tripEnd" title="${tripEndHeader}"	sortable="true" />
 
-	<spring:message code="trip.cancelled" var="cancelledHeader" />
-	<display:column property="cancelled" title="${cancelledHeader}"	sortable="false" />
+	<spring:message code="trip.cancelled" var="cancelledHeader"/>
+	<display:column title="${cancelledHeader}">
+		<a href= "trip/manager/reason.do?tripId=${row.id}">
+			<spring:message code="trip.cancelled"/>
+		</a>
+	</display:column>
 	
 	<spring:message code="trip.category" var="categoryHeader" />
 	<display:column property="category.name" title="${categoryHeader}"	sortable="true" />

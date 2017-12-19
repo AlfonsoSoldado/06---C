@@ -17,6 +17,9 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 <form:form action="application/explorer/editAccepted.do" modelAttribute="application">
+		<form:hidden path="id" />
+		<form:hidden path="version" />
+	
 	<security:authorize access="hasRole('EXPLORER')">
 		<form:hidden path="moment" />
 		<form:hidden path="status" />

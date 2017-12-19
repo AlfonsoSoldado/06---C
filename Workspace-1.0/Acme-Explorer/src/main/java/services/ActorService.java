@@ -444,10 +444,14 @@ public class ActorService {
 		return res;
 	}
 	
-//	public boolean ban(Actor actor) {
-//		boolean result;
-//		actor.getUserAccount().setActivated(false);
-//		result = actor.getUserAccount().isActivated();
-//		return result;
-//	}
+	public boolean ban(Actor actor) {
+		boolean result;
+		if (actor.getUserAccount().isActivated() == true) {
+			actor.getUserAccount().setActivated(false);
+		} else {
+			actor.getUserAccount().setActivated(true);
+		}
+		result = actor.getUserAccount().isActivated();
+		return result;
+	}
 }

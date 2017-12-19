@@ -21,7 +21,7 @@
 
 <!-- Listing grid -->
 
-<form:form action="administrator/ban.do" modelAttribute="administrator">
+<form:form action="administrator/ban.do" modelAttribute="actor">
 
 	<form:hidden path="id"/>
 	<form:hidden path="version"/>

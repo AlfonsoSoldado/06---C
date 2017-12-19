@@ -27,6 +27,7 @@
 					<li><a href="actor/administrator/edit.do"><spring:message code="master.page.actorEdit" /></a></li>
 					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 					<li><a href="socialId/list.do"><spring:message code="master.page.actorSocialId" /></a></li>
+					<li><a href="administrator/configuration.do"><spring:message code="master.page.configuration" /></a></li>
 				</ul>
 			</li>
 			<li><a class="fNiv" href="tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>
@@ -63,6 +64,7 @@
 			<li><a href=""><spring:message code="master.page.explorer.survivals" /></a></li>
 			<li><a href="emergency/explorer/list.do"><spring:message code="master.page.emergency" /></a></li>
 			<li><a href="story/explorer/list.do"><spring:message code="master.page.story" /></a></li>
+			<li><a href="finder/explorer/search.do"><spring:message code="master.page.finder" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="hasRole('AUDITOR')">

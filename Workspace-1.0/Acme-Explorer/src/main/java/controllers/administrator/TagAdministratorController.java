@@ -77,17 +77,9 @@ public class TagAdministratorController extends AbstractController {
 			res = this.createEditModelAndView(tag, "tag.params.error");
 		else
 			try {
-				Tag a=this.tagService.save(tag);
-				Value v = a.getValue();
-				v.getTag().add(a);
-				this.valueService.save(v);
-				
+				this.tagService.save(tag);
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getCause());
-				System.out.println(oops.getLocalizedMessage());
-				System.out.println(oops.getMessage());
-				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(tag, "tag.commit.error");
 			}
 

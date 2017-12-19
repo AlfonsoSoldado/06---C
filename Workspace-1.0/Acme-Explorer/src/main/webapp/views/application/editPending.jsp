@@ -17,10 +17,14 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 <form:form action="application/manager/editPending.do" modelAttribute="application">
+	
+		<form:hidden path="id" />
+		<form:hidden path="version" />
+		
 	<security:authorize access="hasRole('MANAGER')">
 		<form:hidden path="moment" />
 		<form:hidden path="comment" />
-		<form:hidden path="creaditCard" />
+		<form:hidden path="creditCard" />
 		<form:hidden path="manager" />
 		<form:hidden path="explorer" />
 		<form:hidden path="trip" />

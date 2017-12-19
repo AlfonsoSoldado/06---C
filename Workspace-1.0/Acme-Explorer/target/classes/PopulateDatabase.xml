@@ -3039,6 +3039,8 @@
 			<value>Other</value>
 		</list>
 	</property>
+	<property name="cache" value="1" />
+	<property name="numberPage" value="10" />
 	</bean>
 	
 </beans>

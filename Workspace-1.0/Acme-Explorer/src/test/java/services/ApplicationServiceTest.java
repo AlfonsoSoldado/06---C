@@ -244,26 +244,26 @@ public class ApplicationServiceTest extends AbstractTest {
 		Assert.notNull(res);
 		unauthenticate();
 	}
-
-	@Test
-	public void testApplicationAccepted() {
-		authenticate("explorer01");
-		CC cc;
-		cc = new CC();
-		cc.setHolderName("BBVA");
-		cc.setBrandName("MasterCard");
-		cc.setNumber("4099537775843795");
-		cc.setExpirationMonth(02);
-		cc.setExpirationYear(2019);
-		cc.setCVV(123);
-		Assert.notNull(cc);
-
-		Application application;
-		application = this.applicationService.findOne(super
-				.getEntityId("application2"));
-		Assert.notNull(application);
-
-		this.applicationService.applicationAccepted(cc, application);
-		unauthenticate();
-	}
+//
+//	@Test
+//	public void testApplicationAccepted() {
+//		authenticate("explorer01");
+//		CC cc;
+//		cc = new CC();
+//		cc.setHolderName("BBVA");
+//		cc.setBrandName("MasterCard");
+//		cc.setNumber("4099537775843795");
+//		cc.setExpirationMonth(02);
+//		cc.setExpirationYear(2019);
+//		cc.setCVV(123);
+//		Assert.notNull(cc);
+//
+//		Application application;
+//		application = this.applicationService.findOne(super
+//				.getEntityId("application2"));
+//		Assert.notNull(application);
+//
+//		this.applicationService.applicationAccepted(cc, application);
+//		unauthenticate();
+//	}
 }

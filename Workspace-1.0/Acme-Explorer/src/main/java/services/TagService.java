@@ -10,6 +10,7 @@ import org.springframework.util.Assert;
 
 import repositories.TagRepository;
 import domain.Tag;
+import domain.Value;
 
 @Service
 @Transactional
@@ -36,7 +37,9 @@ public class TagService {
 	public Tag create() {
 		Tag tag;
 		tag = new Tag();
+		
 		return tag;
+		
 	}
 
 	public Collection<Tag> findAll() {
@@ -58,6 +61,8 @@ public class TagService {
 		Assert.notNull(tag);
 		Tag res;
 		res = this.tagRepository.save(tag);
+		
+		res.setValue(tag.getValue());
 		return res;
 	}
 
@@ -66,6 +71,15 @@ public class TagService {
 		Assert.isTrue(tag.getId() != 0);
 		administratorService.checkAuthority();
 		Assert.isTrue(this.tagRepository.exists(tag.getId()));
+		
+		Value value;
+		value = new Value();
+		value = tag.getValue();
+		
+		Collection<Tag> tags = value.getTag();
+		tags.remove(tag);
+		
+		value.setTag(tags);
 		this.tagRepository.delete(tag);
 	}
 

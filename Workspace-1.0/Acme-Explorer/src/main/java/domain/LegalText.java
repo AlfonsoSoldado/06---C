@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
@@ -82,15 +83,15 @@ public class LegalText extends DomainEntity {
 
 	// Relationships
 
-	private Trip trip;
+	private Collection<Trip> trip;
 
 	@Valid
 	@OneToMany(mappedBy = "legalText")
-	public Trip getTrip() {
+	public Collection<Trip> getTrip() {
 		return trip;
 	}
 
-	public void setTrip(Trip trip) {
+	public void setTrip(Collection<Trip> trip) {
 		this.trip = trip;
 	}
 

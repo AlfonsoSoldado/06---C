@@ -43,7 +43,7 @@ public class LegalTextService {
 
 		LegalText res = new LegalText();
 		Date moment = new Date(System.currentTimeMillis() - 1);
-		Trip trip = new Trip();		
+		Collection<Trip> trip = new ArrayList<Trip>();		
 		res.setDraftMode(true);
 		res.setTrip(trip);
 		res.setMoment(moment);
@@ -80,11 +80,15 @@ public class LegalTextService {
 		
 		if(legalText.getId() != 0){
 			Assert.isTrue(legalText.getDraftMode() == true);
-			Trip trip;
-			trip = new Trip();
 			
-			trip = legalText.getTrip();
-			trip.setLegalText(legalText);
+			Collection<Trip> trips = new ArrayList<Trip>();
+			trips = legalText.getTrip();
+			
+			for(Trip t: trips){
+				if(t.getLegalText() == legalText){
+					t.setLegalText(legalText);
+				}
+			}
 		}
 		
 		return res;
@@ -98,11 +102,14 @@ public class LegalTextService {
 		Assert.isTrue(legalText.getId() != 0);
 		Assert.isTrue(this.legalTextRepository.exists(legalText.getId()));
 
-		Trip trip;
-		trip = new Trip();
-		trip = legalText.getTrip();
+		Collection<Trip> trips = new ArrayList<Trip>();
+		trips = legalText.getTrip();
 		
-		trip.setLegalText(null);
+		for(Trip t: trips){
+			if(t.getLegalText() == legalText){
+				t.setLegalText(null);
+			}
+		}
 		
 		this.legalTextRepository.delete(legalText);
 	}

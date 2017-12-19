@@ -48,6 +48,6 @@
 	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="folder.cancel" />"
-		onclick="javascript: relativeRedir('/');" />
+		onclick="javascript: relativeRedir('/folder/list.do');" />
 	<br />
 </form:form>

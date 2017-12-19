@@ -197,8 +197,8 @@ public class AdministratorService {
 		return res;
 	}
 
-	public Double tripsLegalTextReferenced() {
-		Double res;
+	public Collection<Object> tripsLegalTextReferenced() {
+		Collection<Object> res;
 		res = this.administratorRepository.tripsLegalTextReferenced();
 		return res;
 	}

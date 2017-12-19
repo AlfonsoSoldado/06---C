@@ -72,8 +72,8 @@ public interface AdministratorRepository extends JpaRepository<Administrator, In
 	Collection<Trip> tripsThanAverage();
 
 	// C-11
-	@Query("select count(t) from Trip t where t.legalText is not null")
-	Double tripsLegalTextReferenced();
+	@Query("select l.title, l.trip.size from LegalText l")
+	Collection<Object> tripsLegalTextReferenced();
 	
 	//b1
 	@Query("select  min(cast((select count(note) from Note note where note.trip=t1) as int )), max(cast((select count(note) from Note note where note.trip=t1) as int )), avg(cast((select count(note) from Note note where note.trip=t1) as float )), sqrt(sum((select count(note) from Note note where note.trip=t1)*(select count(note) from Note note where note.trip=t1))/(select count(trip) from Trip trip)-avg(cast((select count(note) from Note note where note.trip=t1) as float ))*avg(cast((select count(note) from Note note where note.trip=t1) as float ))) from Trip t1")

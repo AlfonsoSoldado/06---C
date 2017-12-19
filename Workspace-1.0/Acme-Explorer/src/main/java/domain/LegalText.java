@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -85,7 +85,7 @@ public class LegalText extends DomainEntity {
 	private Trip trip;
 
 	@Valid
-	@OneToOne(optional = true)
+	@OneToMany(mappedBy = "legalText")
 	public Trip getTrip() {
 		return trip;
 	}

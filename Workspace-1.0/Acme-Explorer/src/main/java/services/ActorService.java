@@ -10,10 +10,7 @@ import org.springframework.util.Assert;
 
 import repositories.ActorRepository;
 import repositories.ConfigurationRepository;
-import repositories.ManagerRepository;
 import repositories.MessageRepository;
-import repositories.RangerRepository;
-import security.Authority;
 import security.LoginService;
 import security.UserAccount;
 import security.UserAccountService;
@@ -22,9 +19,7 @@ import domain.Audit;
 import domain.Category;
 import domain.Curriculum;
 import domain.Folder;
-import domain.Manager;
 import domain.Message;
-import domain.Ranger;
 import domain.Trip;
 
 @Service
@@ -35,12 +30,6 @@ public class ActorService {
 
 	@Autowired
 	private ActorRepository actorRepository;
-
-	@Autowired
-	private RangerRepository rangerRepository;
-
-	@Autowired
-	private ManagerRepository managerRepository;
 
 	@Autowired
 	private ConfigurationRepository configurationRepository;
@@ -260,42 +249,6 @@ public class ActorService {
 
 	}
 
-	// 35.2
-	
-	public void banActor(Actor actor) {
-		administratorService.checkAuthority();
-		Collection<Actor> res = new ArrayList<Actor>();
-		res.addAll(rangerRepository.rangersSuspicious());
-		res.addAll(managerRepository.banManager());
-		if (res.contains(actor)) {
-			Collection<Authority> authorities = new ArrayList<Authority>();
-			authorities.addAll(actor.getUserAccount().getAuthorities());
-			for (Authority a : authorities) {
-				actor.getUserAccount().removeAuthority(a);
-			}
-		}
-	}
-
-	// 35.3
-	
-	public void unbanActor(Actor actor) {
-		administratorService.checkAuthority();
-		Collection<Actor> res = new ArrayList<Actor>();
-		res.addAll(rangerRepository.unbanRanger());
-		res.addAll(managerRepository.unbanManager());
-		if (res.contains(actor)) {
-			if (actor.getClass().equals(Ranger.class)) {
-				Authority auth = new Authority();
-				auth.setAuthority("RANGER");
-				actor.getUserAccount().addAuthority(auth);
-			} else if (actor.getClass().equals(Manager.class)) {
-				Authority auth2 = new Authority();
-				auth2.setAuthority("MANAGER");
-				actor.getUserAccount().addAuthority(auth2);
-			}
-		}
-	}
-
 	// 14.5
 	
 	public void SendNotificationBroadcast(Message message) {
@@ -491,13 +444,10 @@ public class ActorService {
 		return res;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//	public boolean ban(Actor actor) {
+//		boolean result;
+//		actor.getUserAccount().setActivated(false);
+//		result = actor.getUserAccount().isActivated();
+//		return result;
+//	}
 }

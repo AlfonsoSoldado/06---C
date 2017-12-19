@@ -160,28 +160,6 @@ public class ActorServiceTest extends AbstractTest {
 	}
 
 	@Test
-	public void testBanActor() {
-		authenticate("admin");
-		Actor actor;
-		actor = this.actorService.findOne(super.getEntityId("ranger1"));
-		Assert.notNull(actor);
-
-		this.actorService.banActor(actor);
-		unauthenticate();
-	}
-
-	@Test
-	public void testUnBanActor() {
-		authenticate("admin");
-		Actor actor;
-		actor = this.actorService.findOne(super.getEntityId("ranger1"));
-		Assert.notNull(actor);
-
-		this.actorService.unbanActor(actor);
-		unauthenticate();
-	}
-
-	@Test
 	public void testSendNotificationBroadcast() {
 		authenticate("admin");
 		Message message;

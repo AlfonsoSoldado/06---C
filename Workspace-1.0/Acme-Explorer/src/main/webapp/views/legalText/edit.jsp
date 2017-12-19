@@ -54,15 +54,14 @@
         <form:option value="true" label="Yes"/>
         <form:option value="false" label="No"/>
 	</form:select>
-	<form:input path="draftMode" />
 	<form:errors cssClass="error" path="draftMode" />
 	<br />
 	
-	<form:label path="trip">
+ 	<form:label path="trip">
 		<spring:message code="legalText.trip" />:
 	</form:label>
 	<form:select path="trip">
-		<form:option value="0" label="----"/>
+		<form:option item="null" value="0" label="----"/>
         <form:options items="${trip}" itemLabel="title"/>
 	</form:select>
 	<form:errors cssClass="error" path="trip" />

@@ -1,6 +1,5 @@
 package controllers.administrator;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.validation.Valid;
@@ -15,20 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ActorService;
-import services.AdministratorService;
-import services.AuditorService;
-import services.ExplorerService;
-import services.ManagerService;
-import services.RangerService;
-import services.SponsorService;
 import controllers.AbstractController;
 import domain.Actor;
-import domain.Administrator;
-import domain.Auditor;
-import domain.Explorer;
-import domain.Manager;
-import domain.Ranger;
-import domain.Sponsor;
 
 @Controller
 @RequestMapping("/administrator")
@@ -37,26 +24,8 @@ public class SuspiciousAdministratorController extends AbstractController {
 	// Services -------------------------------------------------------------
 
 	@Autowired
-	private AdministratorService administatorService;
-
-	@Autowired
 	private ActorService actorService;
 	
-	@Autowired
-	private RangerService rangerService;
-	
-	@Autowired
-	private SponsorService sponsorService;
-	
-	@Autowired
-	private AuditorService auditorService;
-	
-	@Autowired
-	private ManagerService managerService;
-	
-	@Autowired
-	private ExplorerService explorerService;
-
 	// Constructors ---------------------------------------------------------
 
 	public SuspiciousAdministratorController() {
@@ -77,15 +46,26 @@ public class SuspiciousAdministratorController extends AbstractController {
 
 		return result;
 	}
+	
+//	@RequestMapping(value = "/ban", method = RequestMethod.GET)
+//	public ModelAndView cancel(@RequestParam final int actorId) {
+//		ModelAndView result;
+//		Actor actor;
+//		actor = this.actorService.findOne(actorId);
+//		this.actorService.ban(actor);
+//		result = this.createEditModelAndView(actor);
+//
+//		return result;
+//	}
 
 	// Editing ---------------------------------------------------------------
 
 	@RequestMapping(value = "/editSuspicious", method = RequestMethod.GET)
 	public ModelAndView edit(@RequestParam final int actorId) {
 		ModelAndView result;
-		Manager actor;
+		Actor actor;
 
-		actor = managerService.findOne(actorId);
+		actor = actorService.findOne(actorId);
 		Assert.notNull(actor);
 		result = this.createEditModelAndView(actor);
 
@@ -95,14 +75,14 @@ public class SuspiciousAdministratorController extends AbstractController {
 	// Saving ---------------------------------------------------------------
 
 	@RequestMapping(value = "/editSuspicious", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Manager actor, final BindingResult binding) {
+	public ModelAndView save(@Valid final Actor actor, final BindingResult binding) {
 		ModelAndView res;
 		
 		if (binding.hasErrors())
 			res = this.createEditModelAndView(actor, "administrator.params.error");
 		else
 			try {
-				this.managerService.save(actor);
+				this.actorService.save(actor);
 				res = new ModelAndView("redirect:suspicious.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(actor, "administrator.commit.error");
@@ -113,7 +93,7 @@ public class SuspiciousAdministratorController extends AbstractController {
 
 	// Ancillary methods --------------------------------------------------
 
-	protected ModelAndView createEditModelAndView(final Manager actor) {
+	protected ModelAndView createEditModelAndView(final Actor actor) {
 		ModelAndView result;
 
 		result = this.createEditModelAndView(actor, null);
@@ -121,7 +101,7 @@ public class SuspiciousAdministratorController extends AbstractController {
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Manager actor,
+	protected ModelAndView createEditModelAndView(final Actor actor,
 			final String message) {
 		ModelAndView result;
 		result = new ModelAndView("administrator/editSuspicious");

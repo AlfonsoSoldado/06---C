@@ -66,7 +66,7 @@ public class LegalTextAdministratorController extends AbstractController {
 	public ModelAndView save(@Valid final LegalText legalText,
 			final BindingResult binding) {
 		ModelAndView res;
-
+		System.out.println(binding.getFieldError());
 		if (binding.hasErrors())
 			res = this.createEditModelAndView(legalText, "legalText.params.error");
 		else

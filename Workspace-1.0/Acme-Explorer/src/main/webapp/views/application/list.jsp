@@ -84,7 +84,14 @@
 	<display:column property="moment" title="${momentHeader}" sortable="true" />
 
 	<spring:message code="application.status" var="statusHeader" />
-	<display:column property="status" title="${statusHeader}" sortable="true" class="${row.status }"/>
+	<jstl:choose>
+		<jstl:when test="">
+		
+		</jstl:when>
+		<jstl:otherwise>
+			<display:column property="status" title="${statusHeader}" sortable="true" class="${row.status }"/>
+		</jstl:otherwise>
+	</jstl:choose>
 
 	<spring:message code="application.comment" var="commentHeader" />
 	<display:column property="comment" title="${commentHeader}" sortable="true" />

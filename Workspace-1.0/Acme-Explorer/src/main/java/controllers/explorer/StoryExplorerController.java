@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.ExplorerService;
 import services.StoryService;
 import services.TripService;
 import controllers.AbstractController;
+import domain.Explorer;
 import domain.Story;
 import domain.Trip;
 
@@ -30,6 +32,9 @@ public class StoryExplorerController extends AbstractController {
 	
 	@Autowired
 	private TripService tripService;
+	
+	@Autowired
+	private ExplorerService explorerService;
 
 	// Constructors -------------------------------------------------------
 
@@ -44,7 +49,9 @@ public class StoryExplorerController extends AbstractController {
 		ModelAndView result;
 		Collection<Story> stories;
 
-		stories = storyService.findAll();
+		Explorer explorer = explorerService.findByPrincipal();
+		int explorerId = explorer.getId();
+		stories = storyService.findStoryByExplorer(explorerId);
 
 		result = new ModelAndView("story/explorer/list");
 		result.addObject("story", stories);

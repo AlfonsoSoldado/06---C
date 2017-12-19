@@ -15,4 +15,8 @@ public interface StoryRepository extends JpaRepository<Story, Integer> {
 	// 44.2
 	@Query("select t from Trip t join t.application a where a.status = 'ACCEPTED' and t.tripEnd < CURRENT_DATE")
 	Collection<Trip> findTripsForStory();
+	
+	@Query("select s from Story s where s.writer.id = ?1")
+	Collection<Story> findStoryByExplorer(int id);
+	
 }

@@ -45,7 +45,9 @@ public class EmergencyExplorerController extends AbstractController{
 		ModelAndView result;
 		Collection<Emergency> emergencies;
 		
-		emergencies = emergencyService.findAll();
+		Explorer explorer = explorerService.findByPrincipal();
+		int explorerId = explorer.getId();
+		emergencies = emergencyService.findEmergencyByExplorer(explorerId);
 		
 		result = new ModelAndView("emergency/explorer/list");
 		result.addObject("emergency",emergencies);

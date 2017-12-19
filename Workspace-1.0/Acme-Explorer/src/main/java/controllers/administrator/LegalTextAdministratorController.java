@@ -136,7 +136,7 @@ public class LegalTextAdministratorController extends AbstractController {
 			final String message) {
 		ModelAndView result;
 		final Collection<Trip> trips;
-		trips = this.tripService.findAll();
+		trips = this.legalTextService.findTripsWithoutLegalText();
 		result = new ModelAndView("legalText/administrator/edit");
 		result.addObject("trip", trips);
 		result.addObject("legalText", legalText);

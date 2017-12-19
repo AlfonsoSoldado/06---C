@@ -47,6 +47,9 @@
 	<spring:message code="legalText.draftMode" var="draftModeHeader" />
 	<display:column property="draftMode" title="${draftModeHeader}" sortable="true" />
 	
+	<spring:message code="legalText.trip" var="tripHeader" />
+	<display:column property="trip.title" title="${tripHeader}" sortable="true" />
+	
 </display:table>
 
 <a href="legalText/administrator/create.do">

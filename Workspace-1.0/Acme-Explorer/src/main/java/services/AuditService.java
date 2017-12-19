@@ -74,8 +74,9 @@ public class AuditService {
 
 	public Audit save(Audit audit) {
 		//auditorService.checkAuthority();
-
-		Assert.isTrue(audit.getDraftMode() == true);
+		if(audit.getId() != 0){
+			Assert.isTrue(audit.getDraftMode() == true);
+		}
 		//UserAccount ua = LoginService.getPrincipal();
 		//Assert.notNull(ua);
 		//Actor a = auditorService.findOne(ua.getId());

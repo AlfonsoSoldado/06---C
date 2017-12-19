@@ -27,7 +27,6 @@
 	<security:authorize access="hasRole('AUDITOR')">
 	
 	<form:hidden path="auditor" />
-	<form:hidden path="draftMode" />
 	<form:hidden path="moment" />
 	
 	<form:label path="title">

@@ -95,16 +95,19 @@ public class LegalTextService {
 		administratorService.checkAuthority();
 
 		Assert.isTrue(legalText.getDraftMode() == true);
-		Assert.notNull(legalText);
-		Assert.isTrue(legalText.getId() != 0);
-		Assert.isTrue(this.legalTextRepository.exists(legalText.getId()));
+//		Assert.notNull(legalText);
+//		Assert.isTrue(legalText.getId() != 0);
+//		Assert.isTrue(this.legalTextRepository.exists(legalText.getId()));
 
-		Collection<Trip> trips = new ArrayList<Trip>();
-		trips = legalText.getTrip();
-		
-		for(Trip t: trips){
-			t.setLegalText(null);
-		}
+//		if(!legalText.getTrip().isEmpty()){
+//			Collection<Trip> trips = new ArrayList<Trip>();
+//			trips = legalText.getTrip();
+//
+//			for(Trip t: trips){
+//				t.setLegalText(null);
+//			}	
+//		}
+//		
 		
 		this.legalTextRepository.delete(legalText);
 	}

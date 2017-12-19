@@ -54,7 +54,7 @@ public class MiscellaneousRecordRangerController extends AbstractController {
 		} else
 			try {
 				this.miscellaneousRecordService.save(miscellaneousRecord);
-				res = new ModelAndView("redirect:../../curriculum/display.do");
+				res = new ModelAndView("redirect:../../curriculum/ranger/display.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(miscellaneousRecord,
 						"miscellaneousRecord.commit.error");
@@ -69,7 +69,7 @@ public class MiscellaneousRecordRangerController extends AbstractController {
 
 		try {
 			this.miscellaneousRecordService.delete(miscellaneousRecord);
-			res = new ModelAndView("redirect:../../curriculum/display.do");
+			res = new ModelAndView("redirect:../../curriculum/ranger/display.do");
 		} catch (final Throwable oops) {
 			res = this.createEditModelAndView(miscellaneousRecord,
 					"miscellaneousRecord.commit.error");

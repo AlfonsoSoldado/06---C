@@ -54,7 +54,7 @@ public class ProfessionalRecordRangerController extends AbstractController {
 		} else
 			try {
 				this.professionalRecordService.save(professionalRecord);
-				res = new ModelAndView("redirect:../../curriculum/display.do");
+				res = new ModelAndView("redirect:../../curriculum/ranger/display.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(professionalRecord,
 						"professionalRecord.commit.error");
@@ -69,7 +69,7 @@ public class ProfessionalRecordRangerController extends AbstractController {
 
 		try {
 			this.professionalRecordService.delete(professionalRecord);
-			res = new ModelAndView("redirect:../../curriculum/display.do");
+			res = new ModelAndView("redirect:../../curriculum/ranger/display.do");
 		} catch (final Throwable oops) {
 			res = this.createEditModelAndView(professionalRecord,
 					"professionalRecord.commit.error");

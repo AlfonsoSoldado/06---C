@@ -48,7 +48,7 @@
 	<display:column property="draftMode" title="${draftModeHeader}" sortable="true" />
 	
 	<spring:message code="legalText.trip" var="tripHeader" />
-	<display:column property="trip.title" title="${tripHeader}" sortable="true" />
+	<display:column property="trip" title="${tripHeader}" sortable="true" />
 	
 </display:table>
 

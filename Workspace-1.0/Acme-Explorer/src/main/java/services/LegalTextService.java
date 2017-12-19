@@ -43,7 +43,7 @@ public class LegalTextService {
 
 		LegalText res = new LegalText();
 		Date moment = new Date(System.currentTimeMillis() - 1);
-		Trip trip = new Trip();
+		Trip trip = new Trip();		
 		res.setDraftMode(true);
 		res.setTrip(trip);
 		res.setMoment(moment);
@@ -73,34 +73,37 @@ public class LegalTextService {
 		administratorService.checkAuthority();
 
 		Assert.notNull(legalText);
-		Assert.isTrue(legalText.getDraftMode() == true);
 		LegalText res;
 		res = this.legalTextRepository.save(legalText);
 		Date fechaActual = new Date();
 		res.setMoment(fechaActual);
 		
-		Trip trip;
-		trip = new Trip();
+		if(legalText.getId() != 0){
+			Assert.isTrue(legalText.getDraftMode() == true);
+			Trip trip;
+			trip = new Trip();
+			
+			trip = legalText.getTrip();
+			trip.setLegalText(legalText);
+		}
 		
-		trip = legalText.getTrip();
-		trip.setLegalText(legalText);
 		return res;
 	}
 
 	public void delete(LegalText legalText) {
-		//administratorService.checkAuthority();
+		administratorService.checkAuthority();
 
 		Assert.isTrue(legalText.getDraftMode() == true);
 		Assert.notNull(legalText);
 		Assert.isTrue(legalText.getId() != 0);
 		Assert.isTrue(this.legalTextRepository.exists(legalText.getId()));
-		
+
 		Trip trip;
 		trip = new Trip();
-		
 		trip = legalText.getTrip();
 		
 		trip.setLegalText(null);
+		
 		this.legalTextRepository.delete(legalText);
 	}
 

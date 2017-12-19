@@ -16,6 +16,7 @@ import services.ActorService;
 import services.FolderService;
 import domain.Actor;
 import domain.Folder;
+import domain.Message;
 
 @Controller
 @RequestMapping("/folder")
@@ -134,14 +135,18 @@ public class FolderController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Folder folder, final String messageCode) {
 		ModelAndView result;
 		Actor actor;
+		
 		Collection<Folder> folders;
+		
 		actor = this.actorService.findByPrincipal();
+		
 		result = new ModelAndView("folder/edit");
 		folders = actor.getFolders();
-		folders.removeAll(folder.getFolders());
-		result.addObject("folder", folder);
+		//folders.removeAll(folder.getFolders());
 		result.addObject("folders", folders);
-		result.addObject("message", messageCode);
+		result.addObject("folder", folder);
+		result.addObject("messages", messageCode);
+		
 		return result;
 	}
 }

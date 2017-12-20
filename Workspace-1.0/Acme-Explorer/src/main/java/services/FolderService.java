@@ -78,35 +78,50 @@ public class FolderService {
 //		Assert.notNull(res);
 //		return res;
 		
-		Assert.notNull(folder);
-		Assert.isTrue(!this.folderRepository.exists(folder.getId()));
-		Actor actor = this.actorService.findByPrincipal();
-		Assert.notNull(actor);
-		
+		Actor actor;
 		Folder res;
+		actor = this.actorService.findByPrincipal();
+		Assert.notNull(folder);
+		Assert.notNull(actor);
 		res = this.folderRepository.save(folder);
-		actor.getFolders().add(res);
-		Assert.notNull(res);
+		if(folder.getId() == 0){
+			actor.getFolders().add(res);
+		}
+		//Assert.notNull(res);
 		return res;
+		
+		
+		
+//		Assert.notNull(folder);
+//		Assert.isTrue(!this.folderRepository.exists(folder.getId()));
+//		Actor actor = this.actorService.findByPrincipal();
+//		Assert.notNull(actor);
+//		
+//		Folder res;
+//		res = this.folderRepository.save(folder);
+//		actor.getFolders().add(res);
+//		Assert.notNull(res);
+//		return res;
 	}
 
 	public void delete(Folder folder) {
-		Assert.isTrue(folder.getSystemFolder() == false);
-		Assert.isTrue(folder.getId() != 0);
-		Assert.isTrue(this.folderRepository.exists(folder.getId()));
-		this.folderRepository.delete(folder);
-//		
-//		Actor actor;
 //		Assert.isTrue(folder.getSystemFolder() == false);
 //		Assert.isTrue(folder.getId() != 0);
 //		Assert.isTrue(this.folderRepository.exists(folder.getId()));
-//		actor = this.actorService.findByPrincipal();
-//		Assert.isTrue(actor.getFolders().contains(folder));
-//		for(Message m : folder.getMessages()){
-//			this.messageService.delete(m);
-//		}
-//		actor.getFolders().remove(folder);
 //		this.folderRepository.delete(folder);
+		
+		Actor actor;
+		//Assert.isTrue(folder.getSystemFolder() == false);
+//		Assert.notNull(folder);
+//		Assert.isTrue(folder.getId() != 0);
+//		Assert.isTrue(this.folderRepository.exists(folder.getId()));
+		actor = this.actorService.findByPrincipal();
+//		Assert.isTrue(actor.getFolders().contains(folder));
+		for(Message m : folder.getMessages()){
+			this.messageService.delete(m);
+		}
+		actor.getFolders().remove(folder);
+		this.folderRepository.delete(folder);
 		
 		
 	}

@@ -28,7 +28,7 @@
 	<form:label path="sender">
 		<spring:message code="message.sender"/>
 	</form:label>
-	<form:input path="sender"/>
+	<form:input path="sender.email"/>
 	<form:errors cssClass="error" path="sender"/>
 	<br/>
 	
@@ -60,13 +60,24 @@
 	<form:label path="recipient">
 		<spring:message code="message.recipient" />:
 	</form:label>
+	
 	<form:select path="recipient">
-        <form:options items="${recipient}" itemLabel="email"/>
+		<jstl:forEach var="datos" items="${actor}">
+			<form:option value="${datos.id}">
+				<jstl:out value="${datos.name}"/>
+			</form:option>
+		</jstl:forEach>
+	</form:select>
+	<form:errors cssClass="error" path="recipient" />
+	<br />
+	<%--
+	<form:select path="actor">
+        <form:options items="${actor}" itemLabel="email"/>
 	</form:select>
 	<form:input path="recipient" />
 	<form:errors cssClass="error" path="recipient" />
 	<br />
-	
+	 --%>
 	<input type="submit" name="save"
 		value="<spring:message code="message.save" />" />&nbsp; 
 	<jstl:if test="${message.id != 0}">

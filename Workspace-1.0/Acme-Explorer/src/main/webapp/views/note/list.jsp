@@ -20,7 +20,6 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 
-<security:authorize access="hasRole('AUDITOR') or hasRole('MANAGER')">
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="note" requestURI="${requestURI }" id="row">
 	
@@ -57,4 +56,3 @@
 			</a>
 		</div>
 	</security:authorize>
-</security:authorize>

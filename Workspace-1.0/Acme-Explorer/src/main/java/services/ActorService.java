@@ -20,6 +20,7 @@ import domain.Category;
 import domain.Curriculum;
 import domain.Folder;
 import domain.Message;
+import domain.Note;
 import domain.Trip;
 
 @Service
@@ -243,6 +244,16 @@ public class ActorService {
 		Collection<Audit> res = new ArrayList<Audit>();
 		res.addAll(actorRepository.findAuditsByTrip(id));
 		res = actorRepository.findAuditsByTrip(id);
+		
+		Assert.notNull(res);
+		return res;
+
+	}
+	
+	public Collection<Note> findNotesByTrip(int id) {
+		Collection<Note> res = new ArrayList<Note>();
+		res.addAll(actorRepository.findNotesByTrip(id));
+		res = actorRepository.findNotesByTrip(id);
 		
 		Assert.notNull(res);
 		return res;

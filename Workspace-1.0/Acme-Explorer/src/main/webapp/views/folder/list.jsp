@@ -17,7 +17,7 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="folders" requestURI="${requestURI}" id="row">
+	name="folders" requestURI="folder/list.do" id="row">
 	
 	<spring:message code="folder.name" var="nameHeader" />
 	<display:column property="name" title="${nameHeader}" sortable="true" />

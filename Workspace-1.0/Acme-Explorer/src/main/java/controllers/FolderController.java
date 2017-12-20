@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,6 +54,7 @@ public class FolderController extends AbstractController {
 		return result;
 	}
 
+	//list de las subfolders
 	@RequestMapping(value = "/list", method = RequestMethod.GET, params = "folderId")
 	public ModelAndView list(@RequestParam final int folderId) {
 		ModelAndView result;
@@ -72,8 +74,19 @@ public class FolderController extends AbstractController {
 	public ModelAndView edit(@RequestParam final int folderId) {
 		ModelAndView result;
 		Folder folder;
-		folder = this.folderService.findOne(folderId);
-		result = this.createEditModelAndView(folder);
+		Actor actor;
+		
+		try{
+			actor = this.actorService.findByPrincipal();
+			folder = this.folderService.findOne(folderId);
+			//Assert.isTrue(!folder.getSystemFolder());
+			Assert.isTrue(actor.getFolders().contains(folder));
+			result = this.createEditModelAndView(folder);
+		}catch (final Throwable oops){ 
+			result = new ModelAndView("redirect:/misc/403");
+		}
+//		folder = this.folderService.findOne(folderId);
+//		result = this.createEditModelAndView(folder);
 		return result;
 	}
 

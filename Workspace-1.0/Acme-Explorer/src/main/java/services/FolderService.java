@@ -2,6 +2,7 @@ package services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,9 @@ public class FolderService {
 	@Autowired
 	private ActorService actorService;
 
+	@Autowired
+	private MessageService messageService;
+	
 	// Constructors
 
 	public FolderService() {
@@ -60,21 +64,66 @@ public class FolderService {
 	}
 
 	public Folder save(Folder folder) {
-		Actor actor = this.actorService.findByPrincipal();
-		Assert.notNull(actor);
-		Assert.notNull(folder);
+//		Actor actor = this.actorService.findByPrincipal();
+//		Assert.notNull(actor);
+//		Assert.notNull(folder);
+//		Assert.isTrue(folder.getFolders().isEmpty());
+//		Folder res, parentFolder;
+//		res = this.folderRepository.save(folder);
+//		this.actorService.createFolder(folder);
+//		parentFolder = res.getCustomFolder();
+//		if(parentFolder != null){
+//			createSonFolder(folder, res);
+//		}
+//		Assert.notNull(res);
+//		return res;
+		
+		Actor actor;
 		Folder res;
+		actor = this.actorService.findByPrincipal();
+		Assert.notNull(folder);
+		Assert.notNull(actor);
 		res = this.folderRepository.save(folder);
-		actor.getFolders().add(res);
-		Assert.notNull(res);
+		if(folder.getId() == 0){
+			actor.getFolders().add(res);
+		}
+		//Assert.notNull(res);
 		return res;
+		
+		
+		
+//		Assert.notNull(folder);
+//		Assert.isTrue(!this.folderRepository.exists(folder.getId()));
+//		Actor actor = this.actorService.findByPrincipal();
+//		Assert.notNull(actor);
+//		
+//		Folder res;
+//		res = this.folderRepository.save(folder);
+//		actor.getFolders().add(res);
+//		Assert.notNull(res);
+//		return res;
 	}
 
 	public void delete(Folder folder) {
-		Assert.isTrue(folder.getSystemFolder() == false);
-		Assert.isTrue(folder.getId() != 0);
-		Assert.isTrue(this.folderRepository.exists(folder.getId()));
+//		Assert.isTrue(folder.getSystemFolder() == false);
+//		Assert.isTrue(folder.getId() != 0);
+//		Assert.isTrue(this.folderRepository.exists(folder.getId()));
+//		this.folderRepository.delete(folder);
+		
+		Actor actor;
+		//Assert.isTrue(folder.getSystemFolder() == false);
+//		Assert.notNull(folder);
+//		Assert.isTrue(folder.getId() != 0);
+//		Assert.isTrue(this.folderRepository.exists(folder.getId()));
+		actor = this.actorService.findByPrincipal();
+//		Assert.isTrue(actor.getFolders().contains(folder));
+		for(Message m : folder.getMessages()){
+			this.messageService.delete(m);
+		}
+		actor.getFolders().remove(folder);
 		this.folderRepository.delete(folder);
+		
+		
 	}
 
 	// Other business methods
@@ -118,5 +167,14 @@ public class FolderService {
 		result = this.folderRepository.findFolders(a.getId());
 		Assert.notNull(result);
 		return result;
+	}
+	
+	
+	
+	private void createSonFolder(Folder folder, Folder son){
+		Collection<Folder> res;
+		res = new HashSet<>(folder.getFolders());
+		res.add(son);
+		folder.setFolders(res);
 	}
 }

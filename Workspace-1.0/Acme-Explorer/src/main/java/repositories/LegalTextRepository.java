@@ -17,7 +17,7 @@ public interface LegalTextRepository extends JpaRepository<LegalText, Integer> {
 	@Query("select l from LegalText l join l.trip t where l.draftMode = false and t.id = ?1")
 	Collection<LegalText> findLegalTextsByTrip(int id);
 	
-	@Query("select t from Trip t join t.legalText l where l.id = 0")
+	@Query("select t from Trip t where t.legalText = null")
 	Collection<Trip> findTripsWithoutLegalText();
 
 }

@@ -10,6 +10,7 @@ import domain.Actor;
 import domain.Audit;
 import domain.Curriculum;
 import domain.Folder;
+import domain.Note;
 
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Integer> {
@@ -32,6 +33,9 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
 	// 30.2
 	@Query("select a from Audit a join a.trip t where t.id = ?1")
 	Collection<Audit> findAuditsByTrip(int id);
+	
+	@Query("select a from Note a join a.trip t where t.id = ?1")
+	Collection<Note> findNotesByTrip(int id);
 
 	// 11.4
 	@Query("select f from Actor a join a.folders f where f.systemFolder = true and a.id = ?1")

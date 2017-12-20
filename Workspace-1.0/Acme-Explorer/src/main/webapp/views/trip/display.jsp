@@ -1,5 +1,5 @@
 <%--
- * list.jsp
+ * display.jsp
  *
  * Copyright (C) 2017 Universidad de Sevilla
  * 
@@ -22,29 +22,21 @@
 <!-- Listing grid -->
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="trips" requestURI="${requestUri}" id="row">
+	name="displayTrip" requestURI="${requestUri}" id="row">
 	
 	<!-- Attributes -->
-	
-	<security:authorize access="hasRole('MANAGER')">
-	<spring:message code="trip.edit"/>
-	<display:column>
-		<a href= "trip/manager/edit.do?tripId=${row.id}">
-		<spring:message code="trip.edit"/></a>
-	</display:column>
-	</security:authorize>
-	
-	<spring:message code="trip.display"/>
-	<display:column>
-		<a href= "trip/display.do?tripId=${row.id}">
-		<spring:message code="trip.display"/></a>
-	</display:column>
 	
 	<spring:message code="trip.ticker" var="tickerHeader" />
 	<display:column property="ticker" title="${tickerHeader}" sortable="true" />
 
 	<spring:message code="trip.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
+	
+	<spring:message code="trip.requirement" var="requirementHeader" />
+	<display:column property="requirement" title="${requirementHeader}" sortable="true" />
+	
+		<spring:message code="trip.description" var="descriptionHeader" />
+	<display:column property="description" title="${descriptionHeader}" sortable="true" />
 	
 	<spring:message code="trip.price" var="priceHeader" />
 	<display:column property="price" title="${priceHeader}" sortable="true" />
@@ -82,6 +74,20 @@
 		</a>
 	</display:column>
 	
+	<spring:message code="trip.note" var="note"/>
+	<display:column title="${note}">
+		<a href= "note/list.do?tripId=${row.id}">
+			<spring:message code="trip.note"/>
+		</a>
+	</display:column>
+	
+		<spring:message code="trip.sponsorship" var="sponsorship"/>
+	<display:column title="${sponsorship}">
+		<a href= "sponsorship/list.do?tripId=${row.id}">
+			<spring:message code="trip.sponsorship"/>
+		</a>
+	</display:column>
+	
 	<spring:message code="trip.stage" var="stage"/>
 	<display:column title="${stage}">
 		<a href= "stage/list.do?tripId=${row.id}">
@@ -90,13 +96,3 @@
 	</display:column>
 	
 </display:table>
-
-<!-- Action links -->
-
-<security:authorize access="hasRole('MANAGER')">
-	<div>
-		<a href="trip/manager/create.do"> <spring:message
-				code="trip.create" />
-		</a>
-	</div>
-</security:authorize>

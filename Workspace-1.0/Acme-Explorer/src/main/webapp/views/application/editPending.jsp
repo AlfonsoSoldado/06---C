@@ -24,7 +24,6 @@
 	<security:authorize access="hasRole('MANAGER')">
 		<form:hidden path="moment" />
 		<form:hidden path="comment" />
-		<form:hidden path="creditCard" />
 		<form:hidden path="manager" />
 		<form:hidden path="explorer" />
 		<form:hidden path="trip" />

@@ -52,6 +52,20 @@ public class TripController {
 		return result;
 	}
 	
+	@RequestMapping(value = "/display", method = RequestMethod.GET)
+	public ModelAndView display(@RequestParam int tripId){
+		ModelAndView result;
+		Trip trip;
+		
+		trip = this.tripService.findOne(tripId);
+		
+		result = new ModelAndView("trip/display");
+		result.addObject("displayTrip", trip);
+		result.addObject("requestURI", "trip/display.do");
+		
+		return result;
+	}
+	
 	@RequestMapping(value = "/category/list", method = RequestMethod.GET)
 	public ModelAndView list(@RequestParam int categoryId){
 		ModelAndView result;

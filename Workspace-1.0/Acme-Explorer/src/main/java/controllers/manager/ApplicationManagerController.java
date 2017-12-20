@@ -75,7 +75,7 @@ public class ApplicationManagerController extends AbstractController {
 		public ModelAndView save(@Valid final Application application,
 				final BindingResult binding) {
 			ModelAndView res;
-
+			System.out.println(binding.getFieldError());
 			if (binding.hasErrors())
 				res = this.createEditModelAndView(application,
 						"application.params.error");
@@ -84,6 +84,9 @@ public class ApplicationManagerController extends AbstractController {
 					this.applicationService.save(application);
 					res = new ModelAndView("redirect:list.do");
 				} catch (final Throwable oops) {
+					System.out.println(oops.getMessage());
+					System.out.println(oops.getCause());
+					System.out.println(oops.getLocalizedMessage());
 					res = this.createEditModelAndView(application,
 							"application.commit.error");
 				}

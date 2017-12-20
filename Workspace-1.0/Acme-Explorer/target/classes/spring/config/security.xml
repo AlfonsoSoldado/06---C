@@ -39,6 +39,7 @@
 		<security:intercept-url pattern="/security/loginFailure.do" access="permitAll" /> 
 		<security:intercept-url pattern="/welcome/index.do" access="permitAll" /> 
 		<security:intercept-url pattern="/finder/search.do" access="permitAll" /> 
+		<security:intercept-url pattern="/trip/display.do" access="permitAll" />
 
 		<security:intercept-url pattern="/application/explorer/**" access="hasRole('EXPLORER')" />
 		<security:intercept-url pattern="/actor/explorer/edit.do" access="hasRole('EXPLORER')" />
@@ -51,6 +52,7 @@
 		
 		<security:intercept-url pattern="/category/list.do" access="permitAll" />
 		<security:intercept-url pattern="/stage/list.do" access="permitAll" />
+		<security:intercept-url pattern="/sponsorship/list.do" access="permitAll" />
 		<security:intercept-url pattern="/trip/category/list.do" access="permitAll" /> 
 		<security:intercept-url pattern="/trip/finder/list.do" access="permitAll" />
 		
@@ -59,6 +61,7 @@
 		
 		<security:intercept-url pattern="/audit/auditor/**" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/audit/list.do" access="permitAll" />
+		<security:intercept-url pattern="/note/list.do" access="permitAll" />
 		<security:intercept-url pattern="/note/auditor/**" access="hasRole('AUDITOR')" />
 		<security:intercept-url pattern="/actor/auditor/edit.do" access="hasRole('AUDITOR')" />
 		

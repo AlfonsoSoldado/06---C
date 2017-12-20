@@ -86,5 +86,15 @@ public class SponsorshipService {
 		Assert.notNull(res);
 		return res;
 	}
+	
+	public Collection<Sponsorship> findSponsorshipByTrip(int id) {
+		Collection<Sponsorship> res = new ArrayList<Sponsorship>();
+		res.addAll(sponsorshipRepository.findSponsorshipByTrip(id));
+		res = sponsorshipRepository.findSponsorshipByTrip(id);
+		
+		Assert.notNull(res);
+		return res;
+
+	}
 
 }

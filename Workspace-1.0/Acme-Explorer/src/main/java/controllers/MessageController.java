@@ -77,8 +77,9 @@ public class MessageController extends AbstractController {
 					"message.params.error");
 		else
 			try {
-				this.actorService.sendMessage(message.getRecipient(),
-						message.getSender(), message);
+//				this.actorService.sendMessage(message.getRecipient(),
+//						message.getSender(), message);
+				messageService.save(message);
 				result = new ModelAndView("redirect:../folder/list.do");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(message,

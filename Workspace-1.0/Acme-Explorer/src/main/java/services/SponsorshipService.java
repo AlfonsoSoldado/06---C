@@ -2,6 +2,7 @@ package services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,13 +88,17 @@ public class SponsorshipService {
 		return res;
 	}
 	
-	public Collection<Sponsorship> findSponsorshipByTrip(int id) {
-		Collection<Sponsorship> res = new ArrayList<Sponsorship>();
-		res.addAll(sponsorshipRepository.findSponsorshipByTrip(id));
-		res = sponsorshipRepository.findSponsorshipByTrip(id);
+	public Sponsorship findAllSponsorship() {
+		List<Sponsorship> res;
+		Sponsorship spon;
+		res = (List<Sponsorship>) this.findAll();
+		Integer tam;
+		tam = res.size();
 		
-		Assert.notNull(res);
-		return res;
+		int aleatorio = (int) (Math.random() * tam);
+		spon = res.get(aleatorio);
+		
+		return spon;
 
 	}
 

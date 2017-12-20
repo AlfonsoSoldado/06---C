@@ -119,23 +119,7 @@ public class FinderService {
 	public Collection<Trip> findSearchSingleKey(String singleKey) {
 		Collection<Trip> res = new ArrayList<Trip>();
 		res.addAll(finderRepository.resultFinder(singleKey));
-//		Collection<Finder> finders = findAll();
-//		
-//		for (Finder f : finders) {
-//			if (f.getSingleKey().equals(singleKey)) {
-//				res.addAll(f.getTrip());
-//			} else {
-//				res.addAll(finderRepository.resultFinder(singleKey));
-//			}
-//
-//		}
+		return res;
 		
-		return res;
-	}
-	
-	public Integer resId() {
-		Integer res;
-		res = finderRepository.resId();
-		return res;
 	}
 }

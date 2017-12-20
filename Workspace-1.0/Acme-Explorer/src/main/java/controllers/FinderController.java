@@ -46,9 +46,9 @@ public class FinderController extends AbstractController {
 			res = this.createEditModelAndView(finder, "finder.params.error");
 		} else
 			try {
-				this.finderService.save(finder);
+				Finder f = this.finderService.save(finder);
 				res = new ModelAndView(
-						"redirect:../trip/finder/list.do");
+						"redirect:../trip/finder/list.do?finderId=" + f.getId());
 			} catch (final Throwable oops) {
 				System.out.println(oops.getMessage());
 				res = this

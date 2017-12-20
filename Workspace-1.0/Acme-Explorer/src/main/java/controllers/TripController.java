@@ -67,11 +67,10 @@ public class TripController {
 	}
 	
 	@RequestMapping(value = "/finder/list", method = RequestMethod.GET)
-	public ModelAndView listFinder(){
+	public ModelAndView listFinder(@RequestParam int finderId){
 		ModelAndView result;
 		Collection<Trip> trips;
-		Integer resId = finderService.resId();
-		Finder finder = this.finderService.findOne(resId);
+		Finder finder = this.finderService.findOne(finderId);
 		String singleKey;
 		singleKey = finder.getSingleKey();
 		trips = finderService.findSearchSingleKey(singleKey);
@@ -82,11 +81,10 @@ public class TripController {
 	}
 	
 	@RequestMapping(value = "/finder/explorer/list", method = RequestMethod.GET)
-	public ModelAndView listFinderExplorer(){
+	public ModelAndView listFinderExplorer(@RequestParam int finderId){
 		ModelAndView result;
 		Collection<Trip> trips;
-		Integer resId = finderService.resId();
-		Finder finder = this.finderService.findOne(resId);
+		Finder finder = this.finderService.findOne(finderId);
 		String singleKey;
 		singleKey = finder.getSingleKey();
 		Date start = finder.getStart();

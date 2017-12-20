@@ -2840,7 +2840,7 @@
 	<property name="location" ref="gps2" />
 	<property name="trip" ref="trip2" />
 	<property name="manager" ref="manager2" />
-	<property name="explorer">
+		<property name="explorer">
 		<list>
 			<ref bean="explorer2"/>
 		</list>

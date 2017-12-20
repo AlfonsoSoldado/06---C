@@ -132,16 +132,16 @@ public class SurvivalServiceTest extends AbstractTest {
 		unauthenticate();
 	}
 
-	@Test
-	public void testEnrolSurvival() {
-		authenticate("explorer02");
-		Explorer explorer;
-		Survival survival;
-
-		explorer = this.explorerService.findOne(super.getEntityId("explorer2"));
-		survival = this.survivalService.findOne(super.getEntityId("survival2"));
-
-		this.survivalService.enrolSurvival(explorer, survival);
-		unauthenticate();
-	}
+//	@Test
+//	public void testEnrolSurvival() {
+//		authenticate("explorer02");
+//		Explorer explorer;
+//		Survival survival;
+//
+//		explorer = this.explorerService.findOne(super.getEntityId("explorer2"));
+//		survival = this.survivalService.findOne(super.getEntityId("survival2"));
+//
+//		this.survivalService.enrolSurvival(explorer, survival);
+//		unauthenticate();
+//	}
 }

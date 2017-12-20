@@ -2,6 +2,7 @@ package services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -454,4 +455,13 @@ public class ActorService {
 		result = actor.getUserAccount().isActivated();
 		return result;
 	}
+	
+	
+	public void addFolder(Actor actor, Folder folder){
+		Collection<Folder> res;
+		res = new HashSet<>(actor.getFolders());
+		res.add(folder);
+		actor.setFolders(res);
+	}
+	
 }

@@ -16,7 +16,7 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="${requestURI }" modelAttribute="folder">
+<form:form action="folder/edit" modelAttribute="folder">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
@@ -34,12 +34,23 @@
 	<form:label path="customFolder">
 		<spring:message code="folder.customFolder" />:
 	</form:label>
+	
+	<form:select path="customFolder">
+		<jstl:forEach var="datos" items="${folders}">
+			<form:option value="${datos.id}">
+				<jstl:out value="${datos.name}"/>
+			</form:option>
+		</jstl:forEach>
+	</form:select>
+	<form:errors cssClass="error" path="customFolder" />
+	<br />
+	<%--
 	<form:select path="customFolder">
         <form:options items="${folders}" itemLabel="name"/>
 	</form:select>
 	<form:errors cssClass="error" path="customFolder" />
 	<br />
-	
+	 --%>
 	<input type="submit" name="save"
 		value="<spring:message code="folder.save" />" />&nbsp; 
 	<jstl:if test="${folder.id != 0}">

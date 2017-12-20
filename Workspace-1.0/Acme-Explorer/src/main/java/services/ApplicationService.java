@@ -46,7 +46,8 @@ public class ApplicationService {
 		status = "ACCEPTED";
 		String comment = new String();
 		
-		Explorer explorer = explorerService.findByPrincipal();
+		Explorer explorer = new Explorer();
+		explorer = explorerService.findByPrincipal();
 		res.setExplorer(explorer);
 		
 		Date moment = new Date(System.currentTimeMillis() - 1);
@@ -73,13 +74,12 @@ public class ApplicationService {
 	}
 
 	public Application save(Application application) {
-		Assert.notNull(application);
-		
-		Explorer explorer = explorerService.findByPrincipal();
-		application.setExplorer(explorer);
-		
 		Application res;
+		
 		res = this.applicationRepository.save(application);
+		Explorer explorer = new Explorer();
+		explorer = res.getExplorer();
+		explorer.setApplication(res);
 		return res;
 	}
 

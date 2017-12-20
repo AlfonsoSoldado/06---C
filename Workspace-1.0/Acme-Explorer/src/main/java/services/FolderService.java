@@ -63,19 +63,19 @@ public class FolderService {
 	}
 
 	public Folder save(Folder folder) {
-		
-		Actor actor;
+		Assert.notNull(folder);
+//		Actor actor;
 		Folder res;
-		Collection<Folder> folders = new ArrayList<>();
-		actor = this.actorService.findByPrincipal();
+//		Collection<Folder> folders = new ArrayList<>();
+//		actor = this.actorService.findByPrincipal();
 //		Assert.notNull(folder);
 //		Assert.notNull(actor);
 		res = this.folderRepository.save(folder);
-		if(folder.getId() == 0){
-			//actor.getFolders().add(res);
-			folders.add(res);
-		}
-		actor.setFolders(folders);
+//		if(folder.getId() == 0){
+//			//actor.getFolders().add(res);
+//			folders.add(res);
+//		}
+//		actor.setFolders(folders);
 		//Assert.notNull(res);
 		return res;
 		

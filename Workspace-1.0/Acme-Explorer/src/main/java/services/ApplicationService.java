@@ -148,7 +148,6 @@ public class ApplicationService {
 	}
 	
 	public boolean aplicationAcceptedStartingDateNotPassed(Application application){
-		Assert.isTrue(application.getStatus().equals("ACCEPTED"));
 		Boolean res = false;
 		Date date = new Date(System.currentTimeMillis());
 		if(application.getTrip().getTripStart().after(date)){

@@ -7,7 +7,7 @@ Mario: Folder/Message. Saves/deletes/creates.
 
 Los Collection de los Edit no los guarda bien (Ejemplos: category, legalText, trip, stage...)
 
-LegalText falla el Delete
+LegalText: funciona todo menos lo del collection de trip
 
 
 ----------------------- Funciona ------------------------

@@ -62,8 +62,11 @@ public class StageService {
 	public Stage save(Stage stage) {
 		Assert.notNull(stage);
 		Stage res;
+		Trip t = stage.getTrip();
+		t = this.tripService.findOne(t.getId());
 		
 		res = this.stageRepository.save(stage);
+		t.getStage().add(res);
 		Double precio = 0., tax;
 		Trip trip = res.getTrip();
 		

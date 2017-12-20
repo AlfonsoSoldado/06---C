@@ -60,9 +60,9 @@
  	<form:label path="trip">
 		<spring:message code="legalText.trip" />:
 	</form:label>
-	<form:select path="trip" multiple="true">
+	<form:select id="trip" path="trip" multiple="true">
 		<form:option item="null" value="0" label="----"/>
-        <form:options items="${trip}" itemLabel="title"/>
+        <form:options items="${trip}" itemValue="id" itemLabel="title"/>
 	</form:select>
 	<form:errors cssClass="error" path="trip" />
 	<br />

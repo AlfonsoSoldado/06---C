@@ -46,10 +46,19 @@
 	
 	<spring:message code="legalText.draftMode" var="draftModeHeader" />
 	<display:column property="draftMode" title="${draftModeHeader}" sortable="true" />
-	
+	<%--
 	<spring:message code="legalText.trip" var="tripHeader" />
 	<display:column property="trip" title="${tripHeader}" sortable="true" />
-	
+	 --%>
+	 <spring:message code="legalText.trip" var="tripHeader" />
+	 <display:column property="trip" title="${tripHeader}" sortable="true">
+	 	<jstl:forEach var="datos" items="${trip[1]}">
+			<td>
+				<jstl:out value="${datos}"></jstl:out>
+			</td>
+		</jstl:forEach>
+	 </display:column>
+	 
 </display:table>
 
 <a href="legalText/administrator/create.do">

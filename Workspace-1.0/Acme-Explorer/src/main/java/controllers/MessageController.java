@@ -121,7 +121,7 @@ public class MessageController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Message message,
 			final String messageCode) {
 		ModelAndView result;
-		final Collection<Actor> actor;
+		Collection<Actor> actor;
 		actor = this.actorService.findAll();
 		result = new ModelAndView("message/edit");
 		result.addObject("msg", message);

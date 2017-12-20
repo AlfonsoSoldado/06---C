@@ -2,7 +2,6 @@ package services;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,29 +63,19 @@ public class FolderService {
 	}
 
 	public Folder save(Folder folder) {
-//		Actor actor = this.actorService.findByPrincipal();
-//		Assert.notNull(actor);
-//		Assert.notNull(folder);
-//		Assert.isTrue(folder.getFolders().isEmpty());
-//		Folder res, parentFolder;
-//		res = this.folderRepository.save(folder);
-//		this.actorService.createFolder(folder);
-//		parentFolder = res.getCustomFolder();
-//		if(parentFolder != null){
-//			createSonFolder(folder, res);
-//		}
-//		Assert.notNull(res);
-//		return res;
 		
 		Actor actor;
 		Folder res;
+		Collection<Folder> folders = new ArrayList<>();
 		actor = this.actorService.findByPrincipal();
-		Assert.notNull(folder);
-		Assert.notNull(actor);
+//		Assert.notNull(folder);
+//		Assert.notNull(actor);
 		res = this.folderRepository.save(folder);
 		if(folder.getId() == 0){
-			actor.getFolders().add(res);
+			//actor.getFolders().add(res);
+			folders.add(res);
 		}
+		actor.setFolders(folders);
 		//Assert.notNull(res);
 		return res;
 		
@@ -105,11 +94,6 @@ public class FolderService {
 	}
 
 	public void delete(Folder folder) {
-//		Assert.isTrue(folder.getSystemFolder() == false);
-//		Assert.isTrue(folder.getId() != 0);
-//		Assert.isTrue(this.folderRepository.exists(folder.getId()));
-//		this.folderRepository.delete(folder);
-		
 		Actor actor;
 		//Assert.isTrue(folder.getSystemFolder() == false);
 //		Assert.notNull(folder);
@@ -167,14 +151,5 @@ public class FolderService {
 		result = this.folderRepository.findFolders(a.getId());
 		Assert.notNull(result);
 		return result;
-	}
-	
-	
-	
-	private void createSonFolder(Folder folder, Folder son){
-		Collection<Folder> res;
-		res = new HashSet<>(folder.getFolders());
-		res.add(son);
-		folder.setFolders(res);
 	}
 }

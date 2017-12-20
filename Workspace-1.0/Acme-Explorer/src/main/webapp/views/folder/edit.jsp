@@ -44,13 +44,7 @@
 	</form:select>
 	<form:errors cssClass="error" path="customFolder" />
 	<br />
-	<%--
-	<form:select path="customFolder">
-        <form:options items="${folders}" itemLabel="name"/>
-	</form:select>
-	<form:errors cssClass="error" path="customFolder" />
-	<br />
-	 --%>
+
 	<input type="submit" name="save"
 		value="<spring:message code="folder.save" />" />&nbsp; 
 	<jstl:if test="${folder.id != 0}">

@@ -22,7 +22,7 @@
 <!-- Listing grid -->
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="sponsorship" requestURI="sponsorship/sponsor/list.do" id="row">
+	name="sponsorship" requestURI="${requestURI }" id="row">
 	
 	<!-- Attributes -->
 	
@@ -33,10 +33,12 @@
 		<a href= "sponsorship/sponsor/edit.do?sponsorshipId=${row.id}">
 		<spring:message code="sponsorship.edit"/></a>
 	</display:column>
+	</security:authorize>
 	
 	<spring:message code="sponsorship.banner" var="bannerHeader" />
 	<display:column property="banner" title="${bannerHeader}" sortable="true" />
 	
+	<security:authorize access="hasRole('SPONSOR')">
 	<spring:message code="sponsorship.infoPage" var="infoPageHeader" />
 	<display:column property="infoPage" title="${infoPageHeader}" sortable="true" />
 	
@@ -48,12 +50,14 @@
 	
 	<spring:message code="sponsorship.sponsor" var="sponsorHeader" />
 	<display:column property="sponsor.id" title="${sponsorHeader}" sortable="true" />
-	
 	</security:authorize>
-</display:table>
 	
+</display:table>
+
+	<security:authorize access="hasRole('SPONSOR')">
 	<div>
 		<a href="sponsorship/sponsor/create.do"> <spring:message
 				code="sponsorship.create" />
 		</a>
 	</div>
+	</security:authorize>

@@ -72,6 +72,7 @@ public class MessageController extends AbstractController {
 	public ModelAndView save(@Valid final Message message,
 			final BindingResult binding) {
 		ModelAndView result;
+		
 		if (binding.hasErrors())
 			result = this.createEditModelAndView(message,
 					"message.params.error");
@@ -82,6 +83,9 @@ public class MessageController extends AbstractController {
 				messageService.save(message);
 				result = new ModelAndView("redirect:../folder/list.do");
 			} catch (final Throwable oops) {
+				System.out.println(oops.getMessage());
+				System.out.println(oops.getCause());
+				System.out.println(oops.getLocalizedMessage());
 				result = this.createEditModelAndView(message,
 						"message.commit.error");
 			}

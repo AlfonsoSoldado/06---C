@@ -33,12 +33,10 @@
 		<a href= "sponsorship/sponsor/edit.do?sponsorshipId=${row.id}">
 		<spring:message code="sponsorship.edit"/></a>
 	</display:column>
-	</security:authorize>
 	
 	<spring:message code="sponsorship.banner" var="bannerHeader" />
 	<display:column property="banner" title="${bannerHeader}" sortable="true" />
 	
-	<security:authorize access="hasRole('SPONSOR')">
 	<spring:message code="sponsorship.infoPage" var="infoPageHeader" />
 	<display:column property="infoPage" title="${infoPageHeader}" sortable="true" />
 	

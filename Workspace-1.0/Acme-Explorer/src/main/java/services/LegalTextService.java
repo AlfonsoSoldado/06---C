@@ -67,26 +67,46 @@ public class LegalTextService {
 	}
 
 	public LegalText save(LegalText legalText) {
-		administratorService.checkAuthority();
-
+		
 		Assert.notNull(legalText);
+		Assert.notNull(this.administratorService.findByPrincipal());
+		if(legalText.getDraftMode()==false && !legalText.getTrip().isEmpty()){
+			Assert.isTrue(legalText.getDraftMode()==false && legalText.getTrip().isEmpty());
+		}
 		LegalText res;
 		
-		if(legalText.getId() != 0){
-			Assert.isTrue(legalText.getDraftMode() == true);
-			
-			Collection<Trip> trips = new ArrayList<Trip>();
-			trips = legalText.getTrip();
-			
-			for(Trip t: trips){
-				if(t.getLegalText() == legalText){
-					t.setLegalText(legalText);
-				}
+		Collection<Trip> trips = new ArrayList<Trip>();
+		trips = legalText.getTrip();
+		
+		for(Trip t: trips){
+			if(t.getLegalText() == legalText){
+				t.setLegalText(legalText);
 			}
 		}
+		
 		res = this.legalTextRepository.save(legalText);
-		Date fechaActual = new Date();
-		res.setMoment(fechaActual);
+		
+//		administratorService.checkAuthority();
+//
+//		//Assert.notNull(legalText);
+//		LegalText res;
+//		
+//		if(legalText.getId() != 0){
+//			//Assert.isTrue(legalText.getDraftMode() == true);
+//			
+//			Collection<Trip> trips = new ArrayList<Trip>();
+//			trips = legalText.getTrip();
+//			
+//			for(Trip t: trips){
+//				if(t.getLegalText() == legalText){
+//					t.setLegalText(legalText);
+//				}
+//			}
+//		}
+//		
+//		res = this.legalTextRepository.save(legalText);
+//		Date fechaActual = new Date();
+//		res.setMoment(fechaActual);
 		
 		return res;
 	}

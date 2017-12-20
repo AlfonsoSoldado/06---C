@@ -116,7 +116,6 @@ public class Message extends DomainEntity {
 
 	@Valid
 	@ManyToMany
-	@NotEmpty
 	public Collection<Folder> getFolder() {
 		return folder;
 	}

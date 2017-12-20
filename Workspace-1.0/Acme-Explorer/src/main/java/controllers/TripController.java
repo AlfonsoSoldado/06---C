@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.FinderService;
+import services.SponsorshipService;
 import services.TripService;
 import domain.Finder;
+import domain.Sponsorship;
 import domain.Trip;
 
 @Controller
@@ -28,7 +30,8 @@ public class TripController {
 	@Autowired
 	private FinderService finderService;
 	
-	
+	@Autowired
+	private SponsorshipService sponsorshipService;
 	
 	//Constructors ---------------------------------------------------------
 	
@@ -59,7 +62,12 @@ public class TripController {
 		
 		trip = this.tripService.findOne(tripId);
 		
+		Sponsorship sponsorship;
+		sponsorship = sponsorshipService.findAllSponsorship();
+		
+		
 		result = new ModelAndView("trip/display");
+		result.addObject("sponsorship", sponsorship);
 		result.addObject("displayTrip", trip);
 		result.addObject("requestURI", "trip/display.do");
 		

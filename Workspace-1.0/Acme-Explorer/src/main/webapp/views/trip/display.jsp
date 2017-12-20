@@ -81,13 +81,6 @@
 		</a>
 	</display:column>
 	
-		<spring:message code="trip.sponsorship" var="sponsorship"/>
-	<display:column title="${sponsorship}">
-		<a href= "sponsorship/list.do?tripId=${row.id}">
-			<spring:message code="trip.sponsorship"/>
-		</a>
-	</display:column>
-	
 	<spring:message code="trip.stage" var="stage"/>
 	<display:column title="${stage}">
 		<a href= "stage/list.do?tripId=${row.id}">
@@ -95,4 +88,14 @@
 		</a>
 	</display:column>
 	
+</display:table>
+
+
+<spring:message code="trip.sponsorship" var="bannerHeader" />
+<h1><jstl:out value="${bannerHeader}"></jstl:out></h1>
+<display:table name="sponsorship" class="displaytag" id="row">
+		<spring:message code="trip.sponsorship" var="bannerHeader" />
+		<display:column property="banner" title="${bannerHeader}" sortable="false" >
+			<jstl:out value="${bannerHeader}"></jstl:out>
+		</display:column>
 </display:table>

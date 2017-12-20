@@ -26,6 +26,9 @@ public class MessageService {
 	// Supporting services
 	@Autowired
 	private ActorService actorService;
+	
+	@Autowired
+	private FolderService folderService;
 
 	// Constructors
 
@@ -75,11 +78,24 @@ public class MessageService {
 	}
 
 	public Message save(Message message) {
-		//actorService.checkAuthority();
-
-		Assert.notNull(message);
 		Message res;
+		
+		Actor actor = actorService.findByPrincipal();
+		Collection<Folder> folders = actor.getFolders();
+
+		Folder f = folderService.findInBoxFolder("Out Box", actor.getId()); 
+		folders.add(f);
+		
+		message.setFolder(folders);
+		
+		Collection<Message> msgs = new ArrayList<Message>();
+		msgs.addAll(f.getMessages());
+		msgs.add(message);
+		
+		f.setMessages(msgs);
+		
 		res = this.messageRepository.save(message);
+		
 		return res;
 	}
 

@@ -152,4 +152,10 @@ public class FolderService {
 		Assert.notNull(result);
 		return result;
 	}
+	
+	public Folder findInBoxFolder(String nombre, int id){
+		Folder res = new Folder();
+		res = folderRepository.findInBoxFolder(nombre, id);
+		return res;
+	}
 }

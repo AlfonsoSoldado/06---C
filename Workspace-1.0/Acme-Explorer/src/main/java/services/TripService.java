@@ -61,7 +61,7 @@ public class TripService {
 		Collection<Value> value = new ArrayList<Value>();
 		Trip trip = new Trip();
 		Collection<String> requirements =  new ArrayList<String>();
-		Date moment = new Date(System.currentTimeMillis() - 1);
+//		Date moment = new Date(System.currentTimeMillis() - 1);
 		
 		m = this.managerService.findByPrincipal();
 		
@@ -75,7 +75,7 @@ public class TripService {
 		trip.setRanger(ranger);
 		trip.setValue(value);
 		trip.setRequirement(requirements);
-		trip.setPublication(moment);
+//		trip.setPublication(moment);
 		trip.setCancelled(false);
 		return trip;
 	}
@@ -103,6 +103,11 @@ public class TripService {
 		Configuration configuration;
 		Integer conf = configurationService.resId();
 		configuration = configurationService.findOne(conf);
+		
+		if (trip.getTripStart() != null && trip.getTripEnd() != null) {
+			Date moment = new Date(System.currentTimeMillis() - 1);
+			trip.setPublication(moment);
+		}
 				
 		precio = this.getTotalPrice(trip);
 		tax = precio * configuration.getTax();

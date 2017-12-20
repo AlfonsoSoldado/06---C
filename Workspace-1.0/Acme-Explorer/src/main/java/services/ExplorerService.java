@@ -50,7 +50,7 @@ public class ExplorerService {
 		Collection<SocialId> socialId = new ArrayList<SocialId>();
 		Collection<Folder> folder = new ArrayList<Folder>();
 		Collection<Story> story = new ArrayList<Story>();
-		Application application = new Application();
+		Collection<Application> application = new ArrayList<Application>();
 		Finder finder = new Finder();
 		Collection<Emergency> emergency = new ArrayList<Emergency>();
 		folder = this.folderService.systemFolders();

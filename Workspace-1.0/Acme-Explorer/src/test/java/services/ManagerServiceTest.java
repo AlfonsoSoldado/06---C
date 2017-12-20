@@ -71,18 +71,20 @@ public class ManagerServiceTest extends AbstractTest {
 		manager = this.managerService.create();
 
 		Collection<Survival> survival = new ArrayList<Survival>();
+		Collection<Application> application = new ArrayList<Application>();
 		Collection<Trip> trip = new ArrayList<Trip>();
-		Application application;
+		Application application1;
 		Survival survival1;
 		Trip trip1;
 
 		trip1 = this.tripService.findOne(super.getEntityId("trip1"));
-		application = this.applicationService.findOne(super
+		application1 = this.applicationService.findOne(super
 				.getEntityId("application1"));
 		survival1 = this.survivalService
 				.findOne(super.getEntityId("survival1"));
 		survival.add(survival1);
 		trip.add(trip1);
+		application.add(application1);
 		Boolean suspicious = false;
 
 		manager.setName("Manuel");

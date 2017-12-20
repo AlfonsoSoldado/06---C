@@ -6,7 +6,6 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -37,7 +36,7 @@ public class Manager extends Actor {
 
 	private Collection<Survival> survival;
 	private Collection<Trip> trip;
-	private Application application;
+	private Collection<Application> application;
 
 	@Valid
 	@OneToMany(mappedBy = "manager")
@@ -61,12 +60,12 @@ public class Manager extends Actor {
 	}
 
 	@Valid
-	@OneToOne(mappedBy = "manager", optional=true)
-	public Application getApplication() {
+	@OneToMany(mappedBy = "manager")
+	public Collection<Application> getApplication() {
 		return this.application;
 	}
 
-	public void setApplication(Application application) {
+	public void setApplication(Collection<Application> application) {
 		this.application = application;
 	}
 }

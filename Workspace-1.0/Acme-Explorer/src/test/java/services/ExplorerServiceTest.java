@@ -83,7 +83,8 @@ public class ExplorerServiceTest extends AbstractTest {
 		Emergency emergency1;
 		Story story1;
 		Survival survival1;
-		Application application;
+		Collection<Application> application = new ArrayList<Application>();
+		Application application1;
 
 		finder1 = this.finderService.findOne(super.getEntityId("finder1"));
 		emergency1 = this.emergencyService.findOne(super
@@ -91,12 +92,13 @@ public class ExplorerServiceTest extends AbstractTest {
 		story1 = this.storyService.findOne(super.getEntityId("story1"));
 		survival1 = this.survivalService
 				.findOne(super.getEntityId("survival1"));
-		application = this.applicationService.findOne(super
+		application1 = this.applicationService.findOne(super
 				.getEntityId("application1"));
 
 		emergency.add(emergency1);
 		story.add(story1);
 		survival.add(survival1);
+		application.add(application1);
 
 		explorer.setFinder(finder1);
 		explorer.setEmergency(emergency);

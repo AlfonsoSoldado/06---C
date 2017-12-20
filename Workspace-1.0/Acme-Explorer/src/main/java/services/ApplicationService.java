@@ -43,7 +43,7 @@ public class ApplicationService {
 		Application res = new Application();
 		
 		String status;
-		status = "ACCEPTED";
+		status = "PENDING";
 		String comment = new String();
 		
 		Explorer explorer = new Explorer();
@@ -79,7 +79,9 @@ public class ApplicationService {
 		res = this.applicationRepository.save(application);
 		Explorer explorer = new Explorer();
 		explorer = res.getExplorer();
-		explorer.setApplication(res);
+		Collection<Application> applications = new ArrayList<Application>();
+		applications = explorer.getApplication();
+		applications.add(res);
 		return res;
 	}
 

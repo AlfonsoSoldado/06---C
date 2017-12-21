@@ -27,13 +27,13 @@ public class MessageController extends AbstractController {
 	// Services -------------------------------------------------------
 
 	@Autowired
-	MessageService messageService;
+	private MessageService messageService;
 
 	@Autowired
-	ActorService actorService;
+	private ActorService actorService;
 
 	@Autowired
-	FolderService folderService;
+	private FolderService folderService;
 
 	// Constructors ---------------------------------------------------------
 

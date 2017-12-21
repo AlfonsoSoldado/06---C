@@ -52,6 +52,10 @@ public class RegisterExplorerController extends AbstractController {
 				this.explorerService.save(explorer);
 				res = new ModelAndView("redirect:../");
 			} catch (final Throwable oops) {
+				System.out.println(oops.getCause());
+				System.out.println(oops.getLocalizedMessage());
+				System.out.println(oops.getMessage());
+				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(explorer,
 						"actor.commit.error");
 			}

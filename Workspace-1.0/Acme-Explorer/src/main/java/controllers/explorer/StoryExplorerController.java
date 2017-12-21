@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ExplorerService;
 import services.StoryService;
-import services.TripService;
 import controllers.AbstractController;
 import domain.Explorer;
 import domain.Story;
@@ -29,9 +28,6 @@ public class StoryExplorerController extends AbstractController {
 
 	@Autowired
 	private StoryService storyService;
-	
-	@Autowired
-	private TripService tripService;
 	
 	@Autowired
 	private ExplorerService explorerService;
@@ -138,12 +134,11 @@ public class StoryExplorerController extends AbstractController {
 			final String message) {
 		ModelAndView result;
 		Collection<Trip> trip;
-		trip = this.tripService.findAll();
+		trip = this.storyService.findTripsForStory();
 		result = new ModelAndView("story/explorer/edit");
 		result.addObject("trip", trip);
 		result.addObject("story", story);
 		result.addObject("message", message);
-
 		return result;
 	}
 

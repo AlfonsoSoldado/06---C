@@ -53,4 +53,10 @@
 	</div>
 	
 </display:table>
+
+<a href="story/explorer/create.do">
+	<button>
+		<spring:message code="story.create" />
+	</button>
+</a>
 </security:authorize>

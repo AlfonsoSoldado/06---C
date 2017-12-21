@@ -21,7 +21,6 @@
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	
-	<form:hidden path="systemFolder"/>
 	<form:hidden path="messages"/>
 	
 	<form:label path="name">

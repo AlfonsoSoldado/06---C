@@ -69,7 +69,7 @@ public class ValueServiceTest extends AbstractTest {
 		value.setTrip(trip);
 
 		Tag tag;
-		tag = this.tagService.findOne(super.getEntityId("tag1"));
+		tag = this.tagService.findOne(super.getEntityId("country"));
 		Collection<Tag> tags;
 		tags = new ArrayList<Tag>();
 		tags.add(tag);

@@ -51,14 +51,14 @@ public class TagServiceTest extends AbstractTest {
 	@Test
 	public void testFindOneTag() {
 		Tag tag;
-		tag = this.tagService.findOne(super.getEntityId("tag1"));
+		tag = this.tagService.findOne(super.getEntityId("country"));
 		Assert.notNull(tag);
 	}
 
 	@Test
 	public void testSaveTag() {
 		Tag tag;
-		tag = this.tagService.findOne(super.getEntityId("tag1"));
+		tag = this.tagService.findOne(super.getEntityId("country"));
 		Value value;
 		value = this.valueService.findOne(super.getEntityId("value1"));
 
@@ -75,8 +75,8 @@ public class TagServiceTest extends AbstractTest {
 		Tag tag2;
 		String newName;
 
-		tag1 = this.tagService.findOne(super.getEntityId("tag1"));
-		tag2 = this.tagService.findOne(super.getEntityId("tag1"));
+		tag1 = this.tagService.findOne(super.getEntityId("country"));
+		tag2 = this.tagService.findOne(super.getEntityId("country"));
 		newName = tag2.getName();
 
 		this.tagService.update(tag1, newName);
@@ -87,7 +87,7 @@ public class TagServiceTest extends AbstractTest {
 	public void testDeleteTag() {
 		authenticate("admin");
 		Tag tag;
-		tag = this.tagService.findOne(super.getEntityId("tag2"));
+		tag = this.tagService.findOne(super.getEntityId("country"));
 
 		this.tagService.delete(tag);
 		unauthenticate();

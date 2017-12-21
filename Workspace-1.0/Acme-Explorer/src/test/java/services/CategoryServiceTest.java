@@ -51,7 +51,7 @@ public class CategoryServiceTest extends AbstractTest {
 	@Test
 	public void testFindOneCategory() {
 		Category category;
-		category = this.categoryService.findOne(super.getEntityId("category1"));
+		category = this.categoryService.findOne(super.getEntityId("water"));
 		Assert.notNull(category);
 	}
 
@@ -64,7 +64,7 @@ public class CategoryServiceTest extends AbstractTest {
 		category.setName("SampleCategory");
 
 		Category parent;
-		parent = this.categoryService.findOne(super.getEntityId("CATEGORY"));
+		parent = this.categoryService.findOne(super.getEntityId("water"));
 		category.setCategoryParent(parent);
 
 		Category cat;
@@ -90,7 +90,7 @@ public class CategoryServiceTest extends AbstractTest {
 	public void testDeleteCategory() {
 		authenticate("admin");
 		Category category;
-		category = this.categoryService.findOne(super.getEntityId("category1"));
+		category = this.categoryService.findOne(super.getEntityId("water"));
 		this.categoryService.delete(category);
 		unauthenticate();
 	}

@@ -23,7 +23,7 @@ public class MiscellaneousRecordServiceTest extends AbstractTest {
 
 	@Autowired
 	private MiscellaneousRecordService miscellaneousRecordService;
-
+	
 	// Supporting services -----------------------
 
 	// Test --------------------------------------

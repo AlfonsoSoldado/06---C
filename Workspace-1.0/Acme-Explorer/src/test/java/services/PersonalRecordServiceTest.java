@@ -24,7 +24,7 @@ public class PersonalRecordServiceTest extends AbstractTest {
 
 	@Autowired
 	private PersonalRecordService personalRecordService;
-
+	
 	// Supporting services -----------------
 
 	// Test --------------------------------
@@ -58,16 +58,13 @@ public class PersonalRecordServiceTest extends AbstractTest {
 		personal = this.personalRecordService.create();
 
 		personal.setName("Juan");
-
 		personal.setPhoto("http://www.google.es");
-
 		personal.setEmail("juan@hotmail.com");
-
 		personal.setPhoneNumber("654789054");
-
 		personal.setLikedln("http://www.likedlin.com");
-
+		
 		this.personalRecordService.save(personal);
+		
 	}
 
 	@Test

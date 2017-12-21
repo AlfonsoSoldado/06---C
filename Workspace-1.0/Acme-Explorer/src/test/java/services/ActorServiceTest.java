@@ -17,7 +17,6 @@ import domain.Actor;
 import domain.Audit;
 import domain.Category;
 import domain.Curriculum;
-import domain.Folder;
 import domain.Message;
 import domain.Trip;
 
@@ -38,9 +37,6 @@ public class ActorServiceTest extends AbstractTest {
 
 	@Autowired
 	private MessageService messageService;
-
-	@Autowired
-	private FolderService folderService;
 
 	@Autowired
 	private CategoryService categoryService;
@@ -118,7 +114,7 @@ public class ActorServiceTest extends AbstractTest {
 	@Test
 	public void testSearchTripsByCategory() {
 		Category category = new Category();
-		category = this.categoryService.findOne(super.getEntityId("category1"));
+		category = this.categoryService.findOne(super.getEntityId("water"));
 		Assert.notNull(category);
 
 		Collection<Trip> res;

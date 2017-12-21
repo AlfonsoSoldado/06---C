@@ -133,7 +133,7 @@ public class TripServiceTest extends AbstractTest {
 		manager = this.managerService.findOne(super.getEntityId("manager1"));
 		stage1 = this.stageService.findOne(super.getEntityId("stage1"));
 		stage.add(stage1);
-		category = this.categoryServices.findOne(super.getEntityId("CATEGORY"));
+		category = this.categoryServices.findOne(super.getEntityId("water"));
 		legalText = this.legalTextService.findOne(super
 				.getEntityId("legalText1"));
 		application1 = this.applicationService.findOne(super
@@ -168,7 +168,7 @@ public class TripServiceTest extends AbstractTest {
 	public void testDeteleTrip() {
 		authenticate("manager01");
 		Trip trip;
-		trip = this.tripService.findOne(super.getEntityId("trip1"));
+		trip = this.tripService.findOne(super.getEntityId("trip2"));
 		Assert.notNull(trip);
 		this.tripService.delete(trip);
 		unauthenticate();
@@ -202,7 +202,7 @@ public class TripServiceTest extends AbstractTest {
 		Trip trip;
 		trip = new Trip();
 		Integer intTrip;
-		intTrip = super.getEntityId("trip1");
+		intTrip = super.getEntityId("trip2");
 		trip = this.tripService.editByManager(intTrip);
 		Assert.notNull(trip);
 		unauthenticate();
@@ -238,8 +238,7 @@ public class TripServiceTest extends AbstractTest {
 	public void testFindTripsByCategory() {
 		Collection<Trip> trips;
 		trips = new ArrayList<Trip>();
-		Category c = categoryServices.findOne(super.getEntityId("category1"));
-		Assert.notNull(c);
+		Category c = categoryServices.findOne(super.getEntityId("water"));
 
 		trips.addAll(tripService.findTripsByCategory(c.getId()));
 	}

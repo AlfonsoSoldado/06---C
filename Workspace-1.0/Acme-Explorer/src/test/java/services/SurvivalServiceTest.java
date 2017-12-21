@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
-import domain.Explorer;
 import domain.Survival;
 import domain.Trip;
 
@@ -31,9 +30,6 @@ public class SurvivalServiceTest extends AbstractTest {
 
 	@Autowired
 	private TripService tripService;
-
-	@Autowired
-	private ExplorerService explorerService;
 
 	// Test --------------------------------------
 

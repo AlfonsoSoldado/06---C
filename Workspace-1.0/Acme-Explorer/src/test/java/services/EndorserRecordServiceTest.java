@@ -64,7 +64,6 @@ public class EndorserRecordServiceTest extends AbstractTest {
 	@Test
 	public void testDeleteEndorserRecord() {
 		EndorserRecord endorserRecord;
-		;
 		endorserRecord = this.endorserRecordService.findOne(super
 				.getEntityId("endorserRecord1"));
 		this.endorserRecordService.delete(endorserRecord);

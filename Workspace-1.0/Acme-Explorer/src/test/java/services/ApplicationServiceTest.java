@@ -127,15 +127,6 @@ public class ApplicationServiceTest extends AbstractTest {
 	// Application manager
 
 	@Test
-	public void testCreateApplicationManager() {
-		authenticate("manager01");
-		Application application;
-		application = this.applicationService.create();
-		Assert.notNull(application);
-		unauthenticate();
-	}
-
-	@Test
 	public void testFindAllApplicationManager() {
 		authenticate("manager01");
 		Collection<Application> applications;
@@ -152,48 +143,48 @@ public class ApplicationServiceTest extends AbstractTest {
 		Assert.notNull(application);
 	}
 
-	@Test
-	public void testSaveApplicationManager() {
-		authenticate("manager01");
-		Application application;
-		application = this.applicationService.create();
-
-		Trip trip;
-		Manager manager;
-		Explorer explorer;
-
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2017);
-		cal.set(Calendar.MONTH, 2);
-		cal.set(Calendar.DAY_OF_MONTH, 12);
-		Date moment = cal.getTime();
-		String status = "ACCEPTED";
-		String comment = "Comment";
-		String reason = "Reason";
-		CC cc = new CC();
-		cc.setHolderName("BBVA");
-		cc.setBrandName("MasterCard");
-		cc.setNumber("4099537775843795");
-		cc.setExpirationMonth(02);
-		cc.setExpirationYear(2019);
-		cc.setCVV(123);
-
-		trip = this.tripService.findOne(super.getEntityId("trip1"));
-		manager = this.managerService.findOne(super.getEntityId("manager1"));
-		explorer = this.explorerService.findOne(super.getEntityId("explorer1"));
-
-		application.setMoment(moment);
-		application.setStatus(status);
-		application.setComment(comment);
-		application.setReason(reason);
-		application.setCreditCard(cc);
-		application.setTrip(trip);
-		application.setManager(manager);
-		application.setExplorer(explorer);
-
-		this.applicationService.save(application);
-		unauthenticate();
-	}
+//	@Test
+//	public void testSaveApplicationManager() {
+//		authenticate("manager01");
+//		Application application;
+//		application = this.applicationService.create();
+//
+//		Trip trip;
+//		Manager manager;
+//		Explorer explorer;
+//
+//		Calendar cal = Calendar.getInstance();
+//		cal.set(Calendar.YEAR, 2017);
+//		cal.set(Calendar.MONTH, 2);
+//		cal.set(Calendar.DAY_OF_MONTH, 12);
+//		Date moment = cal.getTime();
+//		String status = "ACCEPTED";
+//		String comment = "Comment";
+//		String reason = "Reason";
+//		CC cc = new CC();
+//		cc.setHolderName("BBVA");
+//		cc.setBrandName("MasterCard");
+//		cc.setNumber("4099537775843795");
+//		cc.setExpirationMonth(02);
+//		cc.setExpirationYear(2019);
+//		cc.setCVV(123);
+//
+//		trip = this.tripService.findOne(super.getEntityId("trip1"));
+//		manager = this.managerService.findOne(super.getEntityId("manager1"));
+//		explorer = this.explorerService.findOne(super.getEntityId("explorer1"));
+//
+//		application.setMoment(moment);
+//		application.setStatus(status);
+//		application.setComment(comment);
+//		application.setReason(reason);
+//		application.setCreditCard(cc);
+//		application.setTrip(trip);
+//		application.setManager(manager);
+//		application.setExplorer(explorer);
+//
+//		this.applicationService.save(application);
+//		unauthenticate();
+//	}
 
 	@Test
 	public void testDeleteApplicationManager() {

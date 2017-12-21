@@ -56,7 +56,7 @@ public class PersonalRecordService {
 	}
 
 	public PersonalRecord save(PersonalRecord personalRecord) {
-		Assert.notNull(personalRecord);
+//		Assert.notNull(personalRecord);
 		PersonalRecord res;
 		
 		Ranger r = rangerService.findByPrincipal();

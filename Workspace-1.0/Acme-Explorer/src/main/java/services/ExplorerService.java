@@ -15,6 +15,7 @@ import security.Authority;
 import security.LoginService;
 import security.UserAccount;
 import domain.Application;
+import domain.Configuration;
 import domain.Emergency;
 import domain.Explorer;
 import domain.Finder;
@@ -22,6 +23,7 @@ import domain.Folder;
 import domain.Message;
 import domain.SocialId;
 import domain.Story;
+import domain.Survival;
 
 @Service
 @Transactional
@@ -165,6 +167,78 @@ public class ExplorerService {
 		Assert.isTrue(authority.contains(res));
 	}
 
+	public void suspiciousExplorer(Explorer explorer, Configuration configuration){
+		Collection<String> spamWords = configuration.getSpamWords();
+		
+		Collection<Application> applications = explorer.getApplication();
+		Collection<Emergency> emergencies = explorer.getEmergency();
+		Collection<Folder> folders = explorer.getFolders();
+		Collection<Message> messages = explorer.getSent();
+		Collection<SocialId> socialIds = explorer.getSocialId();
+		Collection<Story> stories = explorer.getStories();
+		Collection<Survival> survivals = explorer.getSurvival();
+		
+		Explorer newExplorer;
+		
+		for(String s: spamWords){
+			if(explorer.getAddress().contains(s) || explorer.getEmail().contains(s) || explorer.getName().contains(s) || explorer.getPhoneNumber().contains(s) || explorer.getSurname().contains(s) || explorer.getUserAccount().getUsername().contains(s)){
+				newExplorer = explorer;
+				newExplorer.setSuspicious(true);
+				this.save(newExplorer);
+			}
+			for(Application a: applications){
+				if(a.getComment().contains(s) || a.getReason().contains(s)){
+					newExplorer = explorer;
+					newExplorer.setSuspicious(true);
+					this.save(newExplorer);
+				}
+			}
+			for(Emergency e: emergencies){
+				if(e.getEmail().contains(s) || e.getName().contains(s) || e.getPhoneNumber().contains(s)){
+					newExplorer = explorer;
+					newExplorer.setSuspicious(true);
+					this.save(newExplorer);
+				}
+			}
+			for(Folder f: folders){
+				if(f.getName().contains(s)){
+					newExplorer = explorer;
+					newExplorer.setSuspicious(true);
+					this.save(newExplorer);
+				}
+			}
+			for(Message m: messages){
+				if(m.getBody().contains(s) || m.getSubject().contains(s)){
+					newExplorer = explorer;
+					newExplorer.setSuspicious(true);
+					this.save(newExplorer);
+				}
+			}
+			for(SocialId sId: socialIds){
+				if(sId.getNameSocialNetwork().contains(s) || sId.getNick().contains(s) || sId.getPhoto().contains(s) || sId.getSocialNetwork().contains(s)){
+					newExplorer = explorer;
+					newExplorer.setSuspicious(true);
+					this.save(newExplorer);
+				}
+			}
+			for(Story st: stories){
+				if(st.getPieceText().contains(s) || st.getTitle().contains(s)){
+					newExplorer = explorer;
+					newExplorer.setSuspicious(true);
+					this.save(newExplorer);
+				}
+			}
+			for(Survival su: survivals){
+				if(su.getDescription().contains(s) || su.getTitle().contains(s)){
+					newExplorer = explorer;
+					newExplorer.setSuspicious(true);
+					this.save(newExplorer);
+				}
+			}
+
+		}
+	}
+	
 	// public Collection<Explorer> findExplorerByEmergency(Emergency emergency){
 	// Collection<Explorer> explorers;
 	//

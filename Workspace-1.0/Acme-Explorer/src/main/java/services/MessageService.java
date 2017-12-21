@@ -137,13 +137,12 @@ public class MessageService {
 		
 		Folder f = folderService.findFolderName(folder.getName(), sender.getId());
 		
-		message.setFolder(f);
+		Message newMessage;
+
+		newMessage = message;
+		newMessage.setFolder(f);
+		this.messageRepository.save(newMessage);
 		
-		Collection<Message> messages = new ArrayList<Message>();
-		messages.addAll(folder.getMessages());
-		messages.add(message);
-		
-		folder.setMessages(messages);
 	}
 
 	// Other business methods

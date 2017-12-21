@@ -54,6 +54,20 @@ public class FolderController extends AbstractController {
 			return result;
 		}
 		
+		//list de las subfolders
+		@RequestMapping(value = "/list", method = RequestMethod.GET, params = "folderId")
+		public ModelAndView list(@RequestParam final int folderId) {
+			ModelAndView result;
+			Folder folder;
+			Collection<Folder> folders;
+			result = new ModelAndView("folder/list");
+			folder = this.folderService.findOne(folderId);
+			folders = folder.getFolders();
+			result.addObject("folders", folders);
+			result.addObject("customFolder", folder);
+			return result;
+		}
+		
 		@RequestMapping(value = "/edit", method = RequestMethod.GET)
 		public ModelAndView edit(@RequestParam final int folderId) {
 			ModelAndView result;

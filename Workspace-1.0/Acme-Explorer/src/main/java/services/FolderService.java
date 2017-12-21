@@ -44,6 +44,7 @@ public class FolderService {
 		Collection<Folder> folders = new ArrayList<Folder>();
 		folder.setMessages(message);
 		folder.setFolders(folders);
+		folder.setSystemFolder(false);
 		return folder;
 	}
 
@@ -70,6 +71,9 @@ public class FolderService {
 //		actor = this.actorService.findByPrincipal();
 //		Assert.notNull(folder);
 //		Assert.notNull(actor);
+		if(folder.getId()==0){
+			folder.setSystemFolder(false);
+		}
 		res = this.folderRepository.save(folder);
 //		if(folder.getId() == 0){
 //			//actor.getFolders().add(res);

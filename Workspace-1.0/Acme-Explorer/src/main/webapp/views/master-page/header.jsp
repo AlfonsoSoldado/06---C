@@ -28,6 +28,7 @@
 					<li><a href="folder/list.do"><spring:message code="master.page.actorFolder" /></a></li>
 					<li><a href="socialId/list.do"><spring:message code="master.page.actorSocialId" /></a></li>
 					<li><a href="administrator/configuration.do"><spring:message code="master.page.configuration" /></a></li>
+					<li><a href="message/administrator/create.do"><spring:message code="master.page.notification" /></a></li>
 				</ul>
 			</li>
 			<li><a class="fNiv" href=""><spring:message code="master.page.register" /></a>

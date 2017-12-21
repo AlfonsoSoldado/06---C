@@ -36,4 +36,9 @@
 		<put-attribute name="body" value="/views/message/move.jsp" />
 	</definition>
 	
+	<definition name="message/editAdministrator" extends="master.page">	
+		<put-attribute name="title" value="Enviar notificaciones" />
+		<put-attribute name="body" value="/views/message/editAdministrator.jsp" />
+	</definition>
+	
 </tiles-definitions>

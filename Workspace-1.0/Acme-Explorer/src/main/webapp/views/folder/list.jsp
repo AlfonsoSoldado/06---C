@@ -63,3 +63,12 @@
 		<spring:message code="folder.create.message" />
 	</button>
 </a>
+
+
+<security:authorize access="hasRole('ADMIN')">
+	<a href="message/administrator/create.do">
+	<button>
+		<spring:message code="folder.create.notification" />
+	</button>
+</a>
+	</security:authorize>

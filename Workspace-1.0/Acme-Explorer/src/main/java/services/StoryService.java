@@ -109,4 +109,10 @@ public class StoryService {
 		Assert.notNull(res);
 		return res;
 	}
+	
+	public Collection<Trip> findTripsForStory() {
+		Collection<Trip> res = new ArrayList<Trip>();
+		res.addAll(storyRepository.findTripsForStory());
+		return res;
+	}
 }

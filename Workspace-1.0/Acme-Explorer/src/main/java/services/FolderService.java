@@ -119,34 +119,41 @@ public class FolderService {
 	public Collection<Folder> systemFolders() {
 		Collection<Folder> folders = new ArrayList<Folder>();
 		
-		Folder customBox = new Folder();
+//		Folder customBox = new Folder();
 		Folder inBox = new Folder();
 		Folder outBox = new Folder();
 		Folder notification = new Folder();
 		Folder trash = new Folder();
 		Folder spam = new Folder();
 		
-		customBox.setName("customBox");
+//		customBox.setName("customBox");
 		inBox.setName("In Box");
 		outBox.setName("Out Box");
 		notification.setName("Notification");
 		trash.setName("Trash");
 		spam.setName("Spam");
 		
-		customBox.setSystemFolder(false);
+//		customBox.setSystemFolder(false);
 		inBox.setSystemFolder(true);
 		outBox.setSystemFolder(true);
 		notification.setSystemFolder(true);
 		trash.setSystemFolder(true);
 		spam.setSystemFolder(true);
 		
-		inBox.setCustomFolder(customBox);
-		outBox.setCustomFolder(customBox);
-		notification.setCustomFolder(customBox);
-		trash.setCustomFolder(customBox);
-		spam.setCustomFolder(customBox);
+//		inBox.setCustomFolder(customBox);
+//		outBox.setCustomFolder(customBox);
+//		notification.setCustomFolder(customBox);
+//		trash.setCustomFolder(customBox);
+//		spam.setCustomFolder(customBox);
 		
-		folders.add(customBox);
+		inBox = folderRepository.save(inBox);
+		outBox = folderRepository.save(outBox);
+		notification = folderRepository.save(notification);
+		trash = folderRepository.save(trash);
+		spam = folderRepository.save(spam);
+//		customBox = folderRepository.save(customBox);
+		
+//		folders.add(customBox);
 		folders.add(inBox);
 		folders.add(outBox);
 		folders.add(notification);

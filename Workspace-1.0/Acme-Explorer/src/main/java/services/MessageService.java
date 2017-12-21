@@ -83,7 +83,6 @@ public class MessageService {
 
 		Folder f = folderService.findFolderName("Out Box", sender.getId());
 
-		message.setFolder(f);
 
 		Collection<Message> msgs = new ArrayList<Message>();
 		msgs.addAll(f.getMessages());
@@ -94,12 +93,24 @@ public class MessageService {
 		res = this.messageRepository.save(message);
 		
 		Collection<Actor> recipient = res.getRecipient();
-		Collection<Message> messages = new ArrayList<Message>();
-
+		
+		res.setFolder(f);
+		
 		for (Actor a : recipient) {
+			Message res2;
+			res2 = this.messageRepository.save(message);
+			
+			Collection<Message> messages = new ArrayList<Message>();
+			System.out.println(recipient);
+			
 			Folder inbox = folderService.findFolderName("In Box", a.getId());
-			messages.add(message);
+			res2.setFolder(inbox);
+			System.out.println(inbox);
+			messages.addAll(inbox.getMessages());
+			messages.add(res);
+			System.out.println(messages);
 			inbox.setMessages(messages);
+			System.out.println(inbox.getMessages());
 		}
 
 		return res;

@@ -98,4 +98,7 @@
 		<display:column property="banner" title="${bannerHeader}" sortable="false" >
 			<jstl:out value="${bannerHeader}"></jstl:out>
 		</display:column>
+		<jstl:set var="bannerImage" value="${row.banner}"/>
 </display:table>
+
+<img src="${bannerImage }"/>

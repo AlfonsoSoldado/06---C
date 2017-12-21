@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ActorService;
+import services.ConfigurationService;
+import services.ExplorerService;
 import controllers.AbstractController;
 import domain.Actor;
+import domain.Configuration;
+import domain.Explorer;
 
 @Controller
 @RequestMapping("/administrator")
@@ -21,6 +25,12 @@ public class SuspiciousAdministratorController extends AbstractController {
 
 	@Autowired
 	private ActorService actorService;
+	
+	@Autowired
+	private ExplorerService explorerService;
+	
+	@Autowired
+	private ConfigurationService configurationService;
 	
 	// Constructors ---------------------------------------------------------
 
@@ -36,6 +46,16 @@ public class SuspiciousAdministratorController extends AbstractController {
 		Collection<Actor> actoresSospechosos;
 
 		actoresSospechosos = actorService.actorsSuspicious();
+		
+		Configuration configuration;
+		Integer configurationId = configurationService.resId();
+		configuration = configurationService.findOne(configurationId);
+		
+		Collection<Explorer> explorers = explorerService.findAll();
+		
+		for(Explorer explorer: explorers){
+			explorerService.suspiciousExplorer(explorer, configuration);
+		}
 
 		result = new ModelAndView("administrator/suspicious");
 		result.addObject("suspicious", actoresSospechosos);

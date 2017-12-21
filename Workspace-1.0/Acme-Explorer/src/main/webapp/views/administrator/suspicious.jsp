@@ -35,7 +35,7 @@
 	<display:column property="name" title="${nameHeader}" sortable="true" />
 	
 	<spring:message code="actor.banned" var="bannedHeader" />
-	<display:column property="userAccount.activated" title="${bannedHeader}" sortable="true" />
+	<display:column property="userAccount.banned" title="${bannedHeader}" sortable="true" />
 
 </display:table>
 

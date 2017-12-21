@@ -39,7 +39,7 @@ public class UserAccount extends DomainEntity implements UserDetails {
 
 	public UserAccount() {
 		super();
-		this.activated = true;
+		this.banned = true;
 		this.authorities = new ArrayList<Authority>();
 	}
 
@@ -51,7 +51,7 @@ public class UserAccount extends DomainEntity implements UserDetails {
 	private String					username;
 	private String					password;
 	private Collection<Authority>	authorities;
-	private boolean					activated;
+	private boolean					banned;
 
 
 	@Size(min = 5, max = 32)
@@ -127,17 +127,17 @@ public class UserAccount extends DomainEntity implements UserDetails {
 
 		result = true;
 
-		if (this.activated == false)
+		if (this.banned == false)
 			result = false;
 
 		return result;
 	}
 	
-	public boolean isActivated() {
-		return this.activated;
+	public boolean getBanned() {
+		return this.banned;
 	}
 
-	public void setActivated(boolean activated) {
-		this.activated = activated;
+	public void setBanned(boolean banned) {
+		this.banned = banned;
 	}
 }

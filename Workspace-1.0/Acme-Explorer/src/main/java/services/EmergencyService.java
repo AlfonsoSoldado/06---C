@@ -10,6 +10,7 @@ import org.springframework.util.Assert;
 
 import repositories.EmergencyRepository;
 import domain.Emergency;
+import domain.Explorer;
 
 @Service
 @Transactional
@@ -21,6 +22,9 @@ public class EmergencyService {
 	private EmergencyRepository emergencyRepository;
 
 	// Supporting services
+	
+	@Autowired
+	private ExplorerService explorerService;
 
 	// Constructors
 
@@ -54,7 +58,17 @@ public class EmergencyService {
 	public Emergency save(Emergency emergency) {
 		Assert.notNull(emergency);
 		Emergency res;
+		
+		Explorer explorer;
+		
+		explorer = explorerService.findByPrincipal();
+		
 		res = this.emergencyRepository.save(emergency);
+		
+		Collection<Emergency> emergencies = new ArrayList<Emergency>();
+		emergencies.addAll(explorer.getEmergency());
+		emergencies.add(res);
+		explorer.setEmergency(emergencies);
 		return res;
 	}
 

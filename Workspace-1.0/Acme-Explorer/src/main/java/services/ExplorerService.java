@@ -170,13 +170,14 @@ public class ExplorerService {
 	public void suspiciousExplorer(Explorer explorer, Configuration configuration){
 		Collection<String> spamWords = configuration.getSpamWords();
 		
-		Collection<Application> applications = explorer.getApplication();
+
 		Collection<Emergency> emergencies = explorer.getEmergency();
 		Collection<Folder> folders = explorer.getFolders();
-		Collection<Message> messages = explorer.getSent();
 		Collection<SocialId> socialIds = explorer.getSocialId();
 		Collection<Story> stories = explorer.getStories();
 		Collection<Survival> survivals = explorer.getSurvival();
+		Collection<Application> applications = explorer.getApplication();
+		Collection<Message> messages = explorer.getSent();
 		
 		Explorer newExplorer;
 		

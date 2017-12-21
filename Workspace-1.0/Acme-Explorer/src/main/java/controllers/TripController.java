@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.ConfigurationService;
 import services.FinderService;
 import services.SponsorshipService;
 import services.TripService;
+import domain.Configuration;
 import domain.Finder;
 import domain.Sponsorship;
 import domain.Trip;
@@ -33,6 +35,9 @@ public class TripController {
 	@Autowired
 	private SponsorshipService sponsorshipService;
 	
+	@Autowired
+	private ConfigurationService configurationService;
+	
 	//Constructors ---------------------------------------------------------
 	
 	public TripController(){
@@ -49,6 +54,7 @@ public class TripController {
 		trips = tripService.findAll();
 		
 		result = new ModelAndView("trip/list");
+		result.addObject("numPage", 5);
 		result.addObject("trips", trips);
 		result.addObject("requestURI", "trip/list.do");
 		
@@ -82,6 +88,7 @@ public class TripController {
 		trips = tripService.findTripsByCategory(categoryId);
 		
 		result = new ModelAndView("trip/list");
+		result.addObject("numPage", 5);
 		result.addObject("trips", trips);
 		result.addObject("requestURI", "trip/category/list.do");
 		
@@ -97,6 +104,17 @@ public class TripController {
 		singleKey = finder.getSingleKey();
 		trips = finderService.findSearchSingleKey(singleKey);
 		result = new ModelAndView("trip/list");
+		
+		Configuration configuration;
+		
+		Integer confId = configurationService.resId();
+		
+		configuration = configurationService.findOne(confId);
+		
+		Integer np = configuration.getNumberPage();
+		
+		result.addObject("numPage", np);
+		
 		result.addObject("trips", trips);
 		result.addObject("requestURI", "trip/finder/list.do");
 		return result;
@@ -115,6 +133,17 @@ public class TripController {
 		Double maxPrice = finder.getMaxPrice();
 		trips = finderService.findSearchCriterial(singleKey, start, end, minPrice, maxPrice);
 		result = new ModelAndView("trip/list");
+		
+		Configuration configuration;
+		
+		Integer confId = configurationService.resId();
+		
+		configuration = configurationService.findOne(confId);
+		
+		Integer np = configuration.getNumberPage();
+		
+		result.addObject("numPage", np);
+		
 		result.addObject("trips", trips);
 		result.addObject("requestURI", "trip/finder/explorer/list.do");
 		return result;

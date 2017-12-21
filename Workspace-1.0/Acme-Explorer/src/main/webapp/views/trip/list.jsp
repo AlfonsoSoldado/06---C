@@ -21,7 +21,7 @@
 
 <!-- Listing grid -->
 
-<display:table pagesize="5" class="displaytag" keepStatus="true"
+<display:table pagesize="${numPage}" class="displaytag" keepStatus="true"
 	name="trips" requestURI="${requestUri}" id="row">
 	
 	<!-- Attributes -->

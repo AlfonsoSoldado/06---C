@@ -35,8 +35,10 @@ public class ConfigurationAdministratorController extends AbstractController {
 	public ModelAndView edit() {
 		ModelAndView result;
 		Configuration configuration;
-
-		configuration = configurationService.findOne(2218);
+		
+		Integer confId = configurationService.resId();
+		
+		configuration = configurationService.findOne(confId);
 		Assert.notNull(configuration);
 		result = this.createEditModelAndView(configuration);
 

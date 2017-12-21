@@ -30,7 +30,7 @@ public class Configuration extends DomainEntity {
 	private Collection<String> spamWords;
 	private Double tax;
 	private String countryCode;
-	private Collection<String> catalogueTag;
+	private Collection<Tag> catalogueTag;
 	private Collection<Category> treeCategory;
 	private Collection<String> catalogueText;
 	private Collection<String> other;
@@ -82,10 +82,10 @@ public class Configuration extends DomainEntity {
 	
 	@NotEmpty
 	@ElementCollection
-	public Collection<String> getCatalogueTag() {
+	public Collection<Tag> getCatalogueTag() {
 		return catalogueTag;
 	}
-	public void setCatalogueTag(Collection<String> catalogueTag) {
+	public void setCatalogueTag(Collection<Tag> catalogueTag) {
 		this.catalogueTag = catalogueTag;
 	}
 	

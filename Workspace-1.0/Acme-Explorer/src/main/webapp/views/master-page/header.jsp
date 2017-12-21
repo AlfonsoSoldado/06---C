@@ -36,6 +36,7 @@
 					<li><a href="administrator/register_Manager.do"><spring:message code="master.page.register.manager" /></a>
 					<li><a href="administrator/register_Auditor.do"><spring:message code="master.page.auditor" /></a>
 					<li><a href="administrator/register_Sponsor.do"><spring:message code="master.page.sponsor" /></a>
+					<li><a href="administrator/register_Administrator.do"><spring:message code="master.page.administrator" /></a>
 				</ul>
 			</li>
 			<li><a class="fNiv" href="tag/administrator/list.do"><spring:message code="master.page.tag" /></a></li>

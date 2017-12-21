@@ -48,18 +48,18 @@ public class ExplorerService {
 		UserAccount userAccount = new UserAccount();
 		Authority authority = new Authority();
 		Collection<SocialId> socialId = new ArrayList<SocialId>();
-//		Collection<Folder> folder = new ArrayList<Folder>();
+		Collection<Folder> folder = new ArrayList<Folder>();
 		Collection<Story> story = new ArrayList<Story>();
 		Collection<Application> application = new ArrayList<Application>();
 		Finder finder = new Finder();
 		Collection<Emergency> emergency = new ArrayList<Emergency>();
-//		folder = this.folderService.systemFolders();
+		folder = this.folderService.systemFolders();
 		
 		authority.setAuthority(Authority.EXPLORER);
 		userAccount.addAuthority(authority);
 		res.setUserAccount(userAccount);
 		res.setSocialId(socialId);
-//		res.setFolders(folder);
+		res.setFolders(folder);
 		res.setStories(story);
 		res.setApplication(application);
 		res.setFinder(finder);
@@ -101,13 +101,15 @@ public class ExplorerService {
 		
 		res = this.explorerRepository.save(explorer);
 		
-		Collection<Folder> folder = new ArrayList<Folder>();
-		folder = this.folderService.systemFolders();
-		res.setFolders(folder);
-		
-		for (Folder f : res.getFolders()) {
-			folderService.save(f);
-		}
+//		Collection<Folder> folder = new ArrayList<Folder>();
+//		folder = this.folderService.systemFolders();
+//		
+//		for (Folder f : folder) {
+//			folderService.save(f);
+//		}
+//		
+//		res.setFolders(folder);
+//		System.out.println(res.getFolders());
 		
 		return res;
 	}

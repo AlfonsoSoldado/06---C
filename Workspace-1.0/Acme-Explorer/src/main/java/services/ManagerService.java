@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import repositories.FolderRepository;
 import repositories.ManagerRepository;
 import security.Authority;
 import security.LoginService;
@@ -16,6 +17,7 @@ import security.UserAccount;
 import domain.Application;
 import domain.Folder;
 import domain.Manager;
+import domain.Message;
 import domain.SocialId;
 import domain.Trip;
 
@@ -31,7 +33,7 @@ public class ManagerService {
 	// Supporting services
 
 	@Autowired
-	private FolderService folderService;
+	private FolderRepository folderRepository;
 	
 	@Autowired
 	private AdministratorService administratorService;
@@ -54,7 +56,39 @@ public class ManagerService {
 		Collection<Folder> folder = new ArrayList<Folder>();
 		Collection<Application> application = new ArrayList<Application>();
 		Collection<Trip> trip = new ArrayList<Trip>();
-		folder = this.folderService.systemFolders();
+		
+		Collection<Message> message = new ArrayList<Message>();
+		Folder inBox = new Folder();
+		Folder outBox = new Folder();
+		Folder notification = new Folder();
+		Folder trash = new Folder();
+		Folder spam = new Folder();
+		inBox.setName("In Box");
+		outBox.setName("Out Box");
+		notification.setName("Notification");
+		trash.setName("Trash");
+		spam.setName("Spam");
+		inBox.setSystemFolder(true);
+		outBox.setSystemFolder(true);
+		notification.setSystemFolder(true);
+		trash.setSystemFolder(true);
+		spam.setSystemFolder(true);
+		inBox.setMessages(message);
+		outBox.setMessages(message);
+		notification.setMessages(message);
+		trash.setMessages(message);
+		spam.setMessages(message);
+		inBox = folderRepository.save(inBox);
+		outBox = folderRepository.save(outBox);
+		notification = folderRepository.save(notification);
+		trash = folderRepository.save(trash);
+		spam = folderRepository.save(spam);
+		folder.add(inBox);
+		folder.add(outBox);
+		folder.add(notification);
+		folder.add(trash);
+		folder.add(inBox);
+		folder.add(spam);
 		
 		authority.setAuthority(Authority.MANAGER);
 		userAccount.addAuthority(authority);

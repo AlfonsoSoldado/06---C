@@ -9,11 +9,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import repositories.FolderRepository;
 import repositories.SponsorRepository;
 import security.Authority;
 import security.LoginService;
 import security.UserAccount;
 import domain.Folder;
+import domain.Message;
 import domain.SocialId;
 import domain.Sponsor;
 import domain.Sponsorship;
@@ -30,7 +32,7 @@ public class SponsorService {
 	// Supporting services
 
 	@Autowired
-	private FolderService folderService;
+	private FolderRepository folderRepository;
 
 	// Constructors
 
@@ -47,7 +49,40 @@ public class SponsorService {
 		Collection<SocialId> socialId = new ArrayList<SocialId>();
 		Collection<Folder> folder = new ArrayList<Folder>();
 		Collection<Sponsorship> sponsorship = new ArrayList<Sponsorship>();
-		folder = this.folderService.systemFolders();
+		
+		Collection<Message> message = new ArrayList<Message>();
+		Folder inBox = new Folder();
+		Folder outBox = new Folder();
+		Folder notification = new Folder();
+		Folder trash = new Folder();
+		Folder spam = new Folder();
+		inBox.setName("In Box");
+		outBox.setName("Out Box");
+		notification.setName("Notification");
+		trash.setName("Trash");
+		spam.setName("Spam");
+		inBox.setSystemFolder(true);
+		outBox.setSystemFolder(true);
+		notification.setSystemFolder(true);
+		trash.setSystemFolder(true);
+		spam.setSystemFolder(true);
+		inBox.setMessages(message);
+		outBox.setMessages(message);
+		notification.setMessages(message);
+		trash.setMessages(message);
+		spam.setMessages(message);
+		inBox = folderRepository.save(inBox);
+		outBox = folderRepository.save(outBox);
+		notification = folderRepository.save(notification);
+		trash = folderRepository.save(trash);
+		spam = folderRepository.save(spam);
+		folder.add(inBox);
+		folder.add(outBox);
+		folder.add(notification);
+		folder.add(trash);
+		folder.add(inBox);
+		folder.add(spam);
+		
 		res.setSocialId(socialId);
 		res.setFolders(folder);
 		authority.setAuthority(Authority.SPONSOR);

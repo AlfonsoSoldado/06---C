@@ -17,7 +17,6 @@ import services.ActorService;
 import services.FolderService;
 import domain.Actor;
 import domain.Folder;
-import domain.Trip;
 
 @Controller
 @RequestMapping("/folder")

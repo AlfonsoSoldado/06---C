@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -58,6 +59,7 @@ public class AuditorService {
 		res.setFolders(folder);
 		res.setNote(note);
 		res.setAudit(audit);
+		res.setSuspicious(false);
 		return res;
 	}
 
@@ -77,12 +79,17 @@ public class AuditorService {
 	}
 
 	public Auditor save(Auditor auditor) {
-		Assert.notNull(auditor);
 		Auditor res;
 		
-		Auditor a = findByPrincipal();
-		auditor.setReceived(a.getReceived());
-		
+		if (auditor.getId() == 0) {
+			String pass = auditor.getUserAccount().getPassword();
+			
+			final Md5PasswordEncoder code = new Md5PasswordEncoder();
+			
+			pass = code.encodePassword(pass, null);
+			
+			auditor.getUserAccount().setPassword(pass);
+		}
 		res = this.auditorRepository.save(auditor);
 		return res;
 	}

@@ -53,9 +53,9 @@
 </display:table>
 
 	<security:authorize access="hasRole('SPONSOR')">
-	<div>
-		<a href="sponsorship/sponsor/create.do"> <spring:message
-				code="sponsorship.create" />
-		</a>
-	</div>
+	<a href="sponsorship/sponsor/create.do">
+	<button>
+		<spring:message code="sponsorship.create" />
+	</button>
+</a>
 	</security:authorize>

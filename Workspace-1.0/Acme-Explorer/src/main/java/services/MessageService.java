@@ -94,13 +94,12 @@ public class MessageService {
 		res = this.messageRepository.save(message);
 		
 		Collection<Actor> recipient = res.getRecipient();
+		Collection<Message> messages = new ArrayList<Message>();
 
 		for (Actor a : recipient) {
-			Folder fo = folderService.findFolderName("In Box", a.getId());
-			Collection<Message> messages = new ArrayList<Message>();
-			msgs.addAll(fo.getMessages());
-			msgs.add(message);
-			fo.setMessages(messages);
+			Folder inbox = folderService.findFolderName("In Box", a.getId());
+			messages.add(message);
+			inbox.setMessages(messages);
 		}
 
 		return res;

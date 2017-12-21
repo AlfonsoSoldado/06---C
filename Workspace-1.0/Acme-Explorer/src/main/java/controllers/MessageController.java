@@ -78,8 +78,6 @@ public class MessageController extends AbstractController {
 					"message.params.error");
 		else
 			try {
-//				this.actorService.sendMessage(message.getRecipient(),
-//						message.getSender(), message);
 				messageService.save(message);
 				result = new ModelAndView("redirect:../folder/list.do");
 			} catch (final Throwable oops) {
@@ -97,7 +95,7 @@ public class MessageController extends AbstractController {
 		ModelAndView res;
 
 		try {
-			this.actorService.deleteMessage(message.getSender(), message);
+			this.messageService.delete(message);
 			res = new ModelAndView("redirect:../folder/list.do");
 		} catch (final Throwable oops) {
 			res = this.createEditModelAndView(message, "message.commit.error");
@@ -134,4 +132,5 @@ public class MessageController extends AbstractController {
 		result.addObject("message", messageCode);
 		return result;
 	}
+
 }

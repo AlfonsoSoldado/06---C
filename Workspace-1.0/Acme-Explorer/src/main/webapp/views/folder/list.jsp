@@ -57,3 +57,9 @@
 		<spring:message code="folder.create" />
 	</button>
 </a>
+
+<a href="message/create.do">
+	<button>
+		<spring:message code="folder.create.message" />
+	</button>
+</a>

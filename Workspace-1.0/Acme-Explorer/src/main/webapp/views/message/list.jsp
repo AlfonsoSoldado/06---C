@@ -42,6 +42,9 @@
 	<spring:message code="message.sender" var="senderHeader"/>
 	<display:column property="sender.email" title="${senderHeader}" sortable="false"/>
 	
+	<spring:message code="message.sender" var="senderUserHeader"/>
+	<display:column property="sender.userAccount.username" title="${senderUserHeader}" sortable="false"/>
+	
 	<jstl:if test="${Folder.name == \"Out Box\" && Folder.systemFolder == true}">
 		<spring:message code="message.recipient" var="recipientHeader"/>
 		<display:column property="recipient.email" title="${recipientHeader}" sortable="false"/>

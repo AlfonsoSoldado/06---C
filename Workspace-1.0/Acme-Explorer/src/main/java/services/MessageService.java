@@ -101,28 +101,35 @@ public class MessageService {
 			res2 = this.messageRepository.save(message);
 			
 			Collection<Message> messages = new ArrayList<Message>();
-			System.out.println(recipient);
 			
 			Folder inbox = folderService.findFolderName("In Box", a.getId());
 			res2.setFolder(inbox);
-			System.out.println(inbox);
 			messages.addAll(inbox.getMessages());
 			messages.add(res);
-			System.out.println(messages);
 			inbox.setMessages(messages);
-			System.out.println(inbox.getMessages());
 		}
 
 		return res;
 	}
 
 	public void delete(Message message) {
-		// actorService.checkAuthority();
-
 		Assert.notNull(message);
 		Assert.isTrue(message.getId() != 0);
 		Assert.isTrue(this.messageRepository.exists(message.getId()));
-		this.messageRepository.delete(message);
+		
+		Actor actor = actorService.findByPrincipal();
+		
+		Folder f = folderService.findFolderName("Trash", actor.getId());
+		
+		if(!f.getMessages().contains(message)){
+			Message newMessage;
+
+			newMessage = message;
+			newMessage.setFolder(f);
+			this.messageRepository.save(newMessage);
+		} else {
+			this.messageRepository.delete(message);
+		}
 	}
 
 	// Other business methods

@@ -89,7 +89,7 @@ public class MessageService {
 		msgs.add(message);
 
 		f.setMessages(msgs);
-
+		
 		res = this.messageRepository.save(message);
 		
 		Collection<Actor> recipient = res.getRecipient();
@@ -146,5 +146,48 @@ public class MessageService {
 	}
 
 	// Other business methods
+	
+	public Message Notification(Message message) {
+		Message res;
+
+		Actor sender = actorService.findByPrincipal();
+
+		Folder f = folderService.findFolderName("Out Box", sender.getId());
+
+
+		Collection<Message> msgs = new ArrayList<Message>();
+		msgs.addAll(f.getMessages());
+		msgs.add(message);
+
+		f.setMessages(msgs);
+		
+//		Collection<Actor> actor;
+//		actor = this.actorService.findAll();
+//		Collection<Actor> rec;
+//		rec = message.getRecipient();
+//		rec.addAll(actor);
+//		message.setRecipient(rec);
+
+		res = this.messageRepository.save(message);
+		
+		Collection<Actor> recipient = res.getRecipient();
+		
+		res.setFolder(f);
+		
+		for (Actor a : recipient) {
+			Message res2;
+			res2 = this.messageRepository.save(message);
+			
+			Collection<Message> messages = new ArrayList<Message>();
+			
+			Folder inbox = folderService.findFolderName("Notification", a.getId());
+			res2.setFolder(inbox);
+			messages.addAll(inbox.getMessages());
+			messages.add(res);
+			inbox.setMessages(messages);
+		}
+
+		return res;
+	}
 
 }

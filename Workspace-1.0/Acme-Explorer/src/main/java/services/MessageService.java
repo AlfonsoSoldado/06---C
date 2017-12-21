@@ -26,7 +26,7 @@ public class MessageService {
 	// Supporting services
 	@Autowired
 	private ActorService actorService;
-	
+
 	@Autowired
 	private FolderService folderService;
 
@@ -39,15 +39,14 @@ public class MessageService {
 	// Simple CRUD methods
 
 	public Message create() {
-		//actorService.checkAuthority();
+		// actorService.checkAuthority();
 
 		Message message;
 		message = new Message();
 		Actor sender = this.actorService.findByPrincipal();
 		Date moment;
 		Collection<Actor> recipient;
-		Collection<Folder> folder;
-		folder = new ArrayList<Folder>();
+		Folder folder = new Folder();
 		recipient = new ArrayList<Actor>();
 		moment = new Date(System.currentTimeMillis() - 1);
 		message.setSender(sender);
@@ -59,7 +58,7 @@ public class MessageService {
 	}
 
 	public Collection<Message> findAll() {
-		//actorService.checkAuthority();
+		// actorService.checkAuthority();
 
 		Collection<Message> res;
 		res = this.messageRepository.findAll();
@@ -68,7 +67,7 @@ public class MessageService {
 	}
 
 	public Message findOne(int message) {
-		//actorService.checkAuthority();
+		// actorService.checkAuthority();
 
 		Assert.isTrue(message != 0);
 		Message res;
@@ -79,28 +78,36 @@ public class MessageService {
 
 	public Message save(Message message) {
 		Message res;
-		
-		Actor actor = actorService.findByPrincipal();
-		Collection<Folder> folders = actor.getFolders();
 
-		Folder f = folderService.findInBoxFolder("Out Box", actor.getId()); 
-		folders.add(f);
-		
-		message.setFolder(folders);
-		
+		Actor sender = actorService.findByPrincipal();
+
+		Folder f = folderService.findFolderName("Out Box", sender.getId());
+
+		message.setFolder(f);
+
 		Collection<Message> msgs = new ArrayList<Message>();
 		msgs.addAll(f.getMessages());
 		msgs.add(message);
-		
+
 		f.setMessages(msgs);
-		
+
 		res = this.messageRepository.save(message);
 		
+		Collection<Actor> recipient = res.getRecipient();
+
+		for (Actor a : recipient) {
+			Folder fo = folderService.findFolderName("In Box", a.getId());
+			Collection<Message> messages = new ArrayList<Message>();
+			msgs.addAll(fo.getMessages());
+			msgs.add(message);
+			fo.setMessages(messages);
+		}
+
 		return res;
 	}
 
 	public void delete(Message message) {
-		//actorService.checkAuthority();
+		// actorService.checkAuthority();
 
 		Assert.notNull(message);
 		Assert.isTrue(message.getId() != 0);

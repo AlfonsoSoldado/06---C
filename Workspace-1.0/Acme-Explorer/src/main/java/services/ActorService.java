@@ -424,29 +424,29 @@ public class ActorService {
 		}
 	}
 	
-	public void moveMessage(Message message, Actor actor, Folder folder){
-		checkAuthority();
-		
-		Collection<Message> messages = new ArrayList<Message>();
-		
-		for(Folder f: actor.getFolders()){
-			if(!message.getFolder().contains(folder)){
-				messages.addAll(f.getMessages());
-				messages.add(message);
-				
-				folder.setMessages(messages);
-				
-				messages.clear();
-				
-				messages.addAll(f.getMessages());
-				messages.remove(message);
-				
-				f.setMessages(messages);
-				
-				messages.clear();
-			}
-		}
-	}
+//	public void moveMessage(Message message, Actor actor, Folder folder){
+//		checkAuthority();
+//		
+//		Collection<Message> messages = new ArrayList<Message>();
+//		
+//		for(Folder f: actor.getFolders()){
+//			if(!message.getFolder().contains(folder)){
+//				messages.addAll(f.getMessages());
+//				messages.add(message);
+//				
+//				folder.setMessages(messages);
+//				
+//				messages.clear();
+//				
+//				messages.addAll(f.getMessages());
+//				messages.remove(message);
+//				
+//				f.setMessages(messages);
+//				
+//				messages.clear();
+//			}
+//		}
+//	}
 	
 	public Collection<Actor> actorsSuspicious() {
 		Collection<Actor> res = new ArrayList<Actor>();

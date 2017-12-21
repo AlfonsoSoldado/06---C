@@ -1423,10 +1423,7 @@
 			<ref bean="message1"/>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 	<!-- RANGER2 -->
@@ -1465,10 +1462,7 @@
 			<ref bean="message2"/>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 									<!-- curriculum -->
@@ -1923,10 +1917,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 	<!-- ADMINISTRATOR2 -->
@@ -1956,10 +1947,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 										<!-- TRIP -->
@@ -2078,10 +2066,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 	<!-- SPONSOR2 -->
@@ -2116,10 +2101,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 									<!-- SPONSORSHIP -->
@@ -2127,7 +2109,7 @@
 	<!-- SPONSORSHIP1 -->
 							
 	<bean id="sponsorship1" class="domain.Sponsorship">
-	<property name="banner" value="http://www.example.com" />
+	<property name="banner" value="http://creek-tours.com/wp-content/uploads/2016/08/samburu.jpeg" />
 	<property name="infoPage" value="http://www.example.es" />
 	<property name="creditCard" ref="creditCard1" />
 	<property name="sponsor" ref="sponsor1" />
@@ -2137,7 +2119,7 @@
 	<!-- SPONSORSHIP2 -->
 	
 	<bean id="sponsorship2" class="domain.Sponsorship">
-	<property name="banner" value="http://www.example2.com" />
+	<property name="banner" value="http://creek-tours.com/wp-content/uploads/2016/08/Beach-Shisha4.jpg" />
 	<property name="infoPage" value="http://www.example2.es" />
 	<property name="creditCard" ref="creditCard2" />
 	<property name="sponsor" ref="sponsor2" />
@@ -2235,11 +2217,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-			<ref bean="message1"/>
-		</list>
-	</property>
+	<property name="received" ref="message1"/>
 	<property name="survival">
 		<list>
 			<ref bean="survival1"/>
@@ -2290,11 +2268,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-			<ref bean="message2"/>
-		</list>
-	</property>
+	<property name="received" ref="message2"/>
 	<property name="survival">
 		<list>
 			<ref bean="survival2"/>
@@ -2344,10 +2318,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	<property name="survival">
 		<list>
 		</list>
@@ -2394,10 +2365,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>	
 	
 								<!-- FINDER -->
@@ -2481,16 +2449,11 @@
 		<property name="priority" value="LOW" />
 		<property name="spam" value="true" />
 		<property name="sender" ref="ranger1" />
+		<property name="folder" ref="outBoxRanger1" />
 		<property name="recipient">
 			<list>
 				<ref bean="explorer1"/>
 			</list>
-		</property>
-		<property name="folder">
-			<list>
-				<ref bean="outBoxRanger1"/>
-				<ref bean="inBoxExplorer1"/>
-			</list> 
 		</property>
 	</bean>
 	
@@ -2503,15 +2466,10 @@
 		<property name="priority" value="LOW" />
 		<property name="spam" value="false" />
 		<property name="sender" ref="ranger2" />
+		<property name="folder" ref="outBoxExplorer2" />
 		<property name="recipient">
 			<list>
 				<ref bean="explorer2"/>
-			</list> 
-		</property>
-		<property name="folder">
-			<list>
-				<ref bean="outBoxExplorer2"/>
-				<ref bean="inBoxRanger2"/>
 			</list> 
 		</property>
 	</bean>	
@@ -2607,10 +2565,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 	<!-- MANAGER2 -->
@@ -2655,10 +2610,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 	<!-- MANAGER3 -->
@@ -2703,10 +2655,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 	<!-- MANAGER4 -->
@@ -2751,10 +2700,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 										<!-- AUDITOR -->
@@ -2796,10 +2742,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 	<!-- AUDITOR2 -->
@@ -2839,10 +2782,7 @@
 		<list>
 		</list>
 	</property>
-	<property name="received">
-		<list>
-		</list>
-	</property>
+	<property name="received"><null/></property>
 	</bean>
 	
 									<!-- SURVIVAL -->

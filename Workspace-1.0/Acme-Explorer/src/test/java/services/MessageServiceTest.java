@@ -93,12 +93,9 @@ public class MessageServiceTest extends AbstractTest {
 		recipient.add(rec1);
 		message.setRecipient(recipient);
 
-		Collection<Folder> folders;
-		folders = new ArrayList<Folder>();
 		Folder folder;
 		folder = this.folderService.create();
-		folders.add(folder);
-		message.setFolder(folders);
+		message.setFolder(folder);
 
 		this.messageService.save(message);
 		unauthenticate();

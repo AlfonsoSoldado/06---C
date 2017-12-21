@@ -16,6 +16,6 @@ public interface FolderRepository extends JpaRepository<Folder, Integer> {
 	
 	
 	@Query("select f from Actor a join a.folders f where f.name = ?1 and a.id = ?2")
-	Folder findInBoxFolder(String inbox, int id);
+	Folder findFolderName(String inbox, int id);
 	
 }

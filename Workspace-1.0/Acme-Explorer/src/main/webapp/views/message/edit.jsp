@@ -22,16 +22,10 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
+	<form:hidden path="sender" />
 
 	<form:hidden path="moment" />
 	<form:hidden path="spam" />
-
-	<form:label path="sender">
-		<spring:message code="message.sender" />
-	</form:label>
-	<form:input path="sender" />
-	<form:errors cssClass="error" path="sender" />
-	<br />
 
 	<form:label path="priority">
 		<spring:message code="message.priority" />
@@ -62,7 +56,7 @@
 		<spring:message code="message.recipient" />:
 	</form:label>
 	<form:select path="recipient">
-        <form:options items="${actor}" itemLabel="name"/>
+        <form:options items="${actor}" itemLabel="userAccount.username"/>
 	</form:select>
 	<form:errors cssClass="error" path="recipient" />
 	<br />

@@ -153,9 +153,9 @@ public class FolderService {
 		return result;
 	}
 	
-	public Folder findInBoxFolder(String nombre, int id){
+	public Folder findFolderName(String nombre, int id){
 		Folder res = new Folder();
-		res = folderRepository.findInBoxFolder(nombre, id);
+		res = folderRepository.findFolderName(nombre, id);
 		return res;
 	}
 }

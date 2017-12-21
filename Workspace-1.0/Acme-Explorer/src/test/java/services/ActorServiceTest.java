@@ -218,24 +218,24 @@ public class ActorServiceTest extends AbstractTest {
 		unauthenticate();
 	}
 
-	@Test
-	public void testMoveMessage() {
-		authenticate("ranger01");
-		Message message;
-		message = this.messageService.findOne(super.getEntityId("message1"));
-		Assert.notNull(message);
-
-		Actor actor;
-		actor = this.actorService.findOne(super.getEntityId("ranger1"));
-		Assert.notNull(actor);
-
-		Folder folder;
-		folder = this.folderService.findOne(super
-				.getEntityId("customBoxRanger1"));
-		Assert.notNull(folder);
-
-		this.actorService.moveMessage(message, actor, folder);
-		unauthenticate();
-	}
+//	@Test
+//	public void testMoveMessage() {
+//		authenticate("ranger01");
+//		Message message;
+//		message = this.messageService.findOne(super.getEntityId("message1"));
+//		Assert.notNull(message);
+//
+//		Actor actor;
+//		actor = this.actorService.findOne(super.getEntityId("ranger1"));
+//		Assert.notNull(actor);
+//
+//		Folder folder;
+//		folder = this.folderService.findOne(super
+//				.getEntityId("customBoxRanger1"));
+//		Assert.notNull(folder);
+//
+//		this.actorService.moveMessage(message, actor, folder);
+//		unauthenticate();
+//	}
 
 }

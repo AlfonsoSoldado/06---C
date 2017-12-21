@@ -8,7 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
@@ -98,7 +98,7 @@ public abstract class Actor extends DomainEntity {
 
 	private UserAccount userAccount;
 	private Collection<Folder> folders;
-	private Collection<Message> received;
+	private Message received;
 	private Collection<Message> sent;
 	private Collection<SocialId> socialId;
 
@@ -125,12 +125,12 @@ public abstract class Actor extends DomainEntity {
 	}
 
 	@Valid
-	@ManyToMany
-	public Collection<Message> getReceived() {
+	@ManyToOne
+	public Message getReceived() {
 		return received;
 	}
 
-	public void setReceived(Collection<Message> received) {
+	public void setReceived(Message received) {
 		this.received = received;
 	}
 

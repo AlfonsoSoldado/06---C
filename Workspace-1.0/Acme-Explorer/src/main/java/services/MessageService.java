@@ -69,7 +69,7 @@ public class MessageService {
 	public Message findOne(int message) {
 		// actorService.checkAuthority();
 
-		Assert.isTrue(message != 0);
+		//Assert.isTrue(message != 0);
 		Message res;
 		res = this.messageRepository.findOne(message);
 		Assert.notNull(res);
@@ -130,6 +130,20 @@ public class MessageService {
 		} else {
 			this.messageRepository.delete(message);
 		}
+	}
+	
+	public void moveMessage(Message message, Folder folder){
+		Actor sender = actorService.findByPrincipal();
+		
+		Folder f = folderService.findFolderName(folder.getName(), sender.getId());
+		
+		message.setFolder(f);
+		
+		Collection<Message> messages = new ArrayList<Message>();
+		messages.addAll(folder.getMessages());
+		messages.add(message);
+		
+		folder.setMessages(messages);
 	}
 
 	// Other business methods

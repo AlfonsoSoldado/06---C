@@ -1,5 +1,5 @@
 <%--
- * edit.jsp
+ * move.jsp
  *
  * Copyright (C) 2017 Universidad de Sevilla
  * 
@@ -18,7 +18,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="message/edit.do" modelAttribute="msg">
+<form:form action="message/move.do" modelAttribute="msg">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
@@ -26,30 +26,17 @@
 
 	<form:hidden path="moment" />
 	<form:hidden path="spam" />
+	<form:hidden path="priority" />
+	<form:hidden path="subject" />
+	<form:hidden path="body" />
 
-	<form:label path="priority">
-		<spring:message code="message.priority" />
+	<form:label path="folder">
+		<spring:message code="message.folder" />:
 	</form:label>
-	<form:select path="priority">
-		<form:option value="LOW" />
-		<form:option value="NEUTRAL" />
-		<form:option value="HIGH" />
+	<form:select path="folder">
+        <form:options items="${folder}" itemLabel="name"/>
 	</form:select>
-	<form:errors cssClass="error" path="priority" />
-	<br />
-
-	<form:label path="subject">
-		<spring:message code="message.subject" />
-	</form:label>
-	<form:input path="subject" />
-	<form:errors cssClass="error" path="subject" />
-	<br />
-
-	<form:label path="body">
-		<spring:message code="message.body" />
-	</form:label>
-	<form:textarea path="body" />
-	<form:errors cssClass="error" path="body" />
+	<form:errors cssClass="error" path="folder" />
 	<br />
 	
 	<form:label path="recipient">

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.validation.Valid;
@@ -67,6 +68,18 @@ public class MessageController extends AbstractController {
 
 		return result;
 	}
+	
+	@RequestMapping(value = "/move", method = RequestMethod.GET)
+	public ModelAndView editMove(@RequestParam final int messageId) {
+		ModelAndView result;
+		Message message;
+
+		message = messageService.findOne(messageId);
+		Assert.notNull(message);
+		result = this.moveModelAndView(message);
+
+		return result;
+	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Message message,
@@ -85,6 +98,29 @@ public class MessageController extends AbstractController {
 				System.out.println(oops.getCause());
 				System.out.println(oops.getLocalizedMessage());
 				result = this.createEditModelAndView(message,
+						"message.commit.error");
+			}
+		return result;
+	}
+	
+	@RequestMapping(value = "/move", method = RequestMethod.POST, params = "save")
+	public ModelAndView saveMove(@Valid final Message message,
+			final BindingResult binding) {
+		ModelAndView result;
+		System.out.println(binding.getFieldError());
+		if (binding.hasErrors())
+			result = this.moveModelAndView(message,
+					"message.params.error");
+		else
+			try {
+				
+				messageService.moveMessage(message,message.getFolder());
+				result = new ModelAndView("redirect:../folder/list.do");
+			} catch (final Throwable oops) {
+				System.out.println(oops.getMessage());
+				System.out.println(oops.getCause());
+				System.out.println(oops.getLocalizedMessage());
+				result = this.moveModelAndView(message,
 						"message.commit.error");
 			}
 		return result;
@@ -129,6 +165,31 @@ public class MessageController extends AbstractController {
 		result = new ModelAndView("message/edit");
 		result.addObject("msg", message);
 		result.addObject("actor", actor);
+		result.addObject("message", messageCode);
+		return result;
+	}
+	
+	protected ModelAndView moveModelAndView(final Message message) {
+		ModelAndView result;
+		result = this.moveModelAndView(message, null);
+		return result;
+	}
+
+	protected ModelAndView moveModelAndView(final Message message,
+			final String messageCode) {
+		ModelAndView result;
+		Actor actor = actorService.findByPrincipal();
+		
+		Collection<Folder> folders = new ArrayList<Folder>();
+		folders = actor.getFolders();
+		
+		Collection<Actor> actors;
+		actors = this.actorService.findAll();
+		
+		result = new ModelAndView("message/move");
+		result.addObject("msg", message);
+		result.addObject("folder", folders);
+		result.addObject("actor", actors);
 		result.addObject("message", messageCode);
 		return result;
 	}

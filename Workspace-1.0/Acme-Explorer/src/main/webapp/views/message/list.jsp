@@ -27,6 +27,12 @@
 		<spring:message code="message.edit"/></a>
 	</display:column>
 	
+	<spring:message code="message.move"/>
+	<display:column>
+		<a href= "message/move.do?messageId=${row.id}">
+		<spring:message code="message.move"/></a>
+	</display:column>
+	
 	<spring:message code="message.moment" var="momentHeader" />
 	<display:column property="moment" title="${momentHeader}" sortable="true" />
 

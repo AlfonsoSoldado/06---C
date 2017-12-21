@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -53,6 +54,7 @@ public class SponsorService {
 		userAccount.addAuthority(authority);
 		res.setUserAccount(userAccount);
 		res.setSponsorship(sponsorship);
+		res.setSuspicious(false);
 		return res;
 	}
 
@@ -72,11 +74,17 @@ public class SponsorService {
 	}
 
 	public Sponsor save(Sponsor sponsor) {
-		Assert.notNull(sponsor);
 		Sponsor res;
 		
-		Sponsor s = findByPrincipal();
-		sponsor.setReceived(s.getReceived());
+		if (sponsor.getId() == 0) {
+			String pass = sponsor.getUserAccount().getPassword();
+			
+			final Md5PasswordEncoder code = new Md5PasswordEncoder();
+			
+			pass = code.encodePassword(pass, null);
+			
+			sponsor.getUserAccount().setPassword(pass);
+		}
 		
 		res = this.sponsorRepository.save(sponsor);
 		return res;

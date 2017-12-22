@@ -54,7 +54,7 @@ public class LegalTextService {
 	}
 
 	public LegalText findOne(int legalText) {
-		administratorService.checkAuthority();
+		//administratorService.checkAuthority();
 
 		Assert.isTrue(legalText != 0);
 		LegalText res;

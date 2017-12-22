@@ -44,11 +44,25 @@
 	<form:errors cssClass="error" path="description" />
 	<br />
 	
-	<form:label path="location">
-		<spring:message code="survival.location" />:
+	<form:label path="location.name">
+		<spring:message code="survival.location.name" />:
 	</form:label>
-	<form:input path="location" />
-	<form:errors cssClass="error" path="location" />
+	<form:input path="location.name" />
+	<form:errors cssClass="error" path="location.name" />
+	<br />
+	
+	<form:label path="location.latitude">
+		<spring:message code="survival.location.latitude" />:
+	</form:label>
+	<form:input path="location.latitude" />
+	<form:errors cssClass="error" path="location.latitude" />
+	<br />
+	
+	<form:label path="location.longitude">
+		<spring:message code="survival.location.longitude" />:
+	</form:label>
+	<form:input path="location.longitude" />
+	<form:errors cssClass="error" path="location.longitude" />
 	<br />
 	
 	<form:label path="trip">

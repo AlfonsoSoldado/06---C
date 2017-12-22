@@ -28,7 +28,6 @@
 	
 	<form:hidden path="banner" />
 	<form:hidden path="message" />
-	<form:hidden path="spamWords" />
 	<form:hidden path="tax" />
 	<form:hidden path="countryCode" />
 	<form:hidden path="catalogueTag" />
@@ -48,6 +47,13 @@
 	</form:label>
 	<form:input path="numberPage" />
 	<form:errors cssClass="error" path="numberPage" />
+	<br />
+	
+	<form:label path="spamWords">
+		<spring:message code="administrator.spamWords" />:
+	</form:label>
+	<form:input path="spamWords" />
+	<form:errors cssClass="error" path="spamWords" />
 	<br />
 	
 	<input type="submit" name="save"

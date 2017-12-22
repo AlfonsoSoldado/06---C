@@ -86,6 +86,8 @@ public class MessageServiceTest extends AbstractTest {
 		sender = this.actorService.findOne(super.getEntityId("ranger1"));
 		message.setSender(sender);
 
+		this.messageService.save(message);
+		
 		Collection<Actor> recipient;
 		recipient = new ArrayList<Actor>();
 		Actor rec1;
@@ -96,8 +98,6 @@ public class MessageServiceTest extends AbstractTest {
 		Folder folder;
 		folder = this.folderService.create();
 		message.setFolder(folder);
-
-		this.messageService.save(message);
 		unauthenticate();
 	}
 

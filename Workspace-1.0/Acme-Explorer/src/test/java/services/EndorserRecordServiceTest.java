@@ -52,6 +52,7 @@ public class EndorserRecordServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveEndorserRecord() {
+		authenticate("ranger01");
 		EndorserRecord endorserRecord;
 		endorserRecord = this.endorserRecordService.create();
 		endorserRecord.setComment("Otro comentario");
@@ -59,13 +60,16 @@ public class EndorserRecordServiceTest extends AbstractTest {
 		endorserRecord.setEndorserName("Nombre endorser");
 		endorserRecord.setLikedln("http://www.linkedin.com");
 		this.endorserRecordService.save(endorserRecord);
+		unauthenticate();
 	}
 
 	@Test
 	public void testDeleteEndorserRecord() {
+		authenticate("ranger01");
 		EndorserRecord endorserRecord;
 		endorserRecord = this.endorserRecordService.findOne(super
 				.getEntityId("endorserRecord1"));
 		this.endorserRecordService.delete(endorserRecord);
+		unauthenticate();
 	}
 }

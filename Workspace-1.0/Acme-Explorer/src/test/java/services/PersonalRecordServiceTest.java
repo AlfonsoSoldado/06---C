@@ -54,6 +54,7 @@ public class PersonalRecordServiceTest extends AbstractTest {
 
 	@Test
 	public void testSavePersonalRecord() {
+		authenticate("ranger01");
 		PersonalRecord personal;
 		personal = this.personalRecordService.create();
 
@@ -64,7 +65,7 @@ public class PersonalRecordServiceTest extends AbstractTest {
 		personal.setLikedln("http://www.likedlin.com");
 		
 		this.personalRecordService.save(personal);
-		
+		unauthenticate();
 	}
 
 	@Test

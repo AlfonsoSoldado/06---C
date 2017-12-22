@@ -83,7 +83,7 @@ public class TripServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveTrip() {
-		authenticate("admin");
+		authenticate("manager01");
 		Trip trip;
 		trip = this.tripService.create();
 

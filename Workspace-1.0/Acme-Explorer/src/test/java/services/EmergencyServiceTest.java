@@ -55,6 +55,7 @@ public class EmergencyServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveEmergency() {
+		authenticate("explorer01");
 		Emergency emergency;
 		emergency = this.emergencyService.create();
 
@@ -65,7 +66,8 @@ public class EmergencyServiceTest extends AbstractTest {
 		emergency.setPhoneNumber("654321234");
 
 		this.emergencyService.save(emergency);
-
+		
+		unauthenticate();
 	}
 
 	@Test

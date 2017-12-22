@@ -52,20 +52,23 @@ public class MiscellaneousRecordServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveMiscellaneousRecord() {
+		authenticate("ranger01");
 		MiscellaneousRecord miscellaneousRecord;
 		miscellaneousRecord = this.miscellaneousRecordService.create();
 		miscellaneousRecord.setComment("comentario nuevo");
 		miscellaneousRecord.setTitle("Titulo miscellaneous");
 		miscellaneousRecord.setLink("http://www.miscellaneous.com");
 		this.miscellaneousRecordService.save(miscellaneousRecord);
+		unauthenticate();
 	}
 
 	@Test
 	public void testDeleteMiscellaneousRecord() {
+		authenticate("ranger01");
 		MiscellaneousRecord miscellaneousRecord;
-		;
 		miscellaneousRecord = this.miscellaneousRecordService.findOne(super
 				.getEntityId("miscellaneousRecord1"));
 		this.miscellaneousRecordService.delete(miscellaneousRecord);
+		unauthenticate();
 	}
 }

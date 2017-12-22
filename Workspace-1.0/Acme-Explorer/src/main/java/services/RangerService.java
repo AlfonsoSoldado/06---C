@@ -14,9 +14,15 @@ import repositories.RangerRepository;
 import security.Authority;
 import security.LoginService;
 import security.UserAccount;
+import domain.Configuration;
 import domain.Curriculum;
+import domain.EducationRecord;
+import domain.EndorserRecord;
 import domain.Folder;
 import domain.Message;
+import domain.MiscellaneousRecord;
+import domain.PersonalRecord;
+import domain.ProfessionalRecord;
 import domain.Ranger;
 import domain.SocialId;
 import domain.Trip;
@@ -167,5 +173,75 @@ public class RangerService {
 		Authority res = new Authority();
 		res.setAuthority("RANGER");
 		Assert.isTrue(authority.contains(res));
+	}
+	
+	public void suspiciousRanger(Ranger ranger, Configuration configuration){
+		Collection<String> spamWords = configuration.getSpamWords();
+		
+		Collection<EducationRecord> ers = ranger.getCurriculum().getEducationRecord();
+		Collection<EndorserRecord> endrs = ranger.getCurriculum().getEndorserRecord();
+		Collection<MiscellaneousRecord> misrs = ranger.getCurriculum().getMiscellaneousRecord();
+		PersonalRecord pe = ranger.getCurriculum().getPersonalRecord();
+		Collection<ProfessionalRecord> profrs = ranger.getCurriculum().getProfessionalRecord();
+		Collection<Folder> folders = ranger.getFolders();
+		Collection<SocialId> socialIds = ranger.getSocialId();
+		
+		Ranger newRanger;
+		
+		for(String sM: spamWords){
+			String s = sM.toLowerCase();
+			if(ranger.getAddress().toLowerCase().contains(s) || ranger.getEmail().toLowerCase().contains(s) || ranger.getName().toLowerCase().contains(s) || ranger.getSurname().toLowerCase().contains(s) || ranger.getUserAccount().getUsername().toLowerCase().contains(s)){
+				newRanger = ranger;
+				newRanger.setSuspicious(true);
+				this.save(newRanger);
+			}
+			if(pe.getEmail().toLowerCase().contains(s) || pe.getLikedln().toLowerCase().contains(s) || pe.getName().toLowerCase().contains(s) || pe.getPhoto().toLowerCase().contains(s)){
+				newRanger = ranger;
+				newRanger.setSuspicious(true);
+				this.save(newRanger);
+			}
+			for(EducationRecord ed: ers){
+				if(ed.getComment().toLowerCase().contains(s) || ed.getInstitution().toLowerCase().contains(s) || ed.getLink().toLowerCase().contains(s) || ed.getTitle().toLowerCase().contains(s)){
+					newRanger = ranger;
+					newRanger.setSuspicious(true);
+					this.save(newRanger);
+				}
+			}
+			for(EndorserRecord en: endrs){
+				if(en.getComment().toLowerCase().contains(s) || en.getEmail().toLowerCase().contains(s) || en.getEndorserName().toLowerCase().contains(s) || en.getLikedln().toLowerCase().contains(s)){
+					newRanger = ranger;
+					newRanger.setSuspicious(true);
+					this.save(newRanger);
+				}
+			}
+			for(MiscellaneousRecord mi: misrs){
+				if(mi.getComment().toLowerCase().contains(s) || mi.getLink().toLowerCase().contains(s) || mi.getTitle().toLowerCase().contains(s)){
+					newRanger = ranger;
+					newRanger.setSuspicious(true);
+					this.save(newRanger);
+				}
+			}
+			for(ProfessionalRecord pr: profrs){
+				if(pr.getComment().toLowerCase().contains(s) || pr.getCompanyName().toLowerCase().contains(s) || pr.getLink().toLowerCase().contains(s) || pr.getRol().toLowerCase().contains(s)){
+					newRanger = ranger;
+					newRanger.setSuspicious(true);
+					this.save(newRanger);
+				}
+			}
+			for(Folder f: folders){
+				if(f.getName().toLowerCase().contains(s)){
+					newRanger = ranger;
+					newRanger.setSuspicious(true);
+					this.save(newRanger);
+				}
+			}
+			for(SocialId sId: socialIds){
+				if(sId.getNameSocialNetwork().toLowerCase().contains(s) || sId.getNick().toLowerCase().contains(s) || sId.getPhoto().toLowerCase().contains(s) || sId.getSocialNetwork().toLowerCase().contains(s)){
+					newRanger = ranger;
+					newRanger.setSuspicious(true);
+					this.save(newRanger);
+				}
+			}
+		}
 	}
 }

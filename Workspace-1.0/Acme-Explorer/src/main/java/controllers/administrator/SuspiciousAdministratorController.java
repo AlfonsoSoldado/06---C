@@ -12,10 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 import services.ActorService;
 import services.ConfigurationService;
 import services.ExplorerService;
+import services.RangerService;
 import controllers.AbstractController;
 import domain.Actor;
 import domain.Configuration;
 import domain.Explorer;
+import domain.Ranger;
 
 @Controller
 @RequestMapping("/administrator")
@@ -31,6 +33,9 @@ public class SuspiciousAdministratorController extends AbstractController {
 	
 	@Autowired
 	private ConfigurationService configurationService;
+	
+	@Autowired
+	private RangerService rangerService;
 	
 	// Constructors ---------------------------------------------------------
 
@@ -52,9 +57,13 @@ public class SuspiciousAdministratorController extends AbstractController {
 		configuration = configurationService.findOne(configurationId);
 		
 		Collection<Explorer> explorers = explorerService.findAll();
+		Collection<Ranger> rangers = rangerService.findAll();
 		
 		for(Explorer explorer: explorers){
 			explorerService.suspiciousExplorer(explorer, configuration);
+		}
+		for(Ranger ranger: rangers){
+			rangerService.suspiciousRanger(ranger, configuration);
 		}
 
 		result = new ModelAndView("administrator/suspicious");

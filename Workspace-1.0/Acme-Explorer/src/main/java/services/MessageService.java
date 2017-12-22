@@ -11,6 +11,7 @@ import org.springframework.util.Assert;
 
 import repositories.MessageRepository;
 import domain.Actor;
+import domain.Configuration;
 import domain.Folder;
 import domain.Message;
 
@@ -97,16 +98,31 @@ public class MessageService {
 		res.setFolder(f);
 		
 		for (Actor a : recipient) {
-			Message res2;
-			res2 = this.messageRepository.save(message);
-			
-			Collection<Message> messages = new ArrayList<Message>();
-			
-			Folder inbox = folderService.findFolderName("In Box", a.getId());
-			res2.setFolder(inbox);
-			messages.addAll(inbox.getMessages());
-			messages.add(res);
-			inbox.setMessages(messages);
+			if(message.getSpam()==false){
+				Message res2;
+				res2 = this.messageRepository.save(message);
+				
+				Collection<Message> messages = new ArrayList<Message>();
+				
+				Folder inbox = folderService.findFolderName("In Box", a.getId());
+				res2.setFolder(inbox);
+				messages.addAll(inbox.getMessages());
+				messages.add(res);
+				inbox.setMessages(messages);
+			} else {
+				Message res2;
+				res2 = this.messageRepository.save(message);
+				
+				Collection<Message> messages = new ArrayList<Message>();
+				
+				Folder inbox = folderService.findFolderName("Spam", a.getId());
+				res2.setFolder(inbox);
+				messages.addAll(inbox.getMessages());
+				messages.add(res);
+				inbox.setMessages(messages);
+				
+				sender.setSuspicious(true);
+			}
 		}
 
 		return res;
@@ -188,6 +204,17 @@ public class MessageService {
 		}
 
 		return res;
+	}
+	
+	public void messageToSpamFolder(Message message, Configuration configuration){
+		Collection<String> spamWords = configuration.getSpamWords();
+		
+		for(String sM: spamWords){
+			String s = sM.toLowerCase();
+			if(message.getBody().toLowerCase().contains(s) || message.getSubject().toLowerCase().contains(s)){
+				message.setSpam(true);
+			}
+		}
 	}
 
 }

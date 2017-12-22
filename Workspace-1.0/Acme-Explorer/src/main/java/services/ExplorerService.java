@@ -177,60 +177,53 @@ public class ExplorerService {
 		Collection<Story> stories = explorer.getStories();
 		Collection<Survival> survivals = explorer.getSurvival();
 		Collection<Application> applications = explorer.getApplication();
-		Collection<Message> messages = explorer.getSent();
 		
 		Explorer newExplorer;
 		
-		for(String s: spamWords){
-			if(explorer.getAddress().contains(s) || explorer.getEmail().contains(s) || explorer.getName().contains(s) || explorer.getPhoneNumber().contains(s) || explorer.getSurname().contains(s) || explorer.getUserAccount().getUsername().contains(s)){
+		for(String sM: spamWords){
+			String s = sM.toLowerCase();
+			if(explorer.getAddress().toLowerCase().contains(s) || explorer.getEmail().toLowerCase().contains(s) || explorer.getName().toLowerCase().contains(s) || explorer.getSurname().toLowerCase().contains(s) || explorer.getUserAccount().getUsername().toLowerCase().contains(s)){
 				newExplorer = explorer;
 				newExplorer.setSuspicious(true);
 				this.save(newExplorer);
 			}
 			for(Application a: applications){
-				if(a.getComment().contains(s) || a.getReason().contains(s)){
+				if(a.getComment().toLowerCase().contains(s) || a.getReason().toLowerCase().contains(s)){
 					newExplorer = explorer;
 					newExplorer.setSuspicious(true);
 					this.save(newExplorer);
 				}
 			}
 			for(Emergency e: emergencies){
-				if(e.getEmail().contains(s) || e.getName().contains(s) || e.getPhoneNumber().contains(s)){
+				if(e.getEmail().toLowerCase().contains(s) || e.getName().toLowerCase().contains(s) || e.getPhoneNumber().toLowerCase().contains(s)){
 					newExplorer = explorer;
 					newExplorer.setSuspicious(true);
 					this.save(newExplorer);
 				}
 			}
 			for(Folder f: folders){
-				if(f.getName().contains(s)){
-					newExplorer = explorer;
-					newExplorer.setSuspicious(true);
-					this.save(newExplorer);
-				}
-			}
-			for(Message m: messages){
-				if(m.getBody().contains(s) || m.getSubject().contains(s)){
+				if(f.getName().toLowerCase().contains(s)){
 					newExplorer = explorer;
 					newExplorer.setSuspicious(true);
 					this.save(newExplorer);
 				}
 			}
 			for(SocialId sId: socialIds){
-				if(sId.getNameSocialNetwork().contains(s) || sId.getNick().contains(s) || sId.getPhoto().contains(s) || sId.getSocialNetwork().contains(s)){
+				if(sId.getNameSocialNetwork().toLowerCase().contains(s) || sId.getNick().toLowerCase().contains(s) || sId.getPhoto().toLowerCase().contains(s) || sId.getSocialNetwork().toLowerCase().contains(s)){
 					newExplorer = explorer;
 					newExplorer.setSuspicious(true);
 					this.save(newExplorer);
 				}
 			}
 			for(Story st: stories){
-				if(st.getPieceText().contains(s) || st.getTitle().contains(s)){
+				if(st.getPieceText().toLowerCase().contains(s) || st.getTitle().toLowerCase().contains(s)){
 					newExplorer = explorer;
 					newExplorer.setSuspicious(true);
 					this.save(newExplorer);
 				}
 			}
 			for(Survival su: survivals){
-				if(su.getDescription().contains(s) || su.getTitle().contains(s)){
+				if(su.getDescription().toLowerCase().contains(s) || su.getTitle().toLowerCase().contains(s)){
 					newExplorer = explorer;
 					newExplorer.setSuspicious(true);
 					this.save(newExplorer);

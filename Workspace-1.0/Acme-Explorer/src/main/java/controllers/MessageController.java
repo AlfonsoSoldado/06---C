@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ActorService;
+import services.ConfigurationService;
 import services.FolderService;
 import services.MessageService;
 import domain.Actor;
+import domain.Configuration;
 import domain.Folder;
 import domain.Message;
 
@@ -35,6 +37,9 @@ public class MessageController extends AbstractController {
 
 	@Autowired
 	private FolderService folderService;
+	
+	@Autowired
+	private ConfigurationService configurationService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -91,6 +96,11 @@ public class MessageController extends AbstractController {
 					"message.params.error");
 		else
 			try {
+				Configuration configuration;
+				Integer configurationId = configurationService.resId();
+				configuration = configurationService.findOne(configurationId);
+				
+				messageService.messageToSpamFolder(message, configuration);
 				messageService.save(message);
 				result = new ModelAndView("redirect:../folder/list.do");
 			} catch (final Throwable oops) {

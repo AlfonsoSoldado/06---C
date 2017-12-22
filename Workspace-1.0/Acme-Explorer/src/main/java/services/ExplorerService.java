@@ -233,13 +233,11 @@ public class ExplorerService {
 		}
 	}
 	
-	// public Collection<Explorer> findExplorerByEmergency(Emergency emergency){
-	// Collection<Explorer> explorers;
-	//
-	// explorers =
-	// explorerRepository.findExplorerByEmergency(emergency.getId());
-	// Assert.notNull(explorers);
-	//
-	// return explorers;
-	// }
+	public Explorer findApplicationOfExplorer(Integer id) {
+		Explorer explorer;
+
+		explorer = explorerRepository.findApplicationOfExplorer(id);
+
+		return explorer;
+	}
 }

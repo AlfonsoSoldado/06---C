@@ -161,4 +161,10 @@ public class ManagerService {
 		res.setAuthority("MANAGER");
 		Assert.isTrue(authority.contains(res));
 	}
+	
+	public Manager findApplicationOfManager(Integer id) {
+		Manager manager;
+		manager = managerRepository.findApplicationOfManager(id);
+		return manager;
+	}
 }

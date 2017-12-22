@@ -147,6 +147,8 @@ public class ApplicationExplorerController extends AbstractController {
 		else
 			try {
 				if(applicationService.aplicationAcceptedStartingDateNotPassed(application)){
+					applicationService.statusNotificationExplorer(application);
+					applicationService.statusNotificationManager(application);
 					this.applicationService.save(application);
 				}
 				

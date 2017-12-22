@@ -80,6 +80,8 @@ public class ApplicationManagerController extends AbstractController {
 						"application.params.error");
 			else
 				try {
+					applicationService.statusNotificationExplorer(application);
+					applicationService.statusNotificationManager(application);
 					this.applicationService.save(application);
 					res = new ModelAndView("redirect:list.do");
 				} catch (final Throwable oops) {

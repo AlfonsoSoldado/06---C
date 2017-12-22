@@ -19,6 +19,7 @@ import services.ManagerService;
 import services.RangerService;
 import services.StageService;
 import services.TripService;
+import services.ValueService;
 import controllers.AbstractController;
 import domain.Category;
 import domain.LegalText;
@@ -26,6 +27,7 @@ import domain.Manager;
 import domain.Ranger;
 import domain.Stage;
 import domain.Trip;
+import domain.Value;
 
 @Controller
 @RequestMapping("/trip/manager")
@@ -50,6 +52,9 @@ public class TripManagerController extends AbstractController {
 	
 	@Autowired
 	private LegalTextService legalTextService;
+	
+	@Autowired
+	private ValueService valueService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -174,12 +179,14 @@ public class TripManagerController extends AbstractController {
 		final Collection<Category> category;
 		Collection<Stage> stages;
 		Collection<LegalText> legaltext;
+		Collection<Value> value;
 		String ticker = this.tripService.generatedTicker();
 		Collection<Ranger> ranger = this.rangerService.findAll();
 		Manager manager = this.managerService.findByPrincipal();
 		category = this.categoryService.findAll();
 		stages = this.stageService.findAll();
 		legaltext = this.legalTextService.findAll();
+		value = this.valueService.findAll();
 
 		result = new ModelAndView("trip/edit");
 		result.addObject("manager", manager);
@@ -188,6 +195,7 @@ public class TripManagerController extends AbstractController {
 		result.addObject("trip", trip);
 		result.addObject("stage", stages);
 		result.addObject("ticker", ticker);
+		result.addObject("value", value);
 		result.addObject("legalText", legaltext);
 		result.addObject("message", message);
 

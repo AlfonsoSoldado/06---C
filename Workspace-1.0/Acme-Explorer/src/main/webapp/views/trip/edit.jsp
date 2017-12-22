@@ -29,11 +29,8 @@
 	<form:hidden path="cancelled" />
 	<form:hidden path="price" />
 	
-	
 	<form:hidden path="manager" />
-	
 	<form:hidden path="application" />
-	<form:hidden path="value" />
 	
 	<form:label path="title">
 		<spring:message code="trip.title" />:
@@ -106,7 +103,14 @@
 	<form:errors cssClass="error" path="legalText" />
 	<br />
 	
-	
+	<form:label path="value">
+		<spring:message code="trip.value"/>:
+	</form:label>
+	<form:select path="value">
+		<form:options items="${value}" />
+	</form:select>
+	<form:errors cssClass="error" path="value" />
+	<br />
 	
 	<input type="submit" name="save"
 		value="<spring:message code="trip.save" />" />&nbsp; 

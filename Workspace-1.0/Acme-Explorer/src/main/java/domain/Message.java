@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -103,7 +102,6 @@ public class Message extends DomainEntity {
 	}
 
 	@Valid
-	@NotEmpty
 	@OneToMany(mappedBy = "received")
 	public Collection<Actor> getRecipient() {
 		return recipient;

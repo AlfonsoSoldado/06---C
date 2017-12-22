@@ -176,13 +176,6 @@ public class MessageService {
 		msgs.add(message);
 
 		f.setMessages(msgs);
-		
-//		Collection<Actor> actor;
-//		actor = this.actorService.findAll();
-//		Collection<Actor> rec;
-//		rec = message.getRecipient();
-//		rec.addAll(actor);
-//		message.setRecipient(rec);
 
 		res = this.messageRepository.save(message);
 		

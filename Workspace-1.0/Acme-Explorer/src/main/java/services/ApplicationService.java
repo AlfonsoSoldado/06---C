@@ -10,9 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.ApplicationRepository;
+import repositories.MessageRepository;
+import domain.Actor;
+import domain.Administrator;
 import domain.Application;
 import domain.Explorer;
+import domain.Folder;
 import domain.Manager;
+import domain.Message;
 
 @Service
 @Transactional
@@ -22,6 +27,9 @@ public class ApplicationService {
 
 	@Autowired
 	private ApplicationRepository applicationRepository;
+	
+	@Autowired
+	private MessageRepository messageRepository;
 
 	// Supporting services
 
@@ -30,6 +38,15 @@ public class ApplicationService {
 
 	@Autowired
 	private ExplorerService explorerService;
+	
+	@Autowired
+	private FolderService folderService;
+	
+	@Autowired
+	private MessageService messageService;
+	
+	@Autowired
+	private AdministratorService administratorService;
 
 	// Constructors
 
@@ -153,6 +170,53 @@ public class ApplicationService {
 		if(application.getTrip().getTripStart().after(date)){
 			res = true;
 		}
+		return res;
+	}
+	
+	public Message statusNotification(Application application){
+		Message res;
+		
+		Message mess = messageService.findOne(2373);
+		
+		Message message = mess;
+
+		Administrator sender = administratorService.findAdministratorById(2358);
+		System.out.println(sender);
+		
+		Explorer explorer = explorerService.findApplicationOfExplorer(application.getId());
+		Manager manager = managerService.findApplicationOfManager(application.getId());
+		System.out.println(explorer);
+		System.out.println(manager);
+		Folder f = folderService.findFolderName("Out Box", sender.getId());
+
+
+		Collection<Message> msgs = new ArrayList<Message>();
+		msgs.addAll(f.getMessages());
+		msgs.add(message);
+
+		f.setMessages(msgs);
+
+		res = this.messageRepository.save(message);
+		
+		Collection<Actor> recipient = new ArrayList<Actor>();
+		recipient.add(manager);
+		recipient.add(explorer);
+		
+		res.setFolder(f);
+		
+		for (Actor a : recipient) {
+			Message res2;
+			res2 = this.messageRepository.save(message);
+			
+			Collection<Message> messages = new ArrayList<Message>();
+			
+			Folder inbox = folderService.findFolderName("Notification", a.getId());
+			res2.setFolder(inbox);
+			messages.addAll(inbox.getMessages());
+			messages.add(res);
+			inbox.setMessages(messages);
+		}
+
 		return res;
 	}
 	

@@ -2503,26 +2503,20 @@
 	</bean>	
 	
 	<!-- Message3 -->
-	<!--
 	<bean id="message3" class="domain.Message">
-		<property name="moment" value="01/01/2012 12:30" />
-		<property name="subject" value="Que tal" />
-		<property name="body" value="Eso" />
+		<property name="moment" value="01/01/2015 12:30" />
+		<property name="subject" value="Buenas" />
+		<property name="body" value="Que pasa" />
 		<property name="priority" value="LOW" />
 		<property name="spam" value="false" />
-		<property name="sender" ref="ranger1" />
+		<property name="sender" ref="administrator1" />
+		<property name="folder" ref="outBoxAdministrator1" />
 		<property name="recipient">
 			<list>
-				<ref bean="explorer1"/>
-			</list> 
-		</property>
-		<property name="folder">
-			<list>
-				<ref bean="inBoxExplorer1"/>
 			</list> 
 		</property>
 	</bean>	
-	-->
+	
 	<!-- Message4 -->
 	
 	<!--  

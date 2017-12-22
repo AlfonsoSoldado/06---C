@@ -261,4 +261,12 @@ public class AdministratorService {
 		res = this.administratorRepository.avgMinMaxSqtr5();
 		return res;
 	}
+	
+	public Administrator findAdministratorById(int id){
+		Administrator administrator;
+		
+		administrator = administratorRepository.findAdministratorById(id);
+		
+		return administrator;
+	}
 }

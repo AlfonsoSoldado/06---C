@@ -23,9 +23,6 @@ public class InformationAdministratorController extends AbstractController {
 	@Autowired
 	private AdministratorService administratorService;
 	
-	@Autowired
-	private NoteService noteService;
-
 	// Constructors ---------------------------------------------------------
 
 	public InformationAdministratorController() {

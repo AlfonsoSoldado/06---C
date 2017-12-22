@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.LegalTextService;
-import services.TripService;
 import controllers.AbstractController;
 import domain.LegalText;
-import domain.Trip;
 
 @Controller
 @RequestMapping("/legalText/administrator")
@@ -27,9 +25,6 @@ public class LegalTextAdministratorController extends AbstractController {
 
 	@Autowired
 	private LegalTextService legalTextService;
-	
-	@Autowired
-	private TripService tripService;
 	
 	// Constructors ---------------------------------------------------------
 
@@ -135,10 +130,7 @@ public class LegalTextAdministratorController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final LegalText legalText,
 			final String message) {
 		ModelAndView result;
-		final Collection<Trip> trips;
-		trips = this.legalTextService.findTripsWithoutLegalText();
 		result = new ModelAndView("legalText/administrator/edit");
-		result.addObject("trip", trips);
 		result.addObject("legalText", legalText);
 		result.addObject("message", message);
 		return result;

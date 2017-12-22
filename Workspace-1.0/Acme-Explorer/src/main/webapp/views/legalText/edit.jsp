@@ -25,6 +25,7 @@
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	<form:hidden path="moment" />
+	<form:hidden path="trip" />
 	
 	<form:label path="title">
 		<spring:message code="legalText.title" />:
@@ -57,7 +58,7 @@
 	<form:errors cssClass="error" path="draftMode" />
 	<br />
 	
- 	<form:label path="trip">
+<%--  	<form:label path="trip">
 		<spring:message code="legalText.trip" />:
 	</form:label>
 	<form:select id="trip" path="trip" multiple="true">
@@ -65,7 +66,7 @@
         <form:options items="${trip}" itemValue="id" itemLabel="title"/>
 	</form:select>
 	<form:errors cssClass="error" path="trip" />
-	<br />
+	<br /> --%>
 	
 	<input type="submit" name="save"
 		value="<spring:message code="legalText.save" />" />&nbsp; 

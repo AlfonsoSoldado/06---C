@@ -97,6 +97,15 @@
 	<form:errors cssClass="error" path="stage" />
 	<br />
 	
+	<form:label path="legalText">
+		<spring:message code="trip.legalText"/>:
+	</form:label>
+	<form:select path="legalText">
+		<form:options items="${legalText}" itemLabel="title"/>
+	</form:select>
+	<form:errors cssClass="error" path="legalText" />
+	<br />
+	
 	
 	
 	<input type="submit" name="save"

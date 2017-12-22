@@ -48,11 +48,8 @@ public class LegalTextService {
 	}
 
 	public Collection<LegalText> findAll() {
-		administratorService.checkAuthority();
-
 		Collection<LegalText> res;
 		res = this.legalTextRepository.findAll();
-		Assert.notNull(res);
 		return res;
 	}
 
@@ -73,41 +70,9 @@ public class LegalTextService {
 		if(legalText.getDraftMode()==false && !legalText.getTrip().isEmpty()){
 			Assert.isTrue(legalText.getDraftMode()==false && legalText.getTrip().isEmpty());
 		}
+		
 		LegalText res;
-		
-		Collection<Trip> trips = new ArrayList<Trip>();
-		trips = legalText.getTrip();
-		
-		for(Trip t: trips){
-			if(t.getLegalText() == legalText){
-				t.setLegalText(legalText);
-			}
-		}
-		
 		res = this.legalTextRepository.save(legalText);
-		
-//		administratorService.checkAuthority();
-//
-//		//Assert.notNull(legalText);
-//		LegalText res;
-//		
-//		if(legalText.getId() != 0){
-//			//Assert.isTrue(legalText.getDraftMode() == true);
-//			
-//			Collection<Trip> trips = new ArrayList<Trip>();
-//			trips = legalText.getTrip();
-//			
-//			for(Trip t: trips){
-//				if(t.getLegalText() == legalText){
-//					t.setLegalText(legalText);
-//				}
-//			}
-//		}
-//		
-//		res = this.legalTextRepository.save(legalText);
-//		Date fechaActual = new Date();
-//		res.setMoment(fechaActual);
-		
 		return res;
 	}
 
@@ -115,19 +80,6 @@ public class LegalTextService {
 		administratorService.checkAuthority();
 
 		Assert.isTrue(legalText.getDraftMode() == true);
-//		Assert.notNull(legalText);
-//		Assert.isTrue(legalText.getId() != 0);
-//		Assert.isTrue(this.legalTextRepository.exists(legalText.getId()));
-
-//		if(!legalText.getTrip().isEmpty()){
-//			Collection<Trip> trips = new ArrayList<Trip>();
-//			trips = legalText.getTrip();
-//
-//			for(Trip t: trips){
-//				t.setLegalText(null);
-//			}	
-//		}
-//		
 		
 		this.legalTextRepository.delete(legalText);
 	}
@@ -147,9 +99,7 @@ public class LegalTextService {
 	
 	public Collection<Trip> findTripsWithoutLegalText(){
 		Collection<Trip> res = new ArrayList<Trip>();
-		
 		res = legalTextRepository.findTripsWithoutLegalText();
-		
 		return res;
 	}
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.AdministratorService;
-import services.NoteService;
 import controllers.AbstractController;
 import domain.Trip;
 

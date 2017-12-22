@@ -203,7 +203,6 @@ public class TripServiceTest extends AbstractTest {
 		trip = new Trip();
 		Integer intTrip;
 		intTrip = super.getEntityId("trip2");
-		trip = this.tripService.editByManager(intTrip);
 		Assert.notNull(trip);
 		unauthenticate();
 	}

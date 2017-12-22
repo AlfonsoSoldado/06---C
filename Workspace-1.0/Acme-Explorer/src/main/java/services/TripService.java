@@ -146,20 +146,20 @@ public class TripService {
 
 	// 12.1
 
-	public Trip editByManager(int id) {
-		managerService.checkAuthority();
-		Trip res;
-		Trip t;
-		t = tripRepository.findOne(id);
-		Assert.isTrue(t.getPublication().after(new Date())
-				|| t.getPublication() == null);
-		Assert.notNull(t);
-		Manager m = t.getManager();
-		Manager a = managerService.findByPrincipal();
-		Assert.isTrue(m.equals(a));
-		res = tripRepository.save(t);
-		return res;
-	}
+//	public Trip editByManager(int id) {
+//		managerService.checkAuthority();
+//		Trip res;
+//		Trip t;
+//		t = tripRepository.findOne(id);
+//		Assert.isTrue(t.getPublication().after(new Date())
+//				|| t.getPublication() == null);
+//		Assert.notNull(t);
+//		Manager m = t.getManager();
+//		Manager a = managerService.findByPrincipal();
+//		Assert.isTrue(m.equals(a));
+//		res = tripRepository.save(t);
+//		return res;
+//	}
 
 	// 13.1
 

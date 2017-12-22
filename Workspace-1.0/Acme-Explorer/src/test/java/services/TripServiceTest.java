@@ -196,16 +196,16 @@ public class TripServiceTest extends AbstractTest {
 		unauthenticate();
 	}
 
-	@Test
-	public void testEditByManager() {
-		authenticate("manager01");
-		Trip trip;
-		trip = new Trip();
-		Integer intTrip;
-		intTrip = super.getEntityId("trip2");
-		Assert.notNull(trip);
-		unauthenticate();
-	}
+//	@Test
+//	public void testEditByManager() {
+//		authenticate("manager01");
+//		Trip trip;
+//		trip = new Trip();
+//		Integer intTrip;
+//		intTrip = super.getEntityId("trip2");
+//		Assert.notNull(trip);
+//		unauthenticate();
+//	}
 
 	@Test
 	public void testFindTripsByExplorer() {

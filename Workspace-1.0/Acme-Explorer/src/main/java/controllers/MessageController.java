@@ -104,9 +104,6 @@ public class MessageController extends AbstractController {
 				messageService.save(message);
 				result = new ModelAndView("redirect:../folder/list.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getMessage());
-				System.out.println(oops.getCause());
-				System.out.println(oops.getLocalizedMessage());
 				result = this.createEditModelAndView(message,
 						"message.commit.error");
 			}
@@ -117,7 +114,6 @@ public class MessageController extends AbstractController {
 	public ModelAndView saveMove(@Valid final Message message,
 			final BindingResult binding) {
 		ModelAndView result;
-		System.out.println(binding.getFieldError());
 		if (binding.hasErrors())
 			result = this.moveModelAndView(message,
 					"message.params.error");
@@ -127,9 +123,6 @@ public class MessageController extends AbstractController {
 				messageService.moveMessage(message,message.getFolder());
 				result = new ModelAndView("redirect:../folder/list.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getMessage());
-				System.out.println(oops.getCause());
-				System.out.println(oops.getLocalizedMessage());
 				result = this.moveModelAndView(message,
 						"message.commit.error");
 			}

@@ -61,7 +61,6 @@ public class TripService {
 		Collection<Value> value = new ArrayList<Value>();
 		Trip trip = new Trip();
 		Collection<String> requirements =  new ArrayList<String>();
-//		Date moment = new Date(System.currentTimeMillis() - 1);
 		
 		m = this.managerService.findByPrincipal();
 		
@@ -75,7 +74,6 @@ public class TripService {
 		trip.setRanger(ranger);
 		trip.setValue(value);
 		trip.setRequirement(requirements);
-//		trip.setPublication(moment);
 		trip.setCancelled(false);
 		return trip;
 	}
@@ -144,22 +142,6 @@ public class TripService {
 		return res;
 	}
 
-	// 12.1
-
-//	public Trip editByManager(int id) {
-//		managerService.checkAuthority();
-//		Trip res;
-//		Trip t;
-//		t = tripRepository.findOne(id);
-//		Assert.isTrue(t.getPublication().after(new Date())
-//				|| t.getPublication() == null);
-//		Assert.notNull(t);
-//		Manager m = t.getManager();
-//		Manager a = managerService.findByPrincipal();
-//		Assert.isTrue(m.equals(a));
-//		res = tripRepository.save(t);
-//		return res;
-//	}
 
 	// 13.1
 

@@ -45,14 +45,12 @@ public class EducationRecordService {
 		Assert.isTrue(educationRecord != 0);
 		EducationRecord res;
 		res = this.educationRecordRepository.findOne(educationRecord);
-		//Assert.notNull(res);
 		return res;
 	}
 	
 	public Collection<EducationRecord> findAll() {
 		Collection<EducationRecord> res;
 		res = this.educationRecordRepository.findAll();
-		//Assert.notNull(res);
 		return res;
 	}
 	
@@ -60,14 +58,7 @@ public class EducationRecordService {
 		Assert.notNull(educationRecord);
 		
 		EducationRecord res;
-		
-//		Ranger r = rangerService.findByPrincipal();
-//		Curriculum c = r.getCurriculum();
-//		Collection<EducationRecord> conj = c.getEducationRecord();
-//		
-//		conj.remove(educationRecord);
-//		c.setEducationRecord(conj);
-		
+				
 		Ranger r = rangerService.findByPrincipal();
 		Curriculum c = r.getCurriculum();
 		Collection<EducationRecord> conj = c.getEducationRecord();

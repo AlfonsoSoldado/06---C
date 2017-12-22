@@ -40,8 +40,6 @@ public class MessageService {
 	// Simple CRUD methods
 
 	public Message create() {
-		// actorService.checkAuthority();
-
 		Message message;
 		message = new Message();
 		Actor sender = this.actorService.findByPrincipal();
@@ -59,8 +57,6 @@ public class MessageService {
 	}
 
 	public Collection<Message> findAll() {
-		// actorService.checkAuthority();
-
 		Collection<Message> res;
 		res = this.messageRepository.findAll();
 		Assert.notNull(res);
@@ -68,9 +64,6 @@ public class MessageService {
 	}
 
 	public Message findOne(int message) {
-		// actorService.checkAuthority();
-
-		//Assert.isTrue(message != 0);
 		Message res;
 		res = this.messageRepository.findOne(message);
 		Assert.notNull(res);
@@ -169,7 +162,6 @@ public class MessageService {
 		Actor sender = actorService.findByPrincipal();
 
 		Folder f = folderService.findFolderName("Out Box", sender.getId());
-
 
 		Collection<Message> msgs = new ArrayList<Message>();
 		msgs.addAll(f.getMessages());

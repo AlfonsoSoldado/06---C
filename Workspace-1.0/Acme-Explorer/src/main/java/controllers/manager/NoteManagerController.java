@@ -69,7 +69,6 @@ public class NoteManagerController extends AbstractController{
 					this.noteService.save(note);
 					res = new ModelAndView("redirect:../manager/list.do");
 				} catch (final Throwable oops) {
-					System.out.println(oops.getMessage());
 					res = this.createEditModelAndView(note, "note.commit.error");
 				}
 

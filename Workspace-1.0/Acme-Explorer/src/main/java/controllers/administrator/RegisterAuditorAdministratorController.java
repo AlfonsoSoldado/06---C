@@ -45,7 +45,6 @@ public class RegisterAuditorAdministratorController extends AbstractController {
 	public ModelAndView save(@Valid final Auditor auditor,
 			final BindingResult binding) {
 		ModelAndView res;
-		System.out.println(binding.getFieldError());
 		if (binding.hasErrors()) {
 			res = this.createEditModelAndView(auditor, "actor.params.error");
 		} else {
@@ -53,10 +52,6 @@ public class RegisterAuditorAdministratorController extends AbstractController {
 				this.auditorService.save(auditor);
 				res = new ModelAndView("redirect:../");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getCause());
-				System.out.println(oops.getLocalizedMessage());
-				System.out.println(oops.getMessage());
-				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(auditor, "actor.commit.error");
 			}
 		}

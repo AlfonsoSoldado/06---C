@@ -75,7 +75,6 @@ public class SurvivalManagerController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors()) {
-			System.out.println(binding.getFieldError());
 			res = this
 					.createEditModelAndView(survival, "survival.params.error");
 		} else

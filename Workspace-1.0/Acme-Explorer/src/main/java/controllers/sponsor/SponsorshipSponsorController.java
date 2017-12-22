@@ -82,12 +82,10 @@ public class SponsorshipSponsorController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors()) {
-			System.out.println("Binding");
 			res = this
 					.createEditModelAndView(sponsorship, "sponsorship.params.error");
 		} else
 			try {
-				System.out.println("Try");
 				this.sponsorshipService.save(sponsorship);
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {

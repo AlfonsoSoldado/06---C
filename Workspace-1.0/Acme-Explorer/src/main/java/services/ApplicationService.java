@@ -12,7 +12,6 @@ import org.springframework.util.Assert;
 import repositories.ApplicationRepository;
 import repositories.MessageRepository;
 import domain.Actor;
-import domain.Administrator;
 import domain.Application;
 import domain.Explorer;
 import domain.Folder;
@@ -173,18 +172,18 @@ public class ApplicationService {
 		return res;
 	}
 	
-	public Message statusNotification(Application application){
+	public Message statusNotificationExplorer(Application application){
 		Message res;
 		
-		Message mess = messageService.findOne(2373);
+		Message message = messageService.findOne(2378);
 		
-		Message message = mess;
+//		Message message = messageRepository.save(mess);
 
-		Administrator sender = administratorService.findAdministratorById(2358);
+		Actor sender = administratorService.findAdministratorByUsername("admin");
 		System.out.println(sender);
 		
-		Explorer explorer = explorerService.findApplicationOfExplorer(application.getId());
-		Manager manager = managerService.findApplicationOfManager(application.getId());
+		Actor explorer = explorerService.findApplicationOfExplorer(application.getId());
+		Actor manager = managerService.findApplicationOfManager(application.getId());
 		System.out.println(explorer);
 		System.out.println(manager);
 		Folder f = folderService.findFolderName("Out Box", sender.getId());
@@ -199,7 +198,6 @@ public class ApplicationService {
 		res = this.messageRepository.save(message);
 		
 		Collection<Actor> recipient = new ArrayList<Actor>();
-		recipient.add(manager);
 		recipient.add(explorer);
 		
 		res.setFolder(f);
@@ -220,21 +218,47 @@ public class ApplicationService {
 		return res;
 	}
 	
-//	public void applicationAccepted(CC creditCard, Application application){
-//		explorerService.checkAuthority();
-//		Assert.notNull(creditCard);
-//		Assert.notNull(application);
-//		
-//		CC creditCardIntermedia = application.getCreditCard();
-//		
-//		Collection<Application> applications = new ArrayList<>();
-//		applications = applicationRepository.findListApplicationDue();
-//		
-//		if(applications.contains(application)){
-//			application.setCreditCard(creditCard);
-//			if(application.getCreditCard().equals(creditCardIntermedia)){
-//				application.setStatus("ACCEPTED");
-//			}
-//		}
-//	}
+	public Message statusNotificationManager(Application application){
+		Message res;
+		
+		Message message = messageService.findOne(2379);
+
+		Actor sender = administratorService.findAdministratorByUsername("admin");
+		System.out.println(sender);
+		
+		Actor explorer = explorerService.findApplicationOfExplorer(application.getId());
+		Actor manager = managerService.findApplicationOfManager(application.getId());
+		System.out.println(explorer);
+		System.out.println(manager);
+		Folder f = folderService.findFolderName("Out Box", sender.getId());
+
+
+		Collection<Message> msgs = new ArrayList<Message>();
+		msgs.addAll(f.getMessages());
+		msgs.add(message);
+
+		f.setMessages(msgs);
+
+		res = this.messageRepository.save(message);
+		
+		Collection<Actor> recipient = new ArrayList<Actor>();
+		recipient.add(manager);
+		
+		res.setFolder(f);
+		
+		for (Actor a : recipient) {
+			Message res2;
+			res2 = this.messageRepository.save(message);
+			
+			Collection<Message> messages = new ArrayList<Message>();
+			
+			Folder inbox = folderService.findFolderName("Notification", a.getId());
+			res2.setFolder(inbox);
+			messages.addAll(inbox.getMessages());
+			messages.add(res);
+			inbox.setMessages(messages);
+		}
+
+		return res;
+	}
 }

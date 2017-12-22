@@ -43,7 +43,6 @@ public class PersonalRecordService {
 	public Collection<PersonalRecord> findAll() {
 		Collection<PersonalRecord> res;
 		res = this.personalRecordRepository.findAll();
-		//Assert.notNull(res);
 		return res;
 	}
 
@@ -51,12 +50,10 @@ public class PersonalRecordService {
 		Assert.isTrue(personalRecord != 0);
 		PersonalRecord res;
 		res = this.personalRecordRepository.findOne(personalRecord);
-		//Assert.notNull(res);
 		return res;
 	}
 
 	public PersonalRecord save(PersonalRecord personalRecord) {
-//		Assert.notNull(personalRecord);
 		PersonalRecord res;
 		
 		Ranger r = rangerService.findByPrincipal();

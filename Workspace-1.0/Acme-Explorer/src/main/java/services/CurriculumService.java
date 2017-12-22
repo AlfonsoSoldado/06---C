@@ -79,16 +79,12 @@ public class CurriculumService {
 	}
 	
 	public Curriculum save(Curriculum curriculum) {
-		//rangerService.checkAuthority();
 		
 		Ranger ranger;
 		ranger = this.rangerService.findByPrincipal();
 		
-//		PersonalRecord personalRecord;
-//		personalRecord = personalRecordService.create();
 		
 		Assert.notNull(curriculum);
-		//Assert.notNull(curriculum.getPersonalRecord());
 		curriculum.setRanger(ranger);
 		
 		Curriculum res;
@@ -101,7 +97,6 @@ public class CurriculumService {
 	}
 	
 	public void delete(Curriculum curriculum) {
-		//rangerService.checkAuthority();
 		
 		Assert.notNull(curriculum);
 		Assert.isTrue(curriculum.getId() != 0);

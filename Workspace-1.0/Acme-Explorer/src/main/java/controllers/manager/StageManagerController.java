@@ -80,11 +80,9 @@ public class StageManagerController extends AbstractController {
 		ModelAndView res;
 		
 		if(binding.hasErrors()){
-			System.out.println("Binding");
 			res = this.createEditModelAndView(stage, "stage.params.error");
 		}else{
 			try{
-				System.out.println("Try");
 				this.stageService.save(stage);
 				res = new ModelAndView("redirect:list.do");
 			}catch (final Throwable oops) {

@@ -101,7 +101,6 @@ public class CurriculumRangerController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors()) {
-			System.out.println(binding.getFieldError());
 			res = this.createEditModelAndView(curriculum,
 					"curriculum.params.error");
 		} else

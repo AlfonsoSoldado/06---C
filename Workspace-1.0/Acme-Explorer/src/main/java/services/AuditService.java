@@ -73,14 +73,9 @@ public class AuditService {
 	// 33.2
 
 	public Audit save(Audit audit) {
-		//auditorService.checkAuthority();
 		if(audit.getId() != 0){
 			Assert.isTrue(audit.getDraftMode() == true);
 		}
-		//UserAccount ua = LoginService.getPrincipal();
-		//Assert.notNull(ua);
-		//Actor a = auditorService.findOne(ua.getId());
-		//Assert.notNull(a);
 		Assert.notNull(audit);
 		Audit res;
 		res = this.auditRepository.save(audit);
@@ -90,8 +85,6 @@ public class AuditService {
 	// 33.2
 
 	public void delete(Audit audit) {
-		//auditorService.checkAuthority();
-
 		Assert.isTrue(audit.getDraftMode() == true);
 		Assert.notNull(audit);
 		Assert.isTrue(audit.getId() != 0);

@@ -262,10 +262,10 @@ public class AdministratorService {
 		return res;
 	}
 	
-	public Administrator findAdministratorById(int id){
+	public Administrator findAdministratorByUsername(String username){
 		Administrator administrator;
 		
-		administrator = administratorRepository.findAdministratorById(id);
+		administrator = administratorRepository.findAdministratorByUsername(username);
 		
 		return administrator;
 	}

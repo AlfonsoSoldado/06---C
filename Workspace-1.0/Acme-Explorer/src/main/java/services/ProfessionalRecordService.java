@@ -45,7 +45,6 @@ public class ProfessionalRecordService {
 		Assert.isTrue(profesionalRecord != 0);
 		ProfessionalRecord res;
 		res = this.profesionalRecordRepository.findOne(profesionalRecord);
-		//Assert.notNull(res);
 		return res;
 	}
 
@@ -53,7 +52,6 @@ public class ProfessionalRecordService {
 		Collection<ProfessionalRecord> res;
 		
 		res = this.profesionalRecordRepository.findAll();
-		//Assert.notNull(res);
 		return res;
 	}
 

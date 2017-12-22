@@ -53,7 +53,6 @@ public class FolderController extends AbstractController {
 			return result;
 		}
 		
-		//list de las subfolders
 		@RequestMapping(value = "/list", method = RequestMethod.GET, params = "folderId")
 		public ModelAndView list(@RequestParam final int folderId) {
 			ModelAndView result;
@@ -83,7 +82,6 @@ public class FolderController extends AbstractController {
 		public ModelAndView save(@Valid final Folder folder,
 				final BindingResult binding) {
 			ModelAndView result;
-			System.out.println(binding.getFieldError());
 			if (binding.hasErrors())
 				result = this.createEditModelAndView(folder,
 						"folder.params.error");
@@ -92,8 +90,6 @@ public class FolderController extends AbstractController {
 					folderService.save(folder);
 					result = new ModelAndView("redirect:../folder/list.do");
 				} catch (final Throwable oops) {
-					System.out.println(oops.getCause());
-					System.out.println(oops.getMessage());
 					result = this.createEditModelAndView(folder,
 							"folder.commit.error");
 				}

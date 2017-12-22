@@ -45,7 +45,6 @@ public class RegisterSponsorAdministratorController extends AbstractController {
 	public ModelAndView save(@Valid final Sponsor sponsor,
 			final BindingResult binding) {
 		ModelAndView res;
-		System.out.println(binding.getFieldError());
 		if (binding.hasErrors()) {
 			res = this.createEditModelAndView(sponsor, "actor.params.error");
 		} else {
@@ -53,10 +52,6 @@ public class RegisterSponsorAdministratorController extends AbstractController {
 				this.sponsorService.save(sponsor);
 				res = new ModelAndView("redirect:../");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getCause());
-				System.out.println(oops.getLocalizedMessage());
-				System.out.println(oops.getMessage());
-				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(sponsor, "actor.commit.error");
 			}
 		}

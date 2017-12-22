@@ -1802,7 +1802,7 @@
 	<!-- LEGALTEXT1 -->
 							
 	<bean id="legalText1" class="domain.LegalText">
-	<property name="title" value="Second" />
+	<property name="title" value="First Law" />
 	<property name="body" value="A comment of something" />
 	<property name="numberLaw" value = "10" />
 	<property name="moment" value="23/10/2013 19:13" />
@@ -1818,7 +1818,7 @@
 	<!-- LEGALTEXT2 -->
 	
 	<bean id="legalText2" class="domain.LegalText">
-	<property name="title" value="Second" />
+	<property name="title" value="Second Law" />
 	<property name="body" value="A comment of something" />
 	<property name="numberLaw" value = "285" />
 	<property name="moment" value="23/10/2015 10:15" />
@@ -1905,9 +1905,9 @@
 	<!-- ADMINISTRATOR1 -->
 	
 	<bean id="administrator1" class="domain.Administrator">
-	<property name="name" value="Dani" />
-	<property name="surname" value="Radriguez" />
-	<property name="email" value="dani.r.lopez@hotmail.com" />
+	<property name="name" value="Administrador" />
+	<property name="surname" value="Acme Explorer" />
+	<property name="email" value="admin@system.com" />
 	<property name="phoneNumber" value="694443000" />
 	<property name="address" value="C/ Lugo" />
 	<property name="suspicious" value="false"/>
@@ -2505,9 +2505,9 @@
 	<!-- Message3 -->
 	<bean id="message3" class="domain.Message">
 		<property name="moment" value="01/01/2015 12:30" />
-		<property name="subject" value="Buenas" />
-		<property name="body" value="Que pasa" />
-		<property name="priority" value="LOW" />
+		<property name="subject" value="Change in an application status" />
+		<property name="body" value="One of your application has change its status" />
+		<property name="priority" value="HIGH" />
 		<property name="spam" value="false" />
 		<property name="sender" ref="administrator1" />
 		<property name="folder" ref="outBoxAdministrator1" />
@@ -2519,28 +2519,19 @@
 	
 	<!-- Message4 -->
 	
-	<!--  
-	
 	<bean id="message4" class="domain.Message">
-		<property name="moment" value="01/01/2012 12:30" />
-		<property name="subject" value="Que tal" />
-		<property name="body" value="Eso" />
-		<property name="priority" value="LOW" />
+		<property name="moment" value="01/01/2015 12:31" />
+		<property name="subject" value="Change in an application status" />
+		<property name="body" value="One of your application has change its status" />
+		<property name="priority" value="HIGH" />
 		<property name="spam" value="false" />
-		<property name="sender" ref="explorer1" />
+		<property name="sender" ref="administrator1" />
+		<property name="folder" ref="outBoxAdministrator1" />
 		<property name="recipient">
 			<list>
-				<ref bean="ranger1"/>
-			</list> 
-		</property>
-		<property name="folder">
-			<list>
-				<ref bean="inBoxRanger1"/>
 			</list> 
 		</property>
 	</bean>	
-	
-	-->
 	
 										<!-- MANAGER -->
 	

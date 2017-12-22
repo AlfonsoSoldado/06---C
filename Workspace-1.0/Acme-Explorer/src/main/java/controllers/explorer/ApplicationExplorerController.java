@@ -17,13 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 import services.ApplicationService;
 import services.ExplorerService;
 import services.ManagerService;
-import services.MessageService;
 import services.TripService;
 import controllers.AbstractController;
 import domain.Application;
 import domain.Explorer;
 import domain.Manager;
-import domain.Message;
 import domain.Trip;
 
 @Controller
@@ -43,9 +41,6 @@ public class ApplicationExplorerController extends AbstractController {
 	
 	@Autowired
 	private ManagerService managerService;
-	
-	@Autowired
-	private MessageService messageService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -110,14 +105,11 @@ public class ApplicationExplorerController extends AbstractController {
 		else
 			try {
 				applicationService.applicationAccepted(application);
-				applicationService.statusNotification(application);
+				applicationService.statusNotificationExplorer(application);
+				applicationService.statusNotificationManager(application);
 				this.applicationService.save(application);
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getCause());
-				System.out.println(oops.getLocalizedMessage());
-				System.out.println(oops.getMessage());
-				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(application,
 						"application.commit.error");
 			}
@@ -129,7 +121,6 @@ public class ApplicationExplorerController extends AbstractController {
 	public ModelAndView saveCreate(@Valid final Application application,
 			final BindingResult binding) {
 		ModelAndView res;
-		System.out.println(binding.getFieldError());
 		if (binding.hasErrors())
 			res = this.createModelAndView(application,
 					"application.params.error");
@@ -139,8 +130,6 @@ public class ApplicationExplorerController extends AbstractController {
 				
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getMessage());
-				System.out.println(oops.getCause());
 				res = this.createModelAndView(application,
 						"application.commit.error");
 			}
@@ -152,7 +141,6 @@ public class ApplicationExplorerController extends AbstractController {
 	public ModelAndView saveAccepted(@Valid final Application application,
 			final BindingResult binding) {
 		ModelAndView res;
-		System.out.println(binding.getFieldError());
 		if (binding.hasErrors())
 			res = this.editAcceptedModelAndView(application,
 					"application.params.error");
@@ -164,8 +152,6 @@ public class ApplicationExplorerController extends AbstractController {
 				
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getMessage());
-				System.out.println(oops.getCause());
 				res = this.editAcceptedModelAndView(application,
 						"application.commit.error");
 			}

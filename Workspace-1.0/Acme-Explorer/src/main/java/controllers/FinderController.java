@@ -50,9 +50,7 @@ public class FinderController extends AbstractController {
 				res = new ModelAndView(
 						"redirect:../trip/finder/list.do?finderId=" + f.getId());
 			} catch (final Throwable oops) {
-				System.out.println(oops.getMessage());
-				res = this
-						.createEditModelAndView(finder, "finder.commit.error");
+				res = this.createEditModelAndView(finder, "finder.commit.error");
 			}
 
 		return res;

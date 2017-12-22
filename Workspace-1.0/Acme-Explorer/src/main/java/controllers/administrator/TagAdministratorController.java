@@ -96,10 +96,6 @@ public class TagAdministratorController extends AbstractController {
 				this.tagService.delete(tag);
 				res = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getCause());
-				System.out.println(oops.getLocalizedMessage());
-				System.out.println(oops.getMessage());
-				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(tag, "legalText.commit.error");
 			}
 
@@ -138,10 +134,7 @@ public class TagAdministratorController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Tag tag,
 			final String message) {
 		ModelAndView result;
-//		final Collection<Value> value;
-//		value = this.valueService.findAll();
 		result = new ModelAndView("tag/administrator/edit");
-//		result.addObject("value", value);
 		result.addObject("tag", tag);
 		result.addObject("message", message);
 		return result;

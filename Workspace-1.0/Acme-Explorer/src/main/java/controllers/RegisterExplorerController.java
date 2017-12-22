@@ -44,7 +44,6 @@ public class RegisterExplorerController extends AbstractController {
 	public ModelAndView save(@Valid final Explorer explorer,
 			final BindingResult binding) {
 		ModelAndView res;
-		System.out.println(binding.getFieldError());
 		if (binding.hasErrors())
 			res = this.createEditModelAndView(explorer, "actor.params.error");
 		else
@@ -52,10 +51,6 @@ public class RegisterExplorerController extends AbstractController {
 				this.explorerService.save(explorer);
 				res = new ModelAndView("redirect:../");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getCause());
-				System.out.println(oops.getLocalizedMessage());
-				System.out.println(oops.getMessage());
-				System.out.println(oops.fillInStackTrace());
 				res = this.createEditModelAndView(explorer,
 						"actor.commit.error");
 			}

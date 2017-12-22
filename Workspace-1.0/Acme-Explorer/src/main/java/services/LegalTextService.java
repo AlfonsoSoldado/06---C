@@ -54,8 +54,6 @@ public class LegalTextService {
 	}
 
 	public LegalText findOne(int legalText) {
-		//administratorService.checkAuthority();
-
 		Assert.isTrue(legalText != 0);
 		LegalText res;
 		res = this.legalTextRepository.findOne(legalText);
@@ -64,7 +62,6 @@ public class LegalTextService {
 	}
 
 	public LegalText save(LegalText legalText) {
-		
 		Assert.notNull(legalText);
 		Assert.notNull(this.administratorService.findByPrincipal());
 		if(legalText.getDraftMode()==false && !legalText.getTrip().isEmpty()){

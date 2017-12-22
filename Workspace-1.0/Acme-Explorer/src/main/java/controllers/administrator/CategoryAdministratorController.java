@@ -59,12 +59,10 @@ public class CategoryAdministratorController extends AbstractController {
 		ModelAndView res;
 
 		if (binding.hasErrors()){
-			System.out.println("Binding");
 			res = this.createEditModelAndView(category, "category.params.error");
 		}
 		else
 			try {
-				System.out.println("Try");
 				this.categoryService.save(category);
 				res = new ModelAndView("redirect:/category/list.do");
 			} catch (final Throwable oops) {
@@ -119,15 +117,12 @@ public class CategoryAdministratorController extends AbstractController {
 		ModelAndView result;
 		Collection<Category> categories;
 		Collection<Trip> trips;
-		//Category categoryChildren;
 		
 		trips = tripService.findAll();
-		//categoryChildren = this.categoryService.getCategoryRoot();
 		categories = this.categoryService.findAll();
 		
 		result = new ModelAndView("category/edit");
 		result.addObject("trip", trips);
-		//result.addObject("categoryChildren", categoryChildren);
 		result.addObject("category", category);
 		result.addObject("categoryParent", categories);
 		result.addObject("message", message);

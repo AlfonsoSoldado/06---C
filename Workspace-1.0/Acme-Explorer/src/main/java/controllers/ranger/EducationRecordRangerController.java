@@ -56,8 +56,6 @@ public class EducationRecordRangerController extends AbstractController {
 				this.educationRecordService.save(educationRecord);
 				res = new ModelAndView("redirect:../../curriculum/ranger/display.do");
 			} catch (final Throwable oops) {
-				System.out.println(oops.getMessage());
-				System.out.println(oops.getCause());
 				res = this.createEditModelAndView(educationRecord,
 						"educationRecord.commit.error");
 			}

@@ -76,7 +76,6 @@ public class AuditAuditorController extends AbstractController {
 	public ModelAndView save(@Valid final Audit audit,
 			final BindingResult binding) {
 		ModelAndView res;
-		System.out.println(binding.getFieldError());
 		if (binding.hasErrors())
 			res = this.createEditModelAndView(audit, "audit.params.error");
 		else

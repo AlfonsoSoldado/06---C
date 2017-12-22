@@ -65,46 +65,17 @@ public class FolderService {
 
 	public Folder save(Folder folder) {
 		Assert.notNull(folder);
-//		Actor actor;
 		Folder res;
-//		Collection<Folder> folders = new ArrayList<>();
-//		actor = this.actorService.findByPrincipal();
-//		Assert.notNull(folder);
-//		Assert.notNull(actor);
 		if(folder.getId()==0){
 			folder.setSystemFolder(false);
 		}
 		res = this.folderRepository.save(folder);
-//		if(folder.getId() == 0){
-//			//actor.getFolders().add(res);
-//			folders.add(res);
-//		}
-//		actor.setFolders(folders);
-		//Assert.notNull(res);
 		return res;
-		
-		
-		
-//		Assert.notNull(folder);
-//		Assert.isTrue(!this.folderRepository.exists(folder.getId()));
-//		Actor actor = this.actorService.findByPrincipal();
-//		Assert.notNull(actor);
-//		
-//		Folder res;
-//		res = this.folderRepository.save(folder);
-//		actor.getFolders().add(res);
-//		Assert.notNull(res);
-//		return res;
 	}
 
 	public void delete(Folder folder) {
 		Actor actor;
-		//Assert.isTrue(folder.getSystemFolder() == false);
-//		Assert.notNull(folder);
-//		Assert.isTrue(folder.getId() != 0);
-//		Assert.isTrue(this.folderRepository.exists(folder.getId()));
 		actor = this.actorService.findByPrincipal();
-//		Assert.isTrue(actor.getFolders().contains(folder));
 		for(Message m : folder.getMessages()){
 			this.messageService.delete(m);
 		}
@@ -119,41 +90,30 @@ public class FolderService {
 	public Collection<Folder> systemFolders() {
 		Collection<Folder> folders = new ArrayList<Folder>();
 		
-//		Folder customBox = new Folder();
 		Folder inBox = new Folder();
 		Folder outBox = new Folder();
 		Folder notification = new Folder();
 		Folder trash = new Folder();
 		Folder spam = new Folder();
 		
-//		customBox.setName("customBox");
 		inBox.setName("In Box");
 		outBox.setName("Out Box");
 		notification.setName("Notification");
 		trash.setName("Trash");
 		spam.setName("Spam");
 		
-//		customBox.setSystemFolder(false);
 		inBox.setSystemFolder(true);
 		outBox.setSystemFolder(true);
 		notification.setSystemFolder(true);
 		trash.setSystemFolder(true);
 		spam.setSystemFolder(true);
 		
-//		inBox.setCustomFolder(customBox);
-//		outBox.setCustomFolder(customBox);
-//		notification.setCustomFolder(customBox);
-//		trash.setCustomFolder(customBox);
-//		spam.setCustomFolder(customBox);
-		
 		inBox = folderRepository.save(inBox);
 		outBox = folderRepository.save(outBox);
 		notification = folderRepository.save(notification);
 		trash = folderRepository.save(trash);
 		spam = folderRepository.save(spam);
-//		customBox = folderRepository.save(customBox);
 		
-//		folders.add(customBox);
 		folders.add(inBox);
 		folders.add(outBox);
 		folders.add(notification);
@@ -164,7 +124,6 @@ public class FolderService {
 	}
 	
 	public Collection<Folder> findFolders() {
-		//this.actorService.checkUserLogin();
 		final Actor a;
 		Collection<Folder> result;
 		a = this.actorService.findByPrincipal();

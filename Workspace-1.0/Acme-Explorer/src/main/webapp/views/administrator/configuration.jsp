@@ -26,10 +26,7 @@
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	
-	<form:hidden path="banner" />
 	<form:hidden path="message" />
-	<form:hidden path="tax" />
-	<form:hidden path="countryCode" />
 	<form:hidden path="catalogueTag" />
 	<form:hidden path="treeCategory" />
 	<form:hidden path="catalogueText" />
@@ -68,6 +65,13 @@
 	</form:label>
 	<form:input path="countryCode" />
 	<form:errors cssClass="error" path="countryCode" />
+	<br />
+	
+	<form:label path="banner">
+		<spring:message code="administrator.banner" />:
+	</form:label>
+	<form:input path="banner"/>
+	<form:errors cssClass="error" path="banner" />
 	<br />
 	
 	<input type="submit" name="save"

@@ -160,8 +160,7 @@ public class Trip extends DomainEntity {
 	}
 
 	@Valid
-	@NotNull
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	public Ranger getRanger() {
 		return ranger;
 	}

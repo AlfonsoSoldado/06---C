@@ -80,6 +80,7 @@
 		<spring:message code="trip.ranger" />:
 	</form:label>
 	<form:select path="ranger">
+		<form:option item="null" value="0" label="----"/>
         <form:options items="${ranger}" itemLabel="name"/>
 	</form:select>
 	<form:errors cssClass="error" path="ranger" />
@@ -107,7 +108,7 @@
 		<spring:message code="trip.value"/>:
 	</form:label>
 	<form:select path="value">
-		<form:options items="${value}" />
+		<form:options items="${values}" itemLabel="${tags }"/>
 	</form:select>
 	<form:errors cssClass="error" path="value" />
 	<br />

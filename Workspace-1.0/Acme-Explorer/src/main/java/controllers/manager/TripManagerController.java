@@ -187,7 +187,8 @@ public class TripManagerController extends AbstractController {
 		stages = this.stageService.findAll();
 		legaltext = this.legalTextService.findAll();
 		value = this.valueService.findAll();
-
+		System.out.println(value);
+		
 		result = new ModelAndView("trip/edit");
 		result.addObject("manager", manager);
 		result.addObject("ranger", ranger);
@@ -195,7 +196,7 @@ public class TripManagerController extends AbstractController {
 		result.addObject("trip", trip);
 		result.addObject("stage", stages);
 		result.addObject("ticker", ticker);
-		result.addObject("value", value);
+		result.addObject("values", value);
 		result.addObject("legalText", legaltext);
 		result.addObject("message", message);
 

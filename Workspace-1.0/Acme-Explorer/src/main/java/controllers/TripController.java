@@ -21,7 +21,7 @@ import domain.Trip;
 
 @Controller
 @RequestMapping("/trip")
-public class TripController {
+public class TripController extends AbstractController{
 
 	
 	//Services -------------------------------------------------------------

@@ -56,6 +56,20 @@
 	<form:errors cssClass="error" path="spamWords" />
 	<br />
 	
+	<form:label path="tax">
+		<spring:message code="administrator.tax" />:
+	</form:label>
+	<form:input path="tax" />
+	<form:errors cssClass="error" path="tax" />
+	<br />
+	
+	<form:label path="countryCode">
+		<spring:message code="administrator.countryCode" />:
+	</form:label>
+	<form:input path="countryCode" />
+	<form:errors cssClass="error" path="countryCode" />
+	<br />
+	
 	<input type="submit" name="save"
 		value="<spring:message code="administrator.save" />" />&nbsp; 
 	

@@ -108,7 +108,7 @@
 		<spring:message code="trip.value"/>:
 	</form:label>
 	<form:select path="value">
-		<form:options items="${values}" itemLabel="${tags }"/>
+		<form:options items="${values}"/>
 	</form:select>
 	<form:errors cssClass="error" path="value" />
 	<br />

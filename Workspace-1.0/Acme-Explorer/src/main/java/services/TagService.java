@@ -62,7 +62,14 @@ public class TagService {
 		Tag res;
 		res = this.tagRepository.save(tag);
 		
-		res.setValue(tag.getValue());
+		Value value = tag.getValue();
+		
+		res.setValue(value);
+		
+		Collection<Tag> tags = new ArrayList<Tag>();
+		tags.add(res);
+		
+		value.setTag(tags);
 		return res;
 	}
 

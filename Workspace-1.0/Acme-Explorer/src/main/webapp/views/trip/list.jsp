@@ -70,9 +70,11 @@
 	
 	<spring:message code="trip.ranger" var="ranger"/>
 	<display:column title="${ranger}">
-		<a href= "curriculum/display.do?rangerId=${row.ranger.id}">
-			<spring:message code="trip.ranger"/>
-		</a>
+		<jstl:if test="${row.ranger != null }">
+			<a href= "curriculum/display.do?rangerId=${row.ranger.id}">
+				<spring:message code="trip.ranger"/>
+			</a>	
+		</jstl:if>
 	</display:column>
 	
 	<spring:message code="trip.audit" var="audit"/>

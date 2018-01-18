@@ -187,7 +187,6 @@ public class TripManagerController extends AbstractController {
 		stages = this.stageService.findAll();
 		legaltext = this.legalTextService.findAll();
 		value = this.valueService.findAll();
-		System.out.println(value);
 		
 		result = new ModelAndView("trip/edit");
 		result.addObject("manager", manager);

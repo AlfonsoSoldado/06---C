@@ -1818,7 +1818,7 @@
 	<!-- LEGALTEXT2 -->
 	
 	<bean id="legalText2" class="domain.LegalText">
-	<property name="title" value="Second Law" />
+	<property name="title" value="Primera ley" />
 	<property name="body" value="A comment of something" />
 	<property name="numberLaw" value = "285" />
 	<property name="moment" value="23/10/2015 10:15" />
@@ -3025,8 +3025,8 @@
 	</property>
 		<property name="catalogueText">
 		<list>
-			<value>Legal Text 1</value>
-			<value>Texto Legal 1</value>
+			<value>Legal Law</value>
+			<value>Primera ley</value>
 		</list>
 	</property>
 	<property name="other">

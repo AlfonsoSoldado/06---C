@@ -175,9 +175,7 @@ public class ApplicationService {
 	public Message statusNotificationExplorer(Application application){
 		Message res;
 		
-		Message message = messageService.findOne(2378);
-		
-//		Message message = messageRepository.save(mess);
+		Message message = messageService.findOne(120);
 
 		Actor sender = administratorService.findAdministratorByUsername("admin");
 		System.out.println(sender);
@@ -221,7 +219,7 @@ public class ApplicationService {
 	public Message statusNotificationManager(Application application){
 		Message res;
 		
-		Message message = messageService.findOne(2379);
+		Message message = messageService.findOne(121);
 
 		Actor sender = administratorService.findAdministratorByUsername("admin");
 		System.out.println(sender);

@@ -108,7 +108,7 @@ public class ManagerServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindByPrincipalManager() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Manager manager;
 		manager = this.managerService.findByPrincipal();
 		Assert.notNull(manager);

@@ -94,7 +94,7 @@ public class StoryServiceTest extends AbstractTest {
 
 	@Test
 	public void testWriteStory() {
-		authenticate("explorer01"); // <---- writer
+		authenticate("explorer1"); // <---- writer
 		Story story;
 		Trip trip;
 		String title, pieceText, link1;

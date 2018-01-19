@@ -48,7 +48,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testCreateApplicationExplorer() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Application application;
 		application = this.applicationService.create();
 		Assert.notNull(application);
@@ -57,7 +57,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindAllApplicationExplorer() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Collection<Application> applications;
 		applications = this.applicationService.findAll();
 		Assert.notNull(applications);
@@ -65,7 +65,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindOneApplicationExplorer() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Application application;
 		application = this.applicationService.findOne(super
 				.getEntityId("application1"));
@@ -74,7 +74,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveApplicationExplorer() {
-		this.authenticate("explorer01");
+		this.authenticate("explorer1");
 		Application application;
 		application = this.applicationService.create();
 
@@ -117,7 +117,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteApplicationExplorer() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Application application;
 		application = this.applicationService.findOne(super
 				.getEntityId("application1"));
@@ -128,7 +128,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindAllApplicationManager() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Collection<Application> applications;
 		applications = this.applicationService.findAll();
 		Assert.notNull(applications);
@@ -136,7 +136,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindOneApplicationManager() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Application application;
 		application = this.applicationService.findOne(super
 				.getEntityId("application1"));
@@ -188,7 +188,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteApplicationManager() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Application application;
 		application = this.applicationService.findOne(super
 				.getEntityId("application1"));
@@ -197,7 +197,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testChangingStatus() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Application a;
 		a = this.applicationService.findOne(super.getEntityId("application1"));
 		Assert.notNull(a);
@@ -212,7 +212,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindListApplication() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Manager manager;
 		manager = this.managerService.findOne(super.getEntityId("manager1"));
 		Assert.notNull(manager);
@@ -225,7 +225,7 @@ public class ApplicationServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindApplicationByExplorer() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Explorer explorer;
 		explorer = this.explorerService.findOne(super.getEntityId("explorer1"));
 		Assert.notNull(explorer);

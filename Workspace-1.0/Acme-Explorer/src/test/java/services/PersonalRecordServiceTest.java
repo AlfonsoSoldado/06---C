@@ -54,7 +54,7 @@ public class PersonalRecordServiceTest extends AbstractTest {
 
 	@Test
 	public void testSavePersonalRecord() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		PersonalRecord personal;
 		personal = this.personalRecordService.create();
 

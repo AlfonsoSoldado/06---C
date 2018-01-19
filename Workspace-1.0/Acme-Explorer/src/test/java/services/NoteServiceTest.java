@@ -39,7 +39,7 @@ public class NoteServiceTest extends AbstractTest {
 
 	@Test
 	public void testCreateNote() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Note note;
 		note = this.noteService.create();
 		Assert.notNull(note);
@@ -48,7 +48,7 @@ public class NoteServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindAllNote() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Collection<Note> notes;
 		notes = new ArrayList<Note>();
 		notes = this.noteService.findAll();
@@ -58,7 +58,7 @@ public class NoteServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindOneNote() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Note note;
 		note = this.noteService.findOne(super.getEntityId("note1"));
 		Assert.notNull(note);
@@ -67,7 +67,7 @@ public class NoteServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveNote() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Note note;
 		note = this.noteService.create();
 

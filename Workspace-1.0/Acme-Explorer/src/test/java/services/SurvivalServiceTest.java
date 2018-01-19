@@ -35,7 +35,7 @@ public class SurvivalServiceTest extends AbstractTest {
 
 	@Test
 	public void testCreateSurvival() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Survival survival;
 		survival = this.survivalService.create();
 		Assert.notNull(survival);
@@ -77,7 +77,7 @@ public class SurvivalServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindSurvivalByTrips() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Collection<Survival> survivals;
 
 		survivals = new ArrayList<Survival>();
@@ -95,7 +95,7 @@ public class SurvivalServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindOneByTrips() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Survival survival, res;
 		int id;
 
@@ -121,7 +121,7 @@ public class SurvivalServiceTest extends AbstractTest {
 
 	@Test
 	public void testByDeleteTrips() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Survival survival;
 		survival = this.survivalService.findOne(super.getEntityId("survival1"));
 		this.survivalService.deleteByTrips(survival);

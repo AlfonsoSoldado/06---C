@@ -55,7 +55,7 @@ public class EmergencyServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveEmergency() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Emergency emergency;
 		emergency = this.emergencyService.create();
 

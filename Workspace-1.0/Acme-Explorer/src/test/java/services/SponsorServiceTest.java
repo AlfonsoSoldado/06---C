@@ -74,7 +74,7 @@ public class SponsorServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteSponsor() {
-		authenticate("sponsor01");
+		authenticate("sponsor1");
 		Sponsor sponsor;
 		sponsor = this.sponsorService.findOne(super.getEntityId("sponsor2"));
 		Assert.notNull(sponsor);
@@ -84,7 +84,7 @@ public class SponsorServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindByPrincipal() {
-		authenticate("sponsor01");
+		authenticate("sponsor1");
 		Sponsor sponsor;
 		sponsor = this.sponsorService.findOne(super.getEntityId("sponsor2"));
 		sponsor = this.sponsorService.findByPrincipal();

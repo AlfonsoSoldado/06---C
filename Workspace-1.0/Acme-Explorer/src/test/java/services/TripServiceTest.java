@@ -83,7 +83,7 @@ public class TripServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveTrip() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Trip trip;
 		trip = this.tripService.create();
 
@@ -166,7 +166,7 @@ public class TripServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeteleTrip() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Trip trip;
 		trip = this.tripService.findOne(super.getEntityId("trip2"));
 		Assert.notNull(trip);
@@ -176,7 +176,7 @@ public class TripServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindTripsByManager() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Collection<Trip> trips;
 		trips = new ArrayList<Trip>();
 		Trip trip;
@@ -244,7 +244,7 @@ public class TripServiceTest extends AbstractTest {
 
 	@Test
 	public void testCancelTrip() {
-		authenticate("manager01");
+		authenticate("manager1");
 		Trip trip;
 		trip = this.tripService.findOne(super.getEntityId("trip1"));
 		Assert.notNull(trip);
@@ -255,7 +255,7 @@ public class TripServiceTest extends AbstractTest {
 
 	@Test
 	public void testTripApplicationExplorer() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Trip trip;
 		trip = this.tripService.findOne(super.getEntityId("trip2"));
 		this.tripService.tripApplicationExplorer(trip);

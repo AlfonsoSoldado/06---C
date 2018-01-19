@@ -61,7 +61,7 @@ public class RangerServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveRanger() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		Ranger ranger;
 		ranger = this.rangerService.create();
 		Curriculum curriculum;
@@ -103,7 +103,7 @@ public class RangerServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindByPrincipal() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		Ranger ranger;
 		ranger = this.rangerService.findByPrincipal();
 		Assert.notNull(ranger);

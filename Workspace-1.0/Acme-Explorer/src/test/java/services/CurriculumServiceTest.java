@@ -34,7 +34,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 	@Test
 	public void testCreateCurriculum() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		Curriculum curriculum;
 		curriculum = this.curriculumService.create();
 		Assert.notNull(curriculum);
@@ -43,7 +43,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindAllCurriculum() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		Collection<Curriculum> curriculums;
 		curriculums = this.curriculumService.findAll();
 		Assert.notNull(curriculums);
@@ -51,7 +51,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindOneCurriculum() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		Curriculum curriculum;
 		curriculum = this.curriculumService.findOne(super
 				.getEntityId("curriculum1"));
@@ -60,7 +60,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveCurriculum() {
-		this.authenticate("ranger01");
+		this.authenticate("ranger1");
 		Curriculum curriculum;
 		curriculum = this.curriculumService.create();
 		PersonalRecord personalRecord = this.personalRecordService.create();
@@ -78,7 +78,7 @@ public class CurriculumServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteCurriculum() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		Curriculum curriculum;
 		curriculum = this.curriculumService.findOne(super
 				.getEntityId("curriculum1"));

@@ -182,7 +182,7 @@ public class ActorServiceTest extends AbstractTest {
 
 	@Test
 	public void testSendMessage() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		Collection<Actor> actores;
 		actores = new ArrayList<Actor>();
 		Assert.notNull(actores);
@@ -201,7 +201,7 @@ public class ActorServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteMessage() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		Actor actor;
 		actor = this.actorService.findOne(super.getEntityId("ranger1"));
 		Assert.notNull(actor);

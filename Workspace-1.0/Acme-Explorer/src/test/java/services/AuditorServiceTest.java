@@ -60,7 +60,7 @@ public class AuditorServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveAuditor() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Auditor auditor;
 		auditor = this.auditorService.create();
 
@@ -96,7 +96,7 @@ public class AuditorServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindByPrincipal() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Auditor auditor;
 		auditor = this.auditorService.findByPrincipal();
 		Assert.notNull(auditor);

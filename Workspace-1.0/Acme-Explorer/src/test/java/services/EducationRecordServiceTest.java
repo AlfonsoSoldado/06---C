@@ -52,7 +52,7 @@ public class EducationRecordServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveEducationRecord() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		EducationRecord educationRecord;
 		educationRecord = this.educationRecordService.create();
 		educationRecord.setComment("comentario modificado");
@@ -65,7 +65,7 @@ public class EducationRecordServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteEducationRecord() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		EducationRecord educationRecord;
 		educationRecord = this.educationRecordService.findOne(super
 				.getEntityId("educationRecord1"));

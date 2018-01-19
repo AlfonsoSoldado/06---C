@@ -52,7 +52,7 @@ public class ProfessionalRecordServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveProfessionalRecord() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		ProfessionalRecord professionalRecord;
 		professionalRecord = this.professionalRecordService.create();
 		professionalRecord.setComment("comentario profesional");
@@ -65,7 +65,7 @@ public class ProfessionalRecordServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteProfessionalRecord() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		ProfessionalRecord professionalRecord;
 		professionalRecord = this.professionalRecordService.findOne(super
 				.getEntityId("professionalRecord1"));

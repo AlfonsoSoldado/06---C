@@ -44,7 +44,7 @@ public class FinderServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindOneFinder() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Finder finder;
 		finder = this.finderService.findOne(super.getEntityId("finder1"));
 		Assert.notNull(finder);
@@ -53,7 +53,7 @@ public class FinderServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindAllFinder() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Collection<Finder> finders;
 		finders = new ArrayList<Finder>();
 		finders = this.finderService.findAll();
@@ -63,7 +63,7 @@ public class FinderServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveFinder() {
-		authenticate("explorer01");
+		authenticate("explorer1");
 		Finder finder;
 		finder = this.finderService.create();
 

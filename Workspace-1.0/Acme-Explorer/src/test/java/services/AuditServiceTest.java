@@ -40,7 +40,7 @@ public class AuditServiceTest extends AbstractTest {
 
 	@Test
 	public void testCreateAudit() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Audit audit;
 		audit = this.auditService.create();
 		Assert.notNull(audit);
@@ -49,7 +49,7 @@ public class AuditServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindAllAudit() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Collection<Audit> audits;
 		audits = this.auditService.findAll();
 		Assert.notNull(audits);
@@ -58,7 +58,7 @@ public class AuditServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindOneAudit() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Audit audit;
 		audit = this.auditService.findOne(super.getEntityId("audit1"));
 		Assert.notNull(audit);
@@ -67,7 +67,7 @@ public class AuditServiceTest extends AbstractTest {
 
 	@Test
 	public void testSaveAudit() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Audit audit;
 		audit = this.auditService.create();
 
@@ -100,7 +100,7 @@ public class AuditServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteAudit() {
-		authenticate("auditor01");
+		authenticate("auditor1");
 		Audit audit;
 		audit = this.auditService.findOne(super.getEntityId("audit1"));
 		this.auditService.delete(audit);

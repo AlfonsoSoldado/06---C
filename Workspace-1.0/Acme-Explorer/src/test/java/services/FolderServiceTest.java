@@ -68,7 +68,7 @@ public class FolderServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteFolder() {
-		authenticate("ranger01");
+		authenticate("ranger1");
 		Folder folder = new Folder();
 		folder = this.folderService.findOne(super
 				.getEntityId("customBoxRanger1"));

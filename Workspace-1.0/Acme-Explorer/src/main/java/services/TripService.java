@@ -95,6 +95,7 @@ public class TripService {
 
 	public Trip save(Trip trip) {
 		Assert.notNull(trip);
+		//Assert.isTrue(managerService.findByPrincipal().getId() == trip.getManager().getId());
 		Trip res;
 		Double precio = 0., tax;
 		
@@ -119,6 +120,7 @@ public class TripService {
 
 	public void delete(Trip trip) {
 		Assert.notNull(trip);
+		//Assert.isTrue(managerService.findByPrincipal().getId() == trip.getManager().getId());
 		Assert.isTrue(trip.getId() != 0);
 		Assert.isTrue(trip.getPublication().after(new Date())
 				|| trip.getPublication() == null);

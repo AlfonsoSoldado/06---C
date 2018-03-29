@@ -35,7 +35,7 @@
 	
 	<spring:message code="category.categoryParent" var="categoryParentHeader"/>
 	<jstl:if test="${categoryParent != \"CATEGORY\"}">
-	<display:column property="categoryParent.name" title="${categoryParent}" sortable="false"/>
+	<display:column property="categoryParent.name" title="${categoryParentHeader}" sortable="false"/>
 	</jstl:if>
 	
 	<spring:message code="category.name" var="nameHeader" />

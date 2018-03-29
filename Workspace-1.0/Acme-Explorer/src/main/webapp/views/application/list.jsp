@@ -40,7 +40,7 @@
 	<display:column property="reason" title="${reasonHeader}" sortable="false" />
 	
 	<spring:message code="application.creditCard" var="creditCardHeader" />
-	<display:column>
+	<display:column title="${creditCardHeader }">
 	<jstl:forEach var="s" items="${row.status}">
 		<jstl:choose>
 			<jstl:when test="${s == 'DUE' }">
@@ -93,7 +93,7 @@
 	<display:column property="reason" title="${reasonHeader}" sortable="false" />
 
 	<spring:message code="application.creditCard" var="creditCardHeader" />
-	<display:column>
+	<display:column title="${creditCardHeader }">
 	<jstl:forEach var="s" items="${row.status}">
 		<jstl:choose>
 			<jstl:when test="${s == 'ACCEPTED' }">

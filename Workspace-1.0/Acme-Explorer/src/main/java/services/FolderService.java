@@ -64,6 +64,7 @@ public class FolderService {
 	}
 
 	public Folder save(Folder folder) {
+		Assert.isTrue(folder.getSystemFolder()==false);
 		Assert.notNull(folder);
 		Folder res;
 		if(folder.getId()==0){
@@ -74,6 +75,7 @@ public class FolderService {
 	}
 
 	public void delete(Folder folder) {
+		Assert.isTrue(folder.getSystemFolder()==false);
 		Actor actor;
 		actor = this.actorService.findByPrincipal();
 		for(Message m : folder.getMessages()){

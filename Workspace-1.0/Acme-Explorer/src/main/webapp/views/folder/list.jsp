@@ -41,7 +41,7 @@
 		</a>
 	</display:column>
 	<display:column>
-		<jstl:if test="${!folder.systemFolder}">
+		<jstl:if test="${row.systemFolder == false}">
 			<a href="folder/edit.do?folderId=${row.id}">
 				<button>
 					<spring:message code="folder.edit" />

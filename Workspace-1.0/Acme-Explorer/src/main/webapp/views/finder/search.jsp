@@ -64,9 +64,4 @@
 	
 		<input type="submit" name="save"
 			value="<spring:message code="finder.search" />" />&nbsp; 
-	
-	<input type="button" name="cancel"
-		value="<spring:message code="finder.cancel" />"
-		onclick="javascript: relativeRedir('finder/search.do');" />
-	<br />
 </form:form>

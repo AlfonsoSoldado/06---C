@@ -58,8 +58,14 @@
 	<spring:message code="survival.trip" var="tripHeader" />
 	<display:column property="trip.title" title="${tripHeader}"	sortable="true" />
 	
-	<spring:message code="survival.explorer" var="explorerHeader" />
-	<display:column property="explorer" title="${explorerHeader}"	sortable="true" />
+	<spring:message code="survival.explorer" var="explorer" />:
+	<display:column title ="${explorer}" sortable="true">
+		<jstl:forEach var="explorer" items="${row.explorer}">
+			<jstl:out value="${explorer.name}"></jstl:out><br/>
+		
+		</jstl:forEach>	
+	</display:column>
+	
 </display:table>
 
 <!-- Action links -->

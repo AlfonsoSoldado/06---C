@@ -102,7 +102,11 @@ public class TripController extends AbstractController{
 		Finder finder = this.finderService.findOne(finderId);
 		String singleKey;
 		singleKey = finder.getSingleKey();
-		trips = finderService.findSearchSingleKey(singleKey);
+		if (singleKey.isEmpty()) {
+			trips = tripService.findAll();
+		} else {
+			trips = finderService.findSearchSingleKey(singleKey);
+		}
 		result = new ModelAndView("trip/list");
 		
 		Configuration configuration;
@@ -131,7 +135,11 @@ public class TripController extends AbstractController{
 		Date end = finder.getEnd();
 		Double minPrice = finder.getMinPrice();
 		Double maxPrice = finder.getMaxPrice();
-		trips = finderService.findSearchCriterial(singleKey, start, end, minPrice, maxPrice);
+		if (singleKey.isEmpty()) {
+			trips = tripService.findAll();
+		} else {
+			trips = finderService.findSearchCriterial(singleKey, start, end, minPrice, maxPrice);
+		}
 		result = new ModelAndView("trip/list");
 		
 		Configuration configuration;

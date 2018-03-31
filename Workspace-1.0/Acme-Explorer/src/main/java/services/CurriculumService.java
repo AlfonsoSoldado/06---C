@@ -83,7 +83,6 @@ public class CurriculumService {
 		Ranger ranger;
 		ranger = this.rangerService.findByPrincipal();
 		
-		
 		Assert.notNull(curriculum);
 		curriculum.setRanger(ranger);
 		
@@ -97,7 +96,6 @@ public class CurriculumService {
 	}
 	
 	public void delete(Curriculum curriculum) {
-		
 		Assert.notNull(curriculum);
 		Assert.isTrue(curriculum.getId() != 0);
 		Assert.isTrue(this.curriculumRepository.exists(curriculum.getId()));

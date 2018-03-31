@@ -33,6 +33,7 @@
 		<form:hidden path="professionalRecord" />
 		<form:hidden path="educationRecord" />
 		
+		<jstl:if test="${curriculum.id == 0}">
 		<form:label path="personalRecord.name">
 			<spring:message code="curriculum.personalRecord.name" />:
 		</form:label>
@@ -70,11 +71,12 @@
 
 		<input type="submit" name="save"
 			value="<spring:message code="curriculum.save" />" />&nbsp; 
+		</jstl:if>
 		<jstl:if test="${curriculum.id != 0}">
 			<input type="submit" name="delete"
 				value="<spring:message code="curriculum.delete" />"
 				onclick="javascript: return confirm('<spring:message code="curriculum.confirm.delete" />')" />&nbsp;
-	</jstl:if>
+		</jstl:if>
 		<input type="button" name="cancel"
 			value="<spring:message code="curriculum.cancel" />"
 			onclick="javascript: relativeRedir('/');" />

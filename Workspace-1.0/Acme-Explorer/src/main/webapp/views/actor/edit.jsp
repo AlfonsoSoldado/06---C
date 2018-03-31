@@ -86,12 +86,14 @@
 	<form:errors cssClass="error" path="address" />
 	<br />
 	
+	<jstl:if test="${actor.id == 0}">
 	<form:label path="userAccount.username">
 		<spring:message code="actor.username" />
 	</form:label>
 	<form:input path="userAccount.username" />	
 	<form:errors class="error" path="userAccount.username" />
 	<br />
+	</jstl:if>
 
 	<input type="submit" name="save"
 		value="<spring:message code="actor.save" />" />&nbsp; 

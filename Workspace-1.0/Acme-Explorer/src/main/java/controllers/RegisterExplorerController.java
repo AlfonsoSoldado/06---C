@@ -44,6 +44,9 @@ public class RegisterExplorerController extends AbstractController {
 	public ModelAndView save(@Valid final Explorer explorer,
 			final BindingResult binding) {
 		ModelAndView res;
+		
+		System.out.println(binding.getFieldError());
+		
 		if (binding.hasErrors())
 			res = this.createEditModelAndView(explorer, "actor.params.error");
 		else

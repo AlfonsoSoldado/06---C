@@ -67,6 +67,8 @@ public class EmergencyExplorerController extends AbstractController{
 				this.emergencyService.delete(emergency);
 				res = new ModelAndView("redirect:../../emergency/explorer/list.do");
 			} catch (Throwable oops) {
+				System.out.println(oops.getMessage());
+				System.out.println(oops.getCause());
 				res = createEditModelAndView(emergency,
 						"emergency.commit.error");
 			}

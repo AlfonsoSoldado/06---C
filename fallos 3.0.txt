@@ -1,0 +1,53 @@
+Tenéis que revisar todo el hacking de la aplicación, he encontrado algunos básicos, como editar un trip de un manager que no lo ha creado, 
+tenéis que meter checkByPrincipal y los findOneToEdit que dentro va un checkByPrincipal para corregir esto.
+
+[FALTAN COSAS DE SEGURIDAD, QUE NO APAREZCAN BOTONES, ENLACES, O EDITS SI NO PUEDO HACERLO, AUNQUE SALTE ERROR]
+
+Welcome:
+- ¡¡¡¡PROBAR BIEN PORQUE NO ENCUENTRO QUE FALLO!!!! Si pinchas en la imagen te da un error de acceso por el security.
+- [HECHO] Desde la página de inicio en la lista de trips, la fecha no está internacionalizada, en el precio no se pone la moneda.
+- [Ni puta idea, pilla curriculum vacío] Registro  como ranger, cuando coges el formulario vacío y le das a enter todo bien te saltan los errores de validación, cuando lo rellenas tras el error no te permite guardar el usuario.
+- [Ni puta idea, pilla finder vacío] Registro como explorer, lo mismo que para ranger.
+
+Manager:
+- [Son los id de value... que no sabíamos poner los de tag] Cuando creo un trip en value me aparecen números, me debería de aparecer algo que yo identifique el contenido del value en este caso no el id.
+- [NO SE A QUE SE REFIERE, NO ME DA ERROR 500 NINGUNO] Cuando creo un trip voy a crear una categoría, y con todos los campos vacios me salta un 500 cuando le doy a save.
+- [Petan los asserts del servicio] Como manager2 puedo hacer lo que quiera con los trips del manager1, borrarlos editarlos, ver su información, todo esto no se puede permitir.
+- [No sé a qué se refiere] Cuando intento cancelar y pongo una razón para el trip y lo guardo, me redirije a la edición del trip para seleccionar un stage y cuando lo selecciono no funciona...
+
+Ranger:
+- [Petan los assert...] Me registro como rangerlara, me voy a la lista de trip y pincho sobre un ranger, en el curriculum le digo edit y pongo todos los campos del formularios como vacío y le doy a save, salta un error 500. Además, soy un ranger como es que puedo editar el curriculum de otro?.
+- [Petan los assert...] Cuando me logueo como rangerlara y desde el listado de trip accedo a un ranger y al edit, le doy a delete y borro el curriculum de un ranger que no soy yo, no se puede permitir borrar curriculum que no sean tuyos. El mensaje de aviso pone que se va a borrar un trip y debería ser que se va a borrar un curriculum.
+- [NO ME DEJA GUARDARLO PERO ES VERDAD QUE SE DEBE QUITAR EL EDIT DE AHÍ] Logueado como rangerlara también permite editar en el curriculum de otro ranger sus datos y guardarlos.
+- [He dejado que no se pueda cambiar el username] Cuando le doy a editar mi perfil de ranger y pongo todo vacÃ­o y le doy a save me salta un error 500.
+
+Mensaje
+- [Ni idea de por qué no saltan] Cuando le das a save un mensaje con ningún campo relleno te dice error in the imputs pero no te saltan los error del dominio diciéndote qué campo no puede estar vacío.
+- [No entiendo el problema] Cuando como rangerlara envío un mensaje a sponsor1, este lo recibe bien pero lo puede editar y cambiarle de sponsor 1 a sponsor 2 por ejemplo, eso no se hasta que punto se debe permitir, se puede ver como que es un reenvío de mensaje el problema es que se lo estas pasando directamente al sponsor2 y el sponsor1 lo pierde no lo tiene ni en el outbox. También cuando le das a move se permite cambiar de quien ha sido recibido.
+
+Explorer
+- [HECHO]->[¿Por qué tenemos dos finder? Estando logueado como explorer pilla bien el de la derecha, el de en medio no] Cuando me logueo como explorerlara y me voy al finder, si le doy a save del tirón y no he metido ningún campo me dice que no hay nada para mostrar, debería de mostrarlo todo ya que si no meto ningún campo no estoy filtrando y lo quiero todo.
+- Como explorerlara en el header a la derecha el finder funciona pero falla lo que os he comentado en el punto de arriba. Pero aparece otro header a la izquierda, si en este no rellenamos ningún campo y le damos a save salta un panic. Y si le metes en el primer campo â€œBeachâ€ también salta ese panic.
+- [Cancel quitado] El finder que aparece a la izquierda como /finder/explorer/search.do el cancel te redirije a /finder/search.do, no se muy bien ese cancel para que lo tenéis puesto ahí. Si acaso que te rediría al finder.
+- [¿Se pueden crear stories a trips que ya lo tienen?] Si le doy a crear una story no me aparecen trips a los que hacerlo, explorer 1 y 2 tampoco puede.
+- [No sé por qué] En emergencias cuando le doy a editar una el cancel debe redirigir a la vista del listado no al welcome. Tampoco te deja borrar ninguna, las recién creadas tampoco.
+- [HECHO][NO SÉ POR QUÉ NO RECONOCE EL EXPLORER.NAME->Es un collection] Cuando le das a survival en la lista debajo de explorer sale:[domain.Explorer{id=2368, version=2}], debería aparecer el nombre por ejemplo no así. Si le doy a enrol no me sale nada, ¿y para desenrol? Si le doy varias veces puedo hacer muchos enrol sobre un survival, ¿se puede permitir esto?, si ya estoy enrolado no debería de aparecer el botón enrol, y como antes digo como me quito el enrol.
+- [HECHO][He dejado que no se pueda cambiar el username] Como explorer2 cuando le das a editar un perfil te salta un error 500 si le das a save como todos los parámetros vacíos.
+
+Admin.
+- [¿Los suspicious eran todos los actores? ¿O solo ranger y explorer?] Envío como sponsor1 un mensaje que contiene VIAGRA, y al admin en la lista de sospechosos le debería de aparecer, no aparece, no lo puedo ver ya que me salta un 500 cuando pincho sobre suspicious.
+- [HECHO, falta delete aunque creo que no se puede, ya que elimina trip] En el listado de legal text aparece así el trip: [domain.Trip{id=2398, version=0}], que aparezca el nombre. Si intento editar, pongo todos los campos como vacío y le doy a guardar va bien me saltan los errores de validación, cuando vuelvo a poner los datos no me deja guardarlo. El delete tampoco funciona cuando el drafmode esta a no, y cuando esta a yes me salta el mismo error.
+- En los tags cuando creo uno me deja borrarlo, los demás no, supongo que son los predeterminados en el sistema es lo que os comente antes para las carpetas, las predeterminadas no debería dejar borrarlo, por otro lado si no dejas borrarlas que no aparezca el botón de borrar ya que salta un error cuando le das al botón de borrar.
+- [HECHO][He dejado que no se pueda cambiar el username] Error 500 cuando edito el perfil de admin y lo dejo todo vacío, el botón de cancel no hace nada.
+- En configuration tiene puesto +34 se supone que cuando te registras con un numero 666666666 y no pones nada, el +34 te lo tiene que añadir automáticamente eso no lo hace.
+
+Sponsor
+- [HECHO][He dejado que no se pueda cambiar el username]Cuando lo editas salta el 500 si todos los campos se dejan vacíos.
+
+Auditor
+- Cuando como auditor1 intento crear una nota para beach no me deja, solo me deja para beach1, supongo que el beach1 es la del auditor1 y por eso para beach no me deja, entonces no me debería de salir beach para seleccionar como auditor1 cuando creo una nota.
+- [HECHO][He dejado que no se pueda cambiar el username]Error 500 cuando editas el perfil y le das a guardar con todo vacÃ­oo.
+
+Cosas que hacer si da tiempo y que quizas no te pida Inma para aprobar ya que hay cosas que les da igual
+- En las listas en general, ya que os va a corregir Inma, no le gusta que aparezca un botón y que cuando le des te diga que no tienes acceso o te redirije a que te loguees, se pueden ocultar con un security o pasando a través del controlador un usuario y en el jsp compararlo con el que ha creado lo que estes listando por ejemplo.
+- ¿Qué diferencia hay entre un ranger que se registrar en el sistema él solo o un explorer con los que registra el admin?, nosotros solo pusimos que el admin podía registrar manager, sponsor y auditor, el resto ranger y explorer se registraban solo.

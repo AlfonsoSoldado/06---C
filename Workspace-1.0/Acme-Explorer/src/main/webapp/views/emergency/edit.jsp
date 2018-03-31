@@ -60,7 +60,7 @@
 	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="emergency.cancel" />"
-		onclick="javascript: relativeRedir('/');" />
+		onclick="javascript: relativeRedir('/emergency/explorer/list.do');" />
 	<br />
 	
 

@@ -46,17 +46,21 @@
 	<spring:message code="trip.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
 	
+	<spring:message code="format.price" var="patternPrice"/>
 	<spring:message code="trip.price" var="priceHeader" />
-	<display:column property="price" title="${priceHeader}" sortable="true" />
+	<display:column property="price" title="${priceHeader}" sortable="true" format="${patternPrice}" />
 	
+	<spring:message code="format.date" var="patternDate"/>
 	<spring:message code="trip.publication" var="publicationHeader" />
-	<display:column property="publication" title="${publicationHeader}"	sortable="true" />
+	<display:column property="publication" title="${publicationHeader}"	sortable="true" format="${patternDate}" />
 	
+	<spring:message code="format.date" var="patternDate"/>
 	<spring:message code="trip.tripStart" var="tripStartHeader" />
-	<display:column property="tripStart" title="${tripStartHeader}"	sortable="true" />
+	<display:column property="tripStart" title="${tripStartHeader}"	sortable="true" format="${patternDate}" />
 	
+	<spring:message code="format.date" var="patternDate"/>
 	<spring:message code="trip.tripEnd" var="tripEndHeader" />
-	<display:column property="tripEnd" title="${tripEndHeader}"	sortable="true" />
+	<display:column property="tripEnd" title="${tripEndHeader}"	sortable="true" format="${patternDate}" />
 
 	<spring:message code="trip.cancelled" var="cancelledHeader"/>
 	<display:column title="${cancelledHeader}">

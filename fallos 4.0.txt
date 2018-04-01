@@ -4,7 +4,7 @@ tenéis que meter checkByPrincipal y los findOneToEdit que dentro va un checkByPr
 [FALTAN COSAS DE SEGURIDAD, QUE NO APAREZCAN BOTONES, ENLACES, O EDITS SI NO PUEDO HACERLO, AUNQUE SALTE ERROR]
 
 Manager:
-- Edit y delete de trip, se ha entendido mal el concepto de fecha de publicación y esto interfiere en la edición o eliminación de un trip.
+- Delete de trip suelta Panic después de los últimos cambios.
 - [No sé a qué se refiere] Cuando intento cancelar y pongo una razón para el trip y lo guardo, me redirije a la edición del trip para seleccionar un stage y cuando lo selecciono no funciona...
 
 Mensaje
@@ -22,7 +22,7 @@ Admin.
 - En configuration tiene puesto +34 se supone que cuando te registras con un numero 666666666 y no pones nada, el +34 te lo tiene que añadir automáticamente eso no lo hace.
 
 Ranger
-- No aparece. botón de edit cuando se crea un curriculum desde 0.
+- No aparece botón de edit cuando se crea un curriculum desde 0.
 
 Auditor
 - Cuando como auditor1 intento crear una nota para beach no me deja, solo me deja para beach1, supongo que el beach1 es la del auditor1 y por eso para beach no me deja, entonces no me debería de salir beach para seleccionar como auditor1 cuando creo una nota.

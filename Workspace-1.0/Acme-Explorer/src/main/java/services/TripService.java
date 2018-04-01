@@ -96,6 +96,9 @@ public class TripService {
 	public Trip save(Trip trip) {
 		Assert.notNull(trip);
 		//Assert.isTrue(managerService.findByPrincipal().getId() == trip.getManager().getId());
+		if(trip.getId() != 0){
+			Assert.isTrue(trip.getManager().getId() == managerService.findByPrincipal().getId());
+		}
 		Trip res;
 		Double precio = 0., tax;
 		
@@ -104,8 +107,10 @@ public class TripService {
 		configuration = configurationService.findOne(conf);
 		
 		if (trip.getTripStart() != null && trip.getTripEnd() != null) {
-			Date moment = new Date(System.currentTimeMillis() - 1);
-			trip.setPublication(moment);
+			if(trip.getPublication() == null){
+				Date moment = new Date(System.currentTimeMillis() - 1);
+				trip.setPublication(moment);
+			}
 		}
 				
 		precio = this.getTotalPrice(trip);
@@ -121,13 +126,21 @@ public class TripService {
 	public void delete(Trip trip) {
 		Assert.notNull(trip);
 		//Assert.isTrue(managerService.findByPrincipal().getId() == trip.getManager().getId());
+		if(trip.getId() != 0){
+			Assert.isTrue(trip.getManager().getId() == managerService.findByPrincipal().getId());
+		}
 		Assert.isTrue(trip.getId() != 0);
 		Assert.isTrue(trip.getPublication().after(new Date())
 				|| trip.getPublication() == null);
 		Assert.notNull(trip);
-		Manager m = trip.getManager();
-		Manager a = managerService.findByPrincipal();
-		Assert.isTrue(m.equals(a));
+		
+		Collection<Application> applications;
+		applications = new ArrayList<Application>();
+
+		applications = trip.getApplication();
+		for(Application a: applications){
+			a.setTrip(null);
+		}
 		this.tripRepository.delete(trip);
 	}
 

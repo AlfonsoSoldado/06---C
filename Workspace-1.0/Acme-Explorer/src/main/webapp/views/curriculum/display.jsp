@@ -27,6 +27,16 @@
 
 	<!-- Attributes -->
 
+	<jstl:if test="${currentCurriculumId == 0 }">
+		<security:authorize access="hasRole('RANGER')">
+			<spring:message code="curriculum.edit" />
+			<display:column>
+					<a href="curriculum/ranger/edit.do?curriculumId=${row.id}"> <spring:message
+							code="curriculum.edit" /></a>
+			</display:column>
+		</security:authorize>
+	</jstl:if>
+
 	<spring:message code="curriculum.ticker" var="tickerHeader" />
 	<display:column property="ticker" title="${tickerHeader}"
 		sortable="true" />
@@ -35,7 +45,7 @@
 		<spring:message code="curriculum.edit" />
 		<display:column>
 			<jstl:set var="thisRangerId" value="${row.ranger.id }" />
-			<jstl:if test="${row.ranger.id == currentRangerId }">
+			<jstl:if test="${row.ranger.id == currentRangerId}">
 				<a href="curriculum/ranger/edit.do?curriculumId=${row.id}"> <spring:message
 						code="curriculum.edit" /></a>
 			</jstl:if>
@@ -45,11 +55,13 @@
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-	<a href="curriculum/ranger/create.do">
-		<button>
-			<spring:message code="curriculum.create" />
-		</button>
-	</a>
+	<jstl:if test="${thisRangerId == currentRangerId }">
+		<a href="curriculum/ranger/create.do">
+			<button>
+				<spring:message code="curriculum.create" />
+			</button>
+		</a>
+	</jstl:if>
 </security:authorize>
 
 <spring:message code="curriculum.personalRecord"
@@ -94,11 +106,13 @@
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-	<a href="personalRecord/ranger/create.do">
-		<button>
-			<spring:message code="curriculum.create.personalRecord" />
-		</button>
-	</a>
+	<jstl:if test="${thisRangerId == currentRangerId }">
+		<a href="personalRecord/ranger/create.do">
+			<button>
+				<spring:message code="curriculum.create.personalRecord" />
+			</button>
+		</a>
+	</jstl:if>
 </security:authorize>
 
 <spring:message code="curriculum.educationRecord"
@@ -145,11 +159,13 @@
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-	<a href="educationRecord/ranger/create.do">
-		<button>
-			<spring:message code="curriculum.create.educationRecord" />
-		</button>
-	</a>
+	<jstl:if test="${thisRangerId == currentRangerId }">
+		<a href="educationRecord/ranger/create.do">
+			<button>
+				<spring:message code="curriculum.create.educationRecord" />
+			</button>
+		</a>
+	</jstl:if>
 </security:authorize>
 
 <spring:message code="curriculum.professionalRecord"
@@ -200,11 +216,13 @@
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-	<a href="professionalRecord/ranger/create.do">
-		<button>
-			<spring:message code="curriculum.create.professionalRecord" />
-		</button>
-	</a>
+	<jstl:if test="${thisRangerId == currentRangerId }">
+		<a href="professionalRecord/ranger/create.do">
+			<button>
+				<spring:message code="curriculum.create.professionalRecord" />
+			</button>
+		</a>
+	</jstl:if>
 </security:authorize>
 
 <spring:message code="curriculum.miscellaneousRecord"
@@ -241,11 +259,13 @@
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-	<a href="miscellaneousRecord/ranger/create.do">
-		<button>
-			<spring:message code="curriculum.create.miscellaneousRecord" />
-		</button>
-	</a>
+	<jstl:if test="${thisRangerId == currentRangerId }">
+		<a href="miscellaneousRecord/ranger/create.do">
+			<button>
+				<spring:message code="curriculum.create.miscellaneousRecord" />
+			</button>
+		</a>
+	</jstl:if>
 </security:authorize>
 
 <spring:message code="curriculum.endorserRecord"
@@ -292,9 +312,11 @@
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-	<a href="endorserRecord/ranger/create.do">
-		<button>
-			<spring:message code="curriculum.create.endorserRecord" />
-		</button>
-	</a>
+	<jstl:if test="${thisRangerId == currentRangerId }">
+		<a href="endorserRecord/ranger/create.do">
+			<button>
+				<spring:message code="curriculum.create.endorserRecord" />
+			</button>
+		</a>
+	</jstl:if>
 </security:authorize>

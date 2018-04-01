@@ -33,7 +33,7 @@ public class CurriculumRangerController extends AbstractController {
 
 	@Autowired
 	private CurriculumService curriculumService;
-	
+
 	@Autowired
 	private RangerService rangerService;
 
@@ -42,7 +42,7 @@ public class CurriculumRangerController extends AbstractController {
 	public CurriculumRangerController() {
 		super();
 	}
-	
+
 	// Listing --------------------------------------------------------------
 
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
@@ -67,13 +67,20 @@ public class CurriculumRangerController extends AbstractController {
 			endorserR.addAll(c.getEndorserRecord());
 
 		}
-		
+
 		Ranger currentRanger = rangerService.findByPrincipal();
 		int currentRangerId = currentRanger.getId();
+
+		int currentCurriculumId = 0;
+
+		if (currentRanger.getCurriculum() != null) {
+			currentCurriculumId = currentRanger.getCurriculum().getId();
+		}
 
 		result = new ModelAndView("curriculum/display");
 		result.addObject("curriculum", curriculums);
 		result.addObject("currentRangerId", currentRangerId);
+		result.addObject("currentCurriculumId", currentCurriculumId);
 		result.addObject("personalRecord", personalR);
 		result.addObject("professionalRecord", professionalR);
 		result.addObject("educationRecord", educationR);
@@ -83,7 +90,7 @@ public class CurriculumRangerController extends AbstractController {
 
 		return result;
 	}
-	
+
 	// Editing --------------------------------------------------------------
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -97,9 +104,9 @@ public class CurriculumRangerController extends AbstractController {
 
 		return result;
 	}
-	
+
 	// Saving --------------------------------------------------------------
-	
+
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid Curriculum curriculum, BindingResult binding) {
 		ModelAndView res;
@@ -110,7 +117,8 @@ public class CurriculumRangerController extends AbstractController {
 		} else
 			try {
 				this.curriculumService.save(curriculum);
-				res = new ModelAndView("redirect:../../curriculum/ranger/display.do");
+				res = new ModelAndView(
+						"redirect:../../curriculum/ranger/display.do");
 			} catch (final Throwable oops) {
 				res = this.createEditModelAndView(curriculum,
 						"curriculum.commit.error");
@@ -127,10 +135,10 @@ public class CurriculumRangerController extends AbstractController {
 
 		try {
 			this.curriculumService.delete(curriculum);
-			res = new ModelAndView("redirect:../../curriculum/ranger/display.do");
+			res = new ModelAndView(
+					"redirect:../../curriculum/ranger/display.do");
 		} catch (Throwable oops) {
-			res = createEditModelAndView(curriculum,
-					"curriculum.commit.error");
+			res = createEditModelAndView(curriculum, "curriculum.commit.error");
 		}
 
 		return res;
@@ -159,7 +167,7 @@ public class CurriculumRangerController extends AbstractController {
 
 	protected ModelAndView createEditModelAndView(final Curriculum curriculum,
 			final String message) {
-		
+
 		ModelAndView result;
 		result = new ModelAndView("curriculum/ranger/edit");
 		result.addObject("curriculum", curriculum);

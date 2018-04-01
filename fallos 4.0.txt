@@ -4,12 +4,8 @@ tenéis que meter checkByPrincipal y los findOneToEdit que dentro va un checkByPr
 [FALTAN COSAS DE SEGURIDAD, QUE NO APAREZCAN BOTONES, ENLACES, O EDITS SI NO PUEDO HACERLO, AUNQUE SALTE ERROR]
 
 Manager:
-- [Petan los asserts del servicio] Como manager2 puedo hacer lo que quiera con los trips del manager1, borrarlos editarlos, ver su información, todo esto no se puede permitir.
+- Edit y delete de trip, se ha entendido mal el concepto de fecha de publicación y esto interfiere en la edición o eliminación de un trip.
 - [No sé a qué se refiere] Cuando intento cancelar y pongo una razón para el trip y lo guardo, me redirije a la edición del trip para seleccionar un stage y cuando lo selecciono no funciona...
-
-Ranger:
-- [Petan los assert...] Me registro como rangerlara, me voy a la lista de trip y pincho sobre un ranger, en el curriculum le digo edit y pongo todos los campos del formularios como vacío y le doy a save, salta un error 500. Además, soy un ranger como es que puedo editar el curriculum de otro?.
-- [Petan los assert...] Cuando me logueo como rangerlara y desde el listado de trip accedo a un ranger y al edit, le doy a delete y borro el curriculum de un ranger que no soy yo, no se puede permitir borrar curriculum que no sean tuyos. El mensaje de aviso pone que se va a borrar un trip y debería ser que se va a borrar un curriculum.
 
 Mensaje
 - [Ni idea de por qué no saltan] Cuando le das a save un mensaje con ningún campo relleno te dice error in the imputs pero no te saltan los error del dominio diciéndote qué campo no puede estar vacío.
@@ -24,6 +20,9 @@ Admin.
 - [HECHO, falta delete aunque creo que no se puede, ya que elimina trip] En el listado de legal text aparece así el trip: [domain.Trip{id=2398, version=0}], que aparezca el nombre. Si intento editar, pongo todos los campos como vacío y le doy a guardar va bien me saltan los errores de validación, cuando vuelvo a poner los datos no me deja guardarlo. El delete tampoco funciona cuando el drafmode esta a no, y cuando esta a yes me salta el mismo error.
 - En los tags cuando creo uno me deja borrarlo, los demás no, supongo que son los predeterminados en el sistema es lo que os comente antes para las carpetas, las predeterminadas no debería dejar borrarlo, por otro lado si no dejas borrarlas que no aparezca el botón de borrar ya que salta un error cuando le das al botón de borrar.
 - En configuration tiene puesto +34 se supone que cuando te registras con un numero 666666666 y no pones nada, el +34 te lo tiene que añadir automáticamente eso no lo hace.
+
+Ranger
+- No aparece. botón de edit cuando se crea un curriculum desde 0.
 
 Auditor
 - Cuando como auditor1 intento crear una nota para beach no me deja, solo me deja para beach1, supongo que el beach1 es la del auditor1 y por eso para beach no me deja, entonces no me debería de salir beach para seleccionar como auditor1 cuando creo una nota.

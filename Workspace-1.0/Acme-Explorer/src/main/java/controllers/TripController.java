@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ConfigurationService;
 import services.FinderService;
+import services.ManagerService;
 import services.SponsorshipService;
 import services.TripService;
 import domain.Configuration;
@@ -38,6 +39,9 @@ public class TripController extends AbstractController{
 	@Autowired
 	private ConfigurationService configurationService;
 	
+	@Autowired
+	private ManagerService managerService;
+	
 	//Constructors ---------------------------------------------------------
 	
 	public TripController(){
@@ -53,9 +57,20 @@ public class TripController extends AbstractController{
 		
 		trips = tripService.findAll();
 		
+		int currentManagerId = 0;
+		
+		try {
+			if(managerService.findByPrincipal().getId() != 0){
+				currentManagerId = managerService.findByPrincipal().getId();
+			}	
+		} catch(IllegalArgumentException e){
+			
+		}
+		
 		result = new ModelAndView("trip/list");
 		result.addObject("numPage", 5);
 		result.addObject("trips", trips);
+		result.addObject("currentManagerId", currentManagerId);
 		result.addObject("requestURI", "trip/list.do");
 		
 		return result;

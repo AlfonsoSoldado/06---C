@@ -27,11 +27,13 @@
 	<!-- Attributes -->
 	
 	<security:authorize access="hasRole('MANAGER')">
+	<jstl:if test="${row.manager.id == currentManagerId }">
 	<spring:message code="trip.edit"/>
 	<display:column>
 		<a href= "trip/manager/edit.do?tripId=${row.id}">
 		<spring:message code="trip.edit"/></a>
 	</display:column>
+	</jstl:if>
 	</security:authorize>
 	
 	<spring:message code="trip.display"/>

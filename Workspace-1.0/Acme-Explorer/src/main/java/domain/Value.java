@@ -1,12 +1,10 @@
 package domain;
 
-import java.util.Collection;
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 
 @Entity
@@ -22,7 +20,7 @@ public class Value extends DomainEntity{
 	//Relationships
 	
 	private Trip trip;
-	private Collection<Tag> tag;
+	private Tag tag;
 	
 	@Valid
 	@ManyToOne(optional = true)
@@ -34,11 +32,11 @@ public class Value extends DomainEntity{
 	}
 	
 	@Valid
-	@OneToMany
-	public Collection<Tag> getTag() {
+	@OneToOne
+	public Tag getTag() {
 		return tag;
 	}
-	public void setTag(Collection<Tag> tag) {
+	public void setTag(Tag tag) {
 		this.tag = tag;
 	}
 	

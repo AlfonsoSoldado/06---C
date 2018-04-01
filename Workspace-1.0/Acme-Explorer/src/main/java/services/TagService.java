@@ -66,10 +66,7 @@ public class TagService {
 		
 		res.setValue(value);
 		
-		Collection<Tag> tags = new ArrayList<Tag>();
-		tags.add(res);
-		
-		value.setTag(tags);
+		value.setTag(res);
 		return res;
 	}
 
@@ -83,10 +80,7 @@ public class TagService {
 		value = new Value();
 		value = tag.getValue();
 		
-		Collection<Tag> tags = value.getTag();
-		tags.remove(tag);
-		
-		value.setTag(tags);
+		value.setTag(null);
 		this.tagRepository.delete(tag);
 	}
 

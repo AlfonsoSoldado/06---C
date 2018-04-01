@@ -31,7 +31,6 @@
 	<form:hidden path="socialId"/>
 	<form:hidden path="suspicious" />
 
-	<form:hidden path="curriculum" />
 	<form:hidden path="trip" />
 
 	<form:label path="name">

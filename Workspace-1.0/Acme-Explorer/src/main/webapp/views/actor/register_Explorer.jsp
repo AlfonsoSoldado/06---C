@@ -29,11 +29,9 @@
 	<form:hidden path="socialId"/>
 	<form:hidden path="suspicious" />
 	
-	<form:hidden path="finder" />
 	<form:hidden path="emergency" />
 	<form:hidden path="stories" />
 	<form:hidden path="application" />
-	<form:hidden path="survival" />
 
 	<form:label path="name">
 		<spring:message code="actor.name" />:

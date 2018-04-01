@@ -70,10 +70,7 @@ public class ValueServiceTest extends AbstractTest {
 
 		Tag tag;
 		tag = this.tagService.findOne(super.getEntityId("country"));
-		Collection<Tag> tags;
-		tags = new ArrayList<Tag>();
-		tags.add(tag);
-		value.setTag(tags);
+		value.setTag(tag);
 
 		this.valueService.save(value);
 	}

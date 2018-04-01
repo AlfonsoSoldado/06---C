@@ -67,9 +67,13 @@ public class CurriculumRangerController extends AbstractController {
 			endorserR.addAll(c.getEndorserRecord());
 
 		}
+		
+		Ranger currentRanger = rangerService.findByPrincipal();
+		int currentRangerId = currentRanger.getId();
 
 		result = new ModelAndView("curriculum/display");
 		result.addObject("curriculum", curriculums);
+		result.addObject("currentRangerId", currentRangerId);
 		result.addObject("personalRecord", personalR);
 		result.addObject("professionalRecord", professionalR);
 		result.addObject("educationRecord", educationR);

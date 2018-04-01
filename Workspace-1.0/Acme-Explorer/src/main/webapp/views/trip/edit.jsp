@@ -107,9 +107,11 @@
 	<form:label path="value">
 		<spring:message code="trip.value"/>:
 	</form:label>
-	<form:select path="value">
-		<form:options items="${values}"/>
-	</form:select>
+	<select name="factory">
+    <jstl:forEach var="value" items="${values}" >
+        <option value="${value}" label="${value.tag.name}"/>
+    </jstl:forEach>
+	</select>
 	<form:errors cssClass="error" path="value" />
 	<br />
 	

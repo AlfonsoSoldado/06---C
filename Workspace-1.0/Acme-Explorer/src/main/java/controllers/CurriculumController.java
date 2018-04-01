@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CurriculumService;
+import services.RangerService;
 import domain.Curriculum;
 import domain.EducationRecord;
 import domain.EndorserRecord;
 import domain.MiscellaneousRecord;
 import domain.PersonalRecord;
 import domain.ProfessionalRecord;
+import domain.Ranger;
 
 @Controller
 @RequestMapping("/curriculum")
@@ -26,6 +28,9 @@ public class CurriculumController extends AbstractController {
 
 	@Autowired
 	private CurriculumService curriculumService;
+	
+	@Autowired
+	private RangerService rangerService;
 
 	// Constructors ---------------------------------------------------------
 
@@ -55,9 +60,13 @@ public class CurriculumController extends AbstractController {
 			endorserR.addAll(c.getEndorserRecord());
 
 		}
+		
+		Ranger currentRanger = rangerService.findByPrincipal();
+		int currentRangerId = currentRanger.getId();
 
 		result = new ModelAndView("curriculum/display");
 		result.addObject("curriculum", curriculums);
+		result.addObject("currentRangerId", currentRangerId);
 		result.addObject("personalRecord", personalR);
 		result.addObject("professionalRecord", professionalR);
 		result.addObject("educationRecord", educationR);

@@ -34,226 +34,267 @@
 	<security:authorize access="hasRole('RANGER')">
 		<spring:message code="curriculum.edit" />
 		<display:column>
-			<a href="curriculum/ranger/edit.do?curriculumId=${row.id}"> <spring:message
-					code="curriculum.edit" /></a>
+			<jstl:set var="thisRangerId" value="${row.ranger.id }" />
+			<jstl:if test="${row.ranger.id == currentRangerId }">
+				<a href="curriculum/ranger/edit.do?curriculumId=${row.id}"> <spring:message
+						code="curriculum.edit" /></a>
+			</jstl:if>
 		</display:column>
 	</security:authorize>
 
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-<a href="curriculum/ranger/create.do">
-	<button>
-		<spring:message code="curriculum.create" />
-	</button>
-</a>
+	<a href="curriculum/ranger/create.do">
+		<button>
+			<spring:message code="curriculum.create" />
+		</button>
+	</a>
 </security:authorize>
 
-<spring:message code="curriculum.personalRecord" var="personalRecordHeader" />
-<h1><jstl:out value="${personalRecordHeader}"></jstl:out></h1>
+<spring:message code="curriculum.personalRecord"
+	var="personalRecordHeader" />
+<h1>
+	<jstl:out value="${personalRecordHeader}"></jstl:out>
+</h1>
 <display:table name="personalRecord" class="displaytag" id="row">
 
 	<security:authorize access="hasRole('RANGER')">
 		<spring:message code="curriculum.edit" />
 		<display:column>
-			<a href="personalRecord/ranger/edit.do?personalRecordId=${row.id}"> <spring:message
-					code="curriculum.edit" /></a>
+			<jstl:if test="${thisRangerId == currentRangerId }">
+				<a href="personalRecord/ranger/edit.do?personalRecordId=${row.id}">
+					<spring:message code="curriculum.edit" />
+				</a>
+			</jstl:if>
 		</display:column>
 	</security:authorize>
-	
-	<spring:message code="curriculum.records.name" var="titleHeader" />
-	<display:column property="name" title="${titleHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.personalRecord.photo" var="photoHeader" />
-	<display:column property="photo" title="${photoHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.personalRecord.email" var="emailHeader" />
-	<display:column property="email" title="${emailHeader}"
-		sortable="true" />
 
-	<spring:message code="curriculum.personalRecord.phoneNumber" var="phoneNumberHeader" />
+	<spring:message code="curriculum.records.name" var="titleHeader" />
+	<display:column property="name" title="${titleHeader}" sortable="true" />
+
+	<spring:message code="curriculum.personalRecord.photo"
+		var="photoHeader" />
+	<display:column property="photo" title="${photoHeader}" sortable="true" />
+
+	<spring:message code="curriculum.personalRecord.email"
+		var="emailHeader" />
+	<display:column property="email" title="${emailHeader}" sortable="true" />
+
+	<spring:message code="curriculum.personalRecord.phoneNumber"
+		var="phoneNumberHeader" />
 	<display:column property="phoneNumber" title="${phoneNumberHeader}"
 		sortable="true" />
-		
-	<spring:message code="curriculum.personalRecord.linkedIn" var="linkedlnHeader" />
+
+	<spring:message code="curriculum.personalRecord.linkedIn"
+		var="linkedlnHeader" />
 	<display:column property="likedln" title="${linkedlnHeader}"
 		sortable="true" />
 
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-<a href="personalRecord/ranger/create.do">
-	<button>
-		<spring:message code="curriculum.create.personalRecord" />
-	</button>
-</a>
+	<a href="personalRecord/ranger/create.do">
+		<button>
+			<spring:message code="curriculum.create.personalRecord" />
+		</button>
+	</a>
 </security:authorize>
 
-<spring:message code="curriculum.educationRecord" var="educationRecordHeader" />
-<h1><jstl:out value="${educationRecordHeader}"></jstl:out></h1>
+<spring:message code="curriculum.educationRecord"
+	var="educationRecordHeader" />
+<h1>
+	<jstl:out value="${educationRecordHeader}"></jstl:out>
+</h1>
 <display:table name="educationRecord" class="displaytag" id="row">
 
 	<security:authorize access="hasRole('RANGER')">
 		<spring:message code="curriculum.edit" />
 		<display:column>
-			<a href="educationRecord/ranger/edit.do?educationRecordId=${row.id}"> <spring:message
-					code="curriculum.edit" /></a>
+			<jstl:if test="${thisRangerId == currentRangerId }">
+				<a href="educationRecord/ranger/edit.do?educationRecordId=${row.id}">
+					<spring:message code="curriculum.edit" />
+				</a>
+			</jstl:if>
 		</display:column>
 	</security:authorize>
-	
-	<spring:message code="curriculum.records.title" var="titleHeader" />
-	<display:column property="title" title="${titleHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.educationRecord.start" var="startHeader" />
-	<display:column property="start" title="${startHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.educationRecord.end" var="endHeader" />
-	<display:column property="end" title="${endHeader}"
-		sortable="true" />
 
-	<spring:message code="curriculum.educationRecord.institution" var="institutionHeader" />
+	<spring:message code="curriculum.records.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}" sortable="true" />
+
+	<spring:message code="curriculum.educationRecord.start"
+		var="startHeader" />
+	<display:column property="start" title="${startHeader}" sortable="true" />
+
+	<spring:message code="curriculum.educationRecord.end" var="endHeader" />
+	<display:column property="end" title="${endHeader}" sortable="true" />
+
+	<spring:message code="curriculum.educationRecord.institution"
+		var="institutionHeader" />
 	<display:column property="institution" title="${institutionHeader}"
 		sortable="true" />
-		
+
 	<spring:message code="curriculum.educationRecord.link" var="linkHeader" />
-	<display:column property="link" title="${linkHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.educationRecord.comment" var="commentHeader" />
+	<display:column property="link" title="${linkHeader}" sortable="true" />
+
+	<spring:message code="curriculum.educationRecord.comment"
+		var="commentHeader" />
 	<display:column property="comment" title="${commentHeader}"
 		sortable="true" />
 
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-<a href="educationRecord/ranger/create.do">
-	<button>
-		<spring:message code="curriculum.create.educationRecord" />
-	</button>
-</a>
+	<a href="educationRecord/ranger/create.do">
+		<button>
+			<spring:message code="curriculum.create.educationRecord" />
+		</button>
+	</a>
 </security:authorize>
 
-<spring:message code="curriculum.professionalRecord" var="professionalRecordHeader" />
-<h1><jstl:out value="${professionalRecordHeader}"></jstl:out></h1>
+<spring:message code="curriculum.professionalRecord"
+	var="professionalRecordHeader" />
+<h1>
+	<jstl:out value="${professionalRecordHeader}"></jstl:out>
+</h1>
 <display:table name="professionalRecord" class="displaytag" id="row">
 
 	<security:authorize access="hasRole('RANGER')">
 		<spring:message code="curriculum.edit" />
 		<display:column>
-			<a href="professionalRecord/ranger/edit.do?professionalRecordId=${row.id}"> <spring:message
-					code="curriculum.edit" /></a>
+			<jstl:if test="${thisRangerId == currentRangerId }">
+				<a
+					href="professionalRecord/ranger/edit.do?professionalRecordId=${row.id}">
+					<spring:message code="curriculum.edit" />
+				</a>
+			</jstl:if>
 		</display:column>
 	</security:authorize>
-	
-	<spring:message code="curriculum.professionalRecord.campanyName" var="companyNameHeader" />
+
+	<spring:message code="curriculum.professionalRecord.campanyName"
+		var="companyNameHeader" />
 	<display:column property="companyName" title="${companyNameHeader}"
 		sortable="true" />
 
-	<spring:message code="curriculum.professionalRecord.start" var="startHeader" />
-	<display:column property="start" title="${startHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.professionalRecord.end" var="endHeader" />
-	<display:column property="end" title="${endHeader}"
-		sortable="true" />
+	<spring:message code="curriculum.professionalRecord.start"
+		var="startHeader" />
+	<display:column property="start" title="${startHeader}" sortable="true" />
 
-	<spring:message code="curriculum.professionalRecord.rol" var="rolHeader" />
-	<display:column property="rol" title="${rolHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.professionalRecord.link" var="linkHeader" />
-	<display:column property="link" title="${linkHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.professionalRecord.comment" var="commentHeader" />
+	<spring:message code="curriculum.professionalRecord.end"
+		var="endHeader" />
+	<display:column property="end" title="${endHeader}" sortable="true" />
+
+	<spring:message code="curriculum.professionalRecord.rol"
+		var="rolHeader" />
+	<display:column property="rol" title="${rolHeader}" sortable="true" />
+
+	<spring:message code="curriculum.professionalRecord.link"
+		var="linkHeader" />
+	<display:column property="link" title="${linkHeader}" sortable="true" />
+
+	<spring:message code="curriculum.professionalRecord.comment"
+		var="commentHeader" />
 	<display:column property="comment" title="${commentHeader}"
 		sortable="true" />
-	
+
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-<a href="professionalRecord/ranger/create.do">
-	<button>
-		<spring:message code="curriculum.create.professionalRecord" />
-	</button>
-</a>
+	<a href="professionalRecord/ranger/create.do">
+		<button>
+			<spring:message code="curriculum.create.professionalRecord" />
+		</button>
+	</a>
 </security:authorize>
 
-<spring:message code="curriculum.miscellaneousRecord" var="miscellaneousRecordHeader" />
-<h1><jstl:out value="${miscellaneousRecordHeader}"></jstl:out></h1>
+<spring:message code="curriculum.miscellaneousRecord"
+	var="miscellaneousRecordHeader" />
+<h1>
+	<jstl:out value="${miscellaneousRecordHeader}"></jstl:out>
+</h1>
 <display:table name="miscellaneousRecord" class="displaytag" id="row">
 
 	<security:authorize access="hasRole('RANGER')">
 		<spring:message code="curriculum.edit" />
 		<display:column>
-			<a href="miscellaneousRecord/ranger/edit.do?miscellaneousRecordId=${row.id}"> <spring:message
-					code="curriculum.edit" /></a>
+			<jstl:if test="${thisRangerId == currentRangerId }">
+				<a
+					href="miscellaneousRecord/ranger/edit.do?miscellaneousRecordId=${row.id}">
+					<spring:message code="curriculum.edit" />
+				</a>
+			</jstl:if>
 		</display:column>
 	</security:authorize>
 
 	<spring:message code="curriculum.records.title" var="titleHeader" />
-	<display:column property="title" title="${titleHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.miscellaneousRecord.link" var="linkHeader" />
-	<display:column property="link" title="${linkHeader}"
-		sortable="true" />
-		
-	<spring:message code="curriculum.miscellaneousRecord.comment" var="commentHeader" />
+	<display:column property="title" title="${titleHeader}" sortable="true" />
+
+	<spring:message code="curriculum.miscellaneousRecord.link"
+		var="linkHeader" />
+	<display:column property="link" title="${linkHeader}" sortable="true" />
+
+	<spring:message code="curriculum.miscellaneousRecord.comment"
+		var="commentHeader" />
 	<display:column property="comment" title="${commentHeader}"
 		sortable="true" />
 
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-<a href="miscellaneousRecord/ranger/create.do">
-	<button>
-		<spring:message code="curriculum.create.miscellaneousRecord" />
-	</button>
-</a>
+	<a href="miscellaneousRecord/ranger/create.do">
+		<button>
+			<spring:message code="curriculum.create.miscellaneousRecord" />
+		</button>
+	</a>
 </security:authorize>
 
-<spring:message code="curriculum.endorserRecord" var="endorserRecordHeader" />
-<h1><jstl:out value="${endorserRecordHeader}"></jstl:out></h1>
+<spring:message code="curriculum.endorserRecord"
+	var="endorserRecordHeader" />
+<h1>
+	<jstl:out value="${endorserRecordHeader}"></jstl:out>
+</h1>
 <display:table name="endorserRecord" class="displaytag" id="row">
 
 	<security:authorize access="hasRole('RANGER')">
 		<spring:message code="curriculum.edit" />
 		<display:column>
-			<a href="endorserRecord/ranger/edit.do?endorserRecordId=${row.id}"> <spring:message
-					code="curriculum.edit" /></a>
+			<jstl:if test="${thisRangerId == currentRangerId }">
+				<a href="endorserRecord/ranger/edit.do?endorserRecordId=${row.id}">
+					<spring:message code="curriculum.edit" />
+				</a>
+			</jstl:if>
 		</display:column>
 	</security:authorize>
-	
-	<spring:message code="curriculum.endorserRecord.endorserName" var="endorserNameHeader" />
+
+	<spring:message code="curriculum.endorserRecord.endorserName"
+		var="endorserNameHeader" />
 	<display:column property="endorserName" title="${endorserNameHeader}"
 		sortable="true" />
-		
-	<spring:message code="curriculum.endorserRecord.email" var="emailHeader" />
-	<display:column property="email" title="${emailHeader}"
-		sortable="true" />
 
-	<spring:message code="curriculum.endorserRecord.phoneNumber" var="phoneNumberHeader" />
+	<spring:message code="curriculum.endorserRecord.email"
+		var="emailHeader" />
+	<display:column property="email" title="${emailHeader}" sortable="true" />
+
+	<spring:message code="curriculum.endorserRecord.phoneNumber"
+		var="phoneNumberHeader" />
 	<display:column property="phoneNumber" title="${phoneNumberHeader}"
 		sortable="true" />
-		
-	<spring:message code="curriculum.endorserRecord.linkedIn" var="linkedlnHeader" />
+
+	<spring:message code="curriculum.endorserRecord.linkedIn"
+		var="linkedlnHeader" />
 	<display:column property="likedln" title="${linkedlnHeader}"
 		sortable="true" />
-		
-	<spring:message code="curriculum.endorserRecord.comment" var="commentHeader" />
+
+	<spring:message code="curriculum.endorserRecord.comment"
+		var="commentHeader" />
 	<display:column property="comment" title="${commentHeader}"
 		sortable="true" />
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
-<a href="endorserRecord/ranger/create.do">
-	<button>
-		<spring:message code="curriculum.create.endorserRecord" />
-	</button>
-</a>
+	<a href="endorserRecord/ranger/create.do">
+		<button>
+			<spring:message code="curriculum.create.endorserRecord" />
+		</button>
+	</a>
 </security:authorize>

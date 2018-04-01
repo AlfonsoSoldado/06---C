@@ -110,6 +110,14 @@ public class StoryService {
 		return res;
 	}
 	
+	public Collection<Story> findStoryByTrip(int id) {
+		Collection<Story> res = new ArrayList<Story>();
+
+		res.addAll(storyRepository.findStoryByTrip(id));
+		Assert.notNull(res);
+		return res;
+	}
+	
 	public Collection<Trip> findTripsForStory() {
 		Collection<Trip> res = new ArrayList<Trip>();
 		res.addAll(storyRepository.findTripsForStory());

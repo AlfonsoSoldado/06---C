@@ -19,6 +19,7 @@ import domain.LegalText;
 import domain.Manager;
 import domain.Ranger;
 import domain.Stage;
+import domain.Story;
 import domain.Trip;
 import domain.Value;
 
@@ -41,6 +42,9 @@ public class TripService {
 	
 	@Autowired
 	private ConfigurationService configurationService;
+	
+	@Autowired
+	private StoryService storyService;
 
 	// Constructors
 	public TripService() {
@@ -132,7 +136,6 @@ public class TripService {
 		Assert.isTrue(trip.getId() != 0);
 		Assert.isTrue(trip.getPublication().after(new Date())
 				|| trip.getPublication() == null);
-		Assert.notNull(trip);
 		
 		Collection<Application> applications;
 		applications = new ArrayList<Application>();
@@ -140,6 +143,11 @@ public class TripService {
 		applications = trip.getApplication();
 		for(Application a: applications){
 			a.setTrip(null);
+		}
+		
+		Collection<Story> stories = storyService.findStoryByTrip(trip.getId());
+		for(Story s: stories){
+			s.setTrip(null);
 		}
 		this.tripRepository.delete(trip);
 	}

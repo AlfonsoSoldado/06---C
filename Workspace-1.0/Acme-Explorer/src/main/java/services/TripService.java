@@ -45,6 +45,12 @@ public class TripService {
 	
 	@Autowired
 	private StoryService storyService;
+	
+	@Autowired
+	private StageService stageService;
+	
+	@Autowired
+	private ValueService valueService;
 
 	// Constructors
 	public TripService() {
@@ -134,8 +140,8 @@ public class TripService {
 			Assert.isTrue(trip.getManager().getId() == managerService.findByPrincipal().getId());
 		}
 		Assert.isTrue(trip.getId() != 0);
-		Assert.isTrue(trip.getPublication().after(new Date())
-				|| trip.getPublication() == null);
+//		Assert.isTrue(trip.getPublication().after(new Date())
+//				|| trip.getPublication() == null);
 		
 		Collection<Application> applications;
 		applications = new ArrayList<Application>();
@@ -144,6 +150,16 @@ public class TripService {
 		for(Application a: applications){
 			a.setTrip(null);
 		}
+		
+		Collection<Stage> stages;
+		stages = new ArrayList<Stage>(this.stageService.findStageByTrip(trip.getId()));
+		for (final Stage s : stages)
+			this.stageService.delete(s);
+		
+		Collection<Value> values;
+		values = new ArrayList<Value>(this.valueService.findValueByTrip(trip.getId()));
+		for (final Value v : values)
+			this.valueService.delete(v);
 		
 		Collection<Story> stories = storyService.findStoryByTrip(trip.getId());
 		for(Story s: stories){

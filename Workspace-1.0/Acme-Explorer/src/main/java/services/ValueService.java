@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +66,13 @@ public class ValueService {
 	}
 
 	// Other business methods
+	
+	public Collection<Value> findValueByTrip(int tripId){
+		Collection<Value> res = new ArrayList<Value>();
+		res.addAll(valueRepository.findValueByTrip(tripId));
+		res = valueRepository.findValueByTrip(tripId);
+		
+		return res;
+	}
 
 }

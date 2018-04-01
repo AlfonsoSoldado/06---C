@@ -100,7 +100,7 @@ public class TripManagerController extends AbstractController {
 
 		try {
 			this.tripService.delete(trip);
-			res = new ModelAndView("redirect:list.do");
+			res = new ModelAndView("redirect:../list.do");
 		} catch (final Throwable oops) {
 			res = this.createEditModelAndView(trip, "trip.commit.error");
 		}

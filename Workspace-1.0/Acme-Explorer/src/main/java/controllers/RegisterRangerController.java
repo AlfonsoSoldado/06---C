@@ -45,9 +45,6 @@ public class RegisterRangerController extends AbstractController {
 	public ModelAndView save(@Valid final Ranger ranger,
 			final BindingResult binding) {
 		ModelAndView res;
-		
-		System.out.println(binding.getFieldError());
-		
 		if (binding.hasErrors()) {
 			res = this.createEditModelAndView(ranger, "actor.params.error");
 		} else {

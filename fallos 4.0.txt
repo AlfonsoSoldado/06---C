@@ -5,7 +5,6 @@ Manager:
 - [No sé a qué se refiere] Cuando intento cancelar y pongo una razón para el trip y lo guardo, me redirije a la edición del trip para seleccionar un stage y cuando lo selecciono no funciona...
 
 Mensaje
-- [Ni idea de por qué no saltan] Cuando le das a save un mensaje con ningún campo relleno te dice error in the imputs pero no te saltan los error del dominio diciéndote qué campo no puede estar vacío.
 - [No entiendo el problema] Cuando como rangerlara envío un mensaje a sponsor1, este lo recibe bien pero lo puede editar y cambiarle de sponsor 1 a sponsor 2 por ejemplo, eso no se hasta que punto se debe permitir, se puede ver como que es un reenvío de mensaje el problema es que se lo estas pasando directamente al sponsor2 y el sponsor1 lo pierde no lo tiene ni en el outbox. También cuando le das a move se permite cambiar de quien ha sido recibido.
 
 Explorer

@@ -87,26 +87,25 @@ public class MessageController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Message message,
+	public ModelAndView save(@Valid final Message msg,
 			final BindingResult binding) {
 		ModelAndView result;
-		
-		if (binding.hasErrors())
-			result = this.createEditModelAndView(message,
-					"message.params.error");
-		else
+		if (binding.hasErrors()) {
+			result = this.createEditModelAndView(msg, "message.params.error");
+		} else {
 			try {
 				Configuration configuration;
 				Integer configurationId = configurationService.resId();
 				configuration = configurationService.findOne(configurationId);
 				
-				messageService.messageToSpamFolder(message, configuration);
-				messageService.save(message);
+				messageService.messageToSpamFolder(msg, configuration);
+				messageService.save(msg);
 				result = new ModelAndView("redirect:../folder/list.do");
 			} catch (final Throwable oops) {
-				result = this.createEditModelAndView(message,
+				result = this.createEditModelAndView(msg,
 						"message.commit.error");
 			}
+		}
 		return result;
 	}
 	

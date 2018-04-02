@@ -64,8 +64,12 @@ public class LegalTextService {
 	public LegalText save(LegalText legalText) {
 		Assert.notNull(legalText);
 		Assert.notNull(this.administratorService.findByPrincipal());
-		if(legalText.getDraftMode()==false && !legalText.getTrip().isEmpty()){
-			Assert.isTrue(legalText.getDraftMode()==false && legalText.getTrip().isEmpty());
+		if(legalText.getId() != 0){
+			if(legalText.getDraftMode()==true && !legalText.getTrip().isEmpty()){
+				Assert.isTrue(legalText.getDraftMode()==true && legalText.getTrip().isEmpty());
+			}
+			LegalText legalTextInDB = this.findLegalTextInDB(legalText.getId());
+			Assert.isTrue(legalTextInDB.getDraftMode() == true);
 		}
 		
 		LegalText res;
@@ -77,6 +81,13 @@ public class LegalTextService {
 		administratorService.checkAuthority();
 
 		Assert.isTrue(legalText.getDraftMode() == true);
+		
+		Collection<Trip> trips;
+		trips = legalText.getTrip();
+		
+		for(Trip t: trips){
+			t.setLegalText(null);
+		}
 		
 		this.legalTextRepository.delete(legalText);
 	}
@@ -97,6 +108,12 @@ public class LegalTextService {
 	public Collection<Trip> findTripsWithoutLegalText(){
 		Collection<Trip> res = new ArrayList<Trip>();
 		res = legalTextRepository.findTripsWithoutLegalText();
+		return res;
+	}
+	
+	public LegalText findLegalTextInDB(int legalTextId){
+		LegalText res;
+		res = legalTextRepository.findLegalTextInDB(legalTextId);
 		return res;
 	}
 }

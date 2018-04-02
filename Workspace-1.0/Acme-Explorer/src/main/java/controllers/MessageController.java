@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,8 +88,8 @@ public class MessageController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Message msg,
-			final BindingResult binding) {
+	public ModelAndView save(@ModelAttribute("msg") @Valid Message msg,
+			BindingResult binding) {
 		ModelAndView result;
 		if (binding.hasErrors()) {
 			result = this.createEditModelAndView(msg, "message.params.error");

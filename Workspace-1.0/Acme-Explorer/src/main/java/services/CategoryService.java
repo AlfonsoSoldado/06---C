@@ -70,6 +70,15 @@ public class CategoryService {
 	public Category save(Category category) {
 		administratorService.checkAuthority();
 		Assert.notNull(category);
+		Collection<String> names = new ArrayList<String>();
+		Collection<Category> categories;
+		categories = category.getCategoryParent().getCategories();
+		String name;
+		for(Category c : categories) {
+			name = c.getName();
+			names.add(name);
+			Assert.isTrue(!names.contains(category.getName()));
+		}
 		Category res;
 		res = this.categoryRepository.save(category);
 		return res;

@@ -71,6 +71,9 @@ public class SurvivalService {
 
 	public Survival save(Survival survival) {
 		Assert.notNull(survival);
+		if(survival.getId() != 0){
+			Assert.isTrue(survival.getManager().getId() == managerService.findByPrincipal().getId());
+		}
 		Survival res;
 		res = this.survivalRepository.save(survival);
 		return res;
@@ -80,6 +83,9 @@ public class SurvivalService {
 		Assert.notNull(survival);
 		Assert.isTrue(survival.getId() != 0);
 		Assert.isTrue(this.survivalRepository.exists(survival.getId()));
+		if(survival.getId() != 0){
+			Assert.isTrue(survival.getManager().getId() == managerService.findByPrincipal().getId());
+		}
 		this.survivalRepository.delete(survival);
 	}
 

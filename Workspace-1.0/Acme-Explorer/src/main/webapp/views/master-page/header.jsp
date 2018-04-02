@@ -56,6 +56,7 @@
 				</ul>
 			</li>
 			<li><a href="trip/manager/create.do"><spring:message code="master.page.manager.create.trip" /></a></li>
+			<li><a href="stage/manager/create.do"><spring:message code="master.page.manager.create.stage" /></a></li>
 			<li><a href="note/manager/list.do"><spring:message code="master.page.manager.notes" /></a></li>
 			<li><a href="application/manager/list.do"><spring:message code="master.page.manager.applications" /></a></li>
 			<li><a href="survival/manager/list.do"><spring:message code="master.page.manager.survivals" /></a></li>	

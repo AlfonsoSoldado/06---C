@@ -133,8 +133,10 @@ public class TripService {
 		Collection<Stage> stages = trip.getStage();
 		Collection<Trip> trips = new ArrayList<Trip>();
 		for (Stage s : stages) {
-			trips.addAll(s.getTrip());
-			trips.add(trip);
+//			trips.addAll(s.getTrip());
+			if(!trips.contains(trip)){
+				trips.add(trip);
+			}
 			s.setTrip(trips);
 		}
 		

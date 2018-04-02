@@ -27,13 +27,13 @@
 	<!-- Attributes -->
 	
 	<security:authorize access="hasRole('MANAGER')">
-	<jstl:if test="${row.manager.id == currentManagerId }">
 	<spring:message code="trip.edit"/>
 	<display:column>
+	<jstl:if test="${row.manager.id == currentManagerId }">
 		<a href= "trip/manager/edit.do?tripId=${row.id}">
 		<spring:message code="trip.edit"/></a>
+		</jstl:if>
 	</display:column>
-	</jstl:if>
 	</security:authorize>
 	
 	<spring:message code="trip.display"/>
@@ -66,9 +66,11 @@
 
 	<spring:message code="trip.cancelled" var="cancelledHeader"/>
 	<display:column title="${cancelledHeader}">
+	<jstl:if test="${row.manager.id == currentManagerId }">
 		<a href= "trip/manager/reason.do?tripId=${row.id}">
 			<spring:message code="trip.cancelled"/>
 		</a>
+		</jstl:if>
 	</display:column>
 	
 	<spring:message code="trip.category" var="categoryHeader" />

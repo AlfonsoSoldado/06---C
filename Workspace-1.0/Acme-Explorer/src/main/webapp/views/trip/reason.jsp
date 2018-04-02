@@ -24,7 +24,6 @@
 	<form:hidden path="version" />
 	<form:hidden path="ticker"/>
 	<form:hidden path="publication" />
-	<form:hidden path="reason" />
 	<form:hidden path="cancelled" />
 	<form:hidden path="price" />
 	<form:hidden path="manager" />

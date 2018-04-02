@@ -56,6 +56,7 @@ public class EducationRecordService {
 	
 	public EducationRecord save(EducationRecord educationRecord) {
 		Assert.notNull(educationRecord);
+		Assert.isTrue(educationRecord.getEnd().after(educationRecord.getStart()));
 		
 		EducationRecord res;
 				

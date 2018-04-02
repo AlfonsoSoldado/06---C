@@ -130,10 +130,13 @@ public class TripService {
 		tax = precio * configuration.getTax();
 		trip.setPrice(precio + tax);
 		
-//		Collection<Stage> stages = trip.getStage();
-//		for (Stage s : stages) {
-//			s.setTrip(trip);
-//		}
+		Collection<Stage> stages = trip.getStage();
+		Collection<Trip> trips = new ArrayList<Trip>();
+		for (Stage s : stages) {
+			trips.addAll(s.getTrip());
+			trips.add(trip);
+			s.setTrip(trips);
+		}
 		
 
 		res = this.tripRepository.save(trip);

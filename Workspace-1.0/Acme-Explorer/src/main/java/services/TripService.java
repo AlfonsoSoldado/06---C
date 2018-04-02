@@ -223,7 +223,7 @@ public class TripService {
 
 	public void cancelTrip(Trip trip) {
 		managerService.checkAuthority();
-		Assert.isTrue(trip.getPublication().before(new Date()) && trip.getTripStart().after(new Date()));
+//		Assert.isTrue(trip.getPublication().before(new Date()) && trip.getTripStart().after(new Date()));
 		Collection<Trip> trips = new ArrayList<Trip>();
 		trips = tripRepository.cancelTrip();
 		for (Trip t : trips) {

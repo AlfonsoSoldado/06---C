@@ -24,11 +24,13 @@
 	name="note" requestURI="${requestURI }" id="row">
 	
 	<security:authorize access="hasRole('MANAGER')">
+	<jstl:if test="${row.reply == null}">
 	<spring:message code="note.addReply" />
 	<display:column>
 		<a href= "note/manager/edit.do?noteId=${row.id}">
 		<spring:message code="note.addReply"/></a>
 	</display:column>
+	</jstl:if>
 	</security:authorize>
 	
 	<spring:message code="note.moment" var="momentHeader" />

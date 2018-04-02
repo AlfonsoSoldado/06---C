@@ -47,11 +47,6 @@
 	
 	<input type="submit" name="save"
 		value="<spring:message code="trip.save" />" />&nbsp; 
-	<jstl:if test="${trip.id != 0}">
-		<input type="submit" name="delete"
-			value="<spring:message code="trip.delete" />"
-			onclick="javascript: return confirm('<spring:message code="trip.confirm.delete" />')" />&nbsp;
-	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="trip.cancel" />"
 		onclick="javascript: relativeRedir('/');" />

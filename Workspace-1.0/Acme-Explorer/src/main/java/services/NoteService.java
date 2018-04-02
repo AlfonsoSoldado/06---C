@@ -46,6 +46,7 @@ public class NoteService {
 		Assert.notNull(a);
 		res.setMoment(d);
 		res.setAuditor(a);
+		res.setReply(null);
 		return res;
 	}
 
@@ -66,11 +67,16 @@ public class NoteService {
 
 	public Note save(Note note) {
 		Assert.notNull(note);
-
+		if (note.getId() == 0) {
+			note.setReply(null);
+		}
 		Note res;
 		res = this.noteRepository.save(note);
-		Date fechaActual = new Date();
-		res.setMomentReply(fechaActual);
+		if (note.getId() == 0) {
+			Date fechaActual = new Date();
+			res.setMomentReply(fechaActual);
+		}
+		
 		return res;
 	}
 

@@ -28,8 +28,10 @@
 	
 	<spring:message code="tag.edit"/>
 	<display:column>
+	<jstl:if test="${!(row.name == 'Country' || row.name == 'Expertise' || row.name == 'Dangerousness')}">
 		<a href= "tag/administrator/edit.do?tagId=${row.id}">
 		<spring:message code="tag.edit"/></a>
+		</jstl:if>
 	</display:column>
 	
 	<spring:message code="tag.name" var="nameHeader" />

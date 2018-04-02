@@ -56,14 +56,14 @@
 	<form:label path="tripStart">
 		<spring:message code="trip.tripStart" />:
 	</form:label>
-	<form:input path="tripStart" />
+	<form:input path="tripStart"  placeholder="dd/MM/yyyy" />
 	<form:errors cssClass="error" path="tripStart" />
 	<br />
 	
 	<form:label path="tripEnd">
 		<spring:message code="trip.tripEnd" />:
 	</form:label>
-	<form:input path="tripEnd" />
+	<form:input path="tripEnd" placeholder="dd/MM/yyyy" />
 	<form:errors cssClass="error" path="tripEnd" />
 	<br />
 	

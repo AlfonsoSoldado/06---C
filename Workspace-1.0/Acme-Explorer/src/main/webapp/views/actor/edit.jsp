@@ -18,9 +18,7 @@
 
 <form:form action="${requestUri}" modelAttribute="actor">
 
-	<security:authorize access="hasRole('RANGER')">
-	<form:hidden path="trip" />
-	</security:authorize>
+	
 	
 	<security:authorize access="hasRole('EXPLORER')">
 	<form:hidden path="emergency" />

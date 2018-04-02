@@ -55,12 +55,15 @@
 </display:table>
 
 <security:authorize access="hasRole('RANGER')">
+<jstl:if test="${row.id == null }">
 		<a href="curriculum/ranger/create.do">
 			<button>
 				<spring:message code="curriculum.create" />
 			</button>
 		</a>
+</jstl:if>
 </security:authorize>
+
 
 <spring:message code="curriculum.personalRecord"
 	var="personalRecordHeader" />

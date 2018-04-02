@@ -116,4 +116,10 @@ public class LegalTextService {
 		res = legalTextRepository.findLegalTextInDB(legalTextId);
 		return res;
 	}
+	
+	public Collection<LegalText> findLegalTextsDraftMode(){
+		Collection<LegalText> res = new ArrayList<LegalText>();
+		res = legalTextRepository.findLegalTextsDraftMode();
+		return res;
+	}
 }

@@ -22,5 +22,8 @@ public interface LegalTextRepository extends JpaRepository<LegalText, Integer> {
 	
 	@Query("select t from LegalText t where t.id = ?1")
 	LegalText findLegalTextInDB(int id);
+	
+	@Query("select l from LegalText l where l.draftMode = true")
+	Collection<LegalText> findLegalTextsDraftMode();
 
 }

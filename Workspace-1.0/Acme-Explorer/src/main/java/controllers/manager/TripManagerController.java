@@ -186,7 +186,7 @@ public class TripManagerController extends AbstractController {
 		Manager manager = this.managerService.findByPrincipal();
 		category = this.categoryService.findAll();
 		stages = this.stageService.findAll();
-		legaltext = this.legalTextService.findAll();
+		legaltext = this.legalTextService.findLegalTextsDraftMode();
 		value = this.valueService.findAll();
 		
 		result = new ModelAndView("trip/edit");

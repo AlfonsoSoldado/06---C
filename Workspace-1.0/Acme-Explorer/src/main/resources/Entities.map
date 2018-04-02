@@ -1,4 +1,5 @@
 #./src/main/resources/Entities.map
+<<<<<<< HEAD
 #Mon Apr 02 16:19:26 CEST 2018
 trashBoxExplorer4=2267
 message4=2379
@@ -190,3 +191,37 @@ spamBoxExplorer2=2256
 spamBoxExplorer1=2250
 outBoxAuditor2=2325
 outBoxAuditor1=2319
+=======
+#Mon Apr 02 16:13:16 CEST 2018
+lake=112
+message4=121
+message3=120
+expertise=124
+spamBoxAdministrator1=100
+dangerousness=125
+legalText2=114
+legalText1=113
+outBoxAdministrator1=97
+safari=104
+notificationBoxAdministrator1=98
+value3=117
+value2=116
+configuration=122
+value1=115
+customBoxAdministrator1=101
+ground=108
+riverClimbing=110
+climbing=109
+administrator1=118
+mountainClimbing=106
+userAccount1=95
+savana=111
+inBoxAdministrator1=96
+finder1=119
+country=123
+category=102
+trashBoxAdministrator1=99
+riverWater=105
+mountainGround=107
+water=103
+>>>>>>> ad1d3c3f9b380095b54ddadc232763d1b46d2fa9

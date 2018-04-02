@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2017 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Other domain beans come here -->	
+	
+									<!-- Folder -->
+	<!-- FOLDERS ADMIN -->
+	
+	<bean id="inBoxAdministrator1" class="domain.Folder">
+		<property name="name" value="In Box" />
+		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
+		<property name="messages">
+			<list></list>
+		</property>
+		<property name="customFolder" ref="customBoxAdministrator1" />
+	</bean>
+	
+	<bean id="outBoxAdministrator1" class="domain.Folder">
+		<property name="name" value="Out Box" />
+		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
+		<property name="messages">
+			<list></list>
+		</property>
+		<property name="customFolder" ref="customBoxAdministrator1" />
+	</bean>
+	
+	<bean id="notificationBoxAdministrator1" class="domain.Folder">
+		<property name="name" value="Notification" />
+		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
+		<property name="messages">
+			<list></list>
+		</property>
+		<property name="customFolder" ref="customBoxAdministrator1" />
+	</bean>
+	
+	<bean id="trashBoxAdministrator1" class="domain.Folder">
+		<property name="name" value="Trash" />
+		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
+		<property name="messages">
+			<list></list>
+		</property>
+		<property name="customFolder" ref="customBoxAdministrator1" />
+	</bean>
+	
+	<bean id="spamBoxAdministrator1" class="domain.Folder">
+		<property name="name" value="Spam" />
+		<property name="systemFolder" value="true"/>
+		<property name="folders">
+		<list></list>
+		</property>
+		<property name="messages">
+			<list></list>
+		</property>
+		<property name="customFolder" ref="customBoxAdministrator1" />
+	</bean>
+	
+	<bean id="customBoxAdministrator1" class="domain.Folder">
+		<property name="name" value="customBox" />
+		<property name="systemFolder" value="false"/>
+		<property name="folders">
+		<list></list>
+		</property>
+		<property name="messages">
+			<list></list>
+		</property>
+		<property name="customFolder"><null/></property>
+	</bean>
+	
+							<!-- CATEGORY -->	
+	
+	<!-- CATEGORY -->	
+	
+	<bean id="category" class="domain.Category">
+	<property name="name" value="CATEGORY" />
+	<property name="categoryParent"><null/></property>
+	<property name="categories">
+		<list>
+			<ref bean="safari"/>
+			<ref bean="climbing"/>
+		</list>
+	</property>
+	<property name="trip">
+		<list>
+		</list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY1 -->	
+	
+	<bean id="water" class="domain.Category">
+	<property name="name" value="Water" />
+	<property name="categoryParent" ref="safari" />
+	<property name="categories">
+		<list>
+			<ref bean="lake"/>
+			<ref bean="riverWater"/>
+		</list>
+	</property>
+	<property name="trip">
+		<list>
+		</list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY2 -->	
+	
+	<bean id="safari" class="domain.Category">
+	<property name="name" value="Safari" />
+	<property name="categoryParent" ref="category" />
+	<property name="categories">
+		<list>
+			<ref bean="ground"/>
+			<ref bean="water"/>
+		</list>
+	</property>
+	<property name="trip">
+		<list>
+		</list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY3 -->	
+	
+	<bean id="riverWater" class="domain.Category">
+	<property name="name" value="River" />
+	<property name="categoryParent" ref="water" />
+	<property name="categories">
+		<list></list>
+	</property>
+	<property name="trip">
+		<list></list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY4 -->	
+	
+	<bean id="mountainClimbing" class="domain.Category">
+	<property name="name" value="Mountain" />
+	<property name="categoryParent" ref="climbing" />
+	<property name="categories">
+		<list></list>
+	</property>
+	<property name="trip">
+		<list></list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY5 -->	
+	
+	<bean id="mountainGround" class="domain.Category">
+	<property name="name" value="Mountain" />
+	<property name="categoryParent" ref="ground" />
+	<property name="categories">
+		<list></list>
+	</property>
+	<property name="trip">
+		<list></list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY6 -->	
+	
+	<bean id="ground" class="domain.Category">
+	<property name="name" value="Ground" />
+	<property name="categoryParent" ref="safari" />
+	<property name="categories">
+		<list>
+			<ref bean="savana"/>
+			<ref bean="mountainGround"/>
+		</list>
+	</property>
+	<property name="trip">
+		<list></list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY7 -->	
+	
+	<bean id="climbing" class="domain.Category">
+	<property name="name" value="Climbing" />
+	<property name="categoryParent" ref="category" />
+	<property name="categories">
+		<list>
+			<ref bean="mountainClimbing"/>
+			<ref bean="riverClimbing"/>
+		</list>
+	</property>
+	<property name="trip">
+		<list></list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY8 -->	
+	
+	<bean id="riverClimbing" class="domain.Category">
+	<property name="name" value="River" />
+	<property name="categoryParent" ref="climbing" />
+	<property name="categories">
+		<list></list>
+	</property>
+	<property name="trip">
+		<list></list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY9 -->	
+	
+	<bean id="savana" class="domain.Category">
+	<property name="name" value="Savana" />
+	<property name="categoryParent" ref="ground" />
+	<property name="categories">
+		<list></list>
+	</property>
+	<property name="trip">
+		<list></list>
+	</property>
+	</bean>
+	
+	<!-- CATEGORY10 -->	
+	
+	<bean id="lake" class="domain.Category">
+	<property name="name" value="Lake" />
+	<property name="categoryParent" ref="water" />
+	<property name="categories">
+		<list></list>
+	</property>
+	<property name="trip">
+		<list></list>
+	</property>
+	</bean>
+	
+							<!-- LEGALTEXT -->	
+							
+	<!-- LEGALTEXT1 -->
+							
+	<bean id="legalText1" class="domain.LegalText">
+	<property name="title" value="First Law" />
+	<property name="body" value="A comment of something" />
+	<property name="numberLaw" value = "10" />
+	<property name="moment" value="23/10/2013 19:13" />
+	<property name="draftMode" value="false" />
+	<property name="trip">
+		<list>
+		</list>
+	</property>
+	</bean>
+	
+	<!-- LEGALTEXT2 -->
+	
+	<bean id="legalText2" class="domain.LegalText">
+	<property name="title" value="Primera ley" />
+	<property name="body" value="A comment of something" />
+	<property name="numberLaw" value = "285" />
+	<property name="moment" value="23/10/2015 10:15" />
+	<property name="draftMode" value="true" />
+	<property name="trip">
+		<list>
+		</list>
+	</property>
+	</bean>
+	
+							<!-- TAG -->
+	
+	<!-- TAG1 -->
+		
+	<bean id="country" class="domain.Tag">
+	<property name="name" value="Country" />
+	<property name="value" ref="value1" />
+	</bean>
+	
+	<!-- TAG2 -->
+	
+	<bean id="expertise" class="domain.Tag">
+	<property name="name" value="Expertise" />
+	<property name="value" ref="value2" />
+	</bean>
+	
+	<!-- TAG3 -->
+	
+	<bean id="dangerousness" class="domain.Tag">
+	<property name="name" value="Dangerousness" />
+	<property name="value" ref="value3" />
+	</bean>
+	
+							<!-- VALUE -->
+	
+	<bean id="value1" class="domain.Value">
+	<property name="trip"><null/></property>
+	<property name="tag" ref="country" />
+	</bean>
+	
+	<bean id="value2" class="domain.Value">
+	<property name="trip"><null/></property>
+	<property name="tag" ref="expertise" />
+	</bean>
+	
+	<bean id="value3" class="domain.Value">
+	<property name="trip"><null/></property>
+	<property name="tag" ref="dangerousness" />
+	</bean>
+	
+									<!-- ADMINISTRATOR -->
+	
+	<!-- ADMINISTRATOR1 -->
+	
+	<bean id="administrator1" class="domain.Administrator">
+	<property name="name" value="Administrador" />
+	<property name="surname" value="Acme Explorer" />
+	<property name="email" value="admin@system.com" />
+	<property name="phoneNumber" value="694443000" />
+	<property name="address" value="C/ Lugo" />
+	<property name="suspicious" value="false"/>
+	<property name="socialId">
+		<list></list>
+	</property>
+	<property name="userAccount" ref="userAccount1" />
+	<property name="folders">
+		<list>
+			<ref bean="inBoxAdministrator1"/>
+			<ref bean="outBoxAdministrator1"/>
+			<ref bean="notificationBoxAdministrator1"/>
+			<ref bean="trashBoxAdministrator1"/>
+			<ref bean="spamBoxAdministrator1"/>
+			<ref bean="customBoxAdministrator1"/>
+		</list>
+	</property>
+	<property name="sent">
+		<list>
+		</list>
+	</property>
+	<property name="received"><null/></property>
+	</bean>
+	
+									
+								<!-- FINDER -->
+								
+								<!-- FINDER1 -->
+	
+	<bean id="finder1" class="domain.Finder">
+	<property name="singleKey" value="Beach" />
+	<property name="minPrice" value="50.6" />
+	<property name="maxPrice" value="458.6" />
+	<property name="start" value="12/12/2017" />
+	<property name="end" value="20/12/2017" />
+	<property name="cache" value="01/01/2015 18:30" />
+	<property name="trip">
+		<list>
+		</list>
+	</property>
+	</bean>
+	
+									<!-- Message -->
+	
+	<!-- Message1 -->
+	<bean id="message3" class="domain.Message">
+		<property name="moment" value="01/01/2015 12:30" />
+		<property name="subject" value="Change in an application status" />
+		<property name="body" value="One of your application has change its status" />
+		<property name="priority" value="HIGH" />
+		<property name="spam" value="false" />
+		<property name="sender" ref="administrator1" />
+		<property name="folder" ref="outBoxAdministrator1" />
+		<property name="recipient">
+			<list>
+			</list> 
+		</property>
+	</bean>	
+	
+	<!-- Message2 -->
+	
+	<bean id="message4" class="domain.Message">
+		<property name="moment" value="01/01/2015 12:31" />
+		<property name="subject" value="Change in an application status" />
+		<property name="body" value="One of your application has change its status" />
+		<property name="priority" value="HIGH" />
+		<property name="spam" value="false" />
+		<property name="sender" ref="administrator1" />
+		<property name="folder" ref="outBoxAdministrator1" />
+		<property name="recipient">
+			<list>
+			</list> 
+		</property>
+	</bean>	
+								
+	
+	<!-- CONFIGURATION -->
+	
+	<bean id="configuration" class="domain.Configuration">
+	<property name="banner" value="http://creek-tours.com/wp-content/uploads/Kenya-Tanzania-Family-Safari-banner.jpg" />
+	<property name="message" value="Tanzanika is an adven-ture company that makes your explorer’s dreams true”, “Tanzanika es la empresa de aven-turas que hará tus sueños de explorador realidad"/>
+	<property name="spamWords">
+		<list>
+			<value>viagra</value>
+			<value>cialis</value>
+			<value>sex</value>
+			<value>jes extender</value>
+		</list>
+	</property>
+	<property name="tax" value="0.21" />
+	<property name="countryCode" value="+34"/>
+	<property name="catalogueTag">
+		<list>
+			<ref bean="country"/>
+			<ref bean="expertise"/>
+			<ref bean="dangerousness"/>
+		</list>
+	</property>
+	<property name="treeCategory">
+		<list>
+			<ref bean="category"/>
+			<ref bean="safari"/>
+			<ref bean="ground"/>
+			<ref bean="savana"/>
+			<ref bean="mountainGround"/>
+			<ref bean="water"/>
+			<ref bean="lake"/>
+			<ref bean="riverWater"/>
+			<ref bean="climbing"/>
+			<ref bean="mountainClimbing"/>
+			<ref bean="riverClimbing"/>
+		</list>
+	</property>
+		<property name="catalogueText">
+		<list>
+			<value>Legal Law</value>
+			<value>Primera ley</value>
+		</list>
+	</property>
+	<property name="other">
+		<list>
+			<value>Other</value>
+		</list>
+	</property>
+	<property name="cache" value="1" />
+	<property name="numberPage" value="10" />
+	</bean>
+	
+</beans>

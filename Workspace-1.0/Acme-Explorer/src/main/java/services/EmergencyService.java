@@ -65,10 +65,13 @@ public class EmergencyService {
 		
 		res = this.emergencyRepository.save(emergency);
 		
-		Collection<Emergency> emergencies = new ArrayList<Emergency>();
-		emergencies.addAll(explorer.getEmergency());
-		emergencies.add(res);
-		explorer.setEmergency(emergencies);
+		if(emergency.getId() == 0){
+			Collection<Emergency> emergencies = new ArrayList<Emergency>();
+			emergencies.addAll(explorer.getEmergency());
+			emergencies.add(res);
+			explorer.setEmergency(emergencies);
+		}
+		
 		return res;
 	}
 

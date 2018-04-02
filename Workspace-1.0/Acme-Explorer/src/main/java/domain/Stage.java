@@ -1,9 +1,11 @@
 package domain;
 
+import java.util.Collection;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
@@ -54,15 +56,15 @@ public class Stage extends DomainEntity {
 
 	// Relationships
 
-	private Trip trip;
+	private Collection<Trip> trip;
 
 	@Valid
-	@ManyToOne(optional = true)
-	public Trip getTrip() {
+	@ManyToMany
+	public Collection<Trip> getTrip() {
 		return trip;
 	}
 
-	public void setTrip(Trip trip) {
+	public void setTrip(Collection<Trip> trip) {
 		this.trip = trip;
 	}
 

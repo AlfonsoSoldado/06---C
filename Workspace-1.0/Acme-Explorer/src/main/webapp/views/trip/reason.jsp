@@ -16,7 +16,7 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="trip/manager/reason.do" modelAttribute="reason">
+<form:form action="trip/manager/reason.do" modelAttribute="rsn">
 
 	<security:authorize access="hasRole('MANAGER')">
 

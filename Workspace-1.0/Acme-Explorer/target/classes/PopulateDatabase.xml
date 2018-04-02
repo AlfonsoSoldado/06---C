@@ -1839,7 +1839,11 @@
 	<property name="title" value="First" />
 	<property name="description" value="Something" />
 	<property name="price" value="528.4" />
-	<property name="trip" ref="trip1" />
+	<property name="trip">
+		<list>
+		<ref bean="trip1"/>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- STAGE2 -->
@@ -1848,7 +1852,11 @@
 	<property name="title" value="Second" />
 	<property name="description" value="Something" />
 	<property name="price" value="650.0" />
-	<property name="trip" ref="trip2" />
+	<property name="trip">
+		<list>
+		<ref bean="trip2"/>
+		</list>
+	</property>
 	</bean>
 	
 	<!-- STAGE3 -->
@@ -1857,7 +1865,10 @@
 	<property name="title" value="Third" />
 	<property name="description" value="Something more" />
 	<property name="price" value="328.0" />
-	<property name="trip"><null/></property>
+	<property name="trip">
+		<list>
+		</list>
+	</property>
 	</bean>
 	
 							<!-- TAG -->

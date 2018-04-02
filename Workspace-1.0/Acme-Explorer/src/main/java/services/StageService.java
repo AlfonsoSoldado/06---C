@@ -9,9 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.StageRepository;
-import domain.Configuration;
 import domain.Stage;
-import domain.Trip;
 
 @Service
 @Transactional
@@ -24,12 +22,6 @@ public class StageService {
 
 	// Supporting services
 	
-	@Autowired
-	private ConfigurationService configurationService;
-	
-	@Autowired
-	private TripService tripService;
-
 	// Constructors
 
 	public StageService() {
@@ -62,21 +54,7 @@ public class StageService {
 	public Stage save(Stage stage) {
 		Assert.notNull(stage);
 		Stage res;
-		Trip t = stage.getTrip();
-		t = this.tripService.findOne(t.getId());
-		
 		res = this.stageRepository.save(stage);
-		t.getStage().add(res);
-		Double precio = 0., tax;
-		Trip trip = res.getTrip();
-		
-		Configuration configuration;
-		Integer conf = configurationService.resId();
-		configuration = configurationService.findOne(conf);
-				
-		precio = tripService.getTotalPrice(trip);
-		tax = precio * configuration.getTax();
-		trip.setPrice(precio + tax);
 		return res;
 	}
 

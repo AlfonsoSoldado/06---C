@@ -5,10 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -192,7 +192,7 @@ public class Trip extends DomainEntity {
 
 	@Valid
 	@NotEmpty
-	@OneToMany(mappedBy = "trip",cascade = CascadeType.ALL)
+	@ManyToMany
 	public Collection<Stage> getStage() {
 		return stage;
 	}

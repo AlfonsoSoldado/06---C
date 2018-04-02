@@ -44,8 +44,13 @@
 	<spring:message code="stage.price" var="priceHeader" />
 	<display:column property="price" title="${priceHeader}" sortable="true" />
 
-	<spring:message code="stage.trip" var="tripHeader" />
-	<display:column property="trip.title" title="${tripHeader}" sortable="true" />
+	<spring:message code="stage.trip" var="trip" />:
+	<display:column title ="${trip}" sortable="true">
+		<jstl:forEach var="trip" items="${row.trip}">
+			<jstl:out value="${trip.title}"></jstl:out><br/>
+		
+		</jstl:forEach>	
+	</display:column>
 
 </display:table>
 

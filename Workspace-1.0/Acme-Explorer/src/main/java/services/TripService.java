@@ -85,6 +85,7 @@ public class TripService {
 		trip.setValue(value);
 		trip.setRequirement(requirements);
 		trip.setCancelled(false);
+		trip.setReason(null);
 		return trip;
 	}
 
@@ -107,6 +108,9 @@ public class TripService {
 		Assert.notNull(trip);
 		if(trip.getId() != 0){
 			Assert.isTrue(trip.getManager().getId() == managerService.findByPrincipal().getId());
+		}
+		if (trip.getId() == 0) {
+			trip.setReason(null);
 		}
 		Trip res;
 		Double precio = 0., tax;
@@ -228,12 +232,14 @@ public class TripService {
 
 	public void cancelTrip(Trip trip) {
 		managerService.checkAuthority();
-//		Assert.isTrue(trip.getPublication().before(new Date()) && trip.getTripStart().after(new Date()));
+		Assert.isTrue(trip.getPublication().before(new Date()) && trip.getTripStart().after(new Date()));
 		Collection<Trip> trips = new ArrayList<Trip>();
 		trips = tripRepository.cancelTrip();
+		
 		for (Trip t : trips) {
 			if (t.getId() == trip.getId()) {
 				t.setCancelled(true);
+				t.setReason(trip.getReason());
 			}
 		}
 //		if(trip.getId() != 0){
@@ -286,10 +292,19 @@ public class TripService {
 	
 	public Double getTotalPrice(Trip trip) {
 		Double res;
+		Double tot = 0.;
+		Double acum = 0.;
 		res = 0.;
+		Double tax = 0.;
+		Configuration configuration;
+		Integer conf = configurationService.resId();
+		configuration = configurationService.findOne(conf);
+		tax = configuration.getTax();
 		for (Stage stage : trip.getStage()) {
-			res = res + stage.getPrice();
+			tot = tot + stage.getPrice();
 		}
+		acum = tot * tax;
+		res = acum + tot; 
 		return res;
 	}
 

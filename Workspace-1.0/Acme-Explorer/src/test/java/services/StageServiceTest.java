@@ -59,13 +59,15 @@ public class StageServiceTest extends AbstractTest {
 	public void testSaveStage() {
 		Stage stage;
 		stage = this.stageService.findOne(super.getEntityId("stage1"));
+		Collection<Trip> trips = new ArrayList<Trip>();
 		Trip trip;
 		trip = this.tripService.findOne(super.getEntityId("trip1"));
+		trips.add(trip);
 
 		stage.setTitle("First");
 		stage.setDescription("Something");
 		stage.setPrice(528.4);
-		stage.setTrip(trip);
+		stage.setTrip(trips);
 
 		this.stageService.save(stage);
 	}

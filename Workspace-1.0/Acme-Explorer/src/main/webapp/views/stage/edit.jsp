@@ -25,6 +25,7 @@
 	
 	<form:hidden path="id" />
 	<form:hidden path="version" />
+	<form:hidden path="trip" />
 	
 	<form:label path="title">
 		<spring:message code="stage.title" />:
@@ -45,16 +46,6 @@
 	</form:label>
 	<form:input path="price" />
 	<form:errors cssClass="error" path="price" />
-	<br />
-	
-	<form:label path="trip">
-		<spring:message code="legalText.trip" />:
-	</form:label>
-	<form:select path="trip">
-		<form:option item="null" value="0" label="----"/>
-        <form:options items="${trip}" itemLabel="title"/>
-	</form:select>
-	<form:errors cssClass="error" path="trip" />
 	<br />
 	
 	<input type="submit" name="save"

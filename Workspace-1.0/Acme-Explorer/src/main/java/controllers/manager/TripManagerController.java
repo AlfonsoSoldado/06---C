@@ -1,6 +1,5 @@
 package controllers.manager;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.validation.Valid;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -119,19 +119,18 @@ public class TripManagerController extends AbstractController {
 	}
 	
 	@RequestMapping(value = "/reason", method = RequestMethod.POST, params = "save")
-	public ModelAndView saveReason(@Valid Trip trip, BindingResult binding) {
+	public ModelAndView saveReason(@ModelAttribute("rsn") @Valid Trip trip, BindingResult binding) {
 		ModelAndView res;
-		System.out.println(binding.getFieldError());
-		
 		if (binding.hasErrors()){
 			res = this.createCancelModelAndView(trip, "trip.params.error");
 		}
 		else
 			try {
 				this.tripService.cancelTrip(trip);
-				this.tripService.save(trip);
 				res = new ModelAndView("redirect:../list.do");
 			} catch (final Throwable oops) {
+				System.out.println(oops.getMessage());
+				System.out.println(oops.getCause());
 				res = this.createCancelModelAndView(trip, "trip.commit.error");
 			}
 
@@ -217,30 +216,8 @@ public class TripManagerController extends AbstractController {
 			final Trip trip, final String messageCode) {
 		ModelAndView result;
 		
-		Trip res = new Trip();
-		
-		
-		Trip tripInDB = tripService.findTripInDB(trip.getId());
-		Category cat = new Category();
-		cat = tripInDB.getCategory();
-		System.out.println("Categoría " + cat);
-		trip.setCategory(cat);
-		Collection<Stage> stages = new ArrayList<Stage>();
-		stages.addAll(tripInDB.getStage());
-		System.out.println("Colección" + stages);
-		trip.setStage(stages);
-			
-//			Stage s = stageService.create();
-//			s.setTitle("Stage prueba");
-//			s.setDescription("Descripción");
-//			s.setPrice(20.);
-//			stages.add(s);
-//			trip.setStage(stages);
-//			res = tripService.save(trip);
-		
-		
 		result = new ModelAndView("trip/reason");
-		result.addObject("reason", res);
+		result.addObject("rsn", trip);
 		result.addObject("message", messageCode);
 		return result;
 	}

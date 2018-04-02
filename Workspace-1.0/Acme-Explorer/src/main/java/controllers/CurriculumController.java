@@ -61,8 +61,17 @@ public class CurriculumController extends AbstractController {
 
 		}
 		
-		Ranger currentRanger = rangerService.findByPrincipal();
-		int currentRangerId = currentRanger.getId();
+		Ranger currentRanger = null;
+		int currentRangerId = 0;
+		
+		try {
+			if(rangerService.findByPrincipal().getId() != 0){
+				currentRanger = rangerService.findByPrincipal();
+				currentRangerId = currentRanger.getId();
+			}	
+		} catch(IllegalArgumentException e){
+			
+		}
 
 		result = new ModelAndView("curriculum/display");
 		result.addObject("curriculum", curriculums);

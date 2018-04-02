@@ -9,10 +9,9 @@ Mensaje
 
 Explorer
 - [¿Se pueden crear stories a trips que ya lo tienen?] Si le doy a crear una story no me aparecen trips a los que hacerlo, explorer 1 y 2 tampoco puede.
-- [Falta desenrol y que no se hagan muchos enrol un mismo explorer] Cuando le das a survival en la lista debajo de explorer sale:[domain.Explorer{id=2368, version=2}], debería aparecer el nombre por ejemplo no así. Si le doy a enrol no me sale nada, ¿y para desenrol? Si le doy varias veces puedo hacer muchos enrol sobre un survival, ¿se puede permitir esto?, si ya estoy enrolado no debería de aparecer el botón enrol, y como antes digo como me quito el enrol.
+- [Falta desenrol y que no se hagan muchos enrol un mismo explorer] Si le doy a enrol no me sale nada, ¿y para desenrol? Si le doy varias veces puedo hacer muchos enrol sobre un survival, ¿se puede permitir esto?, si ya estoy enrolado no debería de aparecer el botón enrol, y como antes digo como me quito el enrol.
 
 Admin.
-- En los tags cuando creo uno me deja borrarlo, los demás no, supongo que son los predeterminados en el sistema es lo que os comente antes para las carpetas, las predeterminadas no debería dejar borrarlo, por otro lado si no dejas borrarlas que no aparezca el botón de borrar ya que salta un error cuando le das al botón de borrar.
 - En configuration tiene puesto +34 se supone que cuando te registras con un numero 666666666 y no pones nada, el +34 te lo tiene que añadir automáticamente eso no lo hace.
 
 Auditor

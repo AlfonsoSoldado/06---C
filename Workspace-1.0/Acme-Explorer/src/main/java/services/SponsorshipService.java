@@ -66,6 +66,9 @@ public class SponsorshipService {
 
 	public Sponsorship save(Sponsorship sponsorship) {
 		Assert.notNull(sponsorship);
+		if(sponsorship.getId() != 0){
+			Assert.isTrue(sponsorship.getSponsor().getId() == sponsorService.findByPrincipal().getId());
+		}
 		Sponsorship res;
 		res = this.sponsorshipRepository.save(sponsorship);
 		return res;
@@ -75,6 +78,9 @@ public class SponsorshipService {
 		Assert.notNull(sponsorship);
 		Assert.isTrue(sponsorship.getId() != 0);
 		Assert.isTrue(this.sponsorshipRepository.exists(sponsorship.getId()));
+		if(sponsorship.getId() != 0){
+			Assert.isTrue(sponsorship.getSponsor().getId() == sponsorService.findByPrincipal().getId());
+		}
 		this.sponsorshipRepository.delete(sponsorship);
 	}
 

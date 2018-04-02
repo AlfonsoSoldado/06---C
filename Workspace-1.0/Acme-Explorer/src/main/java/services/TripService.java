@@ -126,6 +126,11 @@ public class TripService {
 		tax = precio * configuration.getTax();
 		trip.setPrice(precio + tax);
 		
+//		Collection<Stage> stages = trip.getStage();
+//		for (Stage s : stages) {
+//			s.setTrip(trip);
+//		}
+		
 
 		res = this.tripRepository.save(trip);
 		return res;

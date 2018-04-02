@@ -219,19 +219,25 @@ public class TripManagerController extends AbstractController {
 		
 		Trip res = new Trip();
 		
-		if(trip.getId() != 0){
-			Trip tripInDB = tripService.findTripInDB(trip.getId());
-			Collection<Stage> stages = new ArrayList<Stage>();
-			stages.addAll(tripInDB.getStage());
-			System.out.println(stages);
-			Stage s = stageService.create();
-			s.setTitle("Stage prueba");
-			s.setDescription("Descripción");
-			s.setPrice(20.);
-			stages.add(s);
-			trip.setStage(stages);
-			res = tripService.save(trip);
-		}
+		
+		Trip tripInDB = tripService.findTripInDB(trip.getId());
+		Category cat = new Category();
+		cat = tripInDB.getCategory();
+		System.out.println("Categoría " + cat);
+		trip.setCategory(cat);
+		Collection<Stage> stages = new ArrayList<Stage>();
+		stages.addAll(tripInDB.getStage());
+		System.out.println("Colección" + stages);
+		trip.setStage(stages);
+			
+//			Stage s = stageService.create();
+//			s.setTitle("Stage prueba");
+//			s.setDescription("Descripción");
+//			s.setPrice(20.);
+//			stages.add(s);
+//			trip.setStage(stages);
+//			res = tripService.save(trip);
+		
 		
 		result = new ModelAndView("trip/reason");
 		result.addObject("reason", res);

@@ -39,4 +39,6 @@ public interface TripRepository extends JpaRepository<Trip, Integer> {
 	@Query("select t from Trip t where t.publication <= CURRENT_DATE and t.tripStart > CURRENT_DATE and t.cancelled = false")
 	Collection<Trip> cancelTrip();
 	
+	@Query("select t from Trip t where t.id = ?1")
+	Trip findTripInDB(int id);
 }

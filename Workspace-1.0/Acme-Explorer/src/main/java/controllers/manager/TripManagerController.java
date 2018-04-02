@@ -1,5 +1,6 @@
 package controllers.manager;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.validation.Valid;
@@ -120,9 +121,10 @@ public class TripManagerController extends AbstractController {
 	@RequestMapping(value = "/reason", method = RequestMethod.POST, params = "save")
 	public ModelAndView saveReason(@Valid Trip trip, BindingResult binding) {
 		ModelAndView res;
-
+		System.out.println(binding.getFieldError());
+		
 		if (binding.hasErrors()){
-			res = this.createEditModelAndView(trip, "trip.params.error");
+			res = this.createCancelModelAndView(trip, "trip.params.error");
 		}
 		else
 			try {
@@ -130,7 +132,7 @@ public class TripManagerController extends AbstractController {
 				this.tripService.save(trip);
 				res = new ModelAndView("redirect:../list.do");
 			} catch (final Throwable oops) {
-				res = this.createEditModelAndView(trip, "trip.commit.error");
+				res = this.createCancelModelAndView(trip, "trip.commit.error");
 			}
 
 		return res;
@@ -214,8 +216,25 @@ public class TripManagerController extends AbstractController {
 	protected ModelAndView createCancelModelAndView(
 			final Trip trip, final String messageCode) {
 		ModelAndView result;
+		
+		Trip res = new Trip();
+		
+		if(trip.getId() != 0){
+			Trip tripInDB = tripService.findTripInDB(trip.getId());
+			Collection<Stage> stages = new ArrayList<Stage>();
+			stages.addAll(tripInDB.getStage());
+			System.out.println(stages);
+			Stage s = stageService.create();
+			s.setTitle("Stage prueba");
+			s.setDescription("Descripción");
+			s.setPrice(20.);
+			stages.add(s);
+			trip.setStage(stages);
+			res = tripService.save(trip);
+		}
+		
 		result = new ModelAndView("trip/reason");
-		result.addObject("reason", trip);
+		result.addObject("reason", res);
 		result.addObject("message", messageCode);
 		return result;
 	}

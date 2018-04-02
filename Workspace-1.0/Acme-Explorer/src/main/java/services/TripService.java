@@ -105,7 +105,6 @@ public class TripService {
 
 	public Trip save(Trip trip) {
 		Assert.notNull(trip);
-		//Assert.isTrue(managerService.findByPrincipal().getId() == trip.getManager().getId());
 		if(trip.getId() != 0){
 			Assert.isTrue(trip.getManager().getId() == managerService.findByPrincipal().getId());
 		}
@@ -126,6 +125,7 @@ public class TripService {
 		precio = this.getTotalPrice(trip);
 		tax = precio * configuration.getTax();
 		trip.setPrice(precio + tax);
+		
 
 		res = this.tripRepository.save(trip);
 		return res;
@@ -231,6 +231,18 @@ public class TripService {
 				t.setCancelled(true);
 			}
 		}
+//		if(trip.getId() != 0){
+//			Trip tripInDB = this.findTripInDB(trip.getId());
+//			Collection<Stage> stages = new ArrayList<Stage>();
+//			stages.addAll(tripInDB.getStage());
+//			System.out.println(stages);
+//			trip.setStage(stages);
+//			System.out.println(trip.getStage());
+//			Trip res = this.save(trip);
+//			res.setStage(stages);
+//			System.out.println(res.getStage());
+//			
+//		}
 	}
 
 	// 13.4
@@ -276,4 +288,9 @@ public class TripService {
 		return res;
 	}
 
+	public Trip findTripInDB(int tripId){
+		Trip res;
+		res = tripRepository.findTripInDB(tripId);
+		return res;
+	}
 }

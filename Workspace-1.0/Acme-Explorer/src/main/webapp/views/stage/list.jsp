@@ -24,7 +24,7 @@
 
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="stage" requestURI="${requestUri}" id="row">
+	name="stage" requestURI="${requestURI}" id="row">
 
 	<!-- Attributes -->
 

@@ -129,19 +129,19 @@ public class TripService {
 		precio = this.getTotalPrice(trip);
 		tax = precio * configuration.getTax();
 		trip.setPrice(precio + tax);
+
+		res = this.tripRepository.save(trip);
 		
 		Collection<Stage> stages = trip.getStage();
 		Collection<Trip> trips = new ArrayList<Trip>();
 		for (Stage s : stages) {
 //			trips.addAll(s.getTrip());
-			if(!trips.contains(trip)){
-				trips.add(trip);
+			if(!trips.contains(res)){
+				trips.add(res);
 			}
 			s.setTrip(trips);
 		}
 		
-
-		res = this.tripRepository.save(trip);
 		return res;
 	}
 
@@ -166,9 +166,13 @@ public class TripService {
 		}
 		
 		Collection<Stage> stages;
+		Collection<Trip> trips;
 		stages = new ArrayList<Stage>(this.stageService.findStageByTrip(trip.getId()));
-		for (final Stage s : stages)
-			this.stageService.delete(s);
+		for (final Stage s : stages){
+			trips = s.getTrip();
+			trips.remove(trip);
+			s.setTrip(trips);
+		}
 		
 		Collection<Value> values;
 		values = new ArrayList<Value>(this.valueService.findValueByTrip(trip.getId()));
